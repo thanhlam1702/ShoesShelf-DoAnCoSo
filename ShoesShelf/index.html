@@ -10,25 +10,42 @@
 <body>
     <div class="wrapper">
         <header>
-            <nav class="navbar">
-              <div class="container nav-bar">
-                <div class="left">
-                  <div class="logo"><a href="#TrangChu"><img src="./Img/Logo-Shoes-Shelf-8.png" alt="Error"></a></div>
-                </div>
-                <div class="right">
-                  <ul class="list">
-                    <!--<li class="list-item"><a href="#DangNhap">Đăng Nhập</a></li>
-                    <li class="list-item"><a href="#DangKy">Đăng Ký</a></li> -->
-                    <li class="list-item"><button class="btnSignin-up" onclick="document.getElementById('signin').style.display='block'">Đăng Nhập</button></li>
-                    <li class="list-item"><button class="btnSignin-up" onclick="document.getElementById('signup').style.display='block'">Đăng Ký</button></li>
-                  </ul>
+          <nav class="navbar-logo">
+            <div class="img-logo">
+              <a href="#TrangChu"><img src="Img/LogoSS-2.png" alt="Error"></a>
+            </div>
+          </nav>
+          <div class="banner">
+            <video class="banner-video" autoplay loop muted>
+              <source src="./video/video-banner.mp4" type="video/mp4">
+            </video>
+            <div class="logo-in-banner">
+              <img src="./Img/LogoSS-1.png" alt="">
+            </div>   
+          </div>
+          
+        </header>
+        <div class="content">
+          <nav class="navbar">
+            <div class="container nav-bar">
+              <div class="toogle-menu">
+                <div class="menu">
+                  <a href="#Menu"><i class="fas fa-bars">    Menu</i></a>
+                  
                 </div>
               </div>
-            </nav>
-        </header>
-        <hr>
-        <div class="content">
-
+              <!--
+              <div class="right">
+                <ul class="list">
+                  <li class="list-item"><a href="#DangNhap">Đăng Nhập</a></li>
+                  <li class="list-item"><a href="#DangKy">Đăng Ký</a></li>
+                  <li class="list-item "><button id="btnSignin" class="btnSignin-up" onclick="document.getElementById('signin').style.display='block'" >Đăng Nhập</button></li>
+                  <li class="list-item "><button id="btnSignup" class="btnSignin-up Signup" onclick="document.getElementById('signup').style.display='block'" >Đăng Ký</button></li>
+                </ul>
+              </div>-->
+              
+            </div>
+          </nav>
         </div>
         <footer>
             <div class="footer-content">
@@ -93,21 +110,23 @@
     
     <script>
     // Get the modal
-    var modal = document.getElementById('signin');
-    
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-    var modal = document.getElementById('signup');
+    var modalSignin = document.getElementById('signin');
+    var modalSignup = document.getElementById('signup');
+    var btnSignin = document.getElementById('btnSignin');
+    var btnSignup = document.getElementById('btnSignup');
+
     
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        if (event.target == modalSignin || event.target == btnSignup) {
+            modalSignin.style.display = "none";
+        }
+        else if(event.target==modalSignup || event.target == btnSignin){
+          modalSignup.style.display = "none";
         }
     }
+
+
     </script> 
 </body>
 </html>
