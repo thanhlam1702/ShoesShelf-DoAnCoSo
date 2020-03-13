@@ -12,7 +12,7 @@
         <header>
           <nav class="navbar-logo">
             <div class="img-logo">
-              <a href="#TrangChu"><img src="Img/LogoSS-2.png" alt="Error"></a>
+              <a href="#TrangChu"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="Img/LogoSS-2-xam.png" alt="Error"></a>
             </div>
           </nav>
           <div class="banner">
@@ -20,7 +20,7 @@
               <source src="./video/video-banner.mp4" type="video/mp4">
             </video>
             <div class="logo-in-banner">
-              <img src="./Img/LogoSS-1.png" alt="">
+              <img src="./Img/LogoSS-1.png" alt="Error">
             </div>   
           </div>
           
@@ -28,22 +28,23 @@
         <div class="content">
           <nav class="navbar">
             <div class="container nav-bar">
-              <div class="toogle-menu">
-                <div class="menu">
-                  <a href="#Menu"><i class="fas fa-bars">    Menu</i></a>
-                  
+              <div class="left">
+                <ul class="menu ">
+                  <li class="sub-menu"><a id="menu-bars" class="container-close makeCursor"><i class="fas fa-bars"></i></a></li>
+                  <li class="sub-menu hidden" ><a href="#TrangChu">Home</a></li>
+                  <li class="sub-menu hidden" ><a href="#About">About</a></li>
+                  <li class="sub-menu hidden" ><a class="btnSignin-up makeCursor" onclick="document.getElementById('signin').style.display='block'">Sign In</a></li>
+                  <li class="sub-menu hidden" ><a class="btnSignin-up makeCursor Signup" onclick="document.getElementById('signup').style.display='block'">Sign Up</a></li>
+                  <li class="sub-menu hidden" ><a class="container-close close-menu makeCursor"><i class="toogle close-menu fas fa-times"></i></a></li>
+                </ul>
+              </div>
+              <div class="right">
+                <div class="seach">
+                  <form action="">
+                    <input type="text" name="search" placeholder="Search...">
+                  </form>
                 </div>
               </div>
-              <!--
-              <div class="right">
-                <ul class="list">
-                  <li class="list-item"><a href="#DangNhap">Đăng Nhập</a></li>
-                  <li class="list-item"><a href="#DangKy">Đăng Ký</a></li>
-                  <li class="list-item "><button id="btnSignin" class="btnSignin-up" onclick="document.getElementById('signin').style.display='block'" >Đăng Nhập</button></li>
-                  <li class="list-item "><button id="btnSignup" class="btnSignin-up Signup" onclick="document.getElementById('signup').style.display='block'" >Đăng Ký</button></li>
-                </ul>
-              </div>-->
-              
             </div>
           </nav>
         </div>
@@ -68,8 +69,7 @@
           <input type="text" placeholder="Nhập Email" name="email" required>
     
           <input type="password" placeholder="Nhập mật khẩu" name="psw" required>
-            
-          <button type="submit" class="btnlogin">Đăng Nhập</button>
+          <div class="btnlogin"><button type="submit">Đăng Nhập</button></div>
           <div class="checked-psw">
             <label>
               <input type="checkbox" checked="checked" name="remember"> Ghi nhớ mật khẩu
@@ -98,7 +98,7 @@
           <input type="text" placeholder="Nhập tên của bạn" name="user-name" required>
           <input type="password" placeholder="Nhập mật khẩu" name="psw" required>
           <input type="password" placeholder="Nhập lại mật khẩu" name="replace-psw" required>
-          <button type="submit" class="btnlogin">Đăng Ký</button>
+          <div class="btnlogin"><button type="submit" >Đăng Ký</button></div>
           <div class="hoac"><p>Hoặc đăng nhập với</p></div>
           <div class="signin-other">
             <a href="#"><i class="fab fa-facebook" style="color: #3c5995;" title="Đăng nhập với facebook"></i></a>
@@ -125,8 +125,25 @@
           modalSignup.style.display = "none";
         }
     }
-
-
     </script> 
+    <!--script cua logo tron-->
+    <script>
+      function hoverImgOver(){
+        var imglogo=document.getElementById("imglogo");
+        imglogo.src="Img/LogoSS-2-den.png";
+      }
+      function  hoverImgOut(){
+        var imglogo=document.getElementById("imglogo");
+        imglogo.src="Img/LogoSS-2-xam.png";
+      }
+    </script> 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script>
+      $('.container-close').on('click', function () {
+          $('.menu').toggleClass('expanded');
+          $('.sub-menu').toggleClass('hidden');
+          $('.container-close , .toggle').toggleClass('close-menu');
+      });
+  </script>
 </body>
 </html>
