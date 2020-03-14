@@ -10,43 +10,48 @@
 <body>
     <div class="wrapper">
         <header>
-          <nav class="navbar-logo">
-            <div class="img-logo">
-              <a href="#TrangChu"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="Img/LogoSS-2-xam.png" alt="Error"></a>
-            </div>
+          <nav class="navbar">
+              <div class="nav-bar">
+                <div class="left">
+                  <div class="logo-text">
+                    <img src="./Img/LogoSS-1.png" alt="Error">
+                  </div>  
+                </div>
+                <div class="middle">
+                  <div class="img-logo">
+                    <a href="#TrangChu"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="Img/LogoSS-2-xam.png" alt="Error"></a>
+                  </div>
+                </div>
+                <div class="right">
+                  <div class="right-menu">
+                    <ul class="menu ">
+                      <li class="sub-menu"><a id="menu-bars" class="container-close makeCursor" title="Menu"><i class="fas fa-bars"></i></a></li>
+                      <li class="sub-menu hidden" ><a href="#TrangChu">Home</a></li>
+                      <li class="sub-menu hidden" ><a href="#About">About</a></li>
+                      <li class="sub-menu hidden" ><a id="btnSignin" class="btnSignin-up makeCursor" onclick="document.getElementById('signin').style.display='block'">Sign In</a></li>
+                      <li class="sub-menu hidden" ><a id="btnSignup" class="btnSignin-up makeCursor Signup" onclick="document.getElementById('signup').style.display='block'">Sign Up</a></li>
+                      <li id="toggle-close" class="sub-menu hidden" ><a class="container-close close-menu makeCursor" title="Close menu"><i class="toogle close-menu fas fa-times"></i></a></li>
+                    </ul>
+                  </div>
+                  <div class="right-search">
+                    <div class="search">
+                      <form action="">
+                        <input type="text" name="search" placeholder="Search...">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
           </nav>
           <div class="banner">
             <video class="banner-video" autoplay loop muted>
               <source src="./video/video-banner.mp4" type="video/mp4">
             </video>
-            <div class="logo-in-banner">
-              <img src="./Img/LogoSS-1.png" alt="Error">
-            </div>   
+             
           </div>
-          
         </header>
         <div class="content">
-          <nav class="navbar">
-            <div class="container nav-bar">
-              <div class="left">
-                <ul class="menu ">
-                  <li class="sub-menu"><a id="menu-bars" class="container-close makeCursor"><i class="fas fa-bars"></i></a></li>
-                  <li class="sub-menu hidden" ><a href="#TrangChu">Home</a></li>
-                  <li class="sub-menu hidden" ><a href="#About">About</a></li>
-                  <li class="sub-menu hidden" ><a class="btnSignin-up makeCursor" onclick="document.getElementById('signin').style.display='block'">Sign In</a></li>
-                  <li class="sub-menu hidden" ><a class="btnSignin-up makeCursor Signup" onclick="document.getElementById('signup').style.display='block'">Sign Up</a></li>
-                  <li class="sub-menu hidden" ><a class="container-close close-menu makeCursor"><i class="toogle close-menu fas fa-times"></i></a></li>
-                </ul>
-              </div>
-              <div class="right">
-                <div class="seach">
-                  <form action="">
-                    <input type="text" name="search" placeholder="Search...">
-                  </form>
-                </div>
-              </div>
-            </div>
-          </nav>
+          
         </div>
         <footer>
             <div class="footer-content">
@@ -115,7 +120,6 @@
     var btnSignin = document.getElementById('btnSignin');
     var btnSignup = document.getElementById('btnSignup');
 
-    
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
         if (event.target == modalSignin || event.target == btnSignup) {
@@ -144,6 +148,24 @@
           $('.sub-menu').toggleClass('hidden');
           $('.container-close , .toggle').toggleClass('close-menu');
       });
+      // $('#menu-bars').on('click', function(){
+      //   $('.right-menu').css('width','68%');
+      // });
+      // $('#toggle-close').on('click', function(){
+      //   $('.right-menu').css('width','12%');
+      // });
+      
+
   </script>
+  <script>
+    $('.search').hover('class', function(){
+      var hasClass=$('.menu').hasClass('expanded');
+      if(hasClass){
+        $('.menu').toggleClass('expanded');
+        $('.sub-menu').toggleClass('hidden');
+        $('.container-close , .toggle').toggleClass('close-menu');
+      }
+    });
+  </script> 
 </body>
 </html>
