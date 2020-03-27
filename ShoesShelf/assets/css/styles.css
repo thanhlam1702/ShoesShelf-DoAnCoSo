@@ -1,15 +1,23 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body{
+  overflow-x: hidden;
+}
+/*Wrapper*/
+.wrapper{
+  width: 100vw;
+  height: 100vh;
 }
 /* Header */
 header{
   top: 0;
   left: 0;
   width: 100%;
-  margin: 0px;
+  margin: 0;
 }
 .navbar{
   width: 100%;
@@ -19,8 +27,8 @@ header{
 .nav-bar{
   display: flex;
   justify-content: center;
-  width: 82%;
-  height: 100%;
+  width: 1200px;
+  max-width: 1200px;
   margin: auto;
   height: 56px;
 }
@@ -30,6 +38,9 @@ header{
 }
 .left .logo-text{
   width: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .logo-text img{
   width: 100%;
@@ -52,12 +63,13 @@ header{
 }
 .right .right-menu{
   width: 68%;
+  margin-right: 8px;
   display: flex;
   justify-content: flex-end;
   transition: 0.8s ease-in-out;
 }
 .right .right-menu .menu{
-  width: 14%;
+  width: 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -246,11 +258,11 @@ header{
   background-color: #8b4513;
   color: white;
   font-size: 16px;
-  padding: 14px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 50%;
+  height: 48px;
   border-radius: 20px;
 }
 button:hover {
@@ -327,6 +339,7 @@ button:hover {
 .signin-other a{
   text-decoration: none;
   font-size: 40px;
+  margin: 16px;
 }
 
 /* Add Zoom Animation */

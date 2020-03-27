@@ -4,63 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/styles.min.css">
     <title>Shoes Shelf</title>
 </head>
 <body>
     <div class="wrapper">
-        <header>
-          <nav class="navbar">
-              <div class="nav-bar">
-                <div class="left">
-                  <div class="logo-text">
-                    <img src="./assets/images/LogoSS-1.png" alt="Error">
-                  </div>  
+      <header>
+        <nav class="navbar">
+            <div class="nav-bar">
+              <!--Navbar left -->
+              <div class="left">
+                <div class="logo-text">
+                  <img src="./assets/images/LogoSS-1.png" alt="Error">
+                </div>  
+              </div>
+              <!--Navbar middle-->
+              <div class="middle">
+                <div class="img-logo">
+                  <a href="#TrangChu"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="./assets/images/LogoSS-2-xam.png" alt="Error"></a>
                 </div>
-                <div class="middle">
-                  <div class="img-logo">
-                    <a href="#TrangChu"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="./assets/images/LogoSS-2-xam.png" alt="Error"></a>
-                  </div>
+              </div>
+              <!--Navbar right-->
+              <div class="right">
+                <div class="right-menu">
+                  <ul class="menu ">
+                    <li class="sub-menu"><a id="menu-bars" class="container-close makeCursor" title="Menu"><i class="fas fa-bars"></i></a></li>
+                    <li class="sub-menu hidden" ><a href="#TrangChu">Home</a></li>
+                    <li class="sub-menu hidden" ><a id="btnSignin" class="btnSignin-up makeCursor" onclick="document.getElementById('signin').style.display='block'">Sign In</a></li>
+                    <li class="sub-menu hidden" ><a id="btnSignup" class="btnSignin-up makeCursor Signup" onclick="document.getElementById('signup').style.display='block'">Sign Up</a></li>
+                    <li class="sub-menu hidden" ><a href="#About">About</a></li>
+                    <li id="toggle-close" class="sub-menu hidden" ><a class="container-close close-menu makeCursor" title="Close menu"><i class="toogle close-menu fas fa-times"></i></a></li>
+                  </ul>
                 </div>
-                <div class="right">
-                  <div class="right-menu">
-                    <ul class="menu ">
-                      <li class="sub-menu"><a id="menu-bars" class="container-close makeCursor" title="Menu"><i class="fas fa-bars"></i></a></li>
-                      <li class="sub-menu hidden" ><a href="#TrangChu">Home</a></li>
-                      <li class="sub-menu hidden" ><a id="btnSignin" class="btnSignin-up makeCursor" onclick="document.getElementById('signin').style.display='block'">Sign In</a></li>
-                      <li class="sub-menu hidden" ><a id="btnSignup" class="btnSignin-up makeCursor Signup" onclick="document.getElementById('signup').style.display='block'">Sign Up</a></li>
-                      <li class="sub-menu hidden" ><a href="#About">About</a></li>
-                      <li id="toggle-close" class="sub-menu hidden" ><a class="container-close close-menu makeCursor" title="Close menu"><i class="toogle close-menu fas fa-times"></i></a></li>
-                    </ul>
-                  </div>
-                  <div class="right-search">
-                    <div class="search">
-                      <form action="">
-                        <input type="text" name="search" placeholder="Search...">
-                      </form>
-                    </div>
+                <div class="right-search">
+                  <div class="search">
+                    <form action="">
+                      <input type="text" name="search" placeholder="Search...">
+                    </form>
                   </div>
                 </div>
               </div>
-          </nav>
-          <div class="banner">
-            <video class="banner-video" autoplay loop muted>
-              <source src="./assets/video/video-banner.mp4" type="video/mp4">
-            </video>
-             
-          </div>
-        </header>
-        <div class="content">
-          
+            </div>
+        </nav>
+        <div class="banner">
+          <video class="banner-video" autoplay loop muted>
+            <source src="./assets/video/video-banner.mp4" type="video/mp4">
+          </video>
         </div>
-        <footer>
-            <div class="footer-content">
-                <div class="text">
-                  © ShoesShelf 2020. Logo Apple và Google Play là các nhãn hiệu hàng hóa của chủ sở hữu tương ứng.Xem 
-                  <a href="#">Chính sách dữ liệu</a> và <a href="#">Điều khoản</a> của chúng tôi.
-                </div>
+      </header>
+      <div class="content">
+        
+      </div>
+      <footer>
+          <div class="footer-content">
+              <div class="text">
+                © ShoesShelf 2020. Logo Apple và Google Play là các nhãn hiệu hàng hóa của chủ sở hữu tương ứng.Xem 
+                <a href="#">Chính sách dữ liệu</a> và <a href="#">Điều khoản</a> của chúng tôi.
               </div>
-        </footer>
+            </div>
+      </footer>
     </div>
     <!-- Form Đăng nhập -->
     <div id="signin" class="modal">
@@ -77,7 +80,7 @@
           <div class="btnlogin"><button type="submit">Đăng Nhập</button></div>
           <div class="checked-psw">
             <label>
-              <input type="checkbox" checked="checked" name="remember"> Ghi nhớ mật khẩu
+              <input type="checkbox" checked="checked" name="remember"> Ghi nhớ
             </label>
             <span class="fogot-psw"><a href="#">Quên mật khẩu?</a></span>
           </div>

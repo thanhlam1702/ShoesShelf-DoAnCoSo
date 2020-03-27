@@ -49,14 +49,7 @@ $('.container-close').on('click', function () {
 //   }
 // });
 //-----------------------------------------------
+//script switch file css
 //-----------------------------------------------
-$(window).resize(function(){
-    var width =$(window).width();
-    if(width<=768){
-    $('body').append('<link href="./styleMobi.css" />');
-    }
-    else{
-    $('body').append('<link href="./style.css" />');
-    }
-});
+
 //-----------------------------------------------------

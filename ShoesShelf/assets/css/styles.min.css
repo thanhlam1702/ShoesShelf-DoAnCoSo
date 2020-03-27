@@ -1,0 +1,41 @@
+@media only screen and (max-width: 420px){
+  .nav-bar{
+    height: 40px;
+    width: 100%;
+    max-width: 100%;
+  }
+  .nav-bar .left{
+    width: 20%;
+  }
+  .nav-bar .left .logo-text{
+    width: 64px;
+    margin-left: 8px;
+  }
+  .nav-bar .middle, .nav-bar .right .right-search{
+    display: none;
+  }
+  .nav-bar .right{
+    width: 80%;
+  }
+  .nav-bar .right .right-menu{
+    width: 100%;
+    margin-right: 16px;
+  }
+  /*Css resposive of modal signin and signup*/
+  .modal-content{
+    width: 88%;
+  }
+  .tittle-container .close{
+    font-size: 24px;
+  }
+  .tittle-container .tittle-login{
+    font-size: 24px;
+  }
+  .modal-content .container-login{
+    padding: 0 24px;
+  }
+  .btnlogin button[type=submit]{
+    width: 64%;
+    height: 40px;
+  }
+}
