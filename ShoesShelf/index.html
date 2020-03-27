@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./Lib/fontawesome-free-5.11.2-web/css/all.min.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Shoes Shelf</title>
 </head>
 <body>
@@ -14,12 +14,12 @@
               <div class="nav-bar">
                 <div class="left">
                   <div class="logo-text">
-                    <img src="./Img/LogoSS-1.png" alt="Error">
+                    <img src="./assets/images/LogoSS-1.png" alt="Error">
                   </div>  
                 </div>
                 <div class="middle">
                   <div class="img-logo">
-                    <a href="#TrangChu"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="Img/LogoSS-2-xam.png" alt="Error"></a>
+                    <a href="#TrangChu"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="./assets/images/LogoSS-2-xam.png" alt="Error"></a>
                   </div>
                 </div>
                 <div class="right">
@@ -45,7 +45,7 @@
           </nav>
           <div class="banner">
             <video class="banner-video" autoplay loop muted>
-              <source src="./video/video-banner.mp4" type="video/mp4">
+              <source src="./assets/video/video-banner.mp4" type="video/mp4">
             </video>
              
           </div>
@@ -112,70 +112,8 @@
         </div>
       </form>
     </div>
+    <!--Script-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script>
-    // Get the modal
-    var modalSignin = document.getElementById('signin');
-    var modalSignup = document.getElementById('signup');
-    var btnSignin = document.getElementById('btnSignin');
-    var btnSignup = document.getElementById('btnSignup');
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function(event) {
-        if (event.target == modalSignin || event.target == btnSignup) {
-            modalSignin.style.display = "none";
-            $('body').css('overflow','hidden');
-        }
-        else if(event.target==modalSignup || event.target == btnSignin){
-          modalSignup.style.display = "none";
-          $('body').css('overflow','hidden');
-        }
-    }
-    </script> 
-    <!--script cua logo tron-->
-    <script>
-      function hoverImgOver(){
-        var imglogo=document.getElementById("imglogo");
-        imglogo.src="Img/LogoSS-2-den.png";
-      }
-      function  hoverImgOut(){
-        var imglogo=document.getElementById("imglogo");
-        imglogo.src="Img/LogoSS-2-xam.png";
-      }
-    </script> 
-    <script>
-      $('.container-close').on('click', function () {
-          $('.menu').toggleClass('expanded');
-          $('.sub-menu').toggleClass('hidden');
-          $('.container-close , .toggle').toggleClass('close-menu');
-      });
-      // $('#menu-bars').on('click', function(){
-      //   $('.right-menu').css('width','68%');
-      // });
-      // $('#toggle-close').on('click', function(){
-      //   $('.right-menu').css('width','12%');
-      // });
-  </script>
-  <script>
-    // $('.search').hover('class', function(){
-    //   var hasClass=$('.menu').hasClass('expanded');
-    //   if(hasClass){
-    //     $('.menu').toggleClass('expanded');
-    //     $('.sub-menu').toggleClass('hidden');
-    //     $('.container-close , .toggle').toggleClass('close-menu');
-    //   }
-    // });
-  </script> 
-  <script>
-    $(window).resize(function(){
-      var width =$(window).width();
-      if(width<=768){
-        $('body').append('<link href="./styleMobi.css" />');
-      }
-      else{
-        $('body').append('<link href="./style.css" />');
-      }
-    });
-  </script>
+    <script src="./assets/js/script.js"></script>
 </body>
 </html>
