@@ -24,18 +24,52 @@
   /*Css resposive of modal signin and signup*/
   .modal-content{
     width: 88%;
+    padding: 16px 0;
   }
   .tittle-container .close{
     font-size: 24px;
+    right: 32px;
   }
   .tittle-container .tittle-login{
     font-size: 24px;
   }
+  /* resize input of modal */
+  .container-login input[type=text],
+  .container-login input[type=password]{
+    width: 160px;
+    height: 32px;
+  }
+  .container-login input[type=text]:focus,
+  .container-login input[type=password]:focus{
+    width: 240px;
+  }
   .modal-content .container-login{
     padding: 0 24px;
   }
+  /*resize button login and create*/
   .btnlogin button[type=submit]{
     width: 64%;
     height: 40px;
+  }
+  /* set space top 0*/
+  .container-login .signin-other{
+    margin: 0;
+  }
+
+  /* Footer*/
+  .footer-container{
+    width: 300px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-container .left-col p{
+    font-size: 13px;
+    text-align: center;
+  }
+  .right-col .social a {
+    font-size: 14px;
+    
   }
 }

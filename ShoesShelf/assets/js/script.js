@@ -9,11 +9,9 @@ var btnSignup = document.getElementById('btnSignup');
 window.onclick = function(event) {
     if (event.target == modalSignin || event.target == btnSignup) {
         modalSignin.style.display = "none";
-        $('body').css('overflow','hidden');
     }
     else if(event.target==modalSignup || event.target == btnSignin){
         modalSignup.style.display = "none";
-        $('body').css('overflow','hidden');
     }
 }
 //---------------------------------------------------

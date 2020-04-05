@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,147 +8,122 @@
     <link rel="stylesheet" href="./assets/css/styles.min.css">
     <title>Shoes Shelf</title>
 </head>
-
 <body>
     <div class="wrapper">
-        <header>
-            <nav class="navbar">
-                <div class="nav-bar">
-                    <!--Navbar left -->
-                    <div class="left">
-                        <div class="logo-text">
-                            <img src="./assets/images/2.png" alt="logo ShoesShelf" title="Shoe$Shelf-2020">
-                        </div>
-                    </div>
-                    <!--Navbar middle-->
-                    <div class="middle">
-                        <div class="img-logo">
-                            <a href="#TrangChu"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="./assets/images/LogoSS-2-xam.png" alt="Error"></a>
-                        </div>
-                    </div>
-                    <!--Navbar right-->
-                    <div class="right">
-                        <div class="right-menu">
-                            <ul class="menu ">
-                                <li class="sub-menu"><a id="menu-bars" class="container-close makeCursor" title="Menu"><i class="fas fa-bars"></i></a></li>
-                                <!-- <li class="sub-menu hidden"><a href="#TrangChu">Home</a></li> -->
-                                <li class="sub-menu hidden"><a href="#About">About Us</a></li>
-                                <li class="sub-menu hidden">
-                                    <a id="btnSignin" class="btnSignin-up makeCursor" onclick="document.getElementById('signin').style.display='block'">login</a>
-                                </li>
-                                <li class="sub-menu hidden">
-                                    <a id="btnSignup" class="btnSignin-up makeCursor Signup" onclick="document.getElementById('signup').style.display='block'">Sign Up</a>
-                                </li>
-                                <li id="toggle-close" class="sub-menu hidden"><a class="container-close close-menu makeCursor" title="Close menu">
-                                    <i class="toogle close-menu fas fa-times"></i>
-                                </a></li>
-                            </ul>
-                        </div>
-                        <div class="right-search">
-                            <div class="search">
-                                <input class="search-txt" type="text" name="search" placeholder="Search anything you want...">
-                                <a href="#" class="search-btn">
-                                    <i class="fas fa-search"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+      <header>
+        <nav class="navbar">
+            <div class="nav-bar">
+              <!--Navbar left -->
+              <div class="left">
+                <div class="logo-text">
+                  <img src="./assets/images/LogoSS-main.png" alt="Error">
+                </div>  
+              </div>
+              <!--Navbar middle-->
+              <div class="middle">
+                <div class="img-logo">
+                  <a href="./index.html"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="./assets/images/LogoSS-2-xam.png" alt="Error"></a>
                 </div>
-    </div>
-    </div>
-    </nav>
-    <div class="banner">
-        <video class="banner-video" autoplay loop muted>
+              </div>
+              <!--Navbar right-->
+              <div class="right">
+                <div class="right-menu">
+                  <ul class="menu ">
+                    <li class="sub-menu"><a id="menu-bars" class="container-close makeCursor" title="Menu"><i class="fas fa-bars"></i></a></li>
+                    <li class="sub-menu hidden" ><a href="#About">About Us</a></li>
+                    <li class="sub-menu hidden" ><a id="btnSignin" class="btnSignin-up makeCursor" onclick="document.getElementById('signin').style.display='block'">Sign In</a></li>
+                    <li class="sub-menu hidden" ><a id="btnSignup" class="btnSignin-up makeCursor Signup" onclick="document.getElementById('signup').style.display='block'">Sign Up</a></li>
+                    <li id="toggle-close" class="sub-menu hidden" ><a class="container-close close-menu makeCursor" title="Close menu"><i class="toogle close-menu fas fa-times"></i></a></li>
+                  </ul>
+                </div>
+                <div class="right-search">
+                    <form action="" class="search_form">
+                      <input type="text" name="search" placeholder="Search anything you want...">
+                      <button class="btn_search"><i class="fas fa-search"></i></button>
+                    </form>
+                </div>
+              </div>
+            </div>
+        </nav>
+        <div class="banner">
+          <video class="banner-video" autoplay loop muted>
             <source src="./assets/video/video-banner.mp4" type="video/mp4">
           </video>
-    </div>
-    </header>
-    <div class="content">
-
-    </div>
-    <footer>
-        <div class="footer-container">
+        </div>
+      </header>
+      <div class="content">
+        
+      </div>
+      <footer>
+          <div class="footer-container">
             <div class="left-col">
-                <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
+              <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
             </div>
             <div class="right-col">
-                <div class="social">
-                    <a href="#" target="_blank" title="collective on Instagram">
-                        <i class="fab fa-instagram fa-2x"> </i>
-                    </a>
-                    <a href="#" target="_blank" title="collective on facebook">
-                        <i class="fab fa-facebook fa-2x"> </i>
-                    </a>
-                    <a href="#" target="_blank" title="collective on Pinterest">
-                        <i class="fab fa-pinterest-p fa-2x"> </i>
-                    </a>
-                </div>
+              <div class="social">
+                <a href="/instagram" target="_blank" title="collective on Instagram">
+                  <i class="fab fa-instagram fa-2x"> </i>
+                </a>
+                <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
+                  <i class="fab fa-facebook fa-2x"> </i>
+                </a>
+                <a href="/pinterest" target="_blank" title="collective on Pinterest">
+                  <i class="fab fa-pinterest-p fa-2x"> </i>
+                </a>
+              </div>
             </div>
-        </div>
-    </footer>
+          </div>
+      </footer>
     </div>
     <!-- Form Đăng nhập -->
     <div id="signin" class="modal">
-        <form class="box" action="index.html" method="post">
-            <div class="tittle-container">
-                <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close">&times;</span>
-                <p class="tittle-login">LOGIN</p>
-            </div>
-
-            <div class="container-login">
-                <input type="text" placeholder="Username" name="email" required>
-
-                <input type="password" placeholder="Password" name="psw" required>
-                <input type="submit" name="" value="Login">
-                <div class="checked-psw">
-                    <label>
-                            <input type="checkbox" checked="checked" name="remember"> Remember Your Pasword?
-                        </label>
-                    <span class="fogot-psw"><a href="#">Forgot?</a></span>
-                </div>
-
-                <div class="OR">
-                    <p>OR</p>
-                </div>
-                <div class="signin-other">
-                    <a href="#"><i class="fab fa-facebook" style= "color: #48dbfb" title="Đăng nhập với facebook"></i></a>
-                    <a href="#"><i class="fab fa-google-plus" style="color: #ee5253;" title="Đăng nhập với tài khoản google"></i></a>
-                </div>
-            </div>
-        </form>
+      <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="tittle-container">
+          <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close">&times;</span>
+          <p class="tittle-login">Sign in</p>
+        </div>
+        <div class="container-login">
+          <input type="text" placeholder="Usename" name="email" required>
+          <input type="password" placeholder="Password" name="psw" required>
+          <div class="btnlogin"><button type="submit">Sign in</button></div>
+          <div class="checked-psw">
+            <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember your password?
+            </label>
+            <span class="fogot-psw"><a href="#">Forgot?</a></span>
+          </div>
+          <div class="hoac"><p>OR</p></div>
+          <div class="signin-other">
+            <a href="#"><i class="fab fa-facebook" style="color: #3c5995;" title="Đăng nhập với facebook"></i></a>
+            <a href="#"><i class="fab fa-google-plus" style="color: #e6493b;" title="Đăng nhập với tài khoản google"></i></a>
+          </div>
+        </div>
+      </form>
     </div>
     <!--Form Đăng ký-->
     <div id="signup" class="modal">
-        <form class="box" action="index.html" method="GET">
-            <div class="tittle-container">
-                <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close">&times;</span>
-                <p class="tittle-login">SIGN UP</p>
-            </div>
-
-            <div class="container-login">
-                <input type="text" placeholder="Full Name" name="username" required>
-                <input type="text" placeholder="email" name="user-name" required>
-                <input type="password" placeholder="Password" name="psw" required>
-                <input type="submit" name="" value="CREATE">
-
-
-                <div class="have-account">
-                    <a href="#" style="color: white;    ">Already have one?</a>
-                </div>
-
-                <div class="OR">
-                    <p>OR</p>
-                </div>
-                <div class="signin-other">
-                    <a href="#"><i class="fab fa-facebook" style= "color: #48dbfb" title="Đăng nhập với facebook"></i></a>
-                    <a href="#"><i class="fab fa-google-plus" style="color: #ee5253;" title="Đăng nhập với tài khoản google"></i></a>
-                </div>
-            </div>
-        </form>
+      <form class="modal-content animate" action="/action_page.php" method="GET">
+        <div class="tittle-container">
+          <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close">&times;</span>
+          <p class="tittle-login">Sign up</p>
+        </div>
+    
+        <div class="container-login">
+          <input type="text" placeholder="Usename" name="user-name" required>
+          <input type="text" placeholder="Email" name="email" required>
+          <input type="password" placeholder="Enter password" name="psw" required>
+          <input type="password" placeholder="Enter password again" name="replace-psw" required>
+          <div class="btnlogin"><button type="submit" >Create</button></div>
+          <div class="hoac"><p>OR</p></div>
+          <div class="signin-other">
+            <a href="#"><i class="fab fa-facebook" style="color: #3c5995;" title="Đăng nhập với facebook"></i></a>
+            <a href="#"><i class="fab fa-google-plus" style="color: #e6493b;" title="Đăng nhập với tài khoản google"></i></a>
+          </div>
+        </div>
+      </form>
     </div>
     <!--Script-->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="./assets/js/script.js"></script>
 </body>
-
 </html>
