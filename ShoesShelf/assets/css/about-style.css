@@ -1,0 +1,49 @@
+@import url('/ShoesShelf/assets/css/styles.css');
+.content-ab {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "box1 box2";
+    /* justify-items: center; */
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    margin: 0 0 0 20px;
+}
+
+.content-us p {
+    font-size: 14px;
+    display: flex;
+    text-align: center;
+    margin: 0 0 20px 20px;
+    color: #3d3d3d;
+}
+
+
+/* .About-us {
+    grid-area: box1;
+    text-align: center;
+} */
+
+.content-us h3 {
+    align-items: center;
+    margin: 0 0 20px 20px;
+}
+
+.content-us {
+    grid-area: box1;
+    text-align: justify;
+    /* display: flex; */
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.about-us-img .ct-img {
+    grid-area: box2;
+    width: 500px;
+}
+
+.ct-img {
+    width: 80%;
+}
