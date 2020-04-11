@@ -1,4 +1,4 @@
-@import url('/ShoesShelf/assets/css/styles.css');
+@import url('./styles.css');
 .content-ab {
     height: 100vh;
     display: grid;

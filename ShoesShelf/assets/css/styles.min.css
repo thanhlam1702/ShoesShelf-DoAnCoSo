@@ -48,8 +48,8 @@
   }
   /*resize button login and create*/
   .btnlogin button[type=submit]{
-    width: 64%;
-    height: 40px;
+    width: 160px;
+    height: 32px;
   }
   /* set space top 0*/
   .container-login .signin-other{
@@ -63,6 +63,12 @@
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
+  }
+  .footer-container .left-col{
+    height: 40px;
+  }
+  .footer-container .right-col{
+    height: 40px;
   }
   .footer-container .left-col p{
     font-size: 13px;
