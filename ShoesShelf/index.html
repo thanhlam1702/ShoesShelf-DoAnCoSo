@@ -32,11 +32,7 @@
                         <div class="right-menu">
                             <ul class="menu ">
                                 <li class="sub-menu"><a id="menu-bars" class="container-close makeCursor" title="Menu"><i class="fas fa-bars"></i></a></li>
-<<<<<<< HEAD
                                 <li class="sub-menu hidden"><a href="./About.html">About Us</a></li>
-=======
-                                <li class="sub-menu hidden"><a href="/ShoesShelf-DoAnCoSo/ShoesShelf/About.html">About Us</a></li>
->>>>>>> dbf8bd68dc624be5332af23d39350051f306b278
                                 <li class="sub-menu hidden"><a id="btnSignin" class="btnSignin-up makeCursor" onclick="document.getElementById('signin').style.display='block'">Sign In</a></li>
                                 <li class="sub-menu hidden"><a id="btnSignup" class="btnSignin-up makeCursor Signup" onclick="document.getElementById('signup').style.display='block'">Sign Up</a></li>
                                 <li id="toggle-close" class="sub-menu hidden"><a class="container-close close-menu makeCursor" title="Close menu"><i class="toogle close-menu fas fa-times"></i></a></li>
@@ -116,7 +112,7 @@
                 </div>
                 <div class="signin-other">
                     <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" ></div>
-                    <a href="#"><i class="fab fa-google-plus" style="color: #e6493b;" title="Đăng nhập với tài khoản google"></i></a>
+                    <div><a href="#"><i class="fab fa-google-plus" style="color: #e6493b;" title="Đăng nhập với tài khoản google"></i></a></div>
                 </div>
             </div>
         </form>
@@ -152,10 +148,10 @@
 
         function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
           if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-            alert('Sign in Complete!!');
+            console.log('Sign in Complete!!');
           }
           else {                                 // Not logged into your webpage or we are unable to tell.
-            alert('Not sign in');
+            console.log('Not sign in');
           }
         }
         
