@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/styles.css?v=12042020">
+    <link rel="stylesheet" href="./assets/css/header-footer-style.css?v=12042020">
     <link rel="stylesheet" href="./assets/css/styles.min.css">
     
     <title>Shoes Shelf</title>
@@ -30,7 +30,7 @@
                     </div>
                     <!--Navbar right-->
                     <div class="right">
-                        <div class="right-menu">
+                        <div id="right-menu" class="right-menu">
                             <ul class="menu ">
                                 <li class="sub-menu">
                                     <a id="menu-bars" class="container-close makeCursor" title="Menu">
@@ -53,6 +53,20 @@
                                 </li>
                             </ul>
                         </div>
+                        <!--showup user after user sign in complete-->
+                        <div id="user" class="user">
+                            <div class="user-avatar">
+                                <div class="user-img">
+
+                                </div>
+                            </div>
+                            <div class="user-name">
+                                <p>Name</p>
+                            </div>
+                            <div class="user-logout">
+                                <a href="#" onclick="logout()">Logout</a>
+                            </div>
+                        </div>
                         <div class="right-search">
                             <form action="" class="search_form">
                                 <input type="text" name="search" placeholder="Search anything you want...">
@@ -64,11 +78,6 @@
                     </div>
                 </div>
             </nav>
-            <div class="banner">
-                <video class="banner-video" autoplay loop muted>
-            <source src="./assets/video/video-banner.mp4" type="video/mp4">
-          </video>
-            </div>
         </header>
         <div class="content">
 
@@ -160,7 +169,6 @@
             </div>
         </form>
     </div>
-    
     <!--Script-->
 
     <!--JS api login facebook and google-->

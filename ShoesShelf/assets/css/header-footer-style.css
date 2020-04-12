@@ -188,6 +188,27 @@ header {
     display: flex;
     align-items: center;
 }
+
+/* Right menu after user login*/
+.right .user{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.right .user .user-avatar{
+    height: 40px;
+    width: 40px;
+}
+.user .user-img{
+    background-color: blue;
+    width: 100%;
+    border-radius: 24px;
+    height: 100%;
+}
+
+
 /*css thanh tìm kiếm*/
 
 .right-search .search_form {

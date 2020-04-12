@@ -14,17 +14,34 @@ window.onclick = function(event) {
         modalSignup.style.display = "none";
     }
 }
+
+//when click a button sign in or sign up then showup modal
+function showUpSignin(){
+    modalSignin.style.display='block';
+}
+function showUpSignup(){
+    modalSignup.style.display='block';
+}
+        
+    
+//function close of modal content, change value display 'none' or ' block'
+function closeModelContent(){
+    document.getElementById('signup').style.display='none'
+    document.getElementById('signin').style.display='none';
+}
 //---------------------------------------------------
-//script cua logo tron
+//chage img logo when hover, change address of class imglogo
 function hoverImgOver(){
-var imglogo=document.getElementById("imglogo");
-imglogo.src="./assets/images/LogoSS-2-den.png";
+    var imglogo=document.getElementById("imglogo");
+    imglogo.src="./assets/images/LogoSS-2-den.png";
 }
 function  hoverImgOut(){
-var imglogo=document.getElementById("imglogo");
-imglogo.src="./assets/images/LogoSS-2-xam.png";
+    var imglogo=document.getElementById("imglogo");
+    imglogo.src="./assets/images/LogoSS-2-xam.png";
 }
 //---------------------------------------------
+//use Jquery 'toggleClass to add or delete class 'expanded' and 'hidden'
+//with display 'none' or 'block'
 $('.container-close').on('click', function () {
     $('.menu').toggleClass('expanded');
     $('.sub-menu').toggleClass('hidden');
