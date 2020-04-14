@@ -15,6 +15,7 @@ window.onclick = function(event) {
     }
 }
 
+
 //when click a button sign in or sign up then showup modal
 function showUpSignin(){
     modalSignin.style.display='block';

@@ -1,14 +1,10 @@
 //scripts signin with facebook
 function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
     if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-        //console.log('Sign in Complete!!');
-        //window.location="https://shoesshelf.com/shoesshelf_main.html";
-        setElement(true);
-        
+        window.location="https://shoesshelf.com/shoesshelf_main.html";
     }
-    else {                                 // Not logged into your webpage or we are unable to tell.
-        console.log('Not sign in');
-        setElement(false);
+    else {
+        console.log("not sign in");                                // Not logged into your webpage or we are unable to tell.
     }
 }
 
@@ -37,27 +33,4 @@ function checkLoginState(){                   // Called when a person is finishe
     FB.getLoginStatus(function(response) {   // See the onlogin handler
     statusChangeCallback(response);
     });
-}
-
-
-//if sign in success then button sign in and sign up be hidden
-//else show up button for user sign in
-function setElement(isSignin){
-    if(isSignin){
-        document.getElementById('user').style.display = 'flex';
-        document.getElementById('right-menu').style.display = 'none';
-        document.getElementById('signin').style.display = 'none';
-        document.getElementById('signup').style.display = 'none';
-    }
-    else{
-        document.getElementById('user').style.display = 'none';
-        document.getElementById('right-menu').style.display = 'flex';
-    }
-}
-
-//logout facebook
-function logout(){
-    FB.logout(function(response){
-        setElement(false);
-    })
 }

@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="./assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/header-footer-style.css?v=12042020">
     <link rel="stylesheet" href="./assets/css/styles.min.css">
-    
     <title>Shoes Shelf</title>
 </head>
 
 <body>
-    <div class="wrapper">
+    
+    <div class="wrapper" id="wrapper">
         <header>
             <nav class="navbar">
                 <div class="nav-bar">
@@ -30,42 +30,25 @@
                     </div>
                     <!--Navbar right-->
                     <div class="right">
-                        <div id="right-menu" class="right-menu">
-                            <ul class="menu ">
-                                <li class="sub-menu">
-                                    <a id="menu-bars" class="container-close makeCursor" title="Menu">
-                                        <i class="fas fa-bars"></i>
-                                    </a>
-                                </li>
-                                <li class="sub-menu hidden">
-                                    <a href="./about.html">About Us</a>
-                                </li>
-                                <li class="sub-menu hidden">
-                                    <a id="btnSignin" class="btnSignin-up makeCursor" onclick="showUpSignin()">Sign In</a>
-                                </li>
-                                <li class="sub-menu hidden">
-                                    <a id="btnSignup" class="btnSignin-up makeCursor Signup" onclick="showUpSignup()">Sign Up</a>
-                                </li>
-                                <li id="toggle-close" class="sub-menu hidden">
-                                    <a class="container-close close-menu makeCursor" title="Close menu">
-                                        <i class="toogle close-menu fas fa-times"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
                         <!--showup user after user sign in complete-->
                         <div id="user" class="user">
                             <div class="user-avatar">
-                                <div class="user-img">
-
-                                </div>
+                                <img src="" id="user-img"  alt="user-avartar">
+                                <ul class="user-menu" id="user-menu" style="display: none;">
+                                    <li class="user-menu-item">
+                                        <a href="#">Profile</a>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <div class="user-logout">
+                                            <a href="#" onclick="logout()">Logout</a>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                             <div class="user-name">
-                                <p>Name</p>
+                                <p id="user-name">Name_User</p>
                             </div>
-                            <div class="user-logout">
-                                <a href="#" onclick="logout()">Logout</a>
-                            </div>
+                            
                         </div>
                         <div class="right-search">
                             <form action="" class="search_form">
@@ -116,67 +99,16 @@
             </div>
         </footer>
     </div>
-    <!-- Form Đăng nhập -->
-    <div id="signin" class="modal">
-        <form class="modal-content animate" action="/action_page.php" method="post">
-            <div class="tittle-container">
-                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
-                <p class="tittle-login">Sign in</p>
-            </div>
-            <div class="container-login">
-                <input type="text" placeholder="Usename" name="email" required>
-                <input type="password" placeholder="Password" name="psw" required>
-                <div class="btnlogin"><button type="submit">Sign in</button></div>
-                <div class="checked-psw">
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember your password?
-                    </label>
-                    <span class="fogot-psw"><a href="#">Forgot?</a></span>
-                </div>
-                <div class="hoac">
-                    <p>OR</p>
-                </div>
-                <div class="signin-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" ></div>
-                    <div><a href="#"><i class="fab fa-google-plus" style="color: #e6493b;" title="Đăng nhập với tài khoản google"></i></a></div>
-                </div>
-            </div>
-        </form>
-    </div>
-    <!--Form Đăng ký-->
-    <div id="signup" class="modal">
-        <form class="modal-content animate" action="/action_page.php" method="GET">
-            <div class="tittle-container">
-                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
-                <p class="tittle-login">Sign up</p>
-            </div>
-
-            <div class="container-login">
-                <input type="text" placeholder="Usename" name="user-name" required>
-                <input type="text" placeholder="Email" name="email" required>
-                <input type="password" placeholder="Enter password" name="psw" required>
-                <input type="password" placeholder="Enter password again" name="replace-psw" required>
-                <div class="btnlogin">
-                    <button type="submit">Create</button>
-                </div>
-                <div class="hoac">
-                    <p>OR</p>
-                </div>
-                <div class="signin-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" ></div>
-                    <div><a href="#"><i class="fab fa-google-plus" style="color: #e6493b;" title="Đăng nhập với tài khoản google"></i></a></div>
-                </div>
-            </div>
-        </form>
-    </div>
+    
     <!--Script-->
-
-    <!--JS api login facebook and google-->
-    <script src="./assets/js/apigg_apifb.js"></script>
-    <div id="status"></div>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script  src="./assets/js/script.js"></script>
+    <!--JS api login facebook and google-->
+    <script src="./assets/js/shoesshelf_main.js"></script>
+    <div id="status"></div>
+
+    
+    
     
 </body>
 
