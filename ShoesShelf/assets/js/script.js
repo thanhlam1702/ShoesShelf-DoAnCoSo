@@ -1,4 +1,3 @@
-
 // Get the modal
 var modalSignin = document.getElementById('signin');
 var modalSignup = document.getElementById('signup');
@@ -7,25 +6,25 @@ var btnSignup = document.getElementById('btnSignup');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modalSignin || event.target == btnSignup) {
-        modalSignin.style.display = "none";
+        if (event.target == modalSignin || event.target == btnSignup) {
+            modalSignin.style.display = "none";
+        } else if (event.target == modalSignup || event.target == btnSignin) {
+            modalSignup.style.display = "none";
+        }
     }
-    else if(event.target==modalSignup || event.target == btnSignin){
-        modalSignup.style.display = "none";
-    }
+    //---------------------------------------------------
+    //script cua logo tron
+function hoverImgOver() {
+    var imglogo = document.getElementById("imglogo");
+    imglogo.src = "./assets/images/logo-hover.png";
 }
-//---------------------------------------------------
-//script cua logo tron
-function hoverImgOver(){
-var imglogo=document.getElementById("imglogo");
-imglogo.src="./assets/images/LogoSS-2-den.png";
-}
-function  hoverImgOut(){
-var imglogo=document.getElementById("imglogo");
-imglogo.src="./assets/images/LogoSS-2-xam.png";
+
+function hoverImgOut() {
+    var imglogo = document.getElementById("imglogo");
+    imglogo.src = "./assets/images/logo-middle.png";
 }
 //---------------------------------------------
-$('.container-close').on('click', function () {
+$('.container-close').on('click', function() {
     $('.menu').toggleClass('expanded');
     $('.sub-menu').toggleClass('hidden');
     $('.container-close , .toggle').toggleClass('close-menu');
