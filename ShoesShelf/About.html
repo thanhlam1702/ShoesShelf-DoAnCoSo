@@ -23,7 +23,7 @@
                     <!--Navbar middle-->
                     <div class="middle">
                         <div class="img-logo">
-                            <a href="./index.html"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="./assets/images/LogoSS-2-xam.png" alt="Error"></a>
+                            <a href="./index.html"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="./assets/images/logo-middle.png" alt="Error"></a>
                         </div>
                     </div>
                     <!--Navbar right-->
@@ -32,7 +32,7 @@
                             <ul class="menu ">
                                 <li class="sub-menu"><a id="menu-bars" class="container-close makeCursor" title="Menu"><i class="fas fa-bars"></i></a></li>
                                 <li class="sub-menu hidden"><a href="/about.html">About Us</a></li>
-                                <li class="sub-menu hidden"><a id="btnSignin" class="btnSignin-up makeCursor" onclick="document.getElementById('signin').style.display='block'">Sign In</a></li>
+                                <li class="sub-menu hidden"><a id="btnSignin" class="btnSignin-up makeCursor" onclick="document.getElementById('signin').style.display='block'">Log In</a></li>
                                 <li class="sub-menu hidden"><a id="btnSignup" class="btnSignin-up makeCursor Signup" onclick="document.getElementById('signup').style.display='block'">Sign Up</a></li>
                                 <li id="toggle-close" class="sub-menu hidden"><a class="container-close close-menu makeCursor" title="Close menu"><i class="toogle close-menu fas fa-times"></i></a></li>
                             </ul>
@@ -48,110 +48,110 @@
                 </div>
             </nav>
         </header>
-            <div class="content-ab">
-                <div class="About-us">
+        <div class="content-ab">
+            <div class="About-us">
 
+            </div>
+            <div class="content-us">
+                <h3>ABOUT US</h3><br>
+                <p>Founded in 2020 by N09-Team, ShoesShelf is a blog website established in current sneaker's culture.</p>
+                <p>Delving deeply into purist desire and dream about a community for sneaker head all over the world.</p>
+                <P>Design for those who love shoes and want to sharing love, experience and stories with us.</P>
+                <p>From just a pair of shoes, we connect and link brands together to build up a new lifestyle</p>
+                <p>of Vietnamese's young generation!</p>
+            </div>
+            <div class="about-us-img">
+                <img class="ct-img" src="./assets/images/undraw_web_developer_p3e5.png">
+
+            </div>
+        </div>
+        <footer>
+            <div class="footer-container">
+
+                <div class="left-col">
+                    <div class="social">
+                        <a href="/instagram" target="_blank" title="collective on Instagram">
+                            <i class="fab fa-instagram"> </i>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
+                            <i class="fab fa-facebook"> </i>
+                        </a>
+                        <a href="/pinterest" target="_blank" title="collective on Pinterest">
+                            <i class="fab fa-pinterest-p"> </i>
+                        </a>
+                        <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
+                            <i class="fab fa-youtube"> </i>
+                        </a>
+                    </div>
+                    <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
                 </div>
-                <div class="content-us">
-                    <h3>ABOUT US</h3><br>
-                    <p>Founded in 2020 by N09-Team, ShoesShelf is a blog website established in current sneaker's culture.</p>
-                    <p>Delving deeply into purist desire and dream about a community for sneaker head all over the world.</p>
-                    <P>Design for those who love shoes and want to sharing love, experience and stories with us.</P>
-                    <p>From just a pair of shoes, we connect and link brands together to build up a new lifestyle</p>
-                    <p>of Vietnamese's young generation!</p>
-                </div>
-                <div class="about-us-img">
-                    <img class="ct-img" src="./assets/images/undraw_web_developer_p3e5.png">
+
+                <div class="right-col">
+                    <h1>Our Newsletter</h1>
+                    <div class="border"></div>
+                    <p>Enter your emails to connect with us.</p>
+                    <form action="" class="newsletter">
+                        <input type="text" class="txtb" placeholder="Enter Your Email">
+                        <input type="submit" class="btn" value="Submit">
+                    </form>
 
                 </div>
             </div>
-            <footer>
-                <div class="footer-container">
-
-                    <div class="left-col">
-                        <div class="social">
-                            <a href="/instagram" target="_blank" title="collective on Instagram">
-                                <i class="fab fa-instagram"> </i>
-                            </a>
-                            <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
-                                <i class="fab fa-facebook"> </i>
-                            </a>
-                            <a href="/pinterest" target="_blank" title="collective on Pinterest">
-                                <i class="fab fa-pinterest-p"> </i>
-                            </a>
-                            <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
-                                <i class="fab fa-youtube"> </i>
-                            </a>
-                        </div>
-                        <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
-                    </div>
-
-                    <div class="right-col">
-                        <h1>Our Newsletter</h1>
-                        <div class="border"></div>
-                        <p>Enter your emails to connect with us.</p>
-                        <form action="" class="newsletter">
-                            <input type="text" class="txtb" placeholder="Enter Your Email">
-                            <input type="submit" class="btn" value="Submit">
-                        </form>
-
-                    </div>
-                </div>
-            </footer>
+        </footer>
     </div>
-            <!-- Form Đăng nhập -->
-            <div id="signin" class="modal">
-                <form class="modal-content animate" action="/action_page.php" method="post">
-                    <div class="tittle-container">
-                        <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close">&times;</span>
-                        <p class="tittle-login">Sign in</p>
-                    </div>
-                    <div class="container-login">
-                        <input type="text" placeholder="Usename" name="email" required>
-                        <input type="password" placeholder="Password" name="psw" required>
-                        <div class="btnlogin"><button type="submit">Sign in</button></div>
-                        <div class="checked-psw">
-                            <label>
+    <!-- Form Đăng nhập -->
+    <div id="signin" class="modal">
+        <form class="modal-content animate" action="/action_page.php" method="post">
+            <div class="tittle-container">
+                <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close">&times;</span>
+                <p class="tittle-login">Sign in</p>
+            </div>
+            <div class="container-login">
+                <input type="text" placeholder="Usename" name="email" required>
+                <input type="password" placeholder="Password" name="psw" required>
+                <div class="btnlogin"><button type="submit">Sign in</button></div>
+                <div class="checked-psw">
+                    <label>
               <input type="checkbox" checked="checked" name="remember"> Remember your password?
             </label>
-                            <span class="fogot-psw"><a href="#">Forgot?</a></span>
-                        </div>
-                        <div class="hoac">
-                            <p>OR</p>
-                        </div>
-                        <div class="signin-other">
-                            <a href="#"><i class="fab fa-facebook" style="color: #3c5995;" title="Đăng nhập với facebook"></i></a>
-                            <a href="#"><i class="fab fa-google-plus" style="color: #e6493b;" title="Đăng nhập với tài khoản google"></i></a>
-                        </div>
-                    </div>
-                </form>
+                    <span class="fogot-psw"><a href="#">Forgot?</a></span>
+                </div>
+                <div class="hoac">
+                    <p>OR</p>
+                </div>
+                <div class="signin-other">
+                    <a href="#"><i class="fab fa-facebook" style="color: #3c5995;" title="Đăng nhập với facebook"></i></a>
+                    <a href="#"><i class="fab fa-google-plus" style="color: #e6493b;" title="Đăng nhập với tài khoản google"></i></a>
+                </div>
             </div>
-            <!--Form Đăng ký-->
-            <div id="signup" class="modal">
-                <form class="modal-content animate" action="/action_page.php" method="GET">
-                    <div class="tittle-container">
-                        <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close">&times;</span>
-                        <p class="tittle-login">Sign up</p>
-                    </div>
+        </form>
+    </div>
+    <!--Form Đăng ký-->
+    <div id="signup" class="modal">
+        <form class="modal-content animate" action="/action_page.php" method="GET">
+            <div class="tittle-container">
+                <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close">&times;</span>
+                <p class="tittle-login">Sign up</p>
+            </div>
 
-                    <div class="container-login">
-                        <input type="text" placeholder="Usename" name="user-name" required>
-                        <input type="text" placeholder="Email" name="email" required>
-                        <input type="password" placeholder="Enter password" name="psw" required>
-                        <input type="password" placeholder="Enter password again" name="replace-psw" required>
-                        <div class="btnlogin"><button type="submit">Create</button></div>
-                        <div class="hoac">
-                            <p>OR</p>
-                        </div>
-                        <div class="signin-other">
-                            <a href="#"><i class="fab fa-facebook" style="color: #3c5995;" title="Đăng nhập với facebook"></i></a>
-                            <a href="#"><i class="fab fa-google-plus" style="color: #e6493b;" title="Đăng nhập với tài khoản google"></i></a>
-                        </div>
-                    </div>
-                </form>
+            <div class="container-login">
+                <input type="text" placeholder="Usename" name="user-name" required>
+                <input type="text" placeholder="Email" name="email" required>
+                <input type="password" placeholder="Enter password" name="psw" required>
+                <input type="password" placeholder="Enter password again" name="replace-psw" required>
+                <div class="btnlogin"><button type="submit">Create</button></div>
+                <div class="hoac">
+                    <p>OR</p>
+                </div>
+                <div class="signin-other">
+                    <a href="#"><i class="fab fa-facebook" style="color: #3c5995;" title="Đăng nhập với facebook"></i></a>
+                    <a href="#"><i class="fab fa-google-plus" style="color: #e6493b;" title="Đăng nhập với tài khoản google"></i></a>
+                </div>
             </div>
-            <!--Script-->
-    
+        </form>
+    </div>
+    <!--Script-->
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
