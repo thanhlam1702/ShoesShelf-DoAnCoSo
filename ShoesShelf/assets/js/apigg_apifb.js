@@ -2,6 +2,7 @@
 function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
     if (response.status === 'connected') {   // Logged into your webpage and Facebook.
         window.location="https://shoesshelf.com/shoesshelf_main.html";
+
     }
     else {
         console.log("not sign in");                                // Not logged into your webpage or we are unable to tell.
@@ -34,3 +35,31 @@ function checkLoginState(){                   // Called when a person is finishe
     statusChangeCallback(response);
     });
 }
+
+
+//Initializes the Sign-In client.
+var initClient = function() {
+    gapi.load('auth2', function(){
+        //Retrieve the singleton for the GoogleAuth library and set up the
+        //client.
+        auth2 = gapi.auth2.init({
+            client_id: '276514203511-rkdmf52kmh1ljdg29sjfj30fn1phubb3.apps.googleusercontent.com',
+            cookiepolicy: 'single_host_origin',
+            // Request scopes in addition to 'profile' and 'email'
+            scope: 'profile email'
+        });
+        
+        // Attach the click handler to the sign-in button
+        auth2.attachClickHandler('gg-login-button', {}, onSuccess, onFailure);
+    });
+};
+var onSuccess = function() {
+    window.location = "https://shoesshelf.com/shoesshelf_main.html";
+ };
+
+// Handle sign-in failures.
+var onFailure = function(error) {
+    console.log(error);
+};
+//run sign in google
+initClient();

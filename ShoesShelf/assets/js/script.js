@@ -34,11 +34,11 @@ function closeModelContent(){
 //chage img logo when hover, change address of class imglogo
 function hoverImgOver(){
     var imglogo=document.getElementById("imglogo");
-    imglogo.src="./assets/images/LogoSS-2-den.png";
+    imglogo.src="./assets/images/logo-ss-black.png";
 }
 function  hoverImgOut(){
     var imglogo=document.getElementById("imglogo");
-    imglogo.src="./assets/images/LogoSS-2-xam.png";
+    imglogo.src="./assets/images/logo-ss-white.png";
 }
 //---------------------------------------------
 //use Jquery 'toggleClass to add or delete class 'expanded' and 'hidden'
