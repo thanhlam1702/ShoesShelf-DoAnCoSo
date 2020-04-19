@@ -1,4 +1,3 @@
-
 // Get the modal
 var modalSignin = document.getElementById('signin');
 var modalSignup = document.getElementById('signup');
@@ -9,41 +8,42 @@ var btnSignup = document.getElementById('btnSignup');
 window.onclick = function(event) {
     if (event.target == modalSignin || event.target == btnSignup) {
         modalSignin.style.display = "none";
-    }
-    else if(event.target==modalSignup || event.target == btnSignin){
+    } else if (event.target == modalSignup || event.target == btnSignin) {
         modalSignup.style.display = "none";
     }
 }
 
 
 //when click a button sign in or sign up then showup modal
-function showUpSignin(){
-    modalSignin.style.display='block';
+function showUpSignin() {
+    modalSignin.style.display = 'block';
 }
-function showUpSignup(){
-    modalSignup.style.display='block';
+
+function showUpSignup() {
+    modalSignup.style.display = 'block';
 }
-        
-    
+
+
 //function close of modal content, change value display 'none' or ' block'
-function closeModelContent(){
-    document.getElementById('signup').style.display='none'
-    document.getElementById('signin').style.display='none';
+function closeModelContent() {
+    document.getElementById('signup').style.display = 'none'
+    document.getElementById('signin').style.display = 'none';
 }
 //---------------------------------------------------
 //chage img logo when hover, change address of class imglogo
-function hoverImgOver(){
-    var imglogo=document.getElementById("imglogo");
-    imglogo.src="./assets/images/logo-ss-black.png";
+function hoverImgOver() {
+    var imglogo = document.getElementById("imglogo");
+    imglogo.src = "./assets/images/logo-ss-white.png";
 }
-function  hoverImgOut(){
-    var imglogo=document.getElementById("imglogo");
-    imglogo.src="./assets/images/logo-ss-white.png";
+
+function hoverImgOut() {
+    var imglogo = document.getElementById("imglogo");
+    imglogo.src = "./assets/images/logo-ss-black.png";
 }
 //---------------------------------------------
 //use Jquery 'toggleClass to add or delete class 'expanded' and 'hidden'
 //with display 'none' or 'block'
-$('.container-close').on('click', function () {
+$('.container-close').on('click', function() {
     $('.menu').toggleClass('expanded');
     $('.sub-menu').toggleClass('hidden');
     $('.container-close , .toggle').toggleClass('close-menu');
