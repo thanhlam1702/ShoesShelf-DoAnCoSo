@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="276514203511-rkdmf52kmh1ljdg29sjfj30fn1phubb3.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <title>Document</title>
+    <style>
+        .signin-other #gg-login-button{
+    display: flex;
+    justify-content: center;
+}
+#gg-login-button .customGPlusSignIn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    width: 240px;
+    height: 40px;
+    border-radius: 24px;
+    white-space: nowrap;
+}
+#customBtn:hover {
+    cursor: pointer;
+    }
+
+span.icon {
+    background: url('/assets/images/signin-google.png');
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+    background-position: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+}
+span.buttonText {
+    font-size: 16px;
+    font-weight: bold;
+    /* Use the Roboto font that is loaded in the <head> */
+    font-family: 'Roboto', sans-serif;
+}
+    </style>
+</head>
+<body>
+    <div id="gg-login-button" data-onsuccess="initClient">
+        <div id="customBtn" class="customGPlusSignIn">
+          <span class="icon"></span>
+          <span class="buttonText">Continue with Google</span>
+        </div>
+    </div>
+    <script src="./assets/js/save_js_test.js"></script>
+</body>
+</html>

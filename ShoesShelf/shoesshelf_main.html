@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/header-footer-style.css?v=12042020">
     <link rel="stylesheet" href="./assets/css/styles.min.css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
     <title>Shoes Shelf</title>
 </head>
 
@@ -21,35 +22,28 @@
                         <div class="logo-text">
                             <img src="./assets/images/2.png" alt="Error">
                         </div>
+                        <!--Menu hone, about, latest news-->
+                        <ul class="left-menu">
+                            <li class="sub-menu">
+                                <a href="" class="menu-item">Home</a>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="./about.html" class="menu-item">About us</a>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="latest-news" class="menu-item">Latest news</a>
+                            </li>
+                        </ul>
                     </div>
                     <!--Navbar middle-->
                     <div class="middle">
                         <div class="img-logo">
-                            <a href="./index.html"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="./assets/images/LogoSS-2-xam.png" alt="Error"></a>
+                            <a href="./index.html"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="./assets/images/logo-ss-white.png" alt="Error"></a>
                         </div>
                     </div>
                     <!--Navbar right-->
                     <div class="right">
-                        <!--showup user after user sign in complete-->
-                        <div id="user" class="user">
-                            <div class="user-avatar">
-                                <img src="" id="user-img"  alt="user-avartar">
-                                <ul class="user-menu" id="user-menu" style="display: none;">
-                                    <li class="user-menu-item">
-                                        <a href="#">Profile</a>
-                                    </li>
-                                    <li class="user-menu-item">
-                                        <div class="user-logout">
-                                            <a href="#" onclick="logout()">Logout</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="user-name">
-                                <p id="user-name">Name_User</p>
-                            </div>
-                            
-                        </div>
+                        <!--search-->
                         <div class="right-search">
                             <form action="" class="search_form">
                                 <input type="text" name="search" placeholder="Search anything you want...">
@@ -58,6 +52,32 @@
                                 </button>
                             </form>
                         </div>
+                        <!--showup user after user sign in complete-->
+                        <div id="user" class="user">
+                            <div class="user-avatar">
+                                <img src="" id="user-img">
+                                <ul class="user-menu" id="user-menu" style="display: none;">
+                                    <li class="user-menu-item">
+                                        <div class="user-name">
+                                            <p id="user-name">Name_User</p>
+                                        </div>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <a href="your-shelf">YourShelf</a>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <a href="account-setting">Account setting</a>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <div class="user-logout">
+                                            <a onclick="logout()">Log out</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                        </div>
+                        
                     </div>
                 </div>
             </nav>
@@ -100,11 +120,14 @@
         </footer>
     </div>
     
+
+  
     <!--Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script  src="./assets/js/script.js"></script>
+    <script  src="./assets/js/script.js" ></script>
     <!--JS api login facebook and google-->
-    <script src="./assets/js/shoesshelf_main.js"></script>
+    <script src="./assets/js/shoesshelf_main.js" ></script>
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton"></script>
     <div id="status"></div>
 
     

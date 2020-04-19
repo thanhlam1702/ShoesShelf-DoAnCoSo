@@ -423,15 +423,49 @@ header {
     justify-content: space-around;
 }
 
-.signin-other .fa-facebook {
-    color: #48dbfb !important;
+.signin-other #my-signin2{
+    display: flex;
+    justify-content: center;
 }
 
-.signin-other a {
-    text-decoration: none;
-    font-size: 40px;
-    margin: 16px;
+.signin-other #my-signin2 .abcRioButtonBlue{
+    border-radius: 24px;
 }
+.signin-other #gg-login-button{
+    display: flex;
+    justify-content: center;
+}
+#gg-login-button .customGPlusSignIn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    width: 240px;
+    height: 40px;
+    border-radius: 24px;
+    white-space: nowrap;
+}
+#customBtn:hover {
+    cursor: pointer;
+    }
+
+span.icon {
+    background: url('/assets/images/signin-google.png');
+    background-repeat: no-repeat;
+    background-size: 32px 32px;
+    background-position: center;
+    display: inline-block;
+    vertical-align: middle;
+    width: 42px;
+    height: 42px;
+}
+span.buttonText {
+    font-size: 16px;
+    font-weight: bold;
+    /* Use the Roboto font that is loaded in the <head> */
+    font-family: 'Roboto', sans-serif;
+}
+
 /* Add Zoom Animation */
 
 .animate {
