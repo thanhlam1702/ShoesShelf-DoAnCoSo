@@ -1,7 +1,7 @@
 //scripts signin with facebook
 function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
     if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-        window.location="https://shoesshelf.com/shoesshelf_main.html";
+        window.location="/shoesshelf_main.html";
 
     }
     else {
@@ -54,7 +54,7 @@ var initClient = function() {
     });
 };
 var onSuccess = function() {
-    window.location = "https://shoesshelf.com/shoesshelf_main.html";
+    window.location = "/shoesshelf_main.html";
  };
 
 // Handle sign-in failures.
