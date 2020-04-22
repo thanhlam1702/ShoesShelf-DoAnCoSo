@@ -17,49 +17,96 @@
             <nav class="navbar">
                 <div class="nav-bar">
                     <!--Navbar left -->
-                    <div class="left">
-                        <div class="logo-text">
-                            <img src="./assets/images/2.png" alt="Error">
+                    <div class="navbar-left">
+                        <div class="left-logo">
+                            <img src="./assets/images/2.png" alt="Error" class="logo-img">
                         </div>
+                        <!--Menu hone, about, latest news-->
+                        <ul class="left-menu" id="left-menu">
+                            <li class="left-sub-menu">
+                                <a href="" class="menu-item">Home</a>
+                            </li>
+                            <li class="left-sub-menu">
+                                <a href="./about.html" class="menu-item">About us</a>
+                            </li>
+                            <li class="left-sub-menu">
+                                <a href="latest-news" class="menu-item">Latest news</a>
+                            </li>
+                        </ul>
                     </div>
                     <!--Navbar middle-->
-                    <div class="middle">
-                        <div class="img-logo">
-                            <a href=""><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="./assets/images/logo-ss-black.png" alt="Error"></a>
-                        </div>
+                    <div class="navbar-middle">
+                        <a href="/" class="img-logo"></a>
                     </div>
-                    <!--Navbar right-->
-                    <div class="right">
+                    <div class="navbar-right" id="navbar-right">
+                         <!--Navbar right before sign in-->
                         <div class="right-menu">
                             <ul class="menu ">
-                                <li class="sub-menu">
-                                    <a id="menu-bars" class="container-close makeCursor" title="Menu">
+                                <li class="right-sub-menu">
+                                    <a class="hidden-show-up-menu menu-bars menu-item" title="Menu">
                                         <i class="fas fa-bars"></i>
                                     </a>
                                 </li>
-                                <li class="sub-menu hidden">
-                                    <a href="./about.html">About Us</a>
+                                <li class="right-sub-menu hidden">
+                                    <a href="./about.html" class="menu-item">About Us</a>
                                 </li>
-                                <li class="sub-menu hidden">
-                                    <a id="btnSignin" class="btnSignin-up makeCursor" onclick="showUpSignin()">Log In</a>
+                                <li class="right-sub-menu hidden">
+                                    <a id="btn-sign-in" class="menu-item" onclick="showUpSignIn()">Sign In</a>
                                 </li>
-                                <li class="sub-menu hidden">
-                                    <a id="btnSignup" class="btnSignin-up makeCursor" onclick="showUpSignup()">Sign Up</a>
+                                <li class="right-sub-menu hidden">
+                                    <a id="btn-sign-up" class="menu-item" onclick="showUpSignUp()">Sign Up</a>
                                 </li>
-                                <li id="toggle-close" class="sub-menu hidden">
-                                    <a class="container-close close-menu makeCursor" title="Close menu">
-                                        <i class="toogle close-menu fas fa-times"></i>
+                                <li class="right-sub-menu hidden">
+                                    <a class="hidden-show-up-menu close-menu menu-item" title="Close menu">
+                                        <i class="fas fa-times"></i>
                                     </a>
                                 </li>
                             </ul>
                         </div>
                         <div class="right-search">
-                            <form action="" class="search_form">
+                            <form action="" class="search-form">
                                 <input type="text" name="search" placeholder="Search anything you want...">
-                                <button class="btn_search">
+                                <button class="btn-search">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </form>
+                        </div>
+                    </div>
+                    <!--Navbar right after sign in-->
+                    <div class="navbar-right-user" id="navbar-right-user">
+                        <!--search-->
+                        <div class="right-search">
+                            <form action="" class="search-form">
+                                <input type="text" name="search" placeholder="Search anything you want...">
+                                <button class="btn-search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <!--showup user after user sign in complete-->
+                        <div id="user" class="user">
+                            <div class="user-avatar">
+                                <img src="" id="user-img">
+                                <ul class="user-menu" id="user-menu" style="display: none;">
+                                    <li class="user-menu-item">
+                                        <div class="user-name">
+                                            <p id="user-name">Name_User</p>
+                                        </div>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <a href="your-shelf">YourShelf</a>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <a href="account-setting">Account setting</a>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <div class="user-logout">
+                                            <a onclick="logout()">Log out</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -71,7 +118,6 @@
             </div>
         </header>
         <div class="content">
-
         </div>
         <footer>
             <div class="footer-container">
@@ -107,30 +153,30 @@
             </div>
         </footer>
     </div>
-    <!-- Form Đăng nhập -->
-    <div id="signin" class="modal">
+    <!-- Form sign in -->
+    <div id="sign-in-modal" class="modal">
         <form class="modal-content animate" action="/action_page.php" method="post">
             <div class="tittle-container">
                 <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
-                <p class="tittle-login">Log in</p>
+                <p class="tittle-login">Sign In</p>
             </div>
             <div class="container-login">
-                <input type="text" placeholder="Usename" name="email" required>
+                <input type="text" placeholder="Use name" name="email" required>
                 <input type="password" placeholder="Password" name="psw" required>
-                <div class="btnlogin"><button type="submit">Sign in</button></div>
+                <div class="btn-sign-in"><button type="submit">Sign in</button></div>
                 <div class="checked-psw">
                     <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember your password?
                     </label>
-                    <span class="fogot-psw"><a href="#">Forgot?</a></span>
+                    <span class="forgot-psw"><a href="#">Forgot?</a></span>
                 </div>
-                <div class="hoac">
+                <div class="or">
                     <p>OR</p>
                 </div>
-                <div class="signin-other">
+                <div class="sign-in-other">
                     <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
                     <div id="gg-login-button">
-                        <div id="customBtn" class="customGPlusSignIn">
+                        <div id="customBtn" class="customGPlusSignIn" >
                             <span class="icon"></span>
                             <span class="buttonText">Continue with Google</span>
                         </div>
@@ -139,26 +185,25 @@
             </div>
         </form>
     </div>
-    <!--Form Đăng ký-->
-    <div id="signup" class="modal">
+    <!--Form sign up-->
+    <div id="sign-up-modal" class="modal">
         <form class="modal-content animate" action="/action_page.php" method="GET">
             <div class="tittle-container">
                 <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
                 <p class="tittle-login">Sign up</p>
             </div>
-
             <div class="container-login">
-                <input type="text" placeholder="Usename" name="user-name" required>
+                <input type="text" placeholder="Use name" name="user-name" required>
                 <input type="text" placeholder="Email" name="email" required>
                 <input type="password" placeholder="Enter password" name="psw" required>
                 <input type="password" placeholder="Enter password again" name="replace-psw" required>
-                <div class="btnlogin">
+                <div class="btn-sign-in">
                     <button type="submit">Create</button>
                 </div>
-                <div class="hoac">
+                <div class="or">
                     <p>OR</p>
                 </div>
-                <div class="signin-other">
+                <div class="sign-in-other">
                     <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
                     <div id="gg-login-button">
                         <div id="customBtn" class="customGPlusSignIn">
@@ -173,13 +218,11 @@
 
     <!--Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/header-footer.js"></script>
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
-    <script src="./assets/js/apigg_apifb.js"></script>
+    <script src="./assets/js/api-gg-fb-login.js"></script>
     <div id="status"></div>
-
-
 
 
 </body>
