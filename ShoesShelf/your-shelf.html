@@ -128,15 +128,15 @@
                 <!-- menu navbar user -->
                 <div class="user-navbar">
                     <ul class="user-menu">
-                        <li class="sub-menu"><a href="" class="menu-item">YourShelf</a></li>
-                        <li class="sub-menu"><a href="" class="menu-item">New Shoes</a></li>
-                        <li class="sub-menu"><a href="" class="menu-item">Update</a></li>
-                        <li class="sub-menu"><a href="" class="menu-item">Wanna Rock</a></li>
+                        <li class="sub-menu"><a href="#your-shelf" class="menu-item">YourShelf</a></li>
+                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
+                        <li class="sub-menu"><a href="#update" class="menu-item">Update</a></li>
+                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" onclick="chooseContentShoes().contentWannaRock()">Wanna Rock</a></li>
                     </ul>
                 </div>
                 <!-- manager shoes of user -->
                 <div class="user-manager-shoes">
-                    <div class="user-new-shoes">
+                    <div class="user-new-shoes" id="user-new-shoes">
                         <!-- where img alter upload showup review -->
                         <div class="review-img-upload" id="review-img-upload">
                             <!-- <img src="" id="img-upload"> -->
@@ -170,6 +170,9 @@
                                 <button class="btn-post-status">Post</button>
                             </div>
                         </form>
+                    </div>
+                    <div class="user-wanner-rock" id="user-wanner-rock">
+                        
                     </div>
                 </div>
             </div>

@@ -1,3 +1,4 @@
+//upload and review images 
 uploadImages = () => {
 
     var imgUpload = document.getElementById('upload-img');
@@ -22,4 +23,18 @@ uploadImages = () => {
     else{
         document.getElementById('title-upload-img').style.display = 'none';
     }
+}
+//showup hidden content
+var chooseContentShoes = () => {
+    const newShoes = document.getElementById('user-new-shoes');
+    
+    return {
+        contentNewShoes: () => {
+            newShoes.style.display = 'block';
+        },
+
+        contentWannaRock: () => {
+            newShoes.style.display = 'none';
+        }
+    };
 }
