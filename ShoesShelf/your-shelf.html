@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/about-style.css?v=14022020">
+    <link rel="stylesheet" href="./assets/css/header-footer-style.css">
+    <link rel="stylesheet" href="./assets/css/your-shelf.css?v=12042020">
     <link rel="stylesheet" href="./assets/css/styles.min.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
-    <title>About ShoesShelf</title>
+    
+    <title>Your Shelf</title>
 </head>
 
 <body>
@@ -112,20 +114,64 @@
                 </div>
             </nav>
         </header>
-        <div class="content-ab">
-            <div class="About-us">
-
-            </div>
-            <div class="content-us">
-                <h3>ABOUT US</h3><br>
-                <p>Founded in 2020 by N09-Team, ShoesShelf is a blog website established in current sneaker's culture.</p>
-                <p>Delving deeply into purist desire and dream about a community for sneaker head all over the world.</p>
-                <P>Design for those who love shoes and want to sharing love, experience and stories with us.</P>
-                <p>From just a pair of shoes, we connect and link brands together to build up a new lifestyle</p>
-                <p>of Vietnamese's young generation!</p>
-            </div>
-            <div class="about-us-img">
-                <img class="ct-img" src="./assets/images/undraw_web_developer_p3e5.png">
+        <div class="content">
+            <div class="content-user">
+                <!-- content include name user and avatar user -->
+                <div class="user-container">
+                    <div class="user-avatar">
+                        <img src="" id="user-img" class="user-img">
+                    </div>
+                    <div class="user-name-container">
+                        <p id="user-name" class="user-name">name-user</p>
+                    </div>
+                </div>
+                <!-- menu navbar user -->
+                <div class="user-navbar">
+                    <ul class="user-menu">
+                        <li class="sub-menu"><a href="" class="menu-item">YourShelf</a></li>
+                        <li class="sub-menu"><a href="" class="menu-item">New Shoes</a></li>
+                        <li class="sub-menu"><a href="" class="menu-item">Update</a></li>
+                        <li class="sub-menu"><a href="" class="menu-item">Wanna Rock</a></li>
+                    </ul>
+                </div>
+                <!-- manager shoes of user -->
+                <div class="user-manager-shoes">
+                    <div class="user-new-shoes">
+                        <!-- where img alter upload showup review -->
+                        <div class="review-img-upload" id="review-img-upload">
+                            <!-- <img src="" id="img-upload"> -->
+                        </div>
+                        <!-- form contain button upload image -->
+                        <form action="">
+                            <div class="container-upload-img">
+                                <label for="upload-img" class="btn-upload-img" >+</label>
+                                <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
+                                <input type="file" name="img" accept="image/*" id="upload-img" onchange="uploadImages()" multiple >
+                            </div>
+                            <div class="container-editor">
+                                <textarea name="status" id="share-exp" placeholder="Your experiences..." ></textarea>
+                            </div>
+                            <div class="container-choose-more">
+                                <select name="brands" class="brands" id="brands">
+                                    <option selected hidden style="font-weight: bold;">Brands</option>
+                                    <option value="vans">Vans</option>
+                                    <option value="adidas">Adidas</option>
+                                    <option value="nike">Nike</option>
+                                </select>
+                                <select name="collections" id="collections" class="collections">
+                                    <option selected hidden style="font-weight: bold;" >Collections</option>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                </select>
+                                <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag">
+                            </div>
+                            <div class="container-btn-post">
+                                <button class="btn-post-status">Post</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
         <footer>
@@ -224,15 +270,18 @@
         </form>
     </div>
 
-
     <!--Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/header-footer.js"></script>
-
+    <script src="./assets/js/your-shelf.js"></script>
+    
+    
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
     <script src="./assets/js/api-gg-fb-login.js"></script>
     <div id="status"></div>
+
+
 </body>
 
 </html>

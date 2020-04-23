@@ -89,16 +89,22 @@ const showUpSignInComplete = () => {
 }
 //show information user about avatar, name...
 const showUser = function() {
+    const userName = document.getElementsByClassName('user-name');
+    const userAvatar = document.getElementsByClassName('user-img');
     if (statusLogin === 1) {
         FB.api('/me?fields=name,picture.type(large),email', function(user_data) {
-            document.getElementById('user-name').innerHTML = user_data.name;
-            document.getElementById('user-img').src = user_data.picture.data.url;
+            for(let i = 0; i < userName.length; ++i){
+                userName[i].innerHTML = user_data.name;
+                userAvatar[i].src = user_data.picture.data.url;
+            }
         })
         console.log('login fb');
     } else if (statusLogin === 0) {
         var auth2 = gapi.auth2.getAuthInstance();
-        document.getElementById('user-name').innerHTML = auth2.currentUser.get().getBasicProfile().getName();
-        document.getElementById('user-img').src = auth2.currentUser.get().getBasicProfile().getImageUrl();
+        for(let i = 0; i < userName.length; ++i){
+            userName[i].innerHTML = auth2.currentUser.get().getBasicProfile().getName();
+            userAvatar[i].src = auth2.currentUser.get().getBasicProfile().getImageUrl();
+        }
     } else {
         console.log('no login');
     }
@@ -124,5 +130,6 @@ const logoutComplete = () =>{
 
     document.getElementById('navbar-right').style.display = 'flex';
     console.log('Log out Complete');
+    window.location = "https://shoesshelf.com/";
     statusLogin = -1;
 }
