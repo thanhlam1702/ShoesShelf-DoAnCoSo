@@ -43,11 +43,11 @@
             box-shadow: 0px 0px 24px 0 rgba(0,0,0,1);
     //container include  
     .user-name-container
+        padding:  
+            left: 40px
         .user-name
             font-size: 40px
             color: white
-            margin: 
-                left: 40px
 //navbar user include yourshelf, new shoes, update, wanna rock
 .user-navbar
     width: 100%
@@ -89,21 +89,23 @@
 .user-manager-shoes
     width: 100%
     margin: auto
-    height: auto
-    padding: 
-        left: 80px
-        right: 80px
-        bottom: 24px
-    .user-new-shoes
+    height: auto      
      //img review after upload
     .review-img-upload
         height: 80px
         display: inline
         #img-upload
-            box-shadow: 4px 4px 16px 0 rgba(0,0,0,1);
+            box-shadow: 4px 4px 16px 0 rgba(0,0,0,1)
             max-height: 80px
             margin:
-                right: 8px    
+                right: 8px
+    .user-new-shoes
+        padding: 24px 80px 24px 80px
+    //content user wanna rock
+    .user-wanna-rock
+        display: none
+        flex-flow: row wrap
+        height: auto
     //form contain button upload image
     form
     //container contain button upload file 
@@ -120,7 +122,7 @@
             font-family: none
             height: 56px
             width: 56px
-            background-color: gray
+            background-image: linear-gradient(to top left, #ff8a00, #e52e71) !important;
             cursor: pointer
             font-size: 40px
             box-shadow: 4px 4px 24px 0 rgba(0,0,0,1);
@@ -168,9 +170,9 @@
 //chose brands, collections, hashtag
 .container-choose-more
     display: flex
-    justify-content: space-between
+    justify-content: space-around
     align-items: center
-    width: 720px
+    width: 100%
     margin:    
         top: 24px
         bottom: 24px
@@ -190,4 +192,38 @@
             left: 24px 
         outline: none
         @include box_shadow_user()
-    
+.user-wanna-rock
+    width: 100%
+    height: 500px
+    justify-content: space-between
+    //card contain images and name, hashtag of post
+    .card-posts
+        width: 256px
+        height: 320px
+        padding: 16px
+        cursor: pointer
+        margin: 
+            bottom: 32px
+        border: 
+            radius: 8px
+        box-shadow: 0 4px 80px #070509
+        background-color: rgba(32,28,41,.75)
+    //container contain images
+    .card-container-img
+        width: 100%
+        height: 88%
+        .card-img
+            width: 100%
+            height: auto
+            max-height: 100%
+    //contain name, hashtag
+    .card-container-title
+        width: 100%
+        height: 12%
+        margin-top: 8px
+        padding: 
+            left: 8px
+            right: 8px
+        .card-title
+            color: white
+            font-size: 14px

@@ -48,10 +48,13 @@
           box-shadow: 0px 0px 24px 0 black;
 }
 
+.user-container .user-name-container {
+  padding-left: 40px;
+}
+
 .user-container .user-name-container .user-name {
   font-size: 40px;
   color: white;
-  margin-left: 40px;
 }
 
 .user-navbar {
@@ -109,9 +112,6 @@
   width: 100%;
   margin: auto;
   height: auto;
-  padding-left: 80px;
-  padding-right: 80px;
-  padding-bottom: 24px;
 }
 
 .user-manager-shoes .review-img-upload {
@@ -124,6 +124,19 @@
           box-shadow: 4px 4px 16px 0 black;
   max-height: 80px;
   margin-right: 8px;
+}
+
+.user-manager-shoes .user-new-shoes {
+  padding: 24px 80px 24px 80px;
+}
+
+.user-manager-shoes .user-wanna-rock {
+  display: none;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  height: auto;
 }
 
 .user-manager-shoes .container-upload-img {
@@ -150,7 +163,8 @@
   font-family: none;
   height: 56px;
   width: 56px;
-  background-color: gray;
+  background-image: -webkit-gradient(linear, right bottom, left top, from(#ff8a00), to(#e52e71)) !important;
+  background-image: linear-gradient(to top left, #ff8a00, #e52e71) !important;
   cursor: pointer;
   font-size: 40px;
   -webkit-box-shadow: 4px 4px 24px 0 black;
@@ -222,13 +236,12 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 720px;
+  width: 100%;
   margin-top: 24px;
   margin-bottom: 24px;
 }
@@ -251,4 +264,48 @@
   outline: none;
   -webkit-box-shadow: 4px 4px 16px 0 black;
           box-shadow: 4px 4px 16px 0 black;
+}
+
+.user-wanna-rock {
+  width: 100%;
+  height: 500px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.user-wanna-rock .card-posts {
+  width: 256px;
+  height: 320px;
+  padding: 16px;
+  cursor: pointer;
+  margin-bottom: 32px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 4px 80px #070509;
+          box-shadow: 0 4px 80px #070509;
+  background-color: rgba(32, 28, 41, 0.75);
+}
+
+.user-wanna-rock .card-container-img {
+  width: 100%;
+  height: 88%;
+}
+
+.user-wanna-rock .card-container-img .card-img {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+}
+
+.user-wanna-rock .card-container-title {
+  width: 100%;
+  height: 12%;
+  margin-top: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.user-wanna-rock .card-container-title .card-title {
+  color: white;
+  font-size: 14px;
 }
