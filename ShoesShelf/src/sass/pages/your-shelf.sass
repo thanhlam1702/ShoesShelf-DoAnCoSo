@@ -61,6 +61,8 @@
         align-items: center
     .sub-menu
         //item of menu user
+        #btn-your-shelf
+            color: white
         .menu-item
             color: #4a525c
             text-decoration: none
@@ -92,20 +94,31 @@
     height: auto      
      //img review after upload
     .review-img-upload
-        height: 80px
-        display: inline
-        #img-upload
+        height: auto
+        display: flex
+        flex-flow: row wrap //flex-decoration and flex-wrap
+        align-items: center
+        .img-upload
             box-shadow: 4px 4px 16px 0 rgba(0,0,0,1)
-            max-height: 80px
+            max-height: 200px
             margin:
-                right: 8px
+                right: 16px
+                bottom: 16px
     .user-new-shoes
         padding: 24px 80px 24px 80px
+        display: none
+    //content your shelf
+    .user-your-shelf
+        display: flex
+        flex-flow: row wrap
+        width: 100%
+        height: auto
     //content user wanna rock
     .user-wanna-rock
         display: none
         flex-flow: row wrap
         height: auto
+        width: 100%
     //form contain button upload image
     form
     //container contain button upload file 
@@ -113,8 +126,6 @@
         display: flex
         align-items: center
         position: relative
-        padding:   
-            left: 80px
         .btn-upload-img
             display: flex
             justify-content: center
@@ -192,18 +203,50 @@
             left: 24px 
         outline: none
         @include box_shadow_user()
+//content your shelf in show posts of user
+.user-your-shelf
+    .cards-posts
+        width: 256px
+        height: 320px
+        cursor: pointer
+        margin: 
+            bottom: 32px
+            left: 30.65px
+            right: 30.65px
+        background-color: rgba(32,28,41,.75)
+    .card-container-img
+        width: 100%
+        height: 88%
+        .card-img
+            width: 100%
+            height: auto
+            max-height: 100%
+    .card-container-content
+        width: 100%
+        height: 12%
+        margin-top: 8px
+        padding: 
+            left: 8px
+            right: 8px
+        .card-short-content
+            color: white
+            font-size: 14px
+            width: 100%
+            height: 100%
+            text-overflow: ellipsis
+            white-space: nowrap
+            overflow: hidden
 .user-wanna-rock
-    width: 100%
-    height: 500px
-    justify-content: space-between
     //card contain images and name, hashtag of post
-    .card-posts
+    .card-wanna-rock
         width: 256px
         height: 320px
         padding: 16px
         cursor: pointer
         margin: 
             bottom: 32px
+            left: 30.65px
+            right: 30.65px
         border: 
             radius: 8px
         box-shadow: 0 4px 80px #070509

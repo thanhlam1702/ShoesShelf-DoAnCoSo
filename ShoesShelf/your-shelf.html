@@ -128,23 +128,43 @@
                 <!-- menu navbar user -->
                 <div class="user-navbar">
                     <ul class="user-menu">
-                        <li class="sub-menu"><a href="#your-shelf" class="menu-item">YourShelf</a></li>
-                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
-                        <li class="sub-menu"><a href="#update" class="menu-item">Update</a></li>
-                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" onclick="chooseContentShoes().contentWannaRock()">Wanna Rock</a></li>
+                        <li class="sub-menu"><a href="#your-shelf" class="menu-item" id="btn-your-shelf" onclick="chooseContentShoes().contentYourShelf()">YourShelf</a></li>
+                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes" onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
+                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update" onclick="chooseContentShoes().contentUserUpdate()">Update</a></li>
+                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" id="btn-wanna-rock" onclick="chooseContentShoes().contentWannaRock()">Wanna Rock</a></li>
                     </ul>
                 </div>
                 <!-- manager shoes of user -->
                 <div class="user-manager-shoes">
+                    <!-- content your shelf -->
+                    <ul class="user-your-shelf" id="user-your-shelf">
+                        <!-- card of images, short content of a post -->
+                        <li class="cards-posts">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test1.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-content">
+                                <p class="card-short-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, hic. Harum necessitatibus, minima inventore consequatur numquam atque libero ipsam quis. Atque ad voluptatem earum ex id corporis quisquam. Saepe, magni!</p>
+                            </div>
+                        </li>
+                        <li class="cards-posts">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test1.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-content">
+                                <p class="card-short-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste dolor quas eius sit magnam cumque! Deserunt in cupiditate culpa illum doloribus iusto autem reprehenderit magni optio, expedita sapiente possimus eaque.</p>
+                            </div>
+                        </li>
+                    </ul>
                     <div class="user-new-shoes" id="user-new-shoes">
-                        <!-- where img alter upload showup review -->
-                        <div class="review-img-upload" id="review-img-upload">
-                            <!-- <img src="" id="img-upload"> -->
-                        </div>
                         <!-- form contain button upload image -->
                         <form action="">
                             <div class="container-upload-img">
-                                <label for="upload-img" class="btn-upload-img" >+</label>
+                                <!-- where img alter upload showup review -->
+                                <div class="review-img-upload" id="review-img-upload">
+                                    <!-- <img src="" id="img-upload"> -->
+                                    <label for="upload-img" class="btn-upload-img" >+</label>
+                                </div>
                                 <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
                                 <input type="file" name="img" accept="image/*" id="upload-img" onchange="uploadImages()" multiple >
                             </div>
@@ -171,9 +191,12 @@
                             </div>
                         </form>
                     </div>
-                    <ul class="user-wanna-rock" id="user-wanner-rock">
+                    <div class="user-update" id="user-update">
+
+                    </div>
+                    <ul class="user-wanna-rock" id="user-wanna-rock">
                         <!-- card contain img and name hashtag of post -->
-                        <li class="card-posts">
+                        <li class="card-wanna-rock">
                             <div class="card-container-img">
                                 <img src="./assets/images/test1.jpg" alt="" class="card-img">
                             </div>
@@ -182,7 +205,7 @@
                             </div>
                         </li>
 
-                        <li class="card-posts">
+                        <li class="card-wanna-rock">
                             <div class="card-container-img">
                                 <img src="./assets/images/test2.jpg" alt="" class="card-img">
                             </div>
@@ -191,7 +214,7 @@
                             </div>
                         </li>
 
-                        <li class="card-posts">
+                        <li class="card-wanna-rock">
                             <div class="card-container-img">
                                 <img src="./assets/images/test1.jpg" alt="" class="card-img">
                             </div>
@@ -200,7 +223,7 @@
                             </div>
                         </li>
 
-                        <li class="card-posts">
+                        <li class="card-wanna-rock">
                             <div class="card-container-img">
                                 <img src="./assets/images/test2.jpg" alt="" class="card-img">
                             </div>
