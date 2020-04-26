@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./assets/css/your-shelf.css?v=12042020">
     <link rel="stylesheet" href="./assets/css/styles.min.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
-    
+
     <title>Your Shelf</title>
 </head>
 
@@ -23,7 +23,7 @@
                         <div class="left-logo">
                             <img src="./assets/images/2.png" alt="Error" class="logo-img">
                         </div>
-                        <!--Menu hone, about, latest news-->
+                        <!--Menu home, about, latest news-->
                         <ul class="left-menu" id="left-menu">
                             <li class="left-sub-menu">
                                 <a href="" class="menu-item">Home</a>
@@ -41,7 +41,7 @@
                         <a href="/" class="img-logo"></a>
                     </div>
                     <div class="navbar-right" id="navbar-right">
-                         <!--Navbar right before sign in-->
+                        <!--Navbar right before sign in-->
                         <div class="right-menu">
                             <ul class="menu ">
                                 <li class="right-sub-menu">
@@ -108,7 +108,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
@@ -144,12 +144,12 @@
                         <!-- form contain button upload image -->
                         <form action="">
                             <div class="container-upload-img">
-                                <label for="upload-img" class="btn-upload-img" >+</label>
+                                <label for="upload-img" class="btn-upload-img">+</label>
                                 <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
-                                <input type="file" name="img" accept="image/*" id="upload-img" onchange="uploadImages()" multiple >
+                                <input type="file" name="img" accept="image/*" id="upload-img" onchange="uploadImages()" multiple>
                             </div>
                             <div class="container-editor">
-                                <textarea name="status" id="share-exp" placeholder="Your experiences..." ></textarea>
+                                <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea>
                             </div>
                             <div class="container-choose-more">
                                 <select name="brands" class="brands" id="brands">
@@ -157,13 +157,12 @@
                                     <option value="vans">Vans</option>
                                     <option value="adidas">Adidas</option>
                                     <option value="nike">Nike</option>
+                                    <option value="nike">Reebok</option>
+                                    <option value="nike">Converse</option>
+                                    <option value="nike">Puma</option>
+                                    <option value="nike">Orther</option>
                                 </select>
-                                <select name="collections" id="collections" class="collections">
-                                    <option selected hidden style="font-weight: bold;" >Collections</option>
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                </select>
+                                <input type="text" name="hashtag" placeholder="Collections" class="collections">
                                 <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag">
                             </div>
                             <div class="container-btn-post">
@@ -178,7 +177,7 @@
                                 <img src="./assets/images/test1.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-title">
-                                <p class="card-title">#Nike Tình một đêm</p>
+                                <p class="card-title">#Adidas #superStar #3trips</p>
                             </div>
                         </li>
 
@@ -187,25 +186,25 @@
                                 <img src="./assets/images/test2.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-title">
-                                <p class="card-title">#Adidas Chim cô đơn</p>
+                                <p class="card-title">#Converse #cdg #commeDesgarcons #black</p>
                             </div>
                         </li>
 
                         <li class="card-posts">
                             <div class="card-container-img">
-                                <img src="./assets/images/test1.jpg" alt="" class="card-img">
+                                <img src="./assets/images/test3.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-title">
-                                <p class="card-title">#Vans Cổ điển</p>
+                                <p class="card-title">#Converse #cdg #commeDesgarcons #white</p>
                             </div>
                         </li>
 
                         <li class="card-posts">
                             <div class="card-container-img">
-                                <img src="./assets/images/test2.jpg" alt="" class="card-img">
+                                <img src="./assets/images/test4.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-title">
-                                <p class="card-title">#Convert Classis</p>
+                                <p class="card-title">#adidas #stansmith</p>
                             </div>
                         </li>
 
@@ -269,7 +268,7 @@
                 <div class="sign-in-other">
                     <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
                     <div id="gg-login-button">
-                        <div id="customBtn" class="customGPlusSignIn" >
+                        <div id="customBtn" class="customGPlusSignIn">
                             <span class="icon"></span>
                             <span class="buttonText">Continue with Google</span>
                         </div>
@@ -313,8 +312,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/header-footer.js"></script>
     <script src="./assets/js/your-shelf.js"></script>
-    
-    
+
+
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
     <script src="./assets/js/api-gg-fb-login.js"></script>
