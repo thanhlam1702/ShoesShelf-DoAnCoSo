@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/header-footer-style.css">
-    <link rel="stylesheet" href="./assets/css/your-shelf.css?v=12042020">
-    <link rel="stylesheet" href="./assets/css/styles.min.css">
+    <link rel="stylesheet" href="library/fontawesome-free-5.11.2-web/css/all.min.css">
+    <link rel="stylesheet" href="css/header-footer-style.css">
+    <link rel="stylesheet" href="css/your-shelf.css?v=12042020">
+    <link rel="stylesheet" href="css/styles.min.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
     
     <title>Your Shelf</title>
@@ -21,7 +21,7 @@
                     <!--Navbar left -->
                     <div class="navbar-left">
                         <div class="left-logo">
-                            <img src="./assets/images/2.png" alt="Error" class="logo-img">
+                            <img src="images/2.png" alt="Error" class="logo-img">
                         </div>
                         <!--Menu hone, about, latest news-->
                         <ul class="left-menu" id="left-menu">
@@ -142,7 +142,7 @@
                             <!-- <img src="" id="img-upload"> -->
                         </div>
                         <!-- form contain button upload image -->
-                        <form action="">
+                        <form method="POST" onsubmit="return doPost(this);">
                             <div class="container-upload-img">
                                 <label for="upload-img" class="btn-upload-img" >+</label>
                                 <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
@@ -167,7 +167,7 @@
                                 <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag">
                             </div>
                             <div class="container-btn-post">
-                                <button class="btn-post-status">Post</button>
+                                <input type="submit" class="btn-post-status" value="Post" />
                             </div>
                         </form>
                     </div>
@@ -175,7 +175,7 @@
                         <!-- card contain img and name hashtag of post -->
                         <li class="card-posts">
                             <div class="card-container-img">
-                                <img src="./assets/images/test1.jpg" alt="" class="card-img">
+                                <img src="images/test1.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-title">
                                 <p class="card-title">#Nike Tình một đêm</p>
@@ -184,7 +184,7 @@
 
                         <li class="card-posts">
                             <div class="card-container-img">
-                                <img src="./assets/images/test2.jpg" alt="" class="card-img">
+                                <img src="images/test2.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-title">
                                 <p class="card-title">#Adidas Chim cô đơn</p>
@@ -193,7 +193,7 @@
 
                         <li class="card-posts">
                             <div class="card-container-img">
-                                <img src="./assets/images/test1.jpg" alt="" class="card-img">
+                                <img src="images/test1.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-title">
                                 <p class="card-title">#Vans Cổ điển</p>
@@ -202,7 +202,7 @@
 
                         <li class="card-posts">
                             <div class="card-container-img">
-                                <img src="./assets/images/test2.jpg" alt="" class="card-img">
+                                <img src="images/test2.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-title">
                                 <p class="card-title">#Convert Classis</p>
@@ -311,14 +311,28 @@
 
     <!--Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./assets/js/header-footer.js"></script>
-    <script src="./assets/js/your-shelf.js"></script>
+    <script src="js/header-footer.js"></script>
+    <script src="js/your-shelf.js"></script>
     
     
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
-    <script src="./assets/js/api-gg-fb-login.js"></script>
+    <script src="js/api-gg-fb-login.js"></script>
     <div id="status"></div>
+
+    <script>
+        function doPost(form) {
+            $.ajax({
+                url:"/do-post",
+                method: "POST",
+                data: {status: form.status.value},
+                success: function(response){
+                    alert(response);
+                }
+            });
+            return false;
+        }
+    </script>
 
 
 </body>

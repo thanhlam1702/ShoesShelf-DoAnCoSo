@@ -12,6 +12,8 @@ router.get('/', (req,res) => res.render('index'));
 
 router.get('/About.html',(req,res) => res.render('About'));
 
+router.get('/your-shelf',(req,res) => res.render('your-shelf'));
+
 
 //Login handle
 router.post('/login',(req,res,next) => {

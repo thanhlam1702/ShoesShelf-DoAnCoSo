@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
+const bodyParser =require('body-parser');
 
 const app = express();
 //Passport config
@@ -50,6 +51,22 @@ app.use('/users',require('./routes/users'));
 
 //static files
 app.use(express.static('./assets'));
+
+// SS blog post
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+
+var MongoClient = require("mongodb").MongoClient;
+MongoClient.connect(db, { userNewUrlParser: true}, function(error,client){
+    var blog = client.db("blog");
+    console.log("DB connect");
+
+    app.post("/your-shelf",function(req,res){
+        blog.collection("blog").insertOne(req.body, function(error,documet){
+            res.render('your-shelf');
+        });
+    });
+});
 
 const PORT = process.env.PORT || 4444;
 
