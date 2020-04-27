@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="library/fontawesome-free-5.11.2-web/css/all.min.css">
-    <link rel="stylesheet" href="css/about-style.css">
-    <title>About ShoesShelf</title>
+    <link rel="stylesheet" href="./assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
+    <link rel="stylesheet" href="./assets/css/header-footer-style.css">
+    <link rel="stylesheet" href="./assets/css/your-shelf.css?v=12042020">
+    <link rel="stylesheet" href="./assets/css/styles.min.css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    
+    <title>Your Shelf</title>
 </head>
 
 <body>
@@ -15,9 +19,9 @@
             <nav class="navbar">
                 <div class="nav-bar">
                     <!--Navbar left -->
-                    <div class="left">
-                        <div class="logo-text">
-                            <img src="images/2.png" alt="Error">
+                    <div class="navbar-left">
+                        <div class="left-logo">
+                            <img src="./assets/images/2.png" alt="Error" class="logo-img">
                         </div>
                         <!--Menu hone, about, latest news-->
                         <ul class="left-menu" id="left-menu">
@@ -33,10 +37,8 @@
                         </ul>
                     </div>
                     <!--Navbar middle-->
-                    <div class="middle">
-                        <div class="img-logo">
-                            <a href="./index.html"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="images/LogoSS-2-xam.png" alt="Error"></a>
-                        </div>
+                    <div class="navbar-middle">
+                        <a href="/" class="img-logo"></a>
                     </div>
                     <div class="navbar-right" id="navbar-right">
                          <!--Navbar right before sign in-->
@@ -112,36 +114,103 @@
                 </div>
             </nav>
         </header>
-        <div class="content-ab">
-            <div class="About-us">
-
-            <div class="content-ab">
-                <div class="About-us">
-
+        <div class="content">
+            <div class="content-user">
+                <!-- content include name user and avatar user -->
+                <div class="user-container">
+                    <div class="user-avatar">
+                        <img src="" id="user-img" class="user-img">
+                    </div>
+                    <div class="user-name-container">
+                        <p id="user-name" class="user-name">name-user</p>
+                    </div>
                 </div>
-                <div class="content-us">
-                    <h3>ABOUT US</h3><br>
-                    <p>Founded in 2020 by N09-Team, ShoesShelf is a blog website established in current sneaker's culture.</p>
-                    <p>Delving deeply into purist desire and dream about a community for sneaker head all over the world.</p>
-                    <P>Design for those who love shoes and want to sharing love, experience and stories with us.</P>
-                    <p>From just a pair of shoes, we connect and link brands together to build up a new lifestyle</p>
-                    <p>of Vietnamese's young generation!</p>
+                <!-- menu navbar user -->
+                <div class="user-navbar">
+                    <ul class="user-menu">
+                        <li class="sub-menu"><a href="#your-shelf" class="menu-item">YourShelf</a></li>
+                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
+                        <li class="sub-menu"><a href="#update" class="menu-item">Update</a></li>
+                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" onclick="chooseContentShoes().contentWannaRock()">Wanna Rock</a></li>
+                    </ul>
                 </div>
-                <div class="about-us-img">
-                    <img class="ct-img" src="images/undraw_web_developer_p3e5.png">
+                <!-- manager shoes of user -->
+                <div class="user-manager-shoes">
+                    <div class="user-new-shoes" id="user-new-shoes">
+                        <!-- where img alter upload showup review -->
+                        <div class="review-img-upload" id="review-img-upload">
+                            <!-- <img src="" id="img-upload"> -->
+                        </div>
+                        <!-- form contain button upload image -->
+                        <form action="">
+                            <div class="container-upload-img">
+                                <label for="upload-img" class="btn-upload-img" >+</label>
+                                <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
+                                <input type="file" name="img" accept="image/*" id="upload-img" onchange="uploadImages()" multiple >
+                            </div>
+                            <div class="container-editor">
+                                <textarea name="status" id="share-exp" placeholder="Your experiences..." ></textarea>
+                            </div>
+                            <div class="container-choose-more">
+                                <select name="brands" class="brands" id="brands">
+                                    <option selected hidden style="font-weight: bold;">Brands</option>
+                                    <option value="vans">Vans</option>
+                                    <option value="adidas">Adidas</option>
+                                    <option value="nike">Nike</option>
+                                </select>
+                                <select name="collections" id="collections" class="collections">
+                                    <option selected hidden style="font-weight: bold;" >Collections</option>
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                </select>
+                                <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag">
+                            </div>
+                            <div class="container-btn-post">
+                                <button class="btn-post-status">Post</button>
+                            </div>
+                        </form>
+                    </div>
+                    <ul class="user-wanna-rock" id="user-wanner-rock">
+                        <!-- card contain img and name hashtag of post -->
+                        <li class="card-posts">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test1.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-title">
+                                <p class="card-title">#Nike Tình một đêm</p>
+                            </div>
+                        </li>
 
+                        <li class="card-posts">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test2.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-title">
+                                <p class="card-title">#Adidas Chim cô đơn</p>
+                            </div>
+                        </li>
+
+                        <li class="card-posts">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test1.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-title">
+                                <p class="card-title">#Vans Cổ điển</p>
+                            </div>
+                        </li>
+
+                        <li class="card-posts">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test2.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-title">
+                                <p class="card-title">#Convert Classis</p>
+                            </div>
+                        </li>
+
+                    </ul>
                 </div>
-            </div>
-            <div class="content-us">
-                <h3>ABOUT US</h3><br>
-                <p>Founded in 2020 by N09-Team, ShoesShelf is a blog website established in current sneaker's culture.</p>
-                <p>Delving deeply into purist desire and dream about a community for sneaker head all over the world.</p>
-                <P>Design for those who love shoes and want to sharing love, experience and stories with us.</P>
-                <p>From just a pair of shoes, we connect and link brands together to build up a new lifestyle</p>
-                <p>of Vietnamese's young generation!</p>
-            </div>
-            <div class="about-us-img">
-                <img class="ct-img" src="./assets/images/undraw_web_developer_p3e5.png">
             </div>
         </div>
         <footer>
@@ -237,9 +306,21 @@
                     </div>
                 </div>
             </div>
-            <!--Script-->
-            <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-            <script src="js/script.js"></script>
+        </form>
+    </div>
+
+    <!--Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./assets/js/header-footer.js"></script>
+    <script src="./assets/js/your-shelf.js"></script>
+    
+    
+    <!--JS api login facebook and google-->
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
+    <script src="./assets/js/api-gg-fb-login.js"></script>
+    <div id="status"></div>
+
+
 </body>
 
 </html>

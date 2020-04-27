@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="library/fontawesome-free-5.11.2-web/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=12042020">
     <link rel="stylesheet" href="css/styles.min.css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
     <title>Shoes Shelf</title>
 </head>
 
@@ -16,33 +17,96 @@
             <nav class="navbar">
                 <div class="nav-bar">
                     <!--Navbar left -->
-                    <div class="left">
-                        <div class="logo-text">
-                            <img src="images/2.png" alt="Error">
+                    <div class="navbar-left">
+                        <div class="left-logo">
+                            <img src="images/2.png" alt="Error" class="logo-img">
                         </div>
+                        <!--Menu hone, about, latest news-->
+                        <ul class="left-menu" id="left-menu">
+                            <li class="left-sub-menu">
+                                <a href="" class="menu-item">Home</a>
+                            </li>
+                            <li class="left-sub-menu">
+                                <a href="./about.html" class="menu-item">About us</a>
+                            </li>
+                            <li class="left-sub-menu">
+                                <a href="latest-news" class="menu-item">Latest news</a>
+                            </li>
+                        </ul>
                     </div>
                     <!--Navbar middle-->
-                    <div class="middle">
-                        <div class="img-logo">
-                            <a href="./index.html"><img id="imglogo" onmouseover="hoverImgOver();" onmouseout="hoverImgOut();" src="images/LogoSS-2-xam.png" alt="Error"></a>
-                        </div>
+                    <div class="navbar-middle">
+                        <a href="/" class="img-logo"></a>
                     </div>
-                    <!--Navbar right-->
-                    <div class="right">
+                    <div class="navbar-right" id="navbar-right">
+                         <!--Navbar right before sign in-->
                         <div class="right-menu">
                             <ul class="menu ">
-                                <li class="sub-menu"><a id="menu-bars" class="container-close makeCursor" title="Menu"><i class="fas fa-bars"></i></a></li>
-                                <li class="sub-menu hidden"><a href="./About.html">About Us</a></li>
-                                <li class="sub-menu hidden"><a id="btnSignin" class="btnSignin-up makeCursor" onclick="document.getElementById('signin').style.display='block'">Sign In</a></li>
-                                <li class="sub-menu hidden"><a id="btnSignup" class="btnSignin-up makeCursor Signup" onclick="document.getElementById('signup').style.display='block'">Sign Up</a></li>
-                                <li id="toggle-close" class="sub-menu hidden"><a class="container-close close-menu makeCursor" title="Close menu"><i class="toogle close-menu fas fa-times"></i></a></li>
+                                <li class="right-sub-menu">
+                                    <a class="hidden-show-up-menu menu-bars menu-item" title="Menu">
+                                        <i class="fas fa-bars"></i>
+                                    </a>
+                                </li>
+                                <li class="right-sub-menu hidden">
+                                    <a href="./about.html" class="menu-item">About Us</a>
+                                </li>
+                                <li class="right-sub-menu hidden">
+                                    <a id="btn-sign-in" class="menu-item" onclick="showUpSignIn()">Login</a>
+                                </li>
+                                <li class="right-sub-menu hidden">
+                                    <a id="btn-sign-up" class="menu-item" onclick="showUpSignUp()">Register</a>
+                                </li>
+                                <li class="right-sub-menu hidden">
+                                    <a class="hidden-show-up-menu close-menu menu-item" title="Close menu">
+                                        <i class="fas fa-times"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                         <div class="right-search">
-                            <form action="" class="search_form">
+                            <form action="" class="search-form">
                                 <input type="text" name="search" placeholder="Search anything you want...">
-                                <button class="btn_search"><i class="fas fa-search"></i></button>
+                                <button class="btn-search">
+                                    <i class="fas fa-search"></i>
+                                </button>
                             </form>
+                        </div>
+                    </div>
+                    <!--Navbar right after sign in-->
+                    <div class="navbar-right-user" id="navbar-right-user">
+                        <!--search-->
+                        <div class="right-search">
+                            <form action="" class="search-form">
+                                <input type="text" name="search" placeholder="Search anything you want...">
+                                <button class="btn-search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <!--showup user after user sign in complete-->
+                        <div id="user" class="user">
+                            <div class="user-avatar">
+                                <img src="" id="user-img" class="user-img">
+                                <ul class="user-menu" id="user-menu" style="display: none;">
+                                    <li class="user-menu-item">
+                                        <div class="user-name-container">
+                                            <p id="user-name" class="user-name">Name_User</p>
+                                        </div>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <a href="/your-shelf">YourShelf</a>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <a href="account-setting">Account setting</a>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <div class="user-logout">
+                                            <a href="/" onclick="logout()">Log out</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -54,7 +118,6 @@
             </div>
         </header>
         <div class="content">
-
         </div>
         <footer>
             <div class="footer-container">
@@ -91,11 +154,11 @@
         </footer>
     </div>
     <!-- Form Đăng nhập -->
-    <div id="signin" class="modal">
+    <div id="sign-in-modal" class="modal">
         <form class="modal-content animate" action="/login" method="POST">
             <div class="tittle-container">
-                <span onclick="document.getElementById('signin').style.display='none'" class="close" title="Close">&times;</span>
-                <p class="tittle-login">Sign in</p>
+                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
+                <p class="tittle-login">Login</p>
             </div>
             <div class="container-login">
                 <input type="text" placeholder="Usename" name="email" required>
@@ -105,27 +168,31 @@
                     <label>
                         <input type="checkbox" checked="checked" name="remember"> Remember your password?
                     </label>
-                    <span class="fogot-psw"><a href="#">Forgot?</a></span>
+                    <span class="forgot-psw"><a href="#">Forgot?</a></span>
                 </div>
-                <div class="hoac">
+                <div class="or">
                     <p>OR</p>
                 </div>
-                <div class="signin-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false" ></div>
-                    <div><a href="#"><i class="fab fa-google-plus" style="color: #e6493b;" title="Đăng nhập với tài khoản google"></i></a></div>
+                <div class="sign-in-other">
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div id="gg-login-button">
+                        <div id="customBtn" class="customGPlusSignIn" >
+                            <span class="icon"></span>
+                            <span class="buttonText">Continue with Google</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
     <!--Form Đăng ký-->
-    <div id="signup" class="modal">
+    <div id="sign-up-modal" class="modal">
         <form name="f1" class="modal-content animate" action="/register"
         onsubmit="return matchpass() , lengthpass()" method="POST">
             <div class="tittle-container">
-                <span onclick="document.getElementById('signup').style.display='none'" class="close" title="Close">&times;</span>
-                <p class="tittle-login">Sign up</p>
+                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
+                <p class="tittle-login">Register</p>
             </div>
-
             <div class="container-login">
                 <input type="text" placeholder="Usename" name="name" id="name" required>
                 <input type="email" placeholder="Email" name="email" id="email" required>
@@ -135,54 +202,25 @@
                 <div class="hoac">
                     <p>OR</p>
                 </div>
-                <div class="signin-other">
-                    <a href="#"><i class="fab fa-facebook" style="color: #3c5995;" title="Đăng nhập với facebook"></i></a>
-                    <a href="#"><i class="fab fa-google-plus" style="color: #e6493b;" title="Đăng nhập với tài khoản google"></i></a>
+                <div class="sign-in-other">
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div id="gg-login-button">
+                        <div id="customBtn" class="customGPlusSignIn">
+                            <span class="icon"></span>
+                            <span class="buttonText">Continue with Google</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
-    
-    <!--Script-->
-    <!--scripts signin with facebook-->
-    <script>
 
-        function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
-          if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-            console.log('Sign in Complete!!');
-          }
-          else {                                 // Not logged into your webpage or we are unable to tell.
-            console.log('Not sign in');
-          }
-        }
-        
-        window.fbAsyncInit = function() {
-            FB.init({
-                appId      : '257459131957730',
-                cookie     : true,                     // Enable cookies to allow the server to access the session.
-                xfbml      : true,                     // Parse social plugins on this webpage.
-                version    : 'v6.0'           // Use this Graph API version for this call.
-            });
-      
-            FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
-                statusChangeCallback(response);        // Returns the login status.
-            });
-        };
-      
-        (function(d, s, id) {                      // Load the SDK asynchronously
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "https://connect.facebook.net/en_US/sdk.js";
-          fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        
-        function checkLoginState(){                   // Called when a person is finished with the Login Button.
-            FB.getLoginStatus(function(response) {   // See the onlogin handler
-            statusChangeCallback(response);
-            });
-        }
-    </script>
+    <!--Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="js/header-footer.js"></script>
+    <!--JS api login facebook and google-->
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
+    <script src="js/api-gg-fb-login.js"></script>
     <div id="status"></div>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script>

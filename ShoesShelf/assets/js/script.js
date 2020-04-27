@@ -1,35 +1,5 @@
 
-// Get the modal
-var modalSignin = document.getElementById('signin');
-var modalSignup = document.getElementById('signup');
-var btnSignin = document.getElementById('btnSignin');
-var btnSignup = document.getElementById('btnSignup');
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modalSignin || event.target == btnSignup) {
-        modalSignin.style.display = "none";
-    }
-    else if(event.target==modalSignup || event.target == btnSignin){
-        modalSignup.style.display = "none";
-    }
-}
-//---------------------------------------------------
-//script cua logo tron
-function hoverImgOver(){
-var imglogo=document.getElementById("imglogo");
-imglogo.src="./assets/images/LogoSS-2-den.png";
-}
-function  hoverImgOut(){
-var imglogo=document.getElementById("imglogo");
-imglogo.src="./assets/images/LogoSS-2-xam.png";
-}
-//---------------------------------------------
-$('.container-close').on('click', function () {
-    $('.menu').toggleClass('expanded');
-    $('.sub-menu').toggleClass('hidden');
-    $('.container-close , .toggle').toggleClass('close-menu');
-});
 // kiem tra mat khau trung nhau
 function matchpass(){  
 var firstpassword=document.f1.password.value;  
