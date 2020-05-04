@@ -12,13 +12,12 @@ router.get('/', (req,res) => res.render('index'));
 
 router.get('/About.html',(req,res) => res.render('About'));
 
-router.get('/your-shelf',(req,res) => res.render('your-shelf'));
-
+router.get('/home',(req,res) => res.render('home'));
 
 //Login handle
 router.post('/login',(req,res,next) => {
     passport.authenticate('local', {
-        successRedirect : '/main',
+        successRedirect : '/your-shelf',
         failureRedirect : '/users/login',
         failureflash: true
     })(req, res, next);
@@ -73,10 +72,8 @@ router.get('/logout',(req,res) => {
 });
 
 //Dashboard
-router.get('/main',ensureAuthenticated, (req,res) => 
-    res.render('main', {
-        name: req.user.name
-    })
+router.get('/',ensureAuthenticated, (req,res) => 
+    res.render('main', {name: req.user.name})
 );    
 
 module.exports = router;

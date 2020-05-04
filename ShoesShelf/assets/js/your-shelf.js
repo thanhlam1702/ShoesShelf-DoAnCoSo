@@ -11,7 +11,7 @@ uploadImages = () => {
 
         var reader = new FileReader();
 
-        reader.onload = function (e) {
+        reader.onload = function(e) {
             //create element HTML about:
             //tag "img" have id name "img-upload"
             //"src" = present result
@@ -36,12 +36,12 @@ uploadImages = () => {
 
     if (uploadImg.files.length == 0) {
         document.getElementById('title-upload-img').style.display = 'block';
-    }
-    else {
+    } else {
         document.getElementById('title-upload-img').style.display = 'none';
     }
 }
-//showup hidden content
+document.getElementById('btn-your-shelf').style.color = "white"
+    //showup hidden content
 var chooseContentShoes = () => {
     const userYourShelf = document.getElementById('user-your-shelf');
     const userNewShoes = document.getElementById('user-new-shoes');
@@ -61,32 +61,35 @@ var chooseContentShoes = () => {
             userNewShoes.style.display = userUpdate.style.display = userWannaRock.style.display = 'none';
             userYourShelf.style.display = 'flex';
 
-            btnUserNewShoes.style.color = btnUserUpdate.style.color = btnUserWannaRock.style.color = colorManagerUser;
             btnUserYourShelf.style.color = 'white';
+            btnUserNewShoes.style.color = btnUserUpdate.style.color = btnUserWannaRock.style.color = '';
         },
         //showup new shoes
         contentNewShoes: () => {
             userYourShelf.style.display = userUpdate.style.display = userWannaRock.style.display = 'none';
             userNewShoes.style.display = 'block';
 
-            btnUserYourShelf.style.color = btnUserUpdate.style.color = btnUserWannaRock.style.color = colorManagerUser;
             btnUserNewShoes.style.color = 'white';
+            btnUserYourShelf.style.color = btnUserUpdate.style.color = btnUserWannaRock.style.color = '';
+
         },
         //showup user update
         contentUserUpdate: () => {
             userYourShelf.style.display = userNewShoes.style.display = userWannaRock.style.display = 'none';
             userUpdate.style.display = 'block';
 
-            btnUserYourShelf.style.color = btnUserNewShoes.style.color = btnUserWannaRock.style.color = colorManagerUser;
             btnUserUpdate.style.color = 'white';
+            btnUserYourShelf.style.color = btnUserNewShoes.style.color = btnUserWannaRock.style.color = '';
+
         },
         //showup wanna rock
         contentWannaRock: () => {
             userYourShelf.style.display = userNewShoes.style.display = userUpdate.style.display = userWannaRock.style.display = 'none';
             userWannaRock.style.display = 'flex';
 
-            btnUserYourShelf.style.color = btnUserNewShoes.style.color = btnUserUpdate.style.color = colorManagerUser;
             btnUserWannaRock.style.color = 'white';
+            btnUserYourShelf.style.color = btnUserNewShoes.style.color = btnUserUpdate.style.color = '';
+
         }
     };
 }

@@ -3,10 +3,17 @@ const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
+const { ensureAuthenticated ,  forwardAuthenticated } = require('./config/auth');
 const passport = require('passport');
-const bodyParser =require('body-parser');
+var bodyParser =require("body-parser");
+var formidable = require('formidable');
+var fs = require('fs');
 
-const app = express();
+
+var app = express();
+
+app.use(bodyParser.urlencoded( {extended: true}));
+app.use(bodyParser.json());
 //Passport config
 require('./config/passport')(passport);
 
@@ -14,7 +21,7 @@ require('./config/passport')(passport);
 const db = require('./config/keys').MongoURI;
 
 //connect to Mongo
-mongoose.connect(db, { userNewUrlParser: true})
+mongoose.connect(db, { useNewUrlParser: true})
     .then(() => console.log('MongoDB connected....'))
     .catch(err => console.log(err));
 //EJS
@@ -53,17 +60,31 @@ app.use('/users',require('./routes/users'));
 app.use(express.static('./assets'));
 
 // SS blog post
-app.use(bodyParser.urlencoded());
-app.use(bodyParser.json());
 
 var MongoClient = require("mongodb").MongoClient;
-MongoClient.connect(db, { userNewUrlParser: true}, function(error,client){
+MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
     var blog = client.db("blog");
     console.log("DB connect");
+    app.get("/your-shelf",ensureAuthenticated ,(req,res) => {
+        blog.collection("posts").find().toArray(function(error,posts){
+            posts = posts.reverse();
+            res.render('your-shelf',{posts : posts,name: req.user.name});
+        })
+    });
+    app.post("/uppost",function(req,res){
+        blog.collection("posts").insertOne(req.body, function(error, document){
+            res.render("index");
+        });
+    });
+    app.post("/image", function(req,res){
+        var formDaTa = new formidable.IncomingForm();
+        formDaTa.parse(req, function (error, fields, files) {
+            var oldPath = files.file.path;
+            var newPath = "assets/images/userPost/" + files.file.name;
 
-    app.post("/your-shelf",function(req,res){
-        blog.collection("blog").insertOne(req.body, function(error,documet){
-            res.render('your-shelf');
+            fs.rename(oldPath, newPath, function(err) {
+                res.send("/" + newPath);
+            });
         });
     });
 });
