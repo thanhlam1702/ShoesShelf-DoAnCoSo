@@ -1,6 +1,8 @@
 //variable check user login facebook, google, account register, or not sign in
 var statusLogin = -1;
 
+initClient();
+
 //scripts sign in with facebook
 function statusChangeCallback(response) { // Called with the results from FB.getLoginStatus().
     if (response.status === 'connected') { // Logged into your webpage and Facebook.
@@ -9,7 +11,7 @@ function statusChangeCallback(response) { // Called with the results from FB.get
     }
 }
 
-window.fbAsyncInit = function() {
+window.fbAsyncInit = function () {
     FB.init({
         appId: '257459131957730',
         cookie: true, // Enable cookies to allow the server to access the session.
@@ -17,12 +19,12 @@ window.fbAsyncInit = function() {
         version: 'v6.0' // Use this Graph API version for this call.
     });
 
-    FB.getLoginStatus(function(response) { // Called after the JS SDK has been initialized.
+    FB.getLoginStatus(function (response) { // Called after the JS SDK has been initialized.
         statusChangeCallback(response); // Returns the login status.
     });
 };
 
-(function(d, s, id) { // Load the SDK asynchronously
+(function (d, s, id) { // Load the SDK asynchronously
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
     js = d.createElement(s);
@@ -32,14 +34,14 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 function checkLoginState() { // Called when a person is finished with the Login Button.
-    FB.getLoginStatus(function(response) { // See the onlogin handler
+    FB.getLoginStatus(function (response) { // See the onlogin handler
         statusChangeCallback(response);
     });
 }
 
 //Initializes the Sign-In client.
-const initClient = function() {
-    gapi.load('auth2', async function() {
+function initClient() {
+    gapi.load('auth2', async function () {
         //Retrieve the singleton for the GoogleAuth library and set up the
         //client.
         auth2 = await gapi.auth2.init({
@@ -63,36 +65,34 @@ const initClient = function() {
     });
 };
 //login complete
-const onSuccess = function() {
+function onSuccess() {
     statusLogin = 0;
     showUpSignInComplete();
 };
 
 // Handle sign-in failures.
-const onFailure = function(error) {
+function onFailure(error) {
     console.log(error);
 };
 
-initClient();
-
 //show layout after user login complete
-const showUpSignInComplete = () => {
-        document.getElementById('navbar-right-user').style.display = 'flex';
-        document.getElementById('left-menu').style.display = 'flex';
+function showUpSignInComplete() {
+    document.getElementById('navbar-right-user').style.display = 'flex';
+    document.getElementById('left-menu').style.display = 'flex';
 
-        document.getElementById('navbar-right').style.display = 'none';
-        document.getElementById('sign-in-modal').style.display = 'none';
-        document.getElementById('sign-up-modal').style.display = 'none';
+    document.getElementById('navbar-right').style.display = 'none';
+    document.getElementById('sign-in-modal').style.display = 'none';
+    document.getElementById('sign-up-modal').style.display = 'none';
 
-        showUser();
+    showUser();
 
-    }
-    //show information user about avatar, name...
-const showUser = function() {
+}
+//show information user about avatar, name...
+function showUser() {
     const userName = document.getElementsByClassName('user-name');
     const userAvatar = document.getElementsByClassName('user-img');
     if (statusLogin === 1) {
-        FB.api('/me?fields=name,picture.type(large),email', function(user_data) {
+        FB.api('/me?fields=name,picture.type(large),email', function (user_data) {
             for (let i = 0; i < userName.length; ++i) {
                 userName[i].innerHTML = user_data.name;
                 userAvatar[i].src = user_data.picture.data.url;
@@ -113,21 +113,21 @@ const showUser = function() {
 //logout facebook and google
 function logout() {
     if (statusLogin === 1) {
-        FB.logout(function(response) {})
+        FB.logout(function (response) { })
         logoutComplete();
     } else if (statusLogin === 0) {
         var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function() {});
+        auth2.signOut().then(function () { });
         logoutComplete();
     }
 }
 
-const logoutComplete = () => {
+function logoutComplete() {
     document.getElementById('navbar-right-user').style.display = 'none';
     document.getElementById('left-menu').style.display = 'none';
 
     document.getElementById('navbar-right').style.display = 'flex';
     console.log('Log out Complete');
-    window.location = "localhost:5502/index.html/";
+    window.location = "https://shoesshelf.com";
     statusLogin = -1;
 }

@@ -1,0 +1,75 @@
+<div class="user-new-shoes" id="user-new-shoes">
+    <!-- form contain button upload image -->
+    <form action="">
+        <div class="container-upload-img">
+            <!-- where img alter upload showup review -->
+            <div class="review-img-upload" id="review-img-upload">
+                <!-- <img src="" id="img-upload"> -->
+                <label for="upload-img" class="btn-upload-img" >+</label>
+            </div>
+            <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
+            <input type="file" name="img" accept="image/*" id="upload-img" onchange="uploadImages()" multiple>
+        </div>
+        <div class="container-editor">
+            <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea>
+        </div>
+        <div class="container-choose-more">
+            <select name="brands" class="brands" id="brands">
+                <option selected hidden style="font-weight: bold;">Brands</option>
+                <option value="vans">Vans</option>
+                <option value="adidas">Adidas</option>
+                <option value="nike">Nike</option>
+                <option value="nike">Reebok</option>
+                <option value="nike">Converse</option>
+                <option value="nike">Puma</option>
+                <option value="nike">Orther</option>
+            </select>
+            <input type="text" name="collections" placeholder="Collections" class="collections">
+            <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag">
+        </div>
+        <div class="container-btn-post">
+            <button class="btn-post-status">Post</button>
+        </div>
+    </form>
+</div>
+<div class="user-update" id="user-update">
+
+</div>
+<ul class="user-wanna-rock" id="user-wanna-rock">
+    <!-- card contain img and name hashtag of post -->
+    <li class="card-wanna-rock">
+        <div class="card-container-img">
+            <img src="./assets/images/test1.jpg" alt="" class="card-img">
+        </div>
+        <div class="card-container-title">
+            <p class="card-title">#Adidas #superStar #3trips</p>
+        </div>
+    </li>
+
+    <li class="card-wanna-rock">
+        <div class="card-container-img">
+            <img src="./assets/images/test2.jpg" alt="" class="card-img">
+        </div>
+        <div class="card-container-title">
+            <p class="card-title">#Converse #cdg #commeDesgarcons #black</p>
+        </div>
+    </li>
+
+    <li class="card-wanna-rock">
+        <div class="card-container-img">
+            <img src="./assets/images/test3.jpg" alt="" class="card-img">
+        </div>
+        <div class="card-container-title">
+            <p class="card-title">#Converse #cdg #commeDesgarcons #white</p>
+        </div>
+    </li>
+
+    <li class="card-wanna-rock">
+        <div class="card-container-img">
+            <img src="./assets/images/test4.jpg" alt="" class="card-img">
+        </div>
+        <div class="card-container-title">
+            <p class="card-title">#adidas #stansmith</p>
+        </div>
+    </li>
+</ul>

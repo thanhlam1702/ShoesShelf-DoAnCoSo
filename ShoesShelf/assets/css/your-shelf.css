@@ -76,10 +76,6 @@
           align-items: center;
 }
 
-.user-navbar .sub-menu #btn-your-shelf {
-  color: white;
-}
-
 .user-navbar .sub-menu .menu-item {
   color: #4a525c;
   text-decoration: none;
@@ -141,7 +137,7 @@
 
 .user-manager-shoes .user-new-shoes {
   padding: 24px 80px 24px 80px;
-  display: none;
+  display: block;
 }
 
 .user-manager-shoes .user-your-shelf {
@@ -156,8 +152,14 @@
   height: auto;
 }
 
+.user-manager-shoes .user-update {
+  display: block;
+}
+
 .user-manager-shoes .user-wanna-rock {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
