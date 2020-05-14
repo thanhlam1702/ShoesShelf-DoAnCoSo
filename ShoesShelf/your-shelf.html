@@ -16,7 +16,7 @@
 <body>
     <div class="wrapper">
         <header>
-            <nav class="navbar">
+            <nav class="navbar" id="navbar">
                 <div class="nav-bar">
                     <!--Navbar left -->
                     <div class="navbar-left">
@@ -116,13 +116,14 @@
         <div class="content">
             <div class="content-user">
                 <!-- content include name user and avatar user -->
-                <div class="user-container">
+                <div class="user-container" id="user-container">
                     <div class="user-avatar">
                         <img src="" id="user-img" class="user-img">
                     </div>
                     <div class="user-name-container">
                         <p id="user-name" class="user-name">name-user</p>
                     </div>
+                    <button class="btn-edit-profile" onclick="modalEditProfileUser().showUpModal()">Edit profile</button>
                 </div>
                 <!-- menu navbar user -->
                 <div class="user-navbar">

@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
-    <link rel="stylesheet" href="./assets/css/styles.css?v=12042020">
-    <link rel="stylesheet" href="./assets/css/styles.min.css">
+    <link rel="stylesheet" href="/assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/styles.css?v=12042020">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
     <title>Shoes Shelf</title>
 </head>
@@ -14,12 +15,12 @@
 <body>
     <div class="wrapper">
         <header>
-            <nav class="navbar">
+            <nav class="navbar" id="navbar">
                 <div class="nav-bar">
                     <!--Navbar left -->
                     <div class="navbar-left">
                         <div class="left-logo">
-                            <img src="./assets/images/logo-main.png" alt="Error" class="logo-img">
+                            <img src="/assets/images/logo-main.png" alt="Error" class="logo-img">
                         </div>
                         <!--Menu hone, about, latest news-->
                         <ul class="left-menu" id="left-menu">
@@ -27,7 +28,7 @@
                                 <a href="" class="menu-item">Home</a>
                             </li>
                             <li class="left-sub-menu">
-                                <a href="./about.html" class="menu-item">About us</a>
+                                <a href="/about.html" class="menu-item">About us</a>
                             </li>
                             <li class="left-sub-menu">
                                 <a href="latest-news" class="menu-item">Latest news</a>
@@ -48,7 +49,7 @@
                                     </a>
                                 </li>
                                 <li class="right-sub-menu hidden">
-                                    <a href="./about.html" class="menu-item">About Us</a>
+                                    <a href="/about.html" class="menu-item">About Us</a>
                                 </li>
                                 <li class="right-sub-menu hidden">
                                     <a id="btn-sign-in" class="menu-item" onclick="showUpSignIn()">Login</a>
@@ -113,11 +114,15 @@
             </nav>
             <div class="banner">
                 <video class="banner-video" autoplay loop muted>
-                    <source src="./assets/video/video-banner.mp4" type="video/mp4">
+                    <source src="/assets/video/video-banner.mp4" type="video/mp4">
                 </video>
             </div>
         </header>
-        <div class="content">
+        <div class="main-content" id="main-content">
+            <!-- <button onclick="showImg360()">Show 360 images</button> -->
+            <div class="new-post">
+                
+            </div>
         </div>
         <footer>
             <div class="footer-container">
@@ -156,7 +161,7 @@
     <div id="sign-in-modal" class="modal">
         <form class="modal-content animate" action="/action_page.php" method="post">
             <div class="tittle-container">
-                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
+                <span class="close" id="btn-close-sign-in" title="Close">&times;</span>
                 <p class="tittle-login">Login</p>
             </div>
             <div class="container-login">
@@ -190,7 +195,7 @@
     <div id="sign-up-modal" class="modal">
         <form class="modal-content animate" action="/action_page.php" method="GET">
             <div class="tittle-container">
-                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
+                <span class="close" id="btn-close-sign-up" title="Close">&times;</span>
                 <p class="tittle-login">Register</p>
             </div>
             <div class="container-login">
@@ -221,10 +226,13 @@
 
     <!--Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./assets/js/header-footer.js"></script>
+    <script src="/assets/js/header-footer.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/assets/js/j360.js"></script>
+    <script src="/assets/js/main.js"></script>
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
-    <script src="./assets/js/api-gg-fb-login.js"></script>
+    <script src="/assets/js/api-gg-fb-login.js"></script>
     <div id="status"></div>
 
 

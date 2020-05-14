@@ -1,0 +1,28 @@
+.main-content {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-color: #3d3d3d;
+  height: auto;
+  width: 100%;
+  max-width: 1366px;
+}
+
+.container-img360 {
+  position: fixed;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  z-index: 10;
+}
+
+.btn-close {
+  position: absolute;
+  font-size: 32px;
+  font-family: sans-serif;
+  right: 80px;
+  top: 0;
+  font-style: initial;
+  cursor: pointer;
+}

@@ -56,6 +56,118 @@
   color: white;
 }
 
+.user-container .btn-edit-profile {
+  height: 24px;
+  padding: 0 24px;
+  color: white;
+  outline: none;
+  border: none;
+  border-radius: 16px;
+  margin-top: 8px;
+  margin-left: 16px;
+  background-image: -webkit-gradient(linear, right bottom, left top, from(#ff8a00), to(#d35400));
+  background-image: linear-gradient(to top left, #ff8a00, #d35400);
+}
+
+.user-container .user-edit-profile {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: 15;
+  overflow: auto;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.user-edit-profile .close-modal-edit {
+  color: white;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-style: inherit;
+  position: absolute;
+  right: 32px;
+  cursor: pointer;
+}
+
+.user-edit-profile .close-modal-edit:hover {
+  color: #FF3333;
+}
+
+.user-edit-profile .modal-edit-profile {
+  width: 400px;
+  position: relative;
+  background-color: white;
+  margin: auto;
+  margin-top: 64px;
+  padding: 16px 0;
+  background-color: #1e272e;
+}
+
+.user-edit-profile .user-avatar {
+  margin: auto;
+  width: 120px;
+  height: 120px;
+}
+
+.user-edit-profile .user-avatar .user-img {
+  height: 120px;
+  width: 120px;
+  border-radius: 80px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.user-edit-profile #change-avatar {
+  display: none;
+}
+
+.user-edit-profile .btn-change-avatar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+}
+
+.user-edit-profile .user-name {
+  height: 56px;
+  font-size: 24px;
+  width: 80%;
+  margin: auto;
+  display: block;
+  text-align: center;
+  outline: none;
+  color: white;
+  background-color: #1e272e;
+  border: none;
+  border-bottom: 2px solid #ffa502;
+  margin-bottom: 16px;
+}
+
+.user-edit-profile p {
+  text-align: center;
+  color: white;
+}
+
+.user-edit-profile .btn-save-change {
+  margin: 24px auto;
+  display: block;
+  height: 32px;
+  outline: none;
+  border: none;
+  padding: 0 8px;
+  border-radius: 16px;
+  color: white;
+  background-image: -webkit-gradient(linear, right bottom, left top, from(#ff8a00), to(#d35400));
+  background-image: linear-gradient(to top left, #ff8a00, #d35400);
+}
+
 .user-navbar {
   width: 100%;
   height: 80px;
@@ -74,10 +186,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.user-navbar .sub-menu #btn-your-shelf {
-  color: white;
 }
 
 .user-navbar .sub-menu .menu-item {
@@ -141,7 +249,7 @@
 
 .user-manager-shoes .user-new-shoes {
   padding: 24px 80px 24px 80px;
-  display: none;
+  display: block;
 }
 
 .user-manager-shoes .user-your-shelf {
@@ -157,7 +265,9 @@
 }
 
 .user-manager-shoes .user-wanna-rock {
-  display: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;

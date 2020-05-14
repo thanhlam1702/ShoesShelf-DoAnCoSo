@@ -182,3 +182,35 @@ function chooseContentShoes() {
         }
     };
 }
+function modalEditProfileUser() {
+    var userContainer = document.getElementById('user-container');
+
+    return {
+        showUpModal: () => {
+            var nodeModalEditUser = document.createElement('div');
+
+            nodeModalEditUser.className = 'user-edit-profile';
+            nodeModalEditUser.id = 'user-edit-profile';
+
+            userContainer.appendChild(nodeModalEditUser);
+
+            nodeModalEditUser.innerHTML = `
+            <form class="modal-edit-profile">
+                <i class="close-modal-edit" onclick="modalEditProfileUser().closeModal()">x</i>
+                <div class="user-avatar">
+                    <img src="" id="user-img" class="user-img">
+                </div>
+                <label for="change-avatar" class="btn-change-avatar">Change Photo</label>
+                <input type="file" name="img" accept="image/*" id="change-avatar">
+                <input type="text" value="" class="user-name" id="change-user-name">
+                <p>This could be your first name or a nickname <br> It's how you'll appear on ShoesShelf</p>
+                <button class="btn-save-change">Save Change</button>
+            </form>
+            `;
+            showUser();
+        },
+        closeModal: () =>{
+            userContainer.removeChild(document.getElementById('user-edit-profile'));
+        } 
+    }
+}

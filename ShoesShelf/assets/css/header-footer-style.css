@@ -10,10 +10,13 @@ body {
 }
 .wrapper {
   display: flex;
-  height: 100vh;
   flex-direction: column;
+  height: 100vh;
 }
 /* Header */
+button {
+  cursor: pointer;
+}
 
 header {
   top: 0;
@@ -29,7 +32,6 @@ header {
   z-index: 9;
   padding-top: 8px;
   top: 0;
-  background-color: rgba(238, 238, 238, 0.9);
 }
 
 .nav-bar {
@@ -47,10 +49,10 @@ header {
 }
 
 .navbar-left .left-logo {
-    width: 208px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 208px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .left-logo .logo-img {
@@ -258,12 +260,17 @@ header {
 .banner {
   display: inline-block;
   width: 100%;
-  background-color: #000;
+  background-color: #f1f1f1;
+  display: flex;
+  justify-content: center;
+  margin: auto;
   z-index: 0;
 }
 
 .banner .banner-video {
   width: 100%;
+  max-width: 1366px;
+
   background-color: #000;
 }
 
@@ -332,7 +339,7 @@ header {
   /* Hidden by default */
   position: fixed;
   /* Stay in place */
-  z-index: 1;
+  z-index: 11;
   /* Sit on top */
   left: 0;
   top: 0;
