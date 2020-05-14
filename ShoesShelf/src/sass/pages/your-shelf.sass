@@ -4,7 +4,6 @@
 @mixin data-btn-color
     background-image: linear-gradient(to top left, #ff8a00, #d35400) !important
 
-
 //content
 .content
     width: 100vw
@@ -61,7 +60,7 @@
         border-radius: 16px
         margin-top: 8px
         margin-left: 16px
-        background-image: linear-gradient(to top left, #ff8a00, #d35400)
+        @include data-btn-color
     .user-edit-profile
         position: fixed
         height: 100vh
@@ -137,7 +136,8 @@
         padding: 0 8px
         border-radius: 16px
         color: white
-        background-image: linear-gradient(to top left, #ff8a00, #d35400)
+        @include data-btn-color
+                
 //navbar user include yourshelf, new shoes, update, wanna rock
 .user-navbar
     width: 100%
@@ -258,8 +258,7 @@
             outline: none
             color: white
             cursor: pointer
-            background: 
-                image: linear-gradient(to top left,#ff8a00,#d35400)!important
+            @include data-btn-color
             border: none
                 radius: 32px
             @include box_shadow_user()

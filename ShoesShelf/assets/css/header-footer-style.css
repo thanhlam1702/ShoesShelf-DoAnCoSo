@@ -7,6 +7,7 @@
 
 body {
   overflow-x: hidden;
+  background-color: #3d3d3d;
 }
 .wrapper {
   display: flex;
@@ -260,7 +261,7 @@ header {
 .banner {
   display: inline-block;
   width: 100%;
-  background-color: #f1f1f1;
+  background-color: #3d3d3d;
   display: flex;
   justify-content: center;
   margin: auto;

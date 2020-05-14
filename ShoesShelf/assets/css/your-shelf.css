@@ -65,8 +65,8 @@
   border-radius: 16px;
   margin-top: 8px;
   margin-left: 16px;
-  background-image: -webkit-gradient(linear, right bottom, left top, from(#ff8a00), to(#d35400));
-  background-image: linear-gradient(to top left, #ff8a00, #d35400);
+  background-image: -webkit-gradient(linear, right bottom, left top, from(#ff8a00), to(#d35400)) !important;
+  background-image: linear-gradient(to top left, #ff8a00, #d35400) !important;
 }
 
 .user-container .user-edit-profile {
@@ -164,8 +164,8 @@
   padding: 0 8px;
   border-radius: 16px;
   color: white;
-  background-image: -webkit-gradient(linear, right bottom, left top, from(#ff8a00), to(#d35400));
-  background-image: linear-gradient(to top left, #ff8a00, #d35400);
+  background-image: -webkit-gradient(linear, right bottom, left top, from(#ff8a00), to(#d35400)) !important;
+  background-image: linear-gradient(to top left, #ff8a00, #d35400) !important;
 }
 
 .user-navbar {
