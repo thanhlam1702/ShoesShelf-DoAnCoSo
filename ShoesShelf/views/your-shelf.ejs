@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="library/fontawesome-free-5.11.2-web/css/all.min.css">
-    <link rel="stylesheet" href="css/header-footer-style.css">
-    <link rel="stylesheet" href="css/your-shelf.css?v=12042020">
-    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="/assets/css/header-footer-style.css">
+    <link rel="stylesheet" href="/assets/css/your-shelf.css?v=12042020">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
 
     <title>Your Shelf</title>
@@ -21,7 +21,7 @@
                     <!--Navbar left -->
                     <div class="navbar-left">
                         <div class="left-logo">
-                            <img src="/images/logo-main.png" alt="Error" class="logo-img">
+                            <img src="/assets/images/logo-main.png" alt="Error" class="logo-img">
                         </div>
                         <!--Menu home, about, latest news-->
                         <ul class="left-menu" id="left-menu">
@@ -120,7 +120,7 @@
                
                 <div class="user-container">
                     <div class="user-avatar">
-                        <img src="" id="user-img" class="user-img">
+                        <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
                     </div>
                     <div class="user-name-container">
                         <p id="user-name" class="user-name"> <%= name %> </p>
@@ -141,22 +141,24 @@
                     <!-- content your shelf -->
                         <ul class="user-your-shelf" id="user-your-shelf">
                             <!-- card of images, short content of a post -->
-                            <% posts.forEach(function (post) { %>
+                            <% posts.forEach(function (post) { %> 
                             <li class="cards-posts">
+                                <% for(var i=0; i< post.image.length; i++) { %>
                                 <div class="card-container-img">
-                                    <img src="images/userPost/<%= post.img %>" alt="" class="card-img">
+                                    <img src="/assets/images/userPost/<%= post.image[i] %>" alt="" class="card-img">
                                 </div>
                                 <div class="card-container-content">
                                     <p class="card-short-content">
                                         <%= post.status %>
                                     </p>
                                 </div>
+                                <% } %>
                             </li>
                             <% }) %>
                         </ul>
                     <div class="user-new-shoes" id="user-new-shoes">
                         <!-- form contain button upload image -->
-                        <form method="POST" action="/uppost" onsubmit="return doPost(this);">
+                        <form method="POST" action="/upload" enctype="multipart/form-data" onsubmit="return doPost(this);">
                             <div class="container-upload-img">
                                 <!-- where img alter upload showup review -->
                                 <div class="review-img-upload" id="review-img-upload">
@@ -164,7 +166,7 @@
                                     <label for="upload-img" class="btn-upload-img">+</label>
                                 </div>
                                 <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
-                                <input type="file" name="img" accept="image/*" id="upload-img" onchange="uploadImages()" multiple>
+                                <input type="file" name="image" accept="image/*" id="upload-img" onchange="uploadImages()" multiple>
                             </div>
                             <div class="container-editor">
                                 <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea>
@@ -331,13 +333,13 @@
 
     <!--Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="js/header-footer.js"></script>
-    <script src="js/your-shelf.js"></script>
+    <script src="/assets/js/header-footer.js"></script>
+    <script src="/assets/js/your-shelf.js"></script>
     
     
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
-    <script src="js/api-gg-fb-login.js"></script>
+    <script src="/assets/js/api-gg-fb-login.js"></script>
     <div id="status"></div>
 
     <script>

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
+const upload = require('../middleware/upload')
 
 //User model
 const User = require('../models/User');
@@ -10,32 +11,11 @@ router.get('/register',(req,res) => res.render('register'));
 
 router.get('/login',(req,res) => res.render('login'));
 
-router.post('/register',(req,res)=> {
-    const { name, email, password, password2 } = req.body;
+router.post('/dangky',upload.single('avatar'),(req,res)=> {
+    const { name, email, password, password2, avatar } = req.body;
     let errors = [];
 
-    //Check require feilds
-    if (!name || !email || !password || !password2){
-        errors.push({ msg: 'Hãy điền đầy đủ mọi thông tin'});
-    }
-    //Check password match
-    if (password != password2){
-        errors.push({ msg:'Password không trùng khớp'});
-    }
-    //Check password length
-    if (password.length < 6){
-        errors.push({ msg: 'mật khẩu không được ngắn hơn 6 ký tự'});
-    }
-    if (errors.length >0){
-        res.render('register',{
-            errors,
-            name,
-            email,
-            password,
-            password2
-        });
-    } else {
-        User.findOne({ email: email })
+    User.findOne({ email: email })
             .then(user => {
                 if(user) {
                     //User exists
@@ -45,19 +25,25 @@ router.post('/register',(req,res)=> {
                         name,
                         email,
                         password,
-                        password2
+                        password2,
+                        avatar
                     });
                 } else {
                     const newUser = new User({
                         name,
                         email,
-                        password
+                        password,
+                        avatar,
+                        
                     });
+                    if (req.file) {
+                        newUser.avatar = req.file.filename
+                        
+                    }
                     
                     //Ma hoa password
                     bcrypt.genSalt(10, (err, salt)=> 
                         bcrypt.hash(newUser.password, salt, (err, hash) => {
-                            if(err) throw err;
                             //Set password to hashed
                             newUser.password = hash;
                             //Save user
@@ -71,7 +57,7 @@ router.post('/register',(req,res)=> {
                     )
                 }
             })
-    }
+    
 });
 
 router.post('/login',(req,res,next) => {

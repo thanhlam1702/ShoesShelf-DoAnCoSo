@@ -71,7 +71,7 @@ header {
 }
 
 .navbar-middle .img-logo {
-    background-image: url("/ShoesShelf/assets/images/logo-ss-black.png");
+    background-image: url("/assets/images/logo-ss-black.png");
     background-repeat: no-repeat;
     background-size: cover;
     height: 56px;
@@ -80,7 +80,7 @@ header {
 }
 
 .navbar-middle .img-logo:hover {
-  background-image: url("/ShoesShelf/assets/images/logo-ss-white.png");
+  background-image: url("/assets/images/logo-ss-white.png");
 }
 
 
