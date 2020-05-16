@@ -99,7 +99,7 @@
                                         <a href="/your-shelf.html">YourShelf</a>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="account-setting">Account setting</a>
+                                        <a href="/account-setting.html">Account setting</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <div class="user-logout">
@@ -123,41 +123,125 @@
                     <div class="user-name-container">
                         <p id="user-name" class="user-name">name-user</p>
                     </div>
-                    <button class="btn-edit-profile" onclick="modalEditProfileUser().showUpModal()">Edit profile</button>
                 </div>
                 <!-- menu navbar user -->
                 <div class="user-navbar">
                     <ul class="user-menu">
-                        <li class="sub-menu"><a href="#your-shelf" class="menu-item" id="btn-your-shelf" onclick="chooseContentShoes().contentYourShelf()">YourShelf</a></li>
-                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes" onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
-                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update" onclick="chooseContentShoes().contentUserUpdate()">Update</a></li>
-                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" id="btn-wanna-rock" onclick="chooseContentShoes().contentWannaRock()">Wanna Rock</a></li>
+                        <li class="sub-menu"><a href="#your-shelf" class="menu-item" id="btn-your-shelf"
+                                onclick="chooseContentShoes().contentYourShelf()">YourShelf</a></li>
+                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes"
+                                onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
+                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update"
+                                onclick="chooseContentShoes().contentUserUpdate()">Update</a></li>
+                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" id="btn-wanna-rock"
+                                onclick="chooseContentShoes().contentWannaRock()">Wanna Rock</a></li>
                     </ul>
                 </div>
                 <!-- manager shoes of user -->
                 <div class="user-manager-shoes" id="user-manager-shoes">
-                    
                     <!-- content your shelf -->
                     <ul class="user-your-shelf" id="user-your-shelf">
                         <!-- card of images, short content of a post -->
                         <li class="cards-posts">
                             <div class="card-container-img">
-                                <img src="./assets/images/test1.jpg" alt="" class="card-img">
+                                <img src="/assets/images/test1.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-content">
-                                <p class="card-short-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, hic. Harum necessitatibus, minima inventore consequatur numquam atque libero ipsam quis. Atque ad voluptatem earum ex id corporis quisquam. Saepe, magni!</p>
+                                <p class="card-short-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Harum, hic. Harum necessitatibus, minima inventore consequatur numquam atque libero
+                                    ipsam quis. Atque ad voluptatem earum ex id corporis quisquam. Saepe, magni!</p>
                             </div>
                         </li>
                         <li class="cards-posts">
                             <div class="card-container-img">
-                                <img src="./assets/images/test1.jpg" alt="" class="card-img">
+                                <img src="/assets/images/test1.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-content">
-                                <p class="card-short-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste dolor quas eius sit magnam cumque! Deserunt in cupiditate culpa illum doloribus iusto autem reprehenderit magni optio, expedita sapiente possimus eaque.</p>
+                                <p class="card-short-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                                    Iste dolor quas eius sit magnam cumque! Deserunt in cupiditate culpa illum doloribus
+                                    iusto autem reprehenderit magni optio, expedita sapiente possimus eaque.</p>
                             </div>
                         </li>
                     </ul>
-                    
+                    <!-- user new shoes -->
+                    <div class="user-new-shoes" id="user-new-shoes">
+                        <!-- form contain button upload image -->
+                        <form action="">
+                            <div class="container-upload-img">
+                                <!-- where img alter upload showup review -->
+                                <div class="review-img-upload" id="review-img-upload">
+                                    <!-- <img src="" id="img-upload"> -->
+                                    <label for="upload-img" class="btn-upload-img">+</label>
+                                </div>
+                                <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
+                                <input type="file" name="img" accept="image/*" id="upload-img" onchange="uploadImages()"
+                                    multiple>
+                            </div>
+                            <div class="container-editor">
+                                <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea>
+                            </div>
+                            <div class="container-choose-more">
+                                <select name="brands" class="brands" id="brands">
+                                    <option selected hidden style="font-weight: bold;">Brands</option>
+                                    <option value="vans">Vans</option>
+                                    <option value="adidas">Adidas</option>
+                                    <option value="nike">Nike</option>
+                                    <option value="nike">Reebok</option>
+                                    <option value="nike">Converse</option>
+                                    <option value="nike">Puma</option>
+                                    <option value="nike">Orther</option>
+                                </select>
+                                <input type="text" name="collections" placeholder="Collections" class="collections">
+                                <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag">
+                            </div>
+                            <div class="container-btn-post">
+                                <button class="btn-post-status">Post</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- user update -->
+                    <div class="user-update" id="user-update">
+
+                    </div>
+                    <!-- user wanna rock -->
+                    <ul class="user-wanna-rock" id="user-wanna-rock">
+                        <!-- card contain img and name hashtag of post -->
+                        <li class="card-wanna-rock">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test1.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-title">
+                                <p class="card-title">#Adidas #superStar #3trips</p>
+                            </div>
+                        </li>
+
+                        <li class="card-wanna-rock">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test2.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-title">
+                                <p class="card-title">#Converse #cdg #commeDesgarcons #black</p>
+                            </div>
+                        </li>
+
+                        <li class="card-wanna-rock">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test3.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-title">
+                                <p class="card-title">#Converse #cdg #commeDesgarcons #white</p>
+                            </div>
+                        </li>
+
+                        <li class="card-wanna-rock">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test4.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-title">
+                                <p class="card-title">#adidas #stansmith</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -215,7 +299,9 @@
                     <p>OR</p>
                 </div>
                 <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
+                        data-size="large" data-button-type="continue_with" data-layout="rounded"
+                        data-auto-logout-link="false" data-use-continue-as="false"></div>
                     <div id="gg-login-button">
                         <div id="customBtn" class="customGPlusSignIn">
                             <span class="icon"></span>
@@ -245,7 +331,9 @@
                     <p>OR</p>
                 </div>
                 <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
+                        data-size="large" data-button-type="continue_with" data-layout="rounded"
+                        data-auto-logout-link="false" data-use-continue-as="false"></div>
                     <div id="gg-login-button">
                         <div id="customBtn" class="customGPlusSignIn">
                             <span class="icon"></span>
