@@ -1,18 +1,15 @@
 
-@import url('./styles.css');
-@import url('/assets/css/styles.css');
-
+@import url('/assets/css/header-footer-style.css');
 .content-ab {
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-template-areas: "box1 box2";
+    height: auto;
+    width: 1366px;
     /* justify-items: center; */
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    display: flex;
-    margin: 0 0 0 20px;
+    padding: 72px 120px 0 120px;
+    background-color: white;
+    margin: auto;
 }
 
 .content-us p {

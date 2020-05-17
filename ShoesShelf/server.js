@@ -5,8 +5,9 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const { ensureAuthenticated ,  forwardAuthenticated } = require('./config/auth');
 const passport = require('passport');
-var bodyParser =require("body-parser");
-var formidable = require('formidable');
+const bodyParser =require("body-parser");
+const formidable = require('formidable');
+const upload = require('./middleware/upload')
 var fs = require('fs');
 
 
@@ -25,7 +26,6 @@ mongoose.connect(db, { useNewUrlParser: true})
     .then(() => console.log('MongoDB connected....'))
     .catch(err => console.log(err));
 //EJS
-app.use(expressLayouts);
 app.set('view engine','ejs');
 
 //Bodyparser
@@ -57,35 +57,43 @@ app.use('/',require('./routes/index'));
 app.use('/users',require('./routes/users'));
 
 //static files
-app.use(express.static('./assets'));
+app.use(express.static(__dirname,''));
 
 // SS blog post
 
 var MongoClient = require("mongodb").MongoClient;
 MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
-    var blog = client.db("blog");
+    var test = client.db("test");
     console.log("DB connect");
     app.get("/your-shelf",ensureAuthenticated ,(req,res) => {
-        blog.collection("posts").find().toArray(function(error,posts){
+        test.collection("posts").find().toArray(function(error,posts){
             posts = posts.reverse();
-            res.render('your-shelf',{posts : posts,name: req.user.name});
+            res.render('your-shelf',{posts : posts,name: req.user.name, avatar: req.user.avatar});
         })
     });
-    app.post("/uppost",function(req,res){
-        blog.collection("posts").insertOne(req.body, function(error, document){
-            res.render("index");
-        });
+    app.get("/account-setting",ensureAuthenticated ,(req,res) => {
+        test.collection("users").find().toArray(function(error,users){
+            users = users.reverse();
+            res.render('account-setting',{users:users,name: req.user.name, avatar: req.user.avatar, email: req.user.email});
+        })
     });
-    app.post("/image", function(req,res){
-        var formDaTa = new formidable.IncomingForm();
-        formDaTa.parse(req, function (error, fields, files) {
-            var oldPath = files.file.path;
-            var newPath = "assets/images/userPost/" + files.file.name;
-
-            fs.rename(oldPath, newPath, function(err) {
-                res.send("/" + newPath);
-            });
-        });
+    app.get("/your-shelf-fbgg" ,(req,res) => {
+        test.collection("posts").find().toArray(function(error,posts){
+            posts = posts.reverse();
+            res.render('your-shelf-fbgg',{posts : posts});
+        })
+    });
+    app.get("/main",ensureAuthenticated ,(req,res) => {
+        test.collection("posts").find().toArray(function(error,posts){
+            posts = posts.reverse();
+            res.render('main',{posts : posts,name: req.user.name, avatar: req.user.avatar});
+        })
+    });
+    app.get("/" ,(req,res) => {
+        test.collection("posts").find().toArray(function(error,posts){
+            posts = posts.reverse();
+            res.render('index',{posts : posts});
+        })
     });
 });
 

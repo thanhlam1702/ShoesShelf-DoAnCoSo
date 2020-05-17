@@ -1,0 +1,294 @@
+.content {
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    margin-top: 72px;
+    background-color: #222326;
+    height: auto;
+    padding: 24px 0;
+    width: 100%;
+  }
+  
+  .content .container-account-setting {
+    height: auto;
+    width: 72%;
+    -webkit-box-shadow: 0 4px 80px #070509;
+            box-shadow: 0 4px 80px #070509;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .user-container {
+    width: 100%;
+    height: auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 24px;
+  }
+  
+  .user-container .user-avatar {
+    width: 120px;
+    height: 120px;
+    position: relative;
+  }
+  
+  .user-container .user-avatar .user-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 80px;
+    -webkit-box-shadow: 0px 0px 24px 0 black;
+            box-shadow: 0px 0px 24px 0 black;
+  }
+  
+  .user-container .user-avatar .user-img-layer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: gray;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    border-radius: 64px;
+  }
+  
+  .user-container .user-avatar .btn-change-avatar {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .user-container .user-avatar #change-avatar {
+    display: none;
+  }
+  
+  .user-container .user-avatar:hover > .user-img-layer {
+    opacity: 0.5;
+  }
+  
+  .user-container .user-avatar:hover > .btn-change-avatar {
+    opacity: 1;
+  }
+  
+  .user-container .user-name-container {
+    padding-left: 40px;
+  }
+  
+  .user-container .user-name-container .user-name {
+    font-size: 40px;
+    color: white;
+  }
+  
+  .container-body {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-top: 24px;
+  }
+  
+  .container-body-site {
+    width: 240px;
+    height: auto;
+  }
+  
+  .container-body-site .site-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 15px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-decoration: none;
+  }
+  
+  .container-body-site .site-item .site-item-icon {
+    float: left;
+  }
+  
+  .container-body-site .site-item .site-item-icon .fas {
+    color: #f1f1f1;
+  }
+  
+  .container-body-site .site-item .fix-with-icon {
+    width: 35px;
+    text-align: center;
+  }
+  
+  .container-body-site .site-item .site-item-title {
+    font-size: 14px;
+    line-height: 1.4;
+    margin-left: 10px;
+  }
+  
+  .container-body-site .site-item .site-item-title div:nth-child(1) {
+    font-size: 15px;
+    color: #f1f1f1;
+  }
+  
+  .container-body-site .site-item .site-item-title div:nth-child(2) {
+    font-size: 14px;
+    color: #f1f1f1;
+  }
+  
+  .container-body-site .active {
+    -webkit-box-shadow: 0 4px 80px #070509;
+            box-shadow: 0 4px 80px #070509;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .container-body-container {
+    width: calc( 100% - 240px);
+    padding: 25px 30px;
+    -webkit-box-shadow: 0 4px 80px #070509;
+            box-shadow: 0 4px 80px #070509;
+  }
+  
+  .container-body-container h1 {
+    text-transform: uppercase;
+    color: #f1f1f1;
+    font-size: 18px;
+  }
+  
+  .container-body-container hr {
+    margin: 16px 0;
+  }
+  
+  .container-body-container .form-group {
+    margin-top: 24px;
+    height: 40px;
+    width: 486px;
+  }
+  
+  .container-body-container .form-group .col-form-label {
+    width: 180px;
+    display: inline-block;
+    font-weight: 700;
+    color: #ffa502;
+  }
+  
+  .container-body-container .form-group .form-control {
+    width: 300px;
+    height: 32px;
+    padding: 4px 10px;
+    color: #eee;
+    background-color: #383838;
+    border: none;
+    border-radius: 4px;
+  }
+  
+  .container-body-container .form-group .form-control:focus, .container-body-container .form-group .form-control:hover {
+    outline: none;
+    border: none;
+  }
+  
+  .container-body-container .form-group .container-check-gender {
+    display: inline-block;
+    width: 300px;
+  }
+  
+  .container-body-container .form-group:nth-of-type(7) {
+    border-bottom: none;
+  }
+  
+  .container-body-container .form-group .btn-save-change, .container-body-container .form-group .btn-cannel-change {
+    height: 32px;
+    width: 120px;
+    float: right;
+    margin-left: 8px;
+    border: none;
+    border-radius: 24px;
+    outline: none;
+    padding: 0 8px;
+    color: #f1f1f1;
+    background-color: #ffa502;
+  }
+  
+  .container-body-container .hidden-border-bottom {
+    border-bottom: none;
+  }
+  
+  .container-check-gender ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 100%;
+  }
+  
+  .container-check-gender li {
+    display: block;
+    position: relative;
+  }
+  
+  .container-check-gender li input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+  }
+  
+  .container-check-gender li input[type=radio]:checked ~ .check {
+    border: 3px solid #ffa502;
+  }
+  
+  .container-check-gender li input[type=radio]:checked ~ .check::before {
+    background: #ffa502;
+  }
+  
+  .container-check-gender li input[type=radio]:checked ~ .layer-check {
+    color: #ffa502;
+  }
+  
+  .container-check-gender li .layer-check {
+    color: #f1f1f1;
+    display: block;
+    position: relative;
+    z-index: 9;
+    margin-left: 24px;
+    cursor: pointer;
+    -webkit-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+  }
+  
+  .container-check-gender li .check {
+    display: block;
+    position: absolute;
+    border: 3px solid #AAAAAA;
+    border-radius: 100%;
+    height: 16px;
+    width: 16px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    -webkit-transition: boder 0.25s linear;
+    transition: boder 0.25s linear;
+  }
+  
+  .container-check-gender li .check::before {
+    display: block;
+    position: absolute;
+    content: '';
+    border-radius: 100%;
+    height: 6px;
+    width: 6px;
+    top: 2px;
+    left: 2px;
+    -webkit-transition: background 0.25s linear;
+    transition: background 0.25s linear;
+  }

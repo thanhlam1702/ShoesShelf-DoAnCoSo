@@ -12,13 +12,32 @@
     <title>Your Shelf</title>
 </head>
 <body>
-    <form method="POST" action="image" enctype="multipart/form-data" id="form-upload">
+    <form method="POST" enctype="multipart/form-data" id="form-upload">
         <div>
             <input type="file" name="file" class="form-control" />
         </div>
         <input type="submit" value="Upload" />
     </form>
-   
+    <div tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div>
+            <div>
+                <h4 id="myModalLabel">
+                    Upload image
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    x
+                </button>
+            </div>
+            <div>
+                <form method="POST" enctype="multipart/form-data" id="form-upload">
+                    <div>
+                        <input type="file" name="file" class="form-control" />
+                    </div>
+                    <input type="submit" value="Upload" />
+                </form>
+            </div>
+        </div>
+   </div>
     <script>
         function doPost(form) {
             $.ajax({

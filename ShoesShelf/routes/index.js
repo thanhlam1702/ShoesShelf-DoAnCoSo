@@ -3,27 +3,27 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const passport = require('passport');
 const { ensureAuthenticated ,  forwardAuthenticated } = require('../config/auth');
+const upload = require('../middleware/upload')
+const postcontroller = require('../controller/postcontroller')
 
 //User model
 const User = require('../models/User');
 
-
-router.get('/', (req,res) => res.render('index'));
+const Post = require('../models/Post');
 
 router.get('/About.html',(req,res) => res.render('About'));
 
-router.get('/home',(req,res) => res.render('home'));
 
 //Login handle
 router.post('/login',(req,res,next) => {
     passport.authenticate('local', {
-        successRedirect : '/your-shelf',
+        successRedirect : '/main',
         failureRedirect : '/users/login',
         failureflash: true
     })(req, res, next);
 });
-router.post('/register',(req,res)=> {
-    const { name, email, password, password2 } = req.body;
+router.post('/register',upload.single('avatar'),(req,res)=> {
+    const { name, email, password, password2, avatar } = req.body;
     let errors = [];
 
     User.findOne({ email: email })
@@ -36,14 +36,21 @@ router.post('/register',(req,res)=> {
                         name,
                         email,
                         password,
-                        password2
+                        password2,
+                        avatar
                     });
                 } else {
                     const newUser = new User({
                         name,
                         email,
-                        password
+                        password,
+                        avatar,
+                        
                     });
+                    if (req.file) {
+                        newUser.avatar = req.file.filename
+                        
+                    }
                     
                     //Ma hoa password
                     bcrypt.genSalt(10, (err, salt)=> 
@@ -63,6 +70,36 @@ router.post('/register',(req,res)=> {
             })
     
 });
+router.post('/upload',upload.array('image',20),(req,res)=> {
+    const { status, brands, hashtag, collections, image } = req.body;
+        const newPost = new Post({
+            status,
+            brands,
+            hashtag,
+            collections,
+            image
+        });
+        if (req.files)
+        {
+            let filename = ''
+            req.files.forEach(function(files, index, arr){
+                filename = filename + files.filename + ','
+            })
+            filename = filename.substring(0, filename.lastIndexOf(","))
+            newPost.image = filename
+        }
+            newPost.save()
+            .then(post => {
+                res.redirect('/')
+            })
+            .catch(err => console.log(err));
+        
+});
+
+
+router.post('/store',upload.array('image',20), postcontroller.store)
+
+  
 
 //logout  handle
 router.get('/logout',(req,res) => {
@@ -70,10 +107,5 @@ router.get('/logout',(req,res) => {
     req.flash('success_msg','You are logout');
     res.redirect('/');
 });
-
-//Dashboard
-router.get('/',ensureAuthenticated, (req,res) => 
-    res.render('main', {name: req.user.name})
-);    
 
 module.exports = router;
