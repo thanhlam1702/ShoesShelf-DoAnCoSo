@@ -90,6 +90,7 @@ function showUpSignInComplete() {
 function showUser() {
     const userName = document.getElementsByClassName('user-name');
     const userAvatar = document.getElementsByClassName('user-img');
+    const userEmail = document.getElementsByClassName('user-email');
     if (statusLogin === 1) {
         FB.api('/me?fields=name,picture.type(large),email', function (user_data) {
             for (let i = 0; i < userName.length; i++) {
@@ -98,10 +99,15 @@ function showUser() {
             for (let i = 0; i < userAvatar.length; i++) {
                 userAvatar[i].src = user_data.picture.data.url;
             }
+            for (let i = 0; i < userEmail.length; i++) {
+                // userEmail[i].value != undefined ? userEmail[i].value = user_data.email : userEmail[i].innerHTML = user_data.email;
+                userEmail[i].value = user_data.email;
+            }
         })
     } else if (statusLogin === 0) {
         var auth2 = gapi.auth2.getAuthInstance();
         var name = auth2.currentUser.get().getBasicProfile().getName();
+        var email = auth2.currentUser.get().getBasicProfile().getEmail();
         for (let i = 0; i < userName.length; i++) {
             userName[i].value != undefined ? userName[i].value = name : userName[i].innerHTML = name;
 
@@ -109,6 +115,10 @@ function showUser() {
         for (let i = 0; i < userAvatar.length; i++) {
             userAvatar[i].src = auth2.currentUser.get().getBasicProfile().getImageUrl();
         }
+        for (let i = 0; i < userEmail.length; i++) {
+            userEmail[i].value != undefined ? userEmail[i].value = auth2.currentUser.get().getBasicProfile().getEmail() : userEmail[i].innerHTML = auth2.currentUser.get().getBasicProfile().getEmail()
+        }
+
     } else {
         console.log('no login');
     }
