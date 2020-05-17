@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=12042020">
-    <link rel="stylesheet" href="/assets/css/styles.min.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/header-footer-style.css">
+    <link rel="stylesheet" href="/assets/css/account-setting.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
-    <title>Shoes Shelf</title>
+    <title>Account Setting</title>
 </head>
 
 <body>
@@ -22,7 +21,7 @@
                         <div class="left-logo">
                             <img src="/assets/images/logo-main.png" alt="Error" class="logo-img">
                         </div>
-                        <!--Menu hone, about, latest news-->
+                        <!--Menu home, about, latest news-->
                         <ul class="left-menu" id="left-menu">
                             <li class="left-sub-menu">
                                 <a href="" class="menu-item">Home</a>
@@ -49,7 +48,7 @@
                                     </a>
                                 </li>
                                 <li class="right-sub-menu hidden">
-                                    <a href="/about.html" class="menu-item">About Us</a>
+                                    <a href="./about.html" class="menu-item">About Us</a>
                                 </li>
                                 <li class="right-sub-menu hidden">
                                     <a id="btn-sign-in" class="menu-item" onclick="showUpSignIn()">Login</a>
@@ -98,133 +97,152 @@
                                         <a href="/your-shelf.html">YourShelf</a>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/account-setting.html">Account setting</a>
+                                        <a href="account-setting">Account setting</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <div class="user-logout">
-                                            <a href="/" onclick="logout()">Log out</a>
+                                            <a onclick="logout()">Log out</a>
                                         </div>
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </nav>
-            <div class="banner">
-                <video class="banner-video" autoplay loop muted>
-                    <source src="/assets/video/video-banner.mp4" type="video/mp4">
-                </video>
-            </div>
         </header>
-        <div class="main-content" id="main-content">
-            <!-- <button onclick="showImg360()">Show 360 images</button> -->
-            <div class="new-post">
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/test2.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
-                        </div>
+        <div class="content">
+            <div class="container-account-setting">
+                <div class="user-container" id="user-container">
+                    <div class="user-avatar">
+                        <img src="" id="user-img" class="user-img">
+                        <div class="user-img-layer"></div>
+                        <label for="change-avatar" class="btn-change-avatar">Change Photo</label>
+                        <input type="file" name="img" accept="image/*" id="change-avatar">
                     </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
+                    <div class="user-name-container">
+                        <p id="user-name" class="user-name">name-user</p>
                     </div>
                 </div>
-                
-            </div>
-            <br><hr><br>
-            <div class="two-latest-new">
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/test2.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
+                <!-- body account setting -->
+                <div class="container-body">
+                    <div class="container-body-site">
+                        <a class="site-item active" href="#change-information">
+                            <div class="site-item-icon fix-with-icon">
+                                <i class="fas fa-info fa-2x"></i>
+                            </div>
+                            <div class="site-item-title">
+                                <div>
+                                    <b>Account Information</b>
+                                </div>
+                                <div>Information management</div>
+                            </div>
+                        </a>
+                        <a class="site-item" href="#change-password">
+                            <div class="site-item-icon fix-with-icon">
+                                <i class="fas fa-key fa-2x"></i>
+                            </div>
+                            <div class="site-item-title">
+                                <div>
+                                    <b>Changes Password</b>
+                                </div>
+                                <div>Update new password</div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="container-body-container">
+                        <h1>Personal information</h1>
+                        <hr>
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                Email login:
+                            </div>
+                            <input type="text" value id="user-email" readonly class="form-control user-email">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                User name:
+                            </div>
+                            <input type="text" value id="user-name" class="form-control user-name">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                Full name:
+                            </div>
+                            <input type="text" value id="full-name" class="form-control full-name">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                Gender:
+                            </div>
+                            <div class="container-check-gender">
+                                <ul>
+                                    <li>
+                                        <input type="radio" id="gender-male" name="selector">
+                                        <label for="gender-male" class="layer-check">Male</label>
+                                        <div class="check"></div>
+                                    </li>
+
+                                    <li>
+                                        <input type="radio" id="gender-female" name="selector">
+                                        <label for="gender-female" class="layer-check">Female</label>
+                                        <div class="check">
+                                            <div class="inside"></div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <input type="radio" id="gender-lgbt" name="selector">
+                                        <label for="gender-lgbt" class="layer-check">LGBT</label>
+                                        <div class="check">
+                                            <div class="inside"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                Day of birth:
+                            </div>
+                            <input type="date" value id="date-of-birth" class="form-control date-of-birth">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                Country:
+                            </div>
+                            <input type="text" value id="user-country" class="form-control user-country">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn-save-change">Save Change</button>
+                            <button class="btn-cannel-change">Cancel</button>
                         </div>
                     </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
-                    </div>
-                </div>
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/test2.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
+                    <div class="container-body-container hidden">
+                        <h1>Change password account</h1>
+                        <hr>
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                Old password:
+                            </div>
+                            <input type="password" value id="old-password" class="form-control">
                         </div>
-                    </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
-                    </div>
-                </div>
-            </div>
-            <br><br>
-            <div class="list-posts">
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/test2.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                New password:
+                            </div>
+                            <input type="password" value id="new-password" class="form-control">
                         </div>
-                    </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
-                    </div>
-                </div>
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/test2.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                Enter new password:
+                            </div>
+                            <input type="password" value id="enter-new-password" class="form-control">
                         </div>
-                    </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
-                    </div>
-                </div>
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/test2.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
+                        <div class="form-group hidden-border-bottom">
+                            <button class="btn-save-change">Save Change</button>
+                            <button class="btn-cannel-change">Cancel</button>
                         </div>
-                    </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
-                    </div>
-                </div>
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/img360/2DC_3631.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
-                            <button onclick="showImg360()">Show 360 images</button>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
                     </div>
                 </div>
             </div>
@@ -266,7 +284,7 @@
     <div id="sign-in-modal" class="modal">
         <form class="modal-content animate" action="/action_page.php" method="post">
             <div class="tittle-container">
-                <span class="close" id="btn-close-sign-in" title="Close">&times;</span>
+                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
                 <p class="tittle-login">Login</p>
             </div>
             <div class="container-login">
@@ -300,7 +318,7 @@
     <div id="sign-up-modal" class="modal">
         <form class="modal-content animate" action="/action_page.php" method="GET">
             <div class="tittle-container">
-                <span class="close" id="btn-close-sign-up" title="Close">&times;</span>
+                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
                 <p class="tittle-login">Register</p>
             </div>
             <div class="container-login">
@@ -332,15 +350,12 @@
     <!--Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="/assets/js/header-footer.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="/assets/js/j360.js"></script>
-    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/account-setting.js"></script>
+
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
     <script src="/assets/js/api-gg-fb-login.js"></script>
     <div id="status"></div>
-
-
 </body>
 
 </html>
