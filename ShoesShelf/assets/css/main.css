@@ -11,11 +11,28 @@
 
 .main-content .new-post {
   height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .main-content .new-post .post-container {
   width: 72%;
   height: 360px;
+}
+
+.main-content .new-post .sort-container {
+  width: 28%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .main-content .two-latest-new {
@@ -61,6 +78,41 @@
 
 .main-content .list-posts .post-container:nth-of-type(3) {
   margin-left: 302px;
+}
+
+.sort-container .sort-form {
+  width: 200px;
+  margin: 24px 0 0 0;
+  height: 32px;
+  padding: 8px;
+  color: white;
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #ffa502;
+}
+
+.sort-container .sort-form:focus {
+  outline: none;
+}
+
+.sort-container .brands {
+  color: black;
+}
+
+.sort-container .brands option:nth-of-type(1) {
+  color: white;
+}
+
+.sort-container .btn-search {
+  color: black;
+  width: 40px;
+  border: none;
+  font-size: 24px;
+}
+
+.sort-container .btn-search:hover {
+  color: white;
 }
 
 .container-img360 {
