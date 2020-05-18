@@ -19,8 +19,9 @@ const PostSchema = new mongoose.Schema({
     collections: {
         type: String,
     },
-    idppost: {
-        type: String
+    date: {
+        type: Date,
+        default: Date.now
     }
     
 });

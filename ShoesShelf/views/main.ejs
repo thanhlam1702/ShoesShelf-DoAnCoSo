@@ -90,7 +90,9 @@
             <div class="new-post">
                 <div class="post-container">
                     <div class="posts">
-                        <img src="/assets/images/userPost/<%= post.image %>" class="post-avatar"></img>
+                        <% for(var i=0 ; i< 1 ; i++) {%>
+                            <img src="/assets/images/userPost/<%= post.image[0].filename %>" class="post-avatar"></img>
+                        <% } %>
                         <div class="post-title">
                             <div class="post-content"> <%= post.status %> </div>
                             <div class="post-hash-tag">#Converse #FullColor</div>
@@ -99,7 +101,7 @@
                     </div>
                     <div class="status">
                         <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
+                        <p class="post-time"><%= post.date %></p>
                     </div>
                 </div>
             </div>
