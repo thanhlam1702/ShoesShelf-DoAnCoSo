@@ -76,13 +76,14 @@ function onFailure() {
 
 //show layout after user login complete
 function showUpSignInComplete() {
-    document.getElementById('navbar-right-user').style.display = 'flex';
-    document.getElementById('left-menu').style.display = 'flex';
-
-    document.getElementById('navbar-right').style.display = 'none';
-    document.getElementById('sign-in-modal').style.display = 'none';
-    document.getElementById('sign-up-modal').style.display = 'none';
-
+    if(window.location.href == 'https://shoesshelf.com/' || window.location.href == 'localhost:4444'){
+        document.getElementById('navbar-right-user').style.display = 'flex';
+        document.getElementById('left-menu').style.display = 'flex';
+    
+        document.getElementById('navbar-right').style.display = 'none';
+        document.getElementById('sign-in-modal').style.display = 'none';
+        document.getElementById('sign-up-modal').style.display = 'none';
+    }
     showUser();
 
 }
