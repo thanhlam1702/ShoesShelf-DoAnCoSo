@@ -80,7 +80,7 @@ header {
 }
 
 .navbar-middle .img-logo:hover {
-    background-image: url("/assets/images/logo-ss-white.png");
+  background-image: url("/assets/images/logo-ss-white.png");
 }
 
 
@@ -295,18 +295,19 @@ header {
 /*------Form login---------*/
 
 .container-login input[type="text"],
-.container-login input[type="password"] {
-    width: 240px;
-    height: 48px;
-    background: none;
-    margin: 16px auto;
-    text-align: center;
-    display: block;
-    color: #fff;
-    border: 2px solid #ffa502;
-    box-sizing: border-box;
-    border-radius: 20px;
-    transition: 0.25s;
+.container-login input[type="password"],
+.container-login input[type="email"] {
+  width: 240px;
+  height: 48px;
+  background: none;
+  margin: 16px auto;
+  text-align: center;
+  display: block;
+  color: #fff;
+  border: 2px solid #ffa502;
+  box-sizing: border-box;
+  border-radius: 20px;
+  transition: 0.25s;
 }
 
 .container-login input[type="text"]:focus,
