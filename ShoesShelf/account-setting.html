@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/header-footer-style.css">
     <link rel="stylesheet" href="/assets/css/account-setting.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <script src="https://apis.google.com/js/api:client.js"></script>
     <title>Account Setting</title>
 </head>
@@ -133,9 +134,9 @@
                             </div>
                             <div class="site-item-title">
                                 <div>
-                                    <b>Account Information</b>
+                                    <b>Edit Profile</b>
                                 </div>
-                                <div>Information management</div>
+                                <!-- <div>Information management</div> -->
                             </div>
                         </a>
                         <a class="site-item" href="#change-password">
@@ -146,13 +147,13 @@
                                 <div>
                                     <b>Changes Password</b>
                                 </div>
-                                <div>Update new password</div>
+                                <!-- <div>Update new password</div> -->
                             </div>
                         </a>
                     </div>
                     <div class="container-body-container">
                         <h1>Personal information</h1>
-                        <hr>
+                        <!-- <hr> -->
                         <div class="form-group">
                             <div class="col-form-label">
                                 Email login:
@@ -161,7 +162,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-form-label">
-                                User name:
+                                User-name:
                             </div>
                             <input type="text" value id="user-name" class="form-control user-name">
                         </div>
@@ -211,7 +212,7 @@
                             <div class="col-form-label">
                                 Country:
                             </div>
-                            <input type="text" value id="user-country" class="form-control user-country">
+                            <input type="text" value="Viet Nam" id="user-country" class="form-control user-country">
                         </div>
                         <div class="form-group">
                             <button class="btn-save-change">Save Change</button>
@@ -219,11 +220,11 @@
                         </div>
                     </div>
                     <div class="container-body-container hidden">
-                        <h1>Change password account</h1>
-                        <hr>
+                        <h1>Update your password</h1>
+                        <!-- <hr> -->
                         <div class="form-group">
                             <div class="col-form-label">
-                                Old password:
+                                Password:
                             </div>
                             <input type="password" value id="old-password" class="form-control">
                         </div>
@@ -235,12 +236,12 @@
                         </div>
                         <div class="form-group">
                             <div class="col-form-label">
-                                Enter new password:
+                                Re-enter new password:
                             </div>
                             <input type="password" value id="enter-new-password" class="form-control">
                         </div>
                         <div class="form-group hidden-border-bottom">
-                            <button class="btn-save-change">Save Change</button>
+                            <button class="btn-save-change">Save</button>
                             <button class="btn-cannel-change">Cancel</button>
                         </div>
                     </div>
@@ -301,9 +302,7 @@
                     <p>OR</p>
                 </div>
                 <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
-                        data-size="large" data-button-type="continue_with" data-layout="rounded"
-                        data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
                     <div id="gg-login-button">
                         <div id="customBtn" class="customGPlusSignIn">
                             <span class="icon"></span>
@@ -333,9 +332,7 @@
                     <p>OR</p>
                 </div>
                 <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
-                        data-size="large" data-button-type="continue_with" data-layout="rounded"
-                        data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
                     <div id="gg-login-button">
                         <div id="customBtn" class="customGPlusSignIn">
                             <span class="icon"></span>

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="./assets/css/header-footer-style.css">
     <link rel="stylesheet" href="./assets/css/your-shelf.css?v=12042020">
     <link rel="stylesheet" href="./assets/css/styles.min.css">
+    <script src="./assets/css/ckeditor/ckeditor.js"></script>
     <script src="https://apis.google.com/js/api:client.js"></script>
 
     <title>Your Shelf</title>
@@ -127,14 +128,10 @@
                 <!-- menu navbar user -->
                 <div class="user-navbar">
                     <ul class="user-menu">
-                        <li class="sub-menu"><a href="#your-shelf" class="menu-item" id="btn-your-shelf"
-                                onclick="chooseContentShoes().contentYourShelf()">YourShelf</a></li>
-                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes"
-                                onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
-                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update"
-                                onclick="chooseContentShoes().contentUserUpdate()">Update</a></li>
-                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" id="btn-wanna-rock"
-                                onclick="chooseContentShoes().contentWannaRock()">Wanna Rock</a></li>
+                        <li class="sub-menu"><a href="#your-shelf" class="menu-item" id="btn-your-shelf" onclick="chooseContentShoes().contentYourShelf()">YourShelf</a></li>
+                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes" onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
+                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update" onclick="chooseContentShoes().contentUserUpdate()">Update</a></li>
+                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" id="btn-wanna-rock" onclick="chooseContentShoes().contentWannaRock()">Wanna Rock</a></li>
                     </ul>
                 </div>
                 <!-- manager shoes of user -->
@@ -147,9 +144,7 @@
                                 <img src="/assets/images/test1.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-content">
-                                <p class="card-short-content">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Harum, hic. Harum necessitatibus, minima inventore consequatur numquam atque libero
-                                    ipsam quis. Atque ad voluptatem earum ex id corporis quisquam. Saepe, magni!</p>
+                                <p class="card-short-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, hic. Harum necessitatibus, minima inventore consequatur numquam atque libero ipsam quis. Atque ad voluptatem earum ex id corporis quisquam. Saepe, magni!</p>
                             </div>
                         </li>
                         <li class="cards-posts">
@@ -157,9 +152,7 @@
                                 <img src="/assets/images/test1.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-content">
-                                <p class="card-short-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                                    Iste dolor quas eius sit magnam cumque! Deserunt in cupiditate culpa illum doloribus
-                                    iusto autem reprehenderit magni optio, expedita sapiente possimus eaque.</p>
+                                <p class="card-short-content">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste dolor quas eius sit magnam cumque! Deserunt in cupiditate culpa illum doloribus iusto autem reprehenderit magni optio, expedita sapiente possimus eaque.</p>
                             </div>
                         </li>
                     </ul>
@@ -174,11 +167,15 @@
                                     <label for="upload-img" class="btn-upload-img">+</label>
                                 </div>
                                 <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
-                                <input type="file" name="img" accept="image/*" id="upload-img" onchange="uploadImages()"
-                                    multiple>
+                                <input type="file" name="img" accept="image/*" id="upload-img" onchange="uploadImages()" multiple>
                             </div>
                             <div class="container-editor">
-                                <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea>
+                                <!-- <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea> -->
+                                <form action="" method="post">
+                                    <textarea name="status" id="share-exp">
+                                        <p>Your experiences...</p>
+                                    </textarea>
+
                             </div>
                             <div class="container-choose-more">
                                 <select name="brands" class="brands" id="brands">
@@ -197,7 +194,7 @@
                             <div class="container-btn-post">
                                 <button class="btn-post-status">Post</button>
                             </div>
-                        </form>
+                            </form>
                     </div>
                     <!-- user update -->
                     <div class="user-update" id="user-update">
@@ -299,9 +296,7 @@
                     <p>OR</p>
                 </div>
                 <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
-                        data-size="large" data-button-type="continue_with" data-layout="rounded"
-                        data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
                     <div id="gg-login-button">
                         <div id="customBtn" class="customGPlusSignIn">
                             <span class="icon"></span>
@@ -331,9 +326,7 @@
                     <p>OR</p>
                 </div>
                 <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
-                        data-size="large" data-button-type="continue_with" data-layout="rounded"
-                        data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
                     <div id="gg-login-button">
                         <div id="customBtn" class="customGPlusSignIn">
                             <span class="icon"></span>
@@ -346,6 +339,11 @@
     </div>
 
     <!--Script-->
+    <script>
+        CKEDITOR.replace('share-exp');
+        CKEDITOR.config.width = '900px';
+        CKEDITOR.config.height = '300px';
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="./assets/js/header-footer.js"></script>
     <script src="./assets/js/your-shelf.js"></script>

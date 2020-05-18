@@ -1,5 +1,9 @@
 $color-main: #ffa502
 $color-title-site: #f1f1f1
+$font-main: 'Lato', sans-serif
+*
+    font-family: $font-main
+    
 .content
     flex-grow: 1
     margin-top: 72px
@@ -11,6 +15,7 @@ $color-title-site: #f1f1f1
         height: auto
         width: 72%
         box-shadow: 0 4px 80px #070509
+        background-color: #100e17
         margin: 
             left: auto
             right: auto
@@ -22,8 +27,8 @@ $color-title-site: #f1f1f1
     padding: 24px
     //avatar user
     .user-avatar
-        width: 120px
-        height: 120px
+        width: 150px
+        height: 150px
         position: relative
         .user-img
             width: 100%
@@ -40,7 +45,7 @@ $color-title-site: #f1f1f1
             opacity: 0
             border-radius: 64px
         .btn-change-avatar
-            color: white
+            color: #ffffff
             position: absolute
             top: 50%
             left: 0
@@ -57,9 +62,9 @@ $color-title-site: #f1f1f1
     //container include  
     .user-name-container
         padding:  
-            left: 40px
+            left: 50px
         .user-name
-            font-size: 40px
+            font-size: 60px
             color: white
 .container-body
     width: 100%
@@ -105,6 +110,8 @@ $color-title-site: #f1f1f1
         text-transform: uppercase
         color: $color-title-site
         font-size: 18px
+        text-align: center
+ 
     hr
         margin: 16px 0
     .form-group
@@ -124,7 +131,7 @@ $color-title-site: #f1f1f1
             color: #eee
             background-color: #383838
             border: none
-                radius: 4px
+                radius: 8px
             &[readonly]
                 // background-color: #eee
             &:focus, &:hover
@@ -139,7 +146,8 @@ $color-title-site: #f1f1f1
             height: 32px
             width: 120px
             float: right
-            margin-left: 8px
+            font-size: 14px
+            margin: 15px 0 0 12px
             border: none
                 radius: 24px
             outline: none
