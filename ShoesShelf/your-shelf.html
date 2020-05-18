@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="./assets/css/your-shelf.css?v=12042020">
     <link rel="stylesheet" href="./assets/css/styles.min.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
+    <script src="/assets/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.config.width = '900px';
+        CKEDITOR.config.height = '400px';
+    </script>
 
     <title>Your Shelf</title>
 </head>
@@ -169,7 +174,17 @@
                                 <input type="file" name="img" accept="image/*" id="upload-img" onchange="uploadImages()" multiple>
                             </div>
                             <div class="container-editor">
-                                <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea>
+
+                                <form action="" method="post">
+
+                                    <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea>
+
+                                    <!-- (3): Code Javascript thay thế textarea có id='editor1' bởi CKEditor -->
+                                    <script>
+                                        CKEDITOR.replace('status');
+                                    </script>
+
+                                </form>
                             </div>
                             <div class="container-choose-more">
                                 <select name="brands" class="brands" id="brands">
