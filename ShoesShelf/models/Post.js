@@ -18,6 +18,9 @@ const PostSchema = new mongoose.Schema({
     },
     collections: {
         type: String,
+    },
+    idppost: {
+        type: String
     }
     
 });
