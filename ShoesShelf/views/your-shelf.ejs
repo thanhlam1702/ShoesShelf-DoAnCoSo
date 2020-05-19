@@ -39,7 +39,7 @@
                     </div>
                     <!--Navbar middle-->
                     <div class="navbar-middle">
-                        <a href="/" class="img-logo"></a>
+                        <a href="/main" class="img-logo"></a>
                     </div>
                     <!--Navbar right after sign in-->
                     <div class="navbar-right-user" id="navbar-right-user">
@@ -63,10 +63,10 @@
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/your-shelf.html">YourShelf</a>
+                                        <a href="/your-shelf">YourShelf</a>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/account-setting.html">Account setting</a>
+                                        <a href="/account-setting">Account setting</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <div class="user-logout">
@@ -129,7 +129,7 @@
                     <!-- user new shoes -->
                     <div class="user-new-shoes" id="user-new-shoes">
                         <!-- form contain button upload image -->
-                        <form action="">
+                        <form method="POST" action="upload" enctype="multipart/form-data" >
                             <div class="container-upload-img">
                                 <!-- where img alter upload showup review -->
                                 <div class="review-img-upload" id="review-img-upload">

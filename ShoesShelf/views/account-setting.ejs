@@ -4,9 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/header-footer-style.css">
     <link rel="stylesheet" href="/assets/css/account-setting.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <script src="https://apis.google.com/js/api:client.js"></script>
     <title>Account Setting</title>
 </head>
@@ -38,40 +39,6 @@
                     <div class="navbar-middle">
                         <a href="/main" class="img-logo"></a>
                     </div>
-                    <div class="navbar-right" id="navbar-right">
-                        <!--Navbar right before sign in-->
-                        <div class="right-menu">
-                            <ul class="menu ">
-                                <li class="right-sub-menu">
-                                    <a class="hidden-show-up-menu menu-bars menu-item" title="Menu">
-                                        <i class="fas fa-bars"></i>
-                                    </a>
-                                </li>
-                                <li class="right-sub-menu hidden">
-                                    <a href="./about.html" class="menu-item">About Us</a>
-                                </li>
-                                <li class="right-sub-menu hidden">
-                                    <a id="btn-sign-in" class="menu-item" onclick="showUpSignIn()">Login</a>
-                                </li>
-                                <li class="right-sub-menu hidden">
-                                    <a id="btn-sign-up" class="menu-item" onclick="showUpSignUp()">Register</a>
-                                </li>
-                                <li class="right-sub-menu hidden">
-                                    <a class="hidden-show-up-menu close-menu menu-item" title="Close menu">
-                                        <i class="fas fa-times"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="right-search">
-                            <form action="" class="search-form">
-                                <input type="text" name="search" placeholder="Search anything you want...">
-                                <button class="btn-search">
-                                    <i class="fas fa-search"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
                     <!--Navbar right after sign in-->
                     <div class="navbar-right-user" id="navbar-right-user">
                         <!--search-->
@@ -86,18 +53,18 @@
                         <!--showup user after user sign in complete-->
                         <div id="user" class="user">
                             <div class="user-avatar">
-                                <img src="" id="user-img" class="user-img">
+                                <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
                                 <ul class="user-menu" id="user-menu" style="display: none;">
                                     <li class="user-menu-item">
                                         <div class="user-name-container">
-                                            <p id="user-name" class="user-name">Name_User</p>
+                                            <p id="user-name" class="user-name"><%= name %></p>
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
                                         <a href="/your-shelf.html">YourShelf</a>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="account-setting">Account setting</a>
+                                        <a href="/account-setting.html">Account setting</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <div class="user-logout">
@@ -279,72 +246,6 @@
                 </div>
             </div>
         </footer>
-    </div>
-    <!-- Form sign in -->
-    <div id="sign-in-modal" class="modal">
-        <form class="modal-content animate" action="/action_page.php" method="post">
-            <div class="tittle-container">
-                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
-                <p class="tittle-login">Login</p>
-            </div>
-            <div class="container-login">
-                <input type="text" placeholder="Use name" name="email" required>
-                <input type="password" placeholder="Password" name="psw" required>
-                <div class="btn-sign-in"><button type="submit">Login</button></div>
-                <div class="checked-psw">
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember your password?
-                    </label>
-                    <span class="forgot-psw"><a href="#">Forgot?</a></span>
-                </div>
-                <div class="or">
-                    <p>OR</p>
-                </div>
-                <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
-                        data-size="large" data-button-type="continue_with" data-layout="rounded"
-                        data-auto-logout-link="false" data-use-continue-as="false"></div>
-                    <div id="gg-login-button">
-                        <div id="customBtn" class="customGPlusSignIn">
-                            <span class="icon"></span>
-                            <span class="buttonText">Continue with Google</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-    <!--Form sign up-->
-    <div id="sign-up-modal" class="modal">
-        <form class="modal-content animate" action="/action_page.php" method="GET">
-            <div class="tittle-container">
-                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
-                <p class="tittle-login">Register</p>
-            </div>
-            <div class="container-login">
-                <input type="text" placeholder="Use name" name="user-name" required>
-                <input type="text" placeholder="Email" name="email" required>
-                <input type="password" placeholder="Enter password" name="psw" required>
-                <input type="password" placeholder="Enter password again" name="replace-psw" required>
-                <div class="btn-sign-in">
-                    <button type="submit">Create</button>
-                </div>
-                <div class="or">
-                    <p>OR</p>
-                </div>
-                <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
-                        data-size="large" data-button-type="continue_with" data-layout="rounded"
-                        data-auto-logout-link="false" data-use-continue-as="false"></div>
-                    <div id="gg-login-button">
-                        <div id="customBtn" class="customGPlusSignIn">
-                            <span class="icon"></span>
-                            <span class="buttonText">Continue with Google</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
     </div>
 
     <!--Script-->
