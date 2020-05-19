@@ -15,13 +15,13 @@ router.get('/About.html',(req,res) => res.render('About'));
 
 
 //Login handle
-router.post('/login',(req,res,next) => {
-    passport.authenticate('local', {
-        successRedirect : '/main',
-        failureRedirect : '/',
-        failureflash: true
-    })(req, res, next);
-});
+// router.post('/login',(req,res,next) => {
+//     passport.authenticate('local', {
+//         successRedirect : '/main',
+//         failureRedirect : '/',
+//         failureflash: true
+//     })(req, res, next);
+// });
 router.post('/register',upload.single('avatar'),(req,res)=> {
     const { name, email, password, password2, avatar } = req.body;
     let errors = [];
@@ -51,21 +51,13 @@ router.post('/register',upload.single('avatar'),(req,res)=> {
                         newUser.avatar = req.file.filename
                         
                     }
-                    
-                    //Ma hoa password
-                    bcrypt.genSalt(10, (err, salt)=> 
-                        bcrypt.hash(newUser.password, salt, (err, hash) => {
-                            //Set password to hashed
-                            newUser.password = hash;
-                            //Save user
-                            newUser.save()
-                                .then(user => {
-                                    req.flash('success_msg','Bạn đã tạo tài khoản thành công bây giờ bạn có thể đăng nhập');
-                                    res.redirect('/');
-                                })
-                                .catch(err => console.log(err));
+                    //Save user
+                    newUser.save()
+                        .then(user => {
+                            req.flash('success_msg','Bạn đã tạo tài khoản thành công bây giờ bạn có thể đăng nhập');
+                            res.redirect('/');
                         })
-                    )
+                        .catch(err => console.log(err));
                 }
             })
     
@@ -98,11 +90,6 @@ router.post('/upload',upload.array('image',20),(req,res)=> {
         
 });
 
-
-router.post('/store',upload.array('image',20), postcontroller.store)
-
-  
-
 //logout  handle
 router.get('/logout',(req,res) => {
     req.logout();
@@ -110,26 +97,23 @@ router.get('/logout',(req,res) => {
     res.redirect('/');
 });
 
-// router.post('/login', function(req, res) {
-//     var email = req.body.email
-//     var password = req.body.password
-//     User.findOne({email:email,password: password }, function(err, data) {
-//         console.log(data.name);
-//         if (!err) {
-//             if(!data){
-//                 res.redirect('/');
-//            }else{
-         
-//                     res.cookie('email',data.email)
-//                     res.cookie('name',data.name)
-//                     res.redirect('/main');
-                             
-             
-//            }
+router.post('/login', function(req, res) {
+    var email = req.body.email
+    var password = req.body.password
+    User.findOne({email:email,password: password }, function(err, data) {
+        if (!err) {
+            if(!data){
+                res.redirect('/');
+           }else{
+                res.cookie('email',data.email)
+                res.cookie('name',data.name)
+                res.cookie('avatar',data.avatar)
+                res.redirect('/main');
+                }
    
-//         } 
-//             // return res.json({ kq: 0 });
-//     })
-// });
+            } 
+    })
+});
+
 
 module.exports = router;

@@ -7,12 +7,13 @@ const { ensureAuthenticated ,  forwardAuthenticated } = require('./config/auth')
 const passport = require('passport');
 const bodyParser =require("body-parser");
 const formidable = require('formidable');
-const upload = require('./middleware/upload')
+const upload = require('./middleware/upload');
+const cookieParser = require('cookie-parser');
 var fs = require('fs');
 
 
 var app = express();
-
+app.use(cookieParser('dasdasd'))
 app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
 //Passport config
@@ -55,26 +56,34 @@ app.use((req, res, next) => {
 app.use('/',require('./routes/index'));
 
 app.use('/users',require('./routes/users'));
-
+var auth =require('./middleware/auth');
 //static files
 app.use(express.static(__dirname,''));
-
+var Post = require('./models/Post');
 // SS blog post
 
 var MongoClient = require("mongodb").MongoClient;
 MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
     var test = client.db("test");
     console.log("DB connect");
-    app.get("/your-shelf",ensureAuthenticated ,(req,res) => {
-        test.collection("posts").find().toArray(function(error,posts){
-            posts = posts.reverse();
-            res.render('your-shelf',{posts : posts,name: req.user.name, avatar: req.user.avatar});
+    app.get("/your-shelf",auth.requireAuth,(req,res) => {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('your-shelf',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar});
+            }
+
         })
     });
-    app.get("/account-setting",ensureAuthenticated ,(req,res) => {
-        test.collection("users").find().toArray(function(error,users){
-            users = users.reverse();
-            res.render('account-setting',{users:users,name: req.user.name, avatar: req.user.avatar, email: req.user.email});
+    app.get("/account-setting",auth.requireAuth ,(req,res) => {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('account-setting',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,email:req.cookies.email});
+            }
+
         })
     });
     app.get("/your-shelf-fbgg" ,(req,res) => {
@@ -83,10 +92,14 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
             res.render('your-shelf-fbgg',{posts : posts});
         })
     });
-    app.get("/main",ensureAuthenticated ,(req,res) => {
-        test.collection("posts").find().toArray(function(error,posts){
-            posts = posts.reverse();
-            res.render('main',{posts : posts,name: req.user.name, avatar: req.user.avatar});
+    app.get("/main",auth.requireAuth,(req,res) => {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('main',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar});
+            }
+
         })
     });
     app.get("/" ,(req,res) => {
