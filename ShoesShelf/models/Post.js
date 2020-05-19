@@ -22,6 +22,9 @@ const PostSchema = new mongoose.Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    id_post:{
+        type:String
     }
     
 });

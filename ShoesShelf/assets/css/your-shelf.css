@@ -1,3 +1,9 @@
+.navbar-right-user, .left-menu {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
 .content {
   width: 100vw;
   height: auto;

@@ -63,13 +63,14 @@ router.post('/register',upload.single('avatar'),(req,res)=> {
     
 });
 router.post('/upload',upload.array('image',20),(req,res)=> {
-    const { status, brands, hashtag, collections, image ,idpost} = req.body;
+    const { status, brands, hashtag, collections, image ,id_post} = req.body;
         const newPost = new Post({
             status,
             brands,
             hashtag,
             collections,
             image,
+            id_post:req.body.txtIdpost
         });
         if (req.files)
         {
@@ -105,6 +106,7 @@ router.post('/login', function(req, res) {
             if(!data){
                 res.redirect('/');
            }else{
+               res.cookie('id',data.id)
                 res.cookie('email',data.email)
                 res.cookie('name',data.name)
                 res.cookie('avatar',data.avatar)

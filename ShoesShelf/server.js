@@ -71,7 +71,7 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
             if(err){
                 res.json({kq:0});
             }else{
-                res.render('your-shelf',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar});
+                res.render('your-shelf',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id });
             }
 
         })
