@@ -11,6 +11,8 @@ const User = require('../models/User');
 
 const Post = require('../models/Post');
 
+router.get('/posts',(req,res) => res.render('posts'))
+
 router.get('/About.html',(req,res) => res.render('About'));
 
 

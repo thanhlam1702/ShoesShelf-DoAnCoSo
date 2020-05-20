@@ -125,4 +125,4 @@ function chooseContentShoes() {
 //             userContainer.removeChild(document.getElementById('user-edit-profile'));
 //         }
 //     }
-// }
+// }no

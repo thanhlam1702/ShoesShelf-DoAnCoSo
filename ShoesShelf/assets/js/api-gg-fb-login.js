@@ -76,7 +76,7 @@ function onFailure() {
 
 //show layout after user login complete
 function showUpSignInComplete() {
-    if(window.location.href == 'https://shoesshelf.com/' || window.location.href == 'localhost:4444' || window.location.href == 'https://shoesshelf.com/about.html'){
+    if(window.location.href == 'https://shoesshelf.com/' || window.location.href == 'http://localhost:4444/' || window.location.href == 'https://shoesshelf.com/about.html'){
         document.getElementById('navbar-right-user').style.display = 'flex';
         document.getElementById('left-menu').style.display = 'flex';
     
