@@ -119,6 +119,27 @@
             </div>
         </header>
         <div class="main-content" id="main-content">
+            <!-- <button onclick="showImg360()">Show 360 images</button> -->
+            <div class="list-posts">
+                <% posts.forEach(function (post) { %>
+                <div class="post-container">
+                    <div class="posts">
+                        <% for(var i=0 ; i< 1 ; i++) {%>
+                        <img src="/assets/images/userPost/<%= post.image[0].filename %>" class="post-avatar"></img>
+                        <%}%>
+                        <div class="post-title">
+                            <div class="post-content"><%= post.status %></div>
+                            <div class="post-hash-tag"><%= post.hashtag %></div>
+                            <a href="#id-post" class="read-more">Read more...</a>
+                        </div>
+                    </div>
+                    <div class="status">
+                        <p class="user-name"></p>
+                        <p class="post-time"><%= post.date %></p>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
             <div class="sort-container">
                 <select name="sort-brands" class="brands sort-form" id="brands">
                     <option selected hidden style="font-weight: bold;">Brands</option>
@@ -136,151 +157,38 @@
                     <i class="fas fa-search"></i>
                 </button>
             </div>
-            <!-- <button onclick="showImg360()">Show 360 images</button> -->
-            <% posts.forEach(function (post) { %> 
-            <div class="new-post">
-                <div class="post-container">
-                    <div class="posts">
-                        <% for(var i=0 ; i< 1 ; i++) {%>
-                        <img src="/assets/images/userPost/<%= post.image[0].filename %>" class="post-avatar"></img>
-                        <%}%>
-                        <div class="post-title">
-                            <div class="post-content"> <%= post.status %> </div>
-                            <div class="post-hash-tag"><%= post.hashtag %></div>
-                            <a href="#id-post" class="read-more">Read more...</a>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time"><%= post.date %></p>
-                    </div>
-                </div>
-            </div>
-            <br>
-            <% }) %>
-            <hr><br>
-            <div class="two-latest-new">
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/test2.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
-                    </div>
-                </div>
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/test2.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
-                    </div>
-                </div>
-            </div>
-            <br><br>
-            <div class="list-posts">
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/test2.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
-                    </div>
-                </div>
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/test2.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
-                    </div>
-                </div>
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/test2.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
-                    </div>
-                </div>
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/img360/2DC_3631.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
-                            <button onclick="showImg360()">Show 360 images</button>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
-                    </div>
-                </div>
-            </div>
         </div>
         <footer>
-            <div class="footer-container">
-                <div class="left-col">
-                    <div class="social">
-                        <a href="/instagram" target="_blank" title="collective on Instagram">
-                            <i class="fab fa-instagram"> </i>
-                        </a>
-                        <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
-                            <i class="fab fa-facebook"> </i>
-                        </a>
-                        <a href="/pinterest" target="_blank" title="collective on Pinterest">
-                            <i class="fab fa-pinterest-p"> </i>
-                        </a>
-                        <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
-                            <i class="fab fa-youtube"> </i>
-                        </a>
-                    </div>
-                    <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
+        <div class="footer-container">
+            <div class="left-col">
+                <div class="social">
+                    <a href="/instagram" target="_blank" title="collective on Instagram">
+                        <i class="fab fa-instagram"> </i>
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
+                        <i class="fab fa-facebook"> </i>
+                    </a>
+                    <a href="/pinterest" target="_blank" title="collective on Pinterest">
+                        <i class="fab fa-pinterest-p"> </i>
+                    </a>
+                    <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
+                        <i class="fab fa-youtube"> </i>
+                    </a>
                 </div>
-
-                <div class="right-col">
-                    <h1>Our Newsletter</h1>
-                    <div class="border"></div>
-                    <p>Enter your emails to connect with us.</p>
-                    <form action="" class="newsletter">
-                        <input type="text" class="txtb" placeholder="Enter Your Email">
-                        <input type="submit" class="btn" value="Submit">
-                    </form>
-
-                </div>
+                <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
             </div>
+
+            <div class="right-col">
+                <h1>Our Newsletter</h1>
+                <div class="border"></div>
+                <p>Enter your emails to connect with us.</p>
+                <form action="" class="newsletter">
+                    <input type="text" class="txtb" placeholder="Enter Your Email">
+                    <input type="submit" class="btn" value="Submit">
+                </form>
+
+            </div>
+        </div>
         </footer>
     </div>
     <!-- Form sign in -->
@@ -304,7 +212,9 @@
                     <p>OR</p>
                 </div>
                 <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
+                        data-size="large" data-button-type="continue_with" data-layout="rounded"
+                        data-auto-logout-link="false" data-use-continue-as="false"></div>
                     <div id="gg-login-button">
                         <div id="customBtn" class="customGPlusSignIn">
                             <span class="icon"></span>
@@ -317,8 +227,8 @@
     </div>
     <!--Form sign up-->
     <div id="sign-up-modal" class="modal">
-        <form name="f1" class="modal-content animate" action="/register"
-        onsubmit="return matchpass() , lengthpass()" method="POST">
+        <form name="f1" class="modal-content animate" action="/register" onsubmit="return matchpass() , lengthpass()"
+            method="POST">
             <div class="tittle-container">
                 <span class="close" id="btn-close-sign-up" title="Close">&times;</span>
                 <p class="tittle-login">Register</p>
@@ -333,7 +243,9 @@
                     <p>OR</p>
                 </div>
                 <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
+                        data-size="large" data-button-type="continue_with" data-layout="rounded"
+                        data-auto-logout-link="false" data-use-continue-as="false"></div>
                     <div id="gg-login-button">
                         <div id="customBtn" class="customGPlusSignIn">
                             <span class="icon"></span>
