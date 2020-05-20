@@ -411,6 +411,10 @@
   border-radius: 30px;
 }
 
+.container-choose-more .txtIdPost {
+  display: none;
+}
+
 .user-your-shelf .cards-posts {
   width: 256px;
   height: 320px;

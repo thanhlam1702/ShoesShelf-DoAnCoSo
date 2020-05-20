@@ -287,7 +287,8 @@ header {
 /*------Form login---------*/
 
 .container-login input[type="text"],
-.container-login input[type="password"] {
+.container-login input[type="password"],
+.container-login input[type="email"]{
   width: 240px;
   height: 48px;
   background: none;
