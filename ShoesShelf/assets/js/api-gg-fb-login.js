@@ -148,3 +148,12 @@ function logoutComplete() {
     window.location = "https://shoesshelf.com";
     statusLogin = -1;
 }
+function changeLayout(){
+    document.getElementById('navbar-right-user').style.display = 'flex';
+    document.getElementById('left-menu').style.display = 'flex';
+
+    document.getElementById('navbar-right').style.display = 'none';
+    document.getElementById('sign-in-modal').style.display = 'none';
+    document.getElementById('sign-up-modal').style.display = 'none';
+}
+module.exports = loadFbGg;

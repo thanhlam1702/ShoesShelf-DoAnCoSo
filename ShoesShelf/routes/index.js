@@ -11,6 +11,7 @@ const User = require('../models/User');
 
 const Post = require('../models/Post');
 
+
 router.get('/posts',(req,res) => res.render('posts'))
 
 router.get('/About.html',(req,res) => res.render('About'));
@@ -113,9 +114,8 @@ router.post('/login', function(req, res) {
                 res.cookie('name',data.name)
                 res.cookie('avatar',data.avatar)
                 res.redirect('/main');
-                }
-   
-            } 
+            }
+        } 
     })
 });
 
