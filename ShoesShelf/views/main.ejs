@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/header-footer-style.css">
     <link rel="stylesheet" href="/assets/css/styles.min.css">
@@ -38,7 +39,7 @@
                     </div>
                     <!--Navbar middle-->
                     <div class="navbar-middle">
-                        <a href="/" class="img-logo"></a>
+                        <a href="/main" class="img-logo"></a>
                     </div>
                     <!--Navbar right after sign in-->
                     <div class="navbar-right-user" id="navbar-right-user" dislay="block">
@@ -97,7 +98,7 @@
                         <div class="post-title">
                             <div class="post-content"><%= post.status %></div>
                             <div class="post-hash-tag"><%= post.hashtag %></div>
-                            <a href="#id-post" class="read-more">Read more...</a>
+                            <a href="#<%= post._id %>" class="read-more">Read more...</a>
                         </div>
                     </div>
                     <div class="status">
@@ -122,23 +123,24 @@
                     </div>
                 </div>
             </div>
-            <div class="sort-container">
-                <select name="sort-brands" class="brands sort-form" id="brands">
-                    <option selected hidden style="font-weight: bold;">Brands</option>
-                    <option value="vans">Vans</option>
-                    <option value="adidas">Adidas</option>
-                    <option value="nike">Nike</option>
-                    <option value="reebok">Reebok</option>
-                    <option value="converse">Converse</option>
-                    <option value="puma">Puma</option>
-                    <option value="orther">Orther</option>
-                </select>
-                <input type="text" name="collections" placeholder="Collections" class="collections sort-form">
-                <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag sort-form">
-                <button class="btn-search sort-form">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
+            <form action="/main" method="GET" class="">
+                <div class="sort-container">
+                    <select name="search" class="brands sort-form" id="brands">
+                        <option selected hidden style="font-weight: bold;">Brands</option>
+                        <option value="vans">Vans</option>
+                        <option value="adidas">Adidas</option>
+                        <option value="nike">Nike</option>
+                        <option value="reebok">Reebok</option>
+                        <option value="converse">Converse</option>
+                        <option value="puma">Puma</option>
+                        <option value="orther">Orther</option>
+                    </select>
+                    <button class="btn-search sort-form" type="submit" >
+                        <i class="fas fa-search" ></i>
+                        
+                    </button>
+                </div>
+            </form>
         </div>
         <footer>
             <div class="footer-container">

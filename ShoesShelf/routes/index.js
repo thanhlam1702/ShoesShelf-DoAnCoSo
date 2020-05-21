@@ -9,11 +9,11 @@ const postcontroller = require('../controller/postcontroller')
 //User model
 const User = require('../models/User');
 
-const Post = require('../models/Post');
-
-router.get('/posts',(req,res) => res.render('posts'))
+const Post = require('../models/Post'); 
 
 router.get('/About.html',(req,res) => res.render('About'));
+
+router.get('/posts',(req,res) => res.render('posts'))
 
 
 //Login handle
@@ -108,7 +108,7 @@ router.post('/login', function(req, res) {
             if(!data){
                 res.redirect('/');
            }else{
-               res.cookie('id',data.id)
+                res.cookie('id',data.id)
                 res.cookie('email',data.email)
                 res.cookie('name',data.name)
                 res.cookie('avatar',data.avatar)
@@ -118,6 +118,10 @@ router.post('/login', function(req, res) {
             } 
     })
 });
+
+router.get('/main#5ec291b84abc1603c0500c91',function(req, res , next) {
+    res.render('posts')
+})
 
 
 module.exports = router;
