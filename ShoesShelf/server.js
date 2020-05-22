@@ -119,11 +119,31 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
         };
     });
     app.get("/" ,(req,res) => {
-        test.collection("posts").find().toArray(function(error,posts){
-            posts = posts.reverse();
-            res.render('index',{posts : posts});
+        if (req.query.search) {     
+            const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+
+            Post.find({brands : regex},function(err,data){
+                if(err){
+                    res.json({kq:0});
+                }else{
+                    var noMatch = ""
+                    if(data.length < 1) {
+                        noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
+                    }
+                    res.render('index',{posts:data,noMatch: noMatch});
+                }
+        });
+    } else {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('index',{posts:data});
+            }
+
         })
-    });
+    };
+});
 });
 
 function escapeRegex(text) {
