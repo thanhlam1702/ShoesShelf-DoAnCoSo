@@ -9,7 +9,14 @@ const postcontroller = require('../controller/postcontroller')
 //User model
 const User = require('../models/User');
 
+<<<<<<< HEAD
 const Post = require('../models/Post'); 
+=======
+const Post = require('../models/Post');
+
+
+router.get('/posts',(req,res) => res.render('posts'))
+>>>>>>> 9449da427e34b5a26f2380bb70d20d4961c7c7b2
 
 router.get('/About.html',(req,res) => res.render('About'));
 
@@ -113,9 +120,8 @@ router.post('/login', function(req, res) {
                 res.cookie('name',data.name)
                 res.cookie('avatar',data.avatar)
                 res.redirect('/main');
-                }
-   
-            } 
+            }
+        } 
     })
 });
 

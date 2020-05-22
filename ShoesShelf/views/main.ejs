@@ -56,7 +56,7 @@
                         <div id="user" class="user">
                             <div class="user-avatar">
                                 <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
-                                <ul class="user-menu" id="user-menu" >
+                                <ul class="user-menu" id="user-menu">
                                     <li class="user-menu-item">
                                         <div class="user-name-container">
                                             <p id="user-name" class="user-name"> <%= name %> </p>
@@ -75,28 +75,26 @@
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </nav>
             <div class="banner">
                 <video class="banner-video" autoplay loop muted>
-            <source src="/assets/video/video-banner.mp4" type="video/mp4">
-          </video>
+                    <source src="/assets/video/video-banner.mp4" type="video/mp4">
+                </video>
             </div>
         </header>
         <div class="main-content" id="main-content">
             <!-- <button onclick="showImg360()">Show 360 images</button> -->
-            <div class="list-posts">
-                <% posts.forEach(function (post) { %>
+            <div class="list-posts"><% posts.forEach(function (post) { %>
                 <div class="post-container">
                     <div class="posts">
-                        <% for(var i=0 ; i< 1 ; i++) {%>
-                        <img src="/assets/images/userPost/<%= post.image[0].filename %>" class="post-avatar"></img>
-                        <%}%>
+                        <% for(var i=0 ; i< 1 ; i++) {%><img src="/assets/images/userPost/<%= post.image[0].filename %>"
+                            class="post-avatar"></img><%}%>
                         <div class="post-title">
                             <div class="post-content"><%= post.status %></div>
+<<<<<<< HEAD
                             <div class="post-hash-tag"><%= post.hashtag %></div>
                             <a href="#<%= post._id %>" class="read-more">Read more...</a>
                         </div>
@@ -105,24 +103,31 @@
                         <p class="user-name"></p>
                         <p class="post-time"><%= post.date %></p>
                     </div>
-                </div>
-                <% }) %>
-                <div class="post-container">
-                    <div class="posts">
-                        <img src="/assets/images/img360/2DC_3631.jpg" class="post-avatar"></img>
-                        <div class="post-title">
-                            <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
-                            <div class="post-hash-tag">#Converse #FullColor</div>
-                            <a href="#id-post" class="read-more">Read more...</a>
-                            <button onclick="showImg360()">Show 360 images</button>
-                        </div>
-                    </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
-                    </div>
+=======
+                    <div class="post-hash-tag"><%= post.hashtag %></div>
+                    <a href="#id-post" class="read-more">Read more...</a>
+>>>>>>> 9449da427e34b5a26f2380bb70d20d4961c7c7b2
                 </div>
             </div>
+            <div class="status">
+                <p class="user-name"></p>
+                <p class="post-time"><%= post.date %></p>
+            </div>
+        </div><% }) %>
+        <div class="post-container">
+            <div class="posts">
+                <img src="/assets/images/img360/2DC_3631.jpg" class="post-avatar"></img>
+                <div class="post-title">
+                    <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab
+                        minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint
+                        vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur,
+                        adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
+                    <div class="post-hash-tag">#Converse #FullColor</div>
+                    <a href="#id-post" class="read-more">Read more...</a>
+                    <button onclick="showImg360()">Show 360 images</button>
+                </div>
+            </div>
+<<<<<<< HEAD
             <form action="/main" method="GET" class="">
                 <div class="sort-container">
                     <select name="search" class="brands sort-form" id="brands">
@@ -141,39 +146,64 @@
                     </button>
                 </div>
             </form>
-        </div>
-        <footer>
-            <div class="footer-container">
-                <div class="left-col">
-                    <div class="social">
-                        <a href="/instagram" target="_blank" title="collective on Instagram">
-                            <i class="fab fa-instagram"> </i>
-                        </a>
-                        <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
-                            <i class="fab fa-facebook"> </i>
-                        </a>
-                        <a href="/pinterest" target="_blank" title="collective on Pinterest">
-                            <i class="fab fa-pinterest-p"> </i>
-                        </a>
-                        <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
-                            <i class="fab fa-youtube"> </i>
-                        </a>
-                    </div>
-                    <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
-                </div>
-
-                <div class="right-col">
-                    <h1>Our Newsletter</h1>
-                    <div class="border"></div>
-                    <p>Enter your emails to connect with us.</p>
-                    <form action="" class="newsletter">
-                        <input type="text" class="txtbox" placeholder="Enter Your Email">
-                        <input type="submit" class="btn" value="Submit">
-                    </form>
-
-                </div>
+=======
+            <div class="status">
+                <p class="user-name"></p>
+                <p class="post-time">3 minuter ago</p>
             </div>
-        </footer>
+>>>>>>> 9449da427e34b5a26f2380bb70d20d4961c7c7b2
+        </div>
+    </div>
+    <div class="sort-container">
+        <select name="sort-brands" class="brands sort-form" id="brands">
+            <option selected hidden style="font-weight: bold;">Brands</option>
+            <option value="vans">Vans</option>
+            <option value="adidas">Adidas</option>
+            <option value="nike">Nike</option>
+            <option value="reebok">Reebok</option>
+            <option value="converse">Converse</option>
+            <option value="puma">Puma</option>
+            <option value="orther">Orther</option>
+        </select>
+        <input type="text" name="collections" placeholder="Collections" class="collections sort-form">
+        <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag sort-form">
+        <button class="btn-search sort-form">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <div class="left-col">
+                <div class="social">
+                    <a href="/instagram" target="_blank" title="collective on Instagram">
+                        <i class="fab fa-instagram"> </i>
+                    </a>
+                    <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
+                        <i class="fab fa-facebook"> </i>
+                    </a>
+                    <a href="/pinterest" target="_blank" title="collective on Pinterest">
+                        <i class="fab fa-pinterest-p"> </i>
+                    </a>
+                    <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
+                        <i class="fab fa-youtube"> </i>
+                    </a>
+                </div>
+                <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
+            </div>
+
+            <div class="right-col">
+                <h1>Our Newsletter</h1>
+                <div class="border"></div>
+                <p>Enter your emails to connect with us.</p>
+                <form action="" class="newsletter">
+                    <input type="text" class="txtbox" placeholder="Enter Your Email">
+                    <input type="submit" class="btn" value="Submit">
+                </form>
+
+            </div>
+        </div>
+    </footer>
     </div>
     <!-- Form Đăng nhập -->
     <div id="sign-in-modal" class="modal">
@@ -196,7 +226,9 @@
                     <p>OR</p>
                 </div>
                 <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
+                        data-size="large" data-button-type="continue_with" data-layout="rounded"
+                        data-auto-logout-link="false" data-use-continue-as="false"></div>
                     <div id="gg-login-button">
                         <div id="customBtn" class="customGPlusSignIn">
                             <span class="icon"></span>
@@ -209,8 +241,8 @@
     </div>
     <!--Form Đăng ký-->
     <div id="sign-up-modal" class="modal">
-        <form name="f1" class="modal-content animate" action="/register"
-        onsubmit="return matchpass() , lengthpass()" method="POST">
+        <form name="f1" class="modal-content animate" action="/register" onsubmit="return matchpass() , lengthpass()"
+            method="POST">
             <div class="tittle-container">
                 <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
                 <p class="tittle-login">Register</p>
@@ -225,7 +257,9 @@
                     <p>OR</p>
                 </div>
                 <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
+                        data-size="large" data-button-type="continue_with" data-layout="rounded"
+                        data-auto-logout-link="false" data-use-continue-as="false"></div>
                     <div id="gg-login-button">
                         <div id="customBtn" class="customGPlusSignIn">
                             <span class="icon"></span>
