@@ -16,6 +16,12 @@ router.get('/About.html',(req,res) => res.render('About'));
 router.get('/posts',(req,res) => res.render('posts'))
 
 
+router.post('/posts/id',function(req,res,next){
+    res.cookie('idpost',req.body.id)
+    var id=req.body.id;
+    res.redirect('/posts/'+id);
+    
+});
 //Login handle
 // router.post('/login',(req,res,next) => {
 //     passport.authenticate('local', {
@@ -106,7 +112,13 @@ router.post('/login', function(req, res) {
     User.findOne({email:email,password: password }, function(err, data) {
         if (!err) {
             if(!data){
-                res.redirect('/');
+                res.render('login',{
+                    errors: [
+                         'User does not exist.'
+                    ],
+                    values : req.body
+                })
+                return
            }else{
                 res.cookie('id',data.id)
                 res.cookie('email',data.email)

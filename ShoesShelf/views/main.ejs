@@ -98,7 +98,10 @@
                         <div class="post-title">
                             <div class="post-content"><%= post.status %></div>
                             <div class="post-hash-tag"><%= post.hashtag %></div>
-                            <a href="#<%= post._id %>" class="read-more">Read more...</a>
+                            <form action="/posts/id" method="POST">
+                                <input value="<%= post._id %>" name="id">
+                                <button type="submit">read more</button>
+                            </form>
                         </div>
                     </div>
                     <div class="status">

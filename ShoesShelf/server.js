@@ -133,17 +133,28 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
                     res.render('index',{posts:data,noMatch: noMatch});
                 }
         });
-    } else {
+        } else {
+            Post.find(function(err,data){
+                if(err){
+                    res.json({kq:0});
+                }else{
+                    res.render('index',{posts:data});
+                }
+
+            })
+        };   
+    });
+    app.get('/posts/:id',auth.requireAuth,function(req,res,next){
         Post.find(function(err,data){
             if(err){
                 res.json({kq:0});
             }else{
-                res.render('index',{posts:data});
+                res.render('posts',{output:req.params.id,posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,idpost:req.cookies.idpost });
             }
 
         })
-    };
-});
+    });
+    
 });
 
 function escapeRegex(text) {

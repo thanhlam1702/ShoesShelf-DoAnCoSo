@@ -78,10 +78,12 @@
                 </div>
             </nav>
         </header>
+        <% posts.forEach(function (post) { %>
+        <%if(idpost == post._id ){%>
         <div class="content">
             <article>
                 <div class="post-title">
-                    <p class="title">Vans - Sự bức phá ngoạn mục từ nhàm chán đến tượng đài làng streetwear</p>
+                    <p class="title">Vans - Sự bức phá ngoạn mục từ nhàm chán đến tượng đài làng streetwear </p>
                     <hr>
                     <div class="post-status">
                         <img src="" alt="" class="user-img">
@@ -93,79 +95,11 @@
                     <div class="post-container-content">
                         <!-- content post -->
                         <div class="post-content">
-                            <p class="normal">
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet, provident ad
-                                sapiente,
-                                nisi, quo et voluptates laborum quibusdam veritatis repudiandae quisquam officiis
-                                consectetur accusantium ducimus vitae voluptate pariatur assumenda quam! Lorem, ipsum
-                                dolor
-                                sit amet consectetur adipisicing elit. Dicta rerum aliquid odio tempore magnam at
-                                voluptate,
-                                ex rem vitae ducimus dolor eius, illum perspiciatis culpa qui ut consequatur laboriosam
-                                fugit?
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus perferendis non,
-                                vitae
-                                enim, dolorem maxime laborum iste excepturi consequatur iure, harum rerum. Veritatis
-                                voluptate incidunt magni odio, accusantium deleniti ducimus?
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum voluptates eveniet,
-                                velit
-                                exercitationem quisquam porro deleniti veritatis saepe corrupti incidunt minima eos
-                                dolorum,
-                                nisi assumenda quia illo explicabo pariatur eaque Lorem ipsum, dolor sit amet
-                                consectetur
-                                adipisicing elit. Exercitationem rem soluta deleniti tempore rerum, non consectetur
-                                totam
-                                amet dicta quod in corporis. Ad aut earum suscipit nihil sunt nostrum minus?
-                            </p>
-                            <img src="/assets/images/test2.jpg" alt="" class="img-normal">
+                            <% for(var i=0 ; i < post.image.length ; i++) {%>
+                            <img src="/assets/images/userPost/<%= post.image[i].filename %>" alt="" class="img-normal">
                             <p class="normal">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
-                                provident ad sapiente,
-                                nisi, quo et voluptates laborum quibusdam veritatis repudiandae quisquam officiis
-                                consectetur accusantium ducimus vitae voluptate pariatur assumenda quam! Lorem, ipsum
-                                dolor
-                                sit amet consectetur adipisicing elit. Dicta rerum aliquid odio tempore magnam at
-                                voluptate,
-                                ex rem vitae ducimus dolor eius, illum perspiciatis culpa qui ut consequatur laboriosam
-                                fugit?
-                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus perferendis non,
-                                vitae
-                                enim, dolorem maxime laborum iste excepturi consequatur iure, harum rerum. Veritatis
-                                voluptate incidunt magni odio, accusantium deleniti ducimus?
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum voluptates eveniet,
-                                velit
-                                exercitationem quisquam porro deleniti veritatis saepe corrupti incidunt minima eos
-                                dolorum,
-                                nisi assumenda quia illo explicabo pariatur eaque Lorem ipsum, dolor sit amet
-                                consectetur
-                                adipisicing elit. Exercitationem rem soluta deleniti tempore rerum, non consectetur
-                                totam
-                                amet dicta quod in corporis. Ad aut earum suscipit nihil sunt nostrum minus?
                             </p>
-                            <p class="normal">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
-                                provident ad sapiente,
-                                nisi, quo et voluptates laborum quibusdam veritatis repudiandae quisquam officiis
-                                consectetur accusantium ducimus vitae voluptate pariatur assumenda quam! Lorem, ipsum
-                                dolor
-                                sit amet consectetur adipisicing elit. Dicta rerum aliquid odio tempore magnam at
-                                voluptate,
-                                ex rem vitae ducimus dolor eius, illum perspiciatis culpa qui ut consequatur laboriosam
-                                fugit?
-                            </p>
-                            <img src="/assets/images/img360/2DC_3631.jpg" alt="" class="img-normal">
-                            <p class="normal">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus
-                                perferendis non, vitae
-                                enim, dolorem maxime laborum iste excepturi consequatur iure, harum rerum. Veritatis
-                                voluptate incidunt magni odio, accusantium deleniti ducimus?
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nostrum voluptates eveniet,
-                                velit
-                                exercitationem quisquam porro deleniti veritatis saepe corrupti incidunt minima eos
-                                dolorum,
-                                nisi assumenda quia illo explicabo pariatur eaque Lorem ipsum, dolor sit amet
-                                consectetur
-                                adipisicing elit. Exercitationem rem soluta deleniti tempore rerum, non consectetur
-                                totam
-                                amet dicta quod in corporis. Ad aut earum suscipit nihil sunt nostrum minus?
-                            </p>
+                            <%}%>
                         </div>
                         <!-- hashtag -->
                         <div class="post-branch-hashtag">
@@ -235,6 +169,8 @@
                 </div>
             </article>
         </div>
+        <%}%>
+        <% }) %>
         <footer>
             <div class="footer-container">
                 <div class="left-col">
