@@ -11,7 +11,7 @@
     <script src="./assets/css/ckeditor/ckeditor.js"></script>
     <script src="https://apis.google.com/js/api:client.js"></script>
 
-    <title>Your Shelf</title>
+    <title><%= name %> Shelf</title>
 </head>
 
 <body>
@@ -63,7 +63,7 @@
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/your-shelf">YourShelf</a>
+                                        <a href="/your-shelf">My Shelf</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <a href="/account-setting">Account setting</a>
@@ -94,8 +94,8 @@
                 <!-- menu navbar user -->
                 <div class="user-navbar">
                     <ul class="user-menu">
-                        <li class="sub-menu"><a href="#your-shelf" class="menu-item" id="btn-your-shelf"
-                                onclick="chooseContentShoes().contentYourShelf()">YourShelf</a></li>
+                        <li class="sub-menu"><a href="#my-shelf" class="menu-item" id="btn-your-shelf"
+                                onclick="chooseContentShoes().contentYourShelf()">My Shelf</a></li>
                         <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes"
                                 onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
                         <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update"
@@ -118,9 +118,9 @@
                                     <%}%>
                                 </div>
                                 <div class="card-container-content">
-                                    <p class="card-short-content">
-                                        <%= post.status %>
-                                    </p>
+                                    <div class="card-short-content">
+                                        <%- post.status %>
+                                    </div>
                                 </div>
                             </li>
                             <%}%>

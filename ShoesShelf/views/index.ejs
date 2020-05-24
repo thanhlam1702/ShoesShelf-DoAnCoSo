@@ -95,7 +95,7 @@
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/your-shelf-fbgg">YourShelf</a>
+                                        <a href="my-shelf-fbgg">My Shelf</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <a href="account-setting">Account setting</a>
@@ -128,7 +128,7 @@
                         <img src="/assets/images/userPost/<%= post.image[0].filename %>" class="post-avatar"></img>
                         <%}%>
                         <div class="post-title">
-                            <div class="post-content"><%= post.status %></div>
+                            <div class="post-content"><%- post.status %></div>
                             <div class="post-hash-tag"><%= post.hashtag %></div>
                             <a href="#id-post" class="read-more">Read more...</a>
                         </div>
@@ -145,8 +145,8 @@
                         <div class="post-title">
                             <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
                             <div class="post-hash-tag">#Converse #FullColor</div>
+                            <button onclick="showImg360()" class="btn-view-360">Show 360 images</button>
                             <a href="#id-post" class="read-more">Read more...</a>
-                            <button onclick="showImg360()">Show 360 images</button>
                         </div>
                     </div>
                     <div class="status">
@@ -170,7 +170,6 @@
                         </select>
                         <button class="btn-search sort-form" type="submit" >
                             <i class="fas fa-search" ></i>
-                            
                         </button>
                     </div>
                 </form>
@@ -217,7 +216,7 @@
                 <p class="tittle-login">Login</p>
             </div>
             <div class="container-login">
-                <input type="text" placeholder="Usename" name="email" required>
+                <input type="text" placeholder="Use name or email" name="email" required>
                 <input type="password" placeholder="Password" name="password" required>
                 <div class="btn-sign-in"><button type="submit">Sign in</button></div>
                 <div class="checked-psw">
@@ -252,12 +251,12 @@
                 <p class="tittle-login">Register</p>
             </div>
             <div class="container-login">
-                <input type="text" placeholder="Usename" name="name" id="name" required>
+                <input type="text" placeholder="Use name" name="name" id="name" required>
                 <input type="email" placeholder="Email" name="email" id="email" required>
                 <input type="password" placeholder="Enter password" name="password" id="password" required>
                 <input type="password" placeholder="Enter password again" name="password2" id="password2" required>
                 <div class="btn-sign-in"><button type="submit">Create</button></div>
-                <div class="hoac">
+                <div class="or">
                     <p>OR</p>
                 </div>
                 <div class="sign-in-other">

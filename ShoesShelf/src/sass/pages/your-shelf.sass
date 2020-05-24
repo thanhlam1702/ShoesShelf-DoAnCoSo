@@ -26,10 +26,7 @@
         width: 1100px
         margin: auto
         border-radius: 24px
-        padding: 
-            top: 24px
-            left: 24px
-            right: 24px
+        padding: 24px
     
 //container user include avatar,  name of user
 .user-container
@@ -53,93 +50,7 @@
         .user-name
             font-size: 40px
             color: white
-    .btn-edit-profile
-        height: 24px
-        padding: 0 24px
-        color: white
-        outline: none
-        border: none
-        border-radius: 16px
-        margin-top: 8px
-        margin-left: 16px
-        @include data-btn-color
-    .user-edit-profile
-        position: fixed
-        height: 100vh
-        width: 100vw
-        z-index: 15
-        overflow: auto
-        top: 0
-        left: 0
-        background-color: rgba(0, 0, 0, 0.4)
-.user-edit-profile
-    .close-modal-edit
-        color: white
-        font:
-            family: sans-serif
-            size: 16px
-            style: inherit
-        position: absolute
-        right: 32px
-        cursor: pointer
-        &:hover
-            color: #FF3333           
-    .modal-edit-profile
-        width: 400px
-        position: relative
-        background-color: white
-        margin: auto
-            top: 64px
-        padding: 16px 0
-        background-color: #1e272e
-    .user-avatar
-        margin: auto
-        width: 120px
-        height: 120px
-        .user-img
-            height: 120px
-            width: 120px
-            border: 
-                radius: 80px
-            box-shadow: none
-    #change-avatar
-        display: none
-    .btn-change-avatar
-        display: flex
-        justify-content: center
-        margin-top: 8px
-        text-transform: uppercase
-        cursor: pointer
-        color: white
-    .user-name
-        height: 56px
-        font-size: 24px
-        width: 80%
-        margin: auto
-        display: block
-        text-align: center
-        outline: none
-        color: white
-        background: 
-            color: #1e272e
-        border: none
-            bottom: 2px solid #ffa502
-        margin: 
-            bottom: 16px
-    p
-        text-align: center
-        color: white
-    .btn-save-change
-        margin: 24px auto
-        display: block
-        height: 32px
-        outline: none
-        border: none
-        padding: 0 8px
-        border-radius: 16px
-        color: white
-        @include data-btn-color
-                
+                   
 //navbar user include yourshelf, new shoes, update, wanna rock
 .user-navbar
     width: 100%
@@ -300,34 +211,33 @@
 .user-your-shelf
     .cards-posts
         width: 256px
-        height: 320px
+        height: 360px
         cursor: pointer
         margin: 
             bottom: 32px
-            left: 30.65px
-            right: 30.65px
+            left: 68px
         background-color: rgba(32,28,41,.75)
     .card-container-img
         width: 100%
-        height: 88%
+        height: 80%
         .card-img
             width: 100%
             height: auto
             max-height: 100%
     .card-container-content
+        // width: 100%
+        height: auto
+        padding: 8px
+        color: white
+        font-size: 14px
         width: 100%
-        height: 12%
-        margin-top: 8px
-        padding: 
-            left: 8px
-            right: 8px
+        text-overflow: ellipsis
+        overflow: hidden
+        // height: auto //line-height * clamp
+        display: -webkit-box
+        -webkit-box-orient: vertical
+        -webkit-line-clamp: 2
         .card-short-content
-            color: white
-            font-size: 14px
-            width: 100%
-            height: 100%
-            text-overflow: ellipsis
-            white-space: nowrap
             overflow: hidden
 .user-wanna-rock
     //card contain images and name, hashtag of post

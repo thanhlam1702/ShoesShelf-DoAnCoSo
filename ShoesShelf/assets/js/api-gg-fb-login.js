@@ -156,4 +156,3 @@ function changeLayout(){
     document.getElementById('sign-in-modal').style.display = 'none';
     document.getElementById('sign-up-modal').style.display = 'none';
 }
-module.exports = loadFbGg;
