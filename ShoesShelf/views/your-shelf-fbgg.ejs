@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
     <link rel="stylesheet" href="./assets/css/header-footer-style.css">
     <link rel="stylesheet" href="./assets/css/your-shelf.css?v=12042020">
     <link rel="stylesheet" href="./assets/css/styles.min.css">
@@ -58,14 +59,14 @@
                                 <ul class="user-menu" id="user-menu" style="display: none;">
                                     <li class="user-menu-item">
                                         <div class="user-name-container">
-                                            <p id="user-name" class="user-name"> </p>
+                                            <p id="user-name" class="user-name">Name_User</p>
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/yourshelf">MyShelf</a>
+                                        <a href="/your-shelf.html">YourShelf</a>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="account-setting">Account setting</a>
+                                        <a href="/account-setting.html">Account setting</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <div class="user-logout">
@@ -307,45 +308,14 @@
 
     <!--Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="/assets/js/header-footer.js"></script>
-    <script src="/assets/js/your-shelf.js"></script>
-    
-    
+    <script src="./assets/js/header-footer.js"></script>
+    <script src="./assets/js/your-shelf.js"></script>
+
+
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
-    <script src="/assets/js/api-gg-fb-login.js"></script>
+    <script src="./assets/js/api-gg-fb-login.js"></script>
     <div id="status"></div>
-
-    <script>
-        function doPost(form) {
-            $.ajax({
-                url:"/do-post",
-                method: "POST",
-                data: {status: form.status.value, image: imagePath},
-                success: function(response){
-                    alert(response);
-                }
-            });
-            return false;
-        }
-    </script>
-    <script>
-        $("#form-upload").on("submit",function(e) {
-            e.preventDefault();
-            $.ajax({
-                url:"/do-upload-image",
-                method: "POST",
-                data: new FormData(this),
-                contentType : false,
-                cache: false, 
-                processData: false,
-                success: function(response) {
-                    alert(response);
-                }
-
-            })
-        })
-    </script>
 
 
 </body>

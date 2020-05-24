@@ -15,7 +15,7 @@ function uploadImages() {
 
         var reader = new FileReader();
 
-        reader.onload = function(e) {
+        reader.onload = function (e) {
             //create element HTML about:
             //tag "img" have id name "img-upload"
             //"src" = present result
@@ -39,20 +39,11 @@ function uploadImages() {
 
     if (uploadImg.files.length == 0) {
         document.getElementById('title-upload-img').style.display = 'block';
-    } else {
+    }
+    else {
         document.getElementById('title-upload-img').style.display = 'none';
     }
 }
-<<<<<<< HEAD
-=======
-document.getElementById('btn-your-shelf').style.color = "white"
-    //showup hidden content
-var chooseContentShoes = () => {
-    const userYourShelf = document.getElementById('user-your-shelf');
-    const userNewShoes = document.getElementById('user-new-shoes');
-    const userUpdate = document.getElementById('user-update');
-    const userWannaRock = document.getElementById('user-wanna-rock');
->>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
 
 //showup hidden content
 function chooseContentShoes() {
@@ -72,25 +63,16 @@ function chooseContentShoes() {
             userNewShoes.style.display = userUpdate.style.display = userWannaRock.style.display = 'none';
             userYourShelf.style.display = 'flex';
 
-<<<<<<< HEAD
             btnUserNewShoes.style.color = btnUserUpdate.style.color = btnUserWannaRock.style.color = '';
-=======
->>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
             btnUserYourShelf.style.color = 'white';
-            btnUserNewShoes.style.color = btnUserUpdate.style.color = btnUserWannaRock.style.color = '';
         },
         //show up content new shoes
         contentNewShoes: () => {
             userYourShelf.style.display = userUpdate.style.display = userWannaRock.style.display = 'none';
             userNewShoes.style.display = 'block';
 
-<<<<<<< HEAD
             btnUserYourShelf.style.color = btnUserUpdate.style.color = btnUserWannaRock.style.color = '';
             btnUserNewShoes.style.color = 'white';
-=======
-            btnUserNewShoes.style.color = 'white';
-            btnUserYourShelf.style.color = btnUserUpdate.style.color = btnUserWannaRock.style.color = '';
->>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
 
         },
 
@@ -98,13 +80,8 @@ function chooseContentShoes() {
             userYourShelf.style.display = userNewShoes.style.display = userWannaRock.style.display = 'none';
             userUpdate.style.display = 'block';
 
-<<<<<<< HEAD
             btnUserYourShelf.style.color = btnUserNewShoes.style.color = btnUserWannaRock.style.color = '';
             btnUserUpdate.style.color = 'white';
-=======
-            btnUserUpdate.style.color = 'white';
-            btnUserYourShelf.style.color = btnUserNewShoes.style.color = btnUserWannaRock.style.color = '';
->>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
 
         },
         //showup wanna rock
@@ -112,7 +89,6 @@ function chooseContentShoes() {
             userYourShelf.style.display = userNewShoes.style.display = userUpdate.style.display = userWannaRock.style.display = 'none';
             userWannaRock.style.display = 'flex';
 
-<<<<<<< HEAD
             btnUserYourShelf.style.color = btnUserNewShoes.style.color = btnUserUpdate.style.color = '';
             btnUserWannaRock.style.color = 'white';
         },
@@ -150,11 +126,3 @@ function chooseContentShoes() {
 //         }
 //     }
 // }no
-=======
-            btnUserWannaRock.style.color = 'white';
-            btnUserYourShelf.style.color = btnUserNewShoes.style.color = btnUserUpdate.style.color = '';
-
-        }
-    };
-}
->>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
