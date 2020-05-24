@@ -20,11 +20,7 @@ module.exports = function(passport) {
 
                     if(isMatch){
                         return done(null, user);
-<<<<<<< HEAD
                     } else {node
-=======
-                    } else {
->>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
                         return done(null, false, { message: 'sai mật khẩu'});
                     }
                 });

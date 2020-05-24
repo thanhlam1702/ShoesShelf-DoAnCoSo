@@ -13,7 +13,6 @@ const PostSchema = new mongoose.Schema({
         type: String,
         
     },
-<<<<<<< HEAD
     image: {
         type: Array,
     },
@@ -26,13 +25,6 @@ const PostSchema = new mongoose.Schema({
     },
     id_post:{
         type:String
-=======
-    image: [{
-        name: String,
-    }],
-    collections: {
-        type: String,
->>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
     }
     
 });

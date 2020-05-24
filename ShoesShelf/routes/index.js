@@ -9,7 +9,6 @@ const postcontroller = require('../controller/postcontroller')
 //User model
 const User = require('../models/User');
 
-<<<<<<< HEAD
 const Post = require('../models/Post'); 
 
 router.get('/About.html',(req,res) => res.render('About'));
@@ -31,25 +30,6 @@ router.post('/posts/id',function(req,res,next){
 //         failureflash: true
 //     })(req, res, next);
 // });
-=======
-const Post = require('../models/Post');
-
-
-router.get('/', (req,res) => res.render('index'));
-
-router.get('/About.html',(req,res) => res.render('About'));
-
-router.get('/your')
-
-//Login handle
-router.post('/login',(req,res,next) => {
-    passport.authenticate('local', {
-        successRedirect : '/main',
-        failureRedirect : '/users/login',
-        failureflash: true
-    })(req, res, next);
-});
->>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
 router.post('/register',upload.single('avatar'),(req,res)=> {
     const { name, email, password, password2, avatar } = req.body;
     let errors = [];
@@ -79,7 +59,6 @@ router.post('/register',upload.single('avatar'),(req,res)=> {
                         newUser.avatar = req.file.filename
                         
                     }
-<<<<<<< HEAD
                     //Save user
                     newUser.save()
                         .then(user => {
@@ -87,39 +66,17 @@ router.post('/register',upload.single('avatar'),(req,res)=> {
                             res.redirect('/');
                         })
                         .catch(err => console.log(err));
-=======
-                    
-                    //Ma hoa password
-                    bcrypt.genSalt(10, (err, salt)=> 
-                        bcrypt.hash(newUser.password, salt, (err, hash) => {
-                            //Set password to hashed
-                            newUser.password = hash;
-                            //Save user
-                            newUser.save()
-                                .then(user => {
-                                    req.flash('success_msg','Bạn đã tạo tài khoản thành công bây giờ bạn có thể đăng nhập');
-                                    res.redirect('/');
-                                })
-                                .catch(err => console.log(err));
-                        })
-                    )
->>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
                 }
             })
     
 });
 router.post('/upload',upload.array('image',20),(req,res)=> {
-<<<<<<< HEAD
     const { status, brands, hashtag, collections, image ,id_post} = req.body;
-=======
-    const { status, brands, hashtag, collections, image } = req.body;
->>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
         const newPost = new Post({
             status,
             brands,
             hashtag,
             collections,
-<<<<<<< HEAD
             image,
             id_post:req.body.txtIdpost
         });
@@ -137,36 +94,11 @@ router.post('/upload',upload.array('image',20),(req,res)=> {
             newPost.save()
             .then(post => {
                 res.redirect('/main')
-=======
-            image
-        });
-        if (req.files)
-        {
-            let filename = ''
-            req.files.forEach(function(files, index, arr){
-                filename = filename + files.filename + ','
-            })
-            newPost.image = filename
-        }
-            newPost.save()
-            .then(post => {
-                res.json ({
-                    message: 'Đăng bài thành công'
-                }) 
->>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
             })
             .catch(err => console.log(err));
         
 });
 
-<<<<<<< HEAD
-=======
-
-router.post('/store',upload.array('image',20), postcontroller.store)
-
-  
-
->>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
 //logout  handle
 router.get('/logout',(req,res) => {
     req.logout();
@@ -174,7 +106,6 @@ router.get('/logout',(req,res) => {
     res.redirect('/');
 });
 
-<<<<<<< HEAD
 router.post('/login', function(req, res) {
     var email = req.body.email
     var password = req.body.password
@@ -203,11 +134,5 @@ router.get('/main#5ec291b84abc1603c0500c91',function(req, res , next) {
     res.render('posts')
 })
 
-=======
-//Dashboard
-router.get('/main',ensureAuthenticated, (req,res) => 
-    res.render('main', {name: req.user.name})
-);    
->>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
 
 module.exports = router;
