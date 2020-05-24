@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/header-footer-style.css">
+    <link rel="stylesheet" href="./assets/css/your-shelf.css?v=12042020">
+    <link rel="stylesheet" href="./assets/css/styles.min.css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
+
+    <title>Your Shelf</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <nav class="navbar" id="navbar">
+                <div class="nav-bar">
+                    <!--Navbar left -->
+                    <div class="navbar-left">
+                        <div class="left-logo">
+                            <img src="./assets/images/logo-main.png" alt="Error" class="logo-img">
+                        </div>
+                        <!--Menu home, about, latest news-->
+                        <ul class="left-menu" id="left-menu">
+                            <li class="left-sub-menu">
+                                <a href="" class="menu-item">Home</a>
+                            </li>
+                            <li class="left-sub-menu">
+                                <a href="./about.html" class="menu-item">About us</a>
+                            </li>
+                            <li class="left-sub-menu">
+                                <a href="latest-news" class="menu-item">Latest news</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Navbar middle-->
+                    <div class="navbar-middle">
+                        <a href="/" class="img-logo"></a>
+                    </div>
+                    <!--Navbar right after sign in-->
+                    <div class="navbar-right-user" id="navbar-right-user">
+                        <!--search-->
+                        <div class="right-search">
+                            <form action="" class="search-form">
+                                <input type="text" name="search" placeholder="Search anything you want...">
+                                <button class="btn-search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <!--showup user after user sign in complete-->
+                        <div id="user" class="user">
+                            <div class="user-avatar">
+                                <img src="" id="user-img" class="user-img">
+                                <ul class="user-menu" id="user-menu" style="display: none;">
+                                    <li class="user-menu-item">
+                                        <div class="user-name-container">
+                                            <p id="user-name" class="user-name">Name_User</p>
+                                        </div>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <a href="/your-shelf.html">YourShelf</a>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <a href="/account-setting.html">Account setting</a>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <div class="user-logout">
+                                            <a onclick="logout()">Log out</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="content">
+            <div class="content-user">
+                <!-- content include name user and avatar user -->
+                <div class="user-container" id="user-container">
+                    <div class="user-avatar">
+                        <img src="" id="user-img" class="user-img">
+                    </div>
+                    <div class="user-name-container">
+                        <p id="user-name" class="user-name">name-user</p>
+                    </div>
+                </div>
+                <!-- menu navbar user -->
+                <div class="user-navbar">
+                    <ul class="user-menu">
+                        <li class="sub-menu"><a href="#your-shelf" class="menu-item" id="btn-your-shelf"
+                                onclick="chooseContentShoes().contentYourShelf()">YourShelf</a></li>
+                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes"
+                                onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
+                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update"
+                                onclick="chooseContentShoes().contentUserUpdate()">Update</a></li>
+                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" id="btn-wanna-rock"
+                                onclick="chooseContentShoes().contentWannaRock()">Wanna Rock</a></li>
+                    </ul>
+                </div>
+                <!-- manager shoes of user -->
+                <div class="user-manager-shoes" id="user-manager-shoes">
+                    <!-- content your shelf -->
+                    <ul class="user-your-shelf" id="user-your-shelf">
+                        <!-- card of images, short content of a post -->
+                        <% posts.forEach(function (post) { %> 
+                            <li class="cards-posts">
+                                <div class="card-container-img">
+                                    <% for(var i=0 ; i< 1 ; i++) {%>
+                                    <img src="/assets/images/userPost/<%= post.image[0].filename %>"  alt="" class="card-img">
+                                    <%}%>
+                                </div>
+                                <div class="card-container-content">
+                                    <p class="card-short-content">
+                                        <%= post.status %>
+                                    </p>
+                                </div>
+                            </li>
+                        <% }) %>
+                    </ul>
+                    <!-- user new shoes -->
+                    <div class="user-new-shoes" id="user-new-shoes">
+                        <!-- form contain button upload image -->
+                        <form method="POST" action="upload" enctype="multipart/form-data" >
+                            <div class="container-upload-img">
+                                <!-- where img alter upload showup review -->
+                                <div class="review-img-upload" id="review-img-upload">
+                                    <!-- <img src="" id="img-upload"> -->
+                                    <label for="upload-img" class="btn-upload-img">+</label>
+                                </div>
+                                <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
+                                <input type="file" name="image" accept="image/*" id="upload-img" onchange="uploadImages()"
+                                    multiple>
+                            </div>
+                            <div class="container-editor">
+                                <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea>
+                            </div>
+                            <div class="container-choose-more">
+                                <select name="brands" class="brands" id="brands">
+                                    <option selected hidden style="font-weight: bold;">Brands</option>
+                                    <option value="vans">Vans</option>
+                                    <option value="adidas">Adidas</option>
+                                    <option value="nike">Nike</option>
+                                    <option value="nike">Reebok</option>
+                                    <option value="nike">Converse</option>
+                                    <option value="nike">Puma</option>
+                                    <option value="nike">Orther</option>
+                                </select>
+                                <input type="text" name="collections" placeholder="Collections" class="collections">
+                                <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag">
+                            </div>
+                            <div class="container-btn-post">
+                                <button class="btn-post-status">Post</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- user update -->
+                    <div class="user-update" id="user-update">
+
+                    </div>
+                    <!-- user wanna rock -->
+                    <ul class="user-wanna-rock" id="user-wanna-rock">
+                        <!-- card contain img and name hashtag of post -->
+                        <li class="card-wanna-rock">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test1.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-title">
+                                <p class="card-title">#Adidas #superStar #3trips</p>
+                            </div>
+                        </li>
+
+                        <li class="card-wanna-rock">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test2.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-title">
+                                <p class="card-title">#Converse #cdg #commeDesgarcons #black</p>
+                            </div>
+                        </li>
+
+                        <li class="card-wanna-rock">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test3.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-title">
+                                <p class="card-title">#Converse #cdg #commeDesgarcons #white</p>
+                            </div>
+                        </li>
+
+                        <li class="card-wanna-rock">
+                            <div class="card-container-img">
+                                <img src="./assets/images/test4.jpg" alt="" class="card-img">
+                            </div>
+                            <div class="card-container-title">
+                                <p class="card-title">#adidas #stansmith</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="left-col">
+                    <div class="social">
+                        <a href="/instagram" target="_blank" title="collective on Instagram">
+                            <i class="fab fa-instagram"> </i>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
+                            <i class="fab fa-facebook"> </i>
+                        </a>
+                        <a href="/pinterest" target="_blank" title="collective on Pinterest">
+                            <i class="fab fa-pinterest-p"> </i>
+                        </a>
+                        <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
+                            <i class="fab fa-youtube"> </i>
+                        </a>
+                    </div>
+                    <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
+                </div>
+
+                <div class="right-col">
+                    <h1>Our Newsletter</h1>
+                    <div class="border"></div>
+                    <p>Enter your emails to connect with us.</p>
+                    <form action="" class="newsletter">
+                        <input type="text" class="txtb" placeholder="Enter Your Email">
+                        <input type="submit" class="btn" value="Submit">
+                    </form>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- Form sign in -->
+    <div id="sign-in-modal" class="modal">
+        <form class="modal-content animate" action="/action_page.php" method="post">
+            <div class="tittle-container">
+                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
+                <p class="tittle-login">Login</p>
+            </div>
+            <div class="container-login">
+                <input type="text" placeholder="Use name" name="email" required>
+                <input type="password" placeholder="Password" name="psw" required>
+                <div class="btn-sign-in"><button type="submit">Login</button></div>
+                <div class="checked-psw">
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember your password?
+                    </label>
+                    <span class="forgot-psw"><a href="#">Forgot?</a></span>
+                </div>
+                <div class="or">
+                    <p>OR</p>
+                </div>
+                <div class="sign-in-other">
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
+                        data-size="large" data-button-type="continue_with" data-layout="rounded"
+                        data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div id="gg-login-button">
+                        <div id="customBtn" class="customGPlusSignIn">
+                            <span class="icon"></span>
+                            <span class="buttonText">Continue with Google</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--Form sign up-->
+    <div id="sign-up-modal" class="modal">
+        <form class="modal-content animate" action="/action_page.php" method="GET">
+            <div class="tittle-container">
+                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
+                <p class="tittle-login">Register</p>
+            </div>
+            <div class="container-login">
+                <input type="text" placeholder="Use name" name="user-name" required>
+                <input type="text" placeholder="Email" name="email" required>
+                <input type="password" placeholder="Enter password" name="psw" required>
+                <input type="password" placeholder="Enter password again" name="replace-psw" required>
+                <div class="btn-sign-in">
+                    <button type="submit">Create</button>
+                </div>
+                <div class="or">
+                    <p>OR</p>
+                </div>
+                <div class="sign-in-other">
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
+                        data-size="large" data-button-type="continue_with" data-layout="rounded"
+                        data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div id="gg-login-button">
+                        <div id="customBtn" class="customGPlusSignIn">
+                            <span class="icon"></span>
+                            <span class="buttonText">Continue with Google</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!--Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./assets/js/header-footer.js"></script>
+    <script src="./assets/js/your-shelf.js"></script>
+
+
+    <!--JS api login facebook and google-->
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
+    <script src="./assets/js/api-gg-fb-login.js"></script>
+    <div id="status"></div>
+
+
+</body>
+
+</html>

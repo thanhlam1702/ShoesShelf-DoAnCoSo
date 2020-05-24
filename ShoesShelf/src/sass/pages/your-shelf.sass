@@ -4,7 +4,8 @@
 @mixin data-btn-color
     background-image: linear-gradient(to top left, #ff8a00, #d35400) !important
 
-
+.navbar-right-user, .left-menu
+    display: flex !important
 //content
 .content
     width: 100vw
@@ -25,10 +26,7 @@
         width: 1100px
         margin: auto
         border-radius: 24px
-        padding: 
-            top: 24px
-            left: 24px
-            right: 24px
+        padding: 24px
     
 //container user include avatar,  name of user
 .user-container
@@ -52,6 +50,7 @@
         .user-name
             font-size: 40px
             color: white
+                   
 //navbar user include yourshelf, new shoes, update, wanna rock
 .user-navbar
     width: 100%
@@ -65,8 +64,6 @@
         align-items: center
     .sub-menu
         //item of menu user
-        // #btn-your-shelf
-        //     color: white
         .menu-item
             color: #4a525c
             text-decoration: none
@@ -110,19 +107,16 @@
                 bottom: 16px
     .user-new-shoes
         padding: 24px 80px 24px 80px
-        display: block
+        display: none
     //content your shelf
     .user-your-shelf
         display: flex
         flex-flow: row wrap
         width: 100%
         height: auto
-    //content user update
-    .user-update
-        display: block
     //content user wanna rock
     .user-wanna-rock
-        display: flex
+        display: none
         flex-flow: row wrap
         height: auto
         width: 100%
@@ -177,8 +171,7 @@
             outline: none
             color: white
             cursor: pointer
-            background: 
-                image: linear-gradient(to top left,#ff8a00,#d35400)!important
+            @include data-btn-color
             border: none
                 radius: 32px
             @include box_shadow_user()
@@ -212,38 +205,39 @@
             left: 16px
         font-size: 20px
         @include box_shadow_user()
+    .txtIdPost
+        display: none
 //content your shelf in show posts of user
 .user-your-shelf
     .cards-posts
         width: 256px
-        height: 320px
+        height: 360px
         cursor: pointer
         margin: 
             bottom: 32px
-            left: 30.65px
-            right: 30.65px
+            left: 68px
         background-color: rgba(32,28,41,.75)
     .card-container-img
         width: 100%
-        height: 88%
+        height: 80%
         .card-img
             width: 100%
             height: auto
             max-height: 100%
     .card-container-content
+        // width: 100%
+        height: auto
+        padding: 8px
+        color: white
+        font-size: 14px
         width: 100%
-        height: 12%
-        margin-top: 8px
-        padding: 
-            left: 8px
-            right: 8px
+        text-overflow: ellipsis
+        overflow: hidden
+        // height: auto //line-height * clamp
+        display: -webkit-box
+        -webkit-box-orient: vertical
+        -webkit-line-clamp: 2
         .card-short-content
-            color: white
-            font-size: 14px
-            width: 100%
-            height: 100%
-            text-overflow: ellipsis
-            white-space: nowrap
             overflow: hidden
 .user-wanna-rock
     //card contain images and name, hashtag of post
