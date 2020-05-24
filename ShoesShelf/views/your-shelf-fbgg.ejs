@@ -58,14 +58,14 @@
                                 <ul class="user-menu" id="user-menu" style="display: none;">
                                     <li class="user-menu-item">
                                         <div class="user-name-container">
-                                            <p id="user-name" class="user-name">Name_User</p>
+                                            <p id="user-name" class="user-name"> </p>
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/your-shelf.html">YourShelf</a>
+                                        <a href="/yourshelf">MyShelf</a>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/account-setting.html">Account setting</a>
+                                        <a href="account-setting">Account setting</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <div class="user-logout">
@@ -307,14 +307,45 @@
 
     <!--Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./assets/js/header-footer.js"></script>
-    <script src="./assets/js/your-shelf.js"></script>
-
-
+    <script src="/assets/js/header-footer.js"></script>
+    <script src="/assets/js/your-shelf.js"></script>
+    
+    
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
-    <script src="./assets/js/api-gg-fb-login.js"></script>
+    <script src="/assets/js/api-gg-fb-login.js"></script>
     <div id="status"></div>
+
+    <script>
+        function doPost(form) {
+            $.ajax({
+                url:"/do-post",
+                method: "POST",
+                data: {status: form.status.value, image: imagePath},
+                success: function(response){
+                    alert(response);
+                }
+            });
+            return false;
+        }
+    </script>
+    <script>
+        $("#form-upload").on("submit",function(e) {
+            e.preventDefault();
+            $.ajax({
+                url:"/do-upload-image",
+                method: "POST",
+                data: new FormData(this),
+                contentType : false,
+                cache: false, 
+                processData: false,
+                success: function(response) {
+                    alert(response);
+                }
+
+            })
+        })
+    </script>
 
 
 </body>

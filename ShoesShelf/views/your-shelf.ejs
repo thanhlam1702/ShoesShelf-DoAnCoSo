@@ -4,24 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/header-footer-style.css">
-    <link rel="stylesheet" href="./assets/css/your-shelf.css">
-    <script src="./assets/css/ckeditor/ckeditor.js"></script>
+    <link rel="stylesheet" href="library/fontawesome-free-5.11.2-web/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/header-footer-style.css">
+    <link rel="stylesheet" href="/assets/css/your-shelf.css?v=12042020">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
 
-    <title><%= name %> Shelf</title>
+    <title>Your Shelf</title>
 </head>
 
 <body>
     <div class="wrapper">
         <header>
-            <nav class="navbar" id="navbar">
+            <nav class="navbar">
                 <div class="nav-bar">
                     <!--Navbar left -->
                     <div class="navbar-left">
                         <div class="left-logo">
-                            <img src="./assets/images/logo-main.png" alt="Error" class="logo-img">
+                            <img src="/assets/images/logo-main.png" alt="Error" class="logo-img">
                         </div>
                         <!--Menu home, about, latest news-->
                         <ul class="left-menu" id="left-menu">
@@ -38,7 +38,41 @@
                     </div>
                     <!--Navbar middle-->
                     <div class="navbar-middle">
-                        <a href="/main" class="img-logo"></a>
+                        <a href="/" class="img-logo"></a>
+                    </div>
+                    <div class="navbar-right" id="navbar-right">
+                        <!--Navbar right before sign in-->
+                        <div class="right-menu">
+                            <ul class="menu ">
+                                <li class="right-sub-menu">
+                                    <a class="hidden-show-up-menu menu-bars menu-item" title="Menu">
+                                        <i class="fas fa-bars"></i>
+                                    </a>
+                                </li>
+                                <li class="right-sub-menu hidden">
+                                    <a href="./about.html" class="menu-item">About Us</a>
+                                </li>
+                                <li class="right-sub-menu hidden">
+                                    <a id="btn-sign-in" class="menu-item" onclick="showUpSignIn()">Login</a>
+                                </li>
+                                <li class="right-sub-menu hidden">
+                                    <a id="btn-sign-up" class="menu-item" onclick="showUpSignUp()">Register</a>
+                                </li>
+                                <li class="right-sub-menu hidden">
+                                    <a class="hidden-show-up-menu close-menu menu-item" title="Close menu">
+                                        <i class="fas fa-times"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="right-search">
+                            <form action="" class="search-form">
+                                <input type="text" name="search" placeholder="Search anything you want...">
+                                <button class="btn-search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                        </div>
                     </div>
                     <!--Navbar right after sign in-->
                     <div class="navbar-right-user" id="navbar-right-user">
@@ -54,18 +88,18 @@
                         <!--showup user after user sign in complete-->
                         <div id="user" class="user">
                             <div class="user-avatar">
-                                <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
+                                <img src="" id="user-img" class="user-img">
                                 <ul class="user-menu" id="user-menu" style="display: none;">
                                     <li class="user-menu-item">
                                         <div class="user-name-container">
-                                            <p id="user-name" class="user-name"><%= name %></p>
+                                            <p id="user-name" class="user-name"> </p>
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/your-shelf">My Shelf</a>
+                                        <a href="/yourshelf">MyShelf</a>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/account-setting">Account setting</a>
+                                        <a href="account-setting">Account setting</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <div class="user-logout">
@@ -74,6 +108,7 @@
                                     </li>
                                 </ul>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -82,7 +117,8 @@
         <div class="content">
             <div class="content-user">
                 <!-- content include name user and avatar user -->
-                <div class="user-container" id="user-container">
+               
+                <div class="user-container">
                     <div class="user-avatar">
                         <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
                     </div>
@@ -90,45 +126,39 @@
                         <p id="user-name" class="user-name"> <%= name %> </p>
                     </div>
                 </div>
+                
                 <!-- menu navbar user -->
                 <div class="user-navbar">
                     <ul class="user-menu">
-                        <li class="sub-menu"><a href="#my-shelf" class="menu-item" id="btn-your-shelf"
-                                onclick="chooseContentShoes().contentYourShelf()">My Shelf</a></li>
-                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes"
-                                onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
-                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update"
-                                onclick="chooseContentShoes().contentUserUpdate()">Update</a></li>
-                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" id="btn-wanna-rock"
-                                onclick="chooseContentShoes().contentWannaRock()">Wanna Rock</a></li>
+                        <li class="sub-menu"><a href="#your-shelf" class="menu-item" id="btn-your-shelf" onclick="chooseContentShoes().contentYourShelf()">MyShelf</a></li>
+                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes" onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
+                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update" onclick="chooseContentShoes().contentUserUpdate()">Update</a></li>
+                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" id="btn-wanna-rock" onclick="chooseContentShoes().contentWannaRock()">Wanna Rock</a></li>
                     </ul>
                 </div>
                 <!-- manager shoes of user -->
-                <div class="user-manager-shoes" id="user-manager-shoes">
+                <div class="user-manager-shoes">
                     <!-- content your shelf -->
-                    <ul class="user-your-shelf" id="user-your-shelf">
-                        <!-- card of images, short content of a post -->
-                        <% posts.forEach(function (post) { %> 
-                            <%if(id == post.id_post){%>
+                        <ul class="user-your-shelf" id="user-your-shelf">
+                            <!-- card of images, short content of a post -->
+                            <% posts.forEach(function (post) { %> 
                             <li class="cards-posts">
+                                <% for(var i=0; i< post.image.length; i++) { %>
                                 <div class="card-container-img">
-                                <% for(var i=0 ; i< 1 ; i++) {%>
-                                    <img src="/assets/images/userPost/<%= post.image[0].filename %>"  alt="" class="card-img">
-                                    <%}%>
+                                    <img src="/assets/images/userPost/<%= post.image[i] %>" alt="" class="card-img">
                                 </div>
                                 <div class="card-container-content">
-                                    <div class="card-short-content">
-                                        <%- post.status %>
-                                    </div>
+                                    <p class="card-short-content">
+                                        <%= post.status %>
+                                    </p>
                                 </div>
+                                <% } %>
                             </li>
-                            <%}%>
-                        <% }) %>
-                    </ul>
-                    <!-- user new shoes -->
+                            <% }) %>
+                        </ul>
                     <div class="user-new-shoes" id="user-new-shoes">
                         <!-- form contain button upload image -->
-                        <form method="POST" action="upload" enctype="multipart/form-data" >
+                        <form method="POST" action="/upload" enctype="multipart/form-data" onsubmit="return doPost(this);">
                             <div class="container-upload-img">
                                 <!-- where img alter upload showup review -->
                                 <div class="review-img-upload" id="review-img-upload">
@@ -136,13 +166,10 @@
                                     <label for="upload-img" class="btn-upload-img">+</label>
                                 </div>
                                 <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
-                                <input type="file" name="image" accept="image/*" id="upload-img" onchange="uploadImages()"
-                                    multiple>
+                                <input type="file" name="image" accept="image/*" id="upload-img" onchange="uploadImages()" multiple>
                             </div>
                             <div class="container-editor">
-                                <!-- <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea> -->
-                                <form action="" method="post">
-                                    <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea>
+                                <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea>
                             </div>
                             <div class="container-choose-more">
                                 <select name="brands" class="brands" id="brands">
@@ -150,30 +177,27 @@
                                     <option value="vans">Vans</option>
                                     <option value="adidas">Adidas</option>
                                     <option value="nike">Nike</option>
-                                    <option value="reebok">Reebok</option>
-                                    <option value="converse">Converse</option>
-                                    <option value="puma">Puma</option>
-                                    <option value="orther">Orther</option>
+                                    <option value="Reebok">Reebok</option>
+                                    <option value="Converse">Converse</option>
+                                    <option value="Puma">Puma</option>
+                                    <option value="Orther">Orther</option>
                                 </select>
                                 <input type="text" name="collections" placeholder="Collections" class="collections">
                                 <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag">
-                                <input type='text' name='txtIdpost' value="<%-id%>"  class="txtIdPost">
                             </div>
                             <div class="container-btn-post">
-                                <button class="btn-post-status">Post</button>
+                                <input type="submit" class="btn-post-status" value="Post" />
                             </div>
                         </form>
                     </div>
-                    <!-- user update -->
                     <div class="user-update" id="user-update">
 
                     </div>
-                    <!-- user wanna rock -->
                     <ul class="user-wanna-rock" id="user-wanna-rock">
                         <!-- card contain img and name hashtag of post -->
                         <li class="card-wanna-rock">
                             <div class="card-container-img">
-                                <img src="./assets/images/test1.jpg" alt="" class="card-img">
+                                <img src="images/test1.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-title">
                                 <p class="card-title">#Adidas #superStar #3trips</p>
@@ -182,7 +206,7 @@
 
                         <li class="card-wanna-rock">
                             <div class="card-container-img">
-                                <img src="./assets/images/test2.jpg" alt="" class="card-img">
+                                <img src="images/test2.jpg" alt="" class="card-img">
                             </div>
                             <div class="card-container-title">
                                 <p class="card-title">#Converse #cdg #commeDesgarcons #black</p>
@@ -206,6 +230,7 @@
                                 <p class="card-title">#adidas #stansmith</p>
                             </div>
                         </li>
+
                     </ul>
                 </div>
             </div>
@@ -235,7 +260,7 @@
                     <div class="border"></div>
                     <p>Enter your emails to connect with us.</p>
                     <form action="" class="newsletter">
-                        <input type="text" class="txtb" placeholder="Enter Your Email">
+                        <input type="text" class="txtbox" placeholder="Enter Your Email">
                         <input type="submit" class="btn" value="Submit">
                     </form>
 
@@ -243,22 +268,110 @@
             </div>
         </footer>
     </div>
+    <!-- Form sign in -->
+    <div id="sign-in-modal" class="modal">
+        <form class="modal-content animate" action="/action_page.php" method="post">
+            <div class="tittle-container">
+                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
+                <p class="tittle-login">Login</p>
+            </div>
+            <div class="container-login">
+                <input type="text" placeholder="Use name" name="email" required>
+                <input type="password" placeholder="Password" name="psw" required>
+                <div class="btn-sign-in"><button type="submit">Login</button></div>
+                <div class="checked-psw">
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember your password?
+                    </label>
+                    <span class="forgot-psw"><a href="#">Forgot?</a></span>
+                </div>
+                <div class="or">
+                    <p>OR</p>
+                </div>
+                <div class="sign-in-other">
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div id="gg-login-button">
+                        <div id="customBtn" class="customGPlusSignIn">
+                            <span class="icon"></span>
+                            <span class="buttonText">Continue with Google</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--Form sign up-->
+    <div id="sign-up-modal" class="modal">
+        <form class="modal-content animate" action="/action_page.php" method="GET">
+            <div class="tittle-container">
+                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
+                <p class="tittle-login">Register</p>
+            </div>
+            <div class="container-login">
+                <input type="text" placeholder="Use name" name="user-name" required>
+                <input type="text" placeholder="Email" name="email" required>
+                <input type="password" placeholder="Enter password" name="psw" required>
+                <input type="password" placeholder="Enter password again" name="replace-psw" required>
+                <div class="btn-sign-in">
+                    <button type="submit">Create</button>
+                </div>
+                <div class="or">
+                    <p>OR</p>
+                </div>
+                <div class="sign-in-other">
+                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    <div id="gg-login-button">
+                        <div id="customBtn" class="customGPlusSignIn">
+                            <span class="icon"></span>
+                            <span class="buttonText">Continue with Google</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 
     <!--Script-->
-    <script>
-        CKEDITOR.replace('share-exp');
-        CKEDITOR.config.width = '900px';
-        CKEDITOR.config.height = '300px';
-    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./assets/js/header-footer.js"></script>
-    <script src="./assets/js/your-shelf.js"></script>
-
-
+    <script src="/assets/js/header-footer.js"></script>
+    <script src="/assets/js/your-shelf.js"></script>
+    
+    
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
-    <script src="./assets/js/api-gg-fb-login.js"></script>
+    <script src="/assets/js/api-gg-fb-login.js"></script>
     <div id="status"></div>
+
+    <script>
+        function doPost(form) {
+            $.ajax({
+                url:"/do-post",
+                method: "POST",
+                data: {status: form.status.value, image: imagePath},
+                success: function(response){
+                    alert(response);
+                }
+            });
+            return false;
+        }
+    </script>
+    <script>
+        $("#form-upload").on("submit",function(e) {
+            e.preventDefault();
+            $.ajax({
+                url:"/do-upload-image",
+                method: "POST",
+                data: new FormData(this),
+                contentType : false,
+                cache: false, 
+                processData: false,
+                success: function(response) {
+                    alert(response);
+                }
+
+            })
+        })
+    </script>
 
 
 </body>

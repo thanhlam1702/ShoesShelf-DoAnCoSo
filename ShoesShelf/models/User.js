@@ -19,7 +19,10 @@ const UserSchema = new mongoose.Schema({
     },
     avatar: {
         type: String,
+<<<<<<< HEAD
         default: ('avatar-default.png')
+=======
+>>>>>>> 0f2e3ba9eff2f7d4eaa4bf8ca2951ebe5aecd043
     }
     
 });
