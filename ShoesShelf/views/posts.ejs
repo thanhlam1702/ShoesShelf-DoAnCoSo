@@ -20,7 +20,7 @@
                     <!--Navbar left -->
                     <div class="navbar-left">
                         <div class="left-logo">
-                            <img src="./assets/images/logo-main.png" alt="Error" class="logo-img">
+                            <img src="/assets/images/logo-main.png" alt="Error" class="logo-img">
                         </div>
                         <!--Menu home, about, latest news-->
                         <ul class="left-menu" id="left-menu">
@@ -37,7 +37,7 @@
                     </div>
                     <!--Navbar middle-->
                     <div class="navbar-middle">
-                        <a href="/" class="img-logo"></a>
+                        <a href="/main" class="img-logo"></a>
                     </div>
                     <!--Navbar right after sign in-->
                     <div class="navbar-right-user" id="navbar-right-user">
@@ -53,7 +53,7 @@
                         <!--showup user after user sign in complete-->
                         <div id="user" class="user">
                             <div class="user-avatar">
-                                <img src="" id="user-img" class="user-img">
+                                <img src="/assets/images/userPost/<%= avatar %> " id="user-img" class="user-img">
                                 <ul class="user-menu" id="user-menu" style="display: none;">
                                     <li class="user-menu-item">
                                         <div class="user-name-container">
@@ -61,10 +61,10 @@
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/your-shelf.html">YourShelf</a>
+                                        <a href="/your-shelf">YourShelf</a>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/account-setting.html">Account setting</a>
+                                        <a href="/account-setting">Account setting</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <div class="user-logout">
@@ -83,12 +83,12 @@
         <div class="content">
             <article>
                 <div class="post-title">
-                    <p class="title">Vans - Sự bức phá ngoạn mục từ nhàm chán đến tượng đài làng streetwear </p>
+                    <p class="title"> <%= post.status %> </p>
                     <hr>
                     <div class="post-status">
                         <img src="" alt="" class="user-img">
                         <p class="user-name"></p>
-                        <p class="post-time">3 minuter ago</p>
+                        <p class="post-time"><%= post.date %></p>
                     </div>
                 </div>
                 <div class="post-container">
@@ -97,8 +97,6 @@
                         <div class="post-content">
                             <% for(var i=0 ; i < post.image.length ; i++) {%>
                             <img src="/assets/images/userPost/<%= post.image[i].filename %>" alt="" class="img-normal">
-                            <p class="normal">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
-                            </p>
                             <%}%>
                         </div>
                         <!-- hashtag -->
