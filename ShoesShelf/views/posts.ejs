@@ -53,18 +53,18 @@
                         <!--showup user after user sign in complete-->
                         <div id="user" class="user">
                             <div class="user-avatar">
-                                <img src="/assets/images/userPost/<%= avatar %> " id="user-img" class="user-img">
+                                <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
                                 <ul class="user-menu" id="user-menu" style="display: none;">
                                     <li class="user-menu-item">
                                         <div class="user-name-container">
-                                            <p id="user-name" class="user-name">Name_User</p>
+                                            <p id="user-name" class="user-name"> <%= name %></p>
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/your-shelf">YourShelf</a>
+                                        <a href="/your-shelf">My Shelf</a>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/account-setting">Account setting</a>
+                                        <a href="/account-setting.html">Account setting</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <div class="user-logout">
@@ -83,7 +83,7 @@
         <div class="content">
             <article>
                 <div class="post-title">
-                    <p class="title"> <%= post.status %> </p>
+                    <p class="title"> <%- post.status %> </p>
                     <hr>
                     <div class="post-status">
                         <img src="" alt="" class="user-img">
@@ -97,11 +97,13 @@
                         <div class="post-content">
                             <% for(var i=0 ; i < post.image.length ; i++) {%>
                             <img src="/assets/images/userPost/<%= post.image[i].filename %>" alt="" class="img-normal">
+                            <!-- <p class="normal">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
+                            </p> -->
                             <%}%>
                         </div>
                         <!-- hashtag -->
                         <div class="post-branch-hashtag">
-                            <p class="hashtag">#VansVaut #custom #fullcolor</p>
+                            <p class="hashtag"> <%- post.hashtag %></p>
                         </div>
                         <!-- box comment -->
                         <script>
@@ -203,12 +205,13 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./assets/js/header-footer.js"></script>
+    <script src="/assets/js/header-footer.js"></script>
 
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
     <script src="./assets/js/api-gg-fb-login.js"></script>
     <div id="status"></div>
+    
 </body>
 
 </html>
