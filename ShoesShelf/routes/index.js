@@ -126,7 +126,7 @@ router.post('/login', function(req, res) {
                 res.cookie('avatar',data.avatar)
                 res.redirect('/main');
             }
-        } 
+        
     })
 });
 

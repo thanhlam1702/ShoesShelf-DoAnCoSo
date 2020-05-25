@@ -219,10 +219,11 @@
 
 .user-manager-shoes .container-editor #share-exp {
   width: 1000px;
-  height: 250px;
+  height: 160px;
   resize: none;
   padding: 16px;
   outline: none;
+  border-radius: 16px;
   -webkit-box-shadow: 4px 4px 16px 0 black;
           box-shadow: 4px 4px 16px 0 black;
 }
@@ -268,8 +269,8 @@
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
-  margin-top: 36px;
-  margin-bottom: 48px;
+  margin-top: 24px;
+  margin-bottom: 24px;
 }
 
 .container-choose-more .brands, .container-choose-more .collections {

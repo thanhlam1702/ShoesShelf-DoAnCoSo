@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/header-footer-style.css">
     <link rel="stylesheet" href="/assets/css/styles.min.css">
     <link rel="stylesheet" href="/assets/css/main.css">
@@ -63,7 +62,7 @@
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="my-shelf">My Shelf</a>
+                                        <a href="your-shelf">My Shelf</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <a href="account-setting">Account setting</a>
@@ -99,8 +98,9 @@
                             <div class="post-content" ><%- post.status %></div>
                             <div class="post-hash-tag"><%= post.hashtag %></div>
                             <form action="/posts/id" method="POST">
-                                <input value="<%= post._id %>" name="id" style="display: none;">
-                                <a href="#id-post" class="read-more">Read more...</a>
+                                <input value="<%= post._id %>" id="btn-read-more" name="id" type="submit" style="display: none;" >
+                                <!-- <a href="#id-post" class="read-more">Read more...</a> -->
+                                <label for="btn-read-more" class="read-more">Read more...</label>
                             </form>
                         </div>
                     </div>
@@ -126,7 +126,7 @@
                     </div>
                 </div>
             </div>
-            <form action="/" method="GET" class="">
+            <form action="/main" method="GET" class="">
                 <div class="sort-container">
                     <select name="search" class="brands sort-form" id="brands">
                         <option selected hidden style="font-weight: bold;">Brands</option>
