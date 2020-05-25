@@ -54,16 +54,16 @@
                         </div>
                         <!--showup user after user sign in complete-->
                         <div id="user" class="user">
-                            <div class="user-avatar" id="user-avatar">
+                            <div class="user-avatar">
                                 <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
-                                <ul class="user-menu" id="user-menu" style="display: none;">
+                                <ul class="user-menu" id="user-menu" >
                                     <li class="user-menu-item">
                                         <div class="user-name-container">
                                             <p id="user-name" class="user-name"> <%= name %> </p>
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="my-shelf">My Shelf</a>
+                                        <a href="/your-shelf">MyShelf</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <a href="account-setting">Account setting</a>
@@ -96,11 +96,11 @@
                         <img src="/assets/images/userPost/<%= post.image[0].filename %>" class="post-avatar"></img>
                         <%}%>
                         <div class="post-title">
-                            <div class="post-content" ><%- post.status %></div>
+                            <div class="post-content"><%= post.status %></div>
                             <div class="post-hash-tag"><%= post.hashtag %></div>
                             <form action="/posts/id" method="POST">
-                                <input value="<%= post._id %>" name="id" style="display: none;">
-                                <a href="#id-post" class="read-more">Read more...</a>
+                                <input value="<%= post._id %>" name="id">
+                                <button type="submit">read more</button>
                             </form>
                         </div>
                     </div>
@@ -116,8 +116,8 @@
                         <div class="post-title">
                             <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
                             <div class="post-hash-tag">#Converse #FullColor</div>
-                            <button onclick="showImg360()" class="btn-view-360">Show 360 images</button>
                             <a href="#id-post" class="read-more">Read more...</a>
+                            <button onclick="showImg360()">Show 360 images</button>
                         </div>
                     </div>
                     <div class="status">
@@ -140,6 +140,7 @@
                     </select>
                     <button class="btn-search sort-form" type="submit" >
                         <i class="fas fa-search" ></i>
+                        
                     </button>
                 </div>
             </form>
@@ -163,6 +164,7 @@
                     </div>
                     <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
                 </div>
+
                 <div class="right-col">
                     <h1>Our Newsletter</h1>
                     <div class="border"></div>
@@ -171,6 +173,7 @@
                         <input type="text" class="txtbox" placeholder="Enter Your Email">
                         <input type="submit" class="btn" value="Submit">
                     </form>
+
                 </div>
             </div>
         </footer>
@@ -240,14 +243,13 @@
     <!--Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="/assets/js/header-footer.js"></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script src="/assets/js/j360.js"></script>
-    <script src="/assets/js/main.js"></script>
-
+    <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
     <script src="/assets/js/api-gg-fb-login.js"></script>
     <div id="status"></div>
-   
+    <script src="/assets/js/j360.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
     <script src="/assets/js/script.js"></script>
 </body>
 

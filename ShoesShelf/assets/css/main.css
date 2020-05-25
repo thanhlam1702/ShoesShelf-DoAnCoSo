@@ -40,7 +40,7 @@
 
 .main-content .list-posts .post-container {
   width: 90%;
-  height: auto;
+  height: 500px;
   margin: 16px 0;
 }
 
@@ -100,7 +100,7 @@
 }
 
 .post-container .posts {
-  height: auto;
+  height: 90%;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -110,7 +110,7 @@
 }
 
 .post-container .posts .post-avatar {
-  height: auto;
+  height: 100%;
   width: 56%;
   display: block;
   margin: auto;
@@ -119,7 +119,6 @@
 .post-container .posts .post-title {
   width: 44%;
   height: auto;
-  max-height: 100%;
   margin-left: 16px;
 }
 
@@ -130,49 +129,15 @@
   text-overflow: ellipsis;
   line-height: 25px;
   overflow: hidden;
-  height: auto;
+  height: 100px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
 }
 
 .post-container .posts .post-hash-tag {
-  height: auto;
+  height: 75px;
   -webkit-line-clamp: 3;
-}
-
-.post-container .posts .btn-view-360 {
-  color: #ffa502;
-  background: none;
-  border: none;
-  position: relative;
-  font-size: 16px;
-}
-
-.post-container .posts .btn-view-360:focus {
-  outline: none;
-}
-
-.post-container .posts .btn-view-360::before, .post-container .posts .btn-view-360::after {
-  content: "";
-  position: absolute;
-  border-bottom: 1px solid #ffa502;
-  width: 0;
-  bottom: -2px;
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-}
-
-.post-container .posts .btn-view-360::before {
-  left: 50%;
-}
-
-.post-container .posts .btn-view-360::after {
-  right: 50%;
-}
-
-.post-container .posts .btn-view-360:hover::before, .post-container .posts .btn-view-360:hover::after {
-  width: 50%;
 }
 
 .post-container .posts .read-more {
@@ -181,30 +146,18 @@
   position: relative;
 }
 
-.post-container .posts .read-more:focus {
-  outline: none;
-}
-
-.post-container .posts .read-more::before, .post-container .posts .read-more::after {
+.post-container .posts .read-more::before {
   content: "";
   position: absolute;
   border-bottom: 1px solid #ffa502;
   width: 0;
-  bottom: -2px;
+  top: 18px;
   -webkit-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 
-.post-container .posts .read-more::before {
-  left: 50%;
-}
-
-.post-container .posts .read-more::after {
-  right: 50%;
-}
-
-.post-container .posts .read-more:hover::before, .post-container .posts .read-more:hover::after {
-  width: 50%;
+.post-container .posts .read-more:hover::before {
+  width: 100%;
 }
 
 .post-container .status {

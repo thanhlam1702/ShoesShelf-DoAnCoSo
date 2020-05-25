@@ -288,7 +288,7 @@ header {
 
 .container-login input[type="text"],
 .container-login input[type="password"],
-.container-login input[type="email"] {
+.container-login input[type="email"]{
   width: 240px;
   height: 48px;
   background: none;
@@ -303,7 +303,7 @@ header {
 }
 
 .container-login input[type="text"]:focus,
-.container-login input[type="password"]:focus,
+.container-login input[type="password"]:focus
 .container-login input[type="email"]:focus {
   width: 352px;
   outline: none;
@@ -335,10 +335,8 @@ header {
   transition: 0.25s;
 }
 
-.btn-sign-in button[type="submit"]:hover,
-.btn-sign-in button[type="submit"]:focus {
+.btn-sign-in button[type="submit"]:hover {
   background-color: #ffa502;
-  outline: none;
 }
 
 .modal {
@@ -529,30 +527,7 @@ span.buttonText {
 .left-menu .left-sub-menu .menu-item {
   text-decoration: none;
   color: black;
-  position: relative;
 }
-
-.left-menu .left-sub-menu .menu-item::before,
-.left-menu .left-sub-menu .menu-item::after {
-  content: "";
-  position: absolute;
-  border-bottom: 1px solid black;
-  width: 0;
-  bottom: -2px;
-  transition: all 0.2s ease-in-out;
-}
-.left-menu .left-sub-menu .menu-item::before {
-  left: 50%;
-}
-.left-menu .left-sub-menu .menu-item::after {
-  right: 50%;
-}
-
-.left-menu .left-sub-menu .menu-item:hover::before,
-.left-menu .left-sub-menu .menu-item:hover::after {
-  width: 50%;
-}
-
 .nav-bar .navbar-right-user {
   width: 47%;
   height: 100%;

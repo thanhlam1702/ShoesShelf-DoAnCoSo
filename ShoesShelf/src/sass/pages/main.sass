@@ -23,7 +23,7 @@ $color-main: #ffa502
         flex-direction: column
         .post-container
             width: 90%
-            height: auto
+            height: 500px
             margin: 16px 0
 .sort-container
     .sort-form
@@ -75,20 +75,19 @@ $color-main: #ffa502
 //content main
 .post-container
     .posts
-        height: auto
+        height: 90%
         width: 100%
         display: flex
         background-color: #070509
         padding: 16px
         .post-avatar
-            height: auto
+            height: 100%
             width: 56%
             display: block
             margin: auto
         .post-title
             width: 44%
             height: auto
-            max-height: 100%
             margin-left: 16px
         .post-content, .post-hash-tag
             margin-bottom: 8px
@@ -97,53 +96,26 @@ $color-main: #ffa502
             text-overflow: ellipsis
             line-height: 25px
             overflow: hidden
-            height: auto //line-height * clamp
+            height: 25px * 4 //line-height * clamp
             display: -webkit-box
             -webkit-box-orient: vertical
-            -webkit-line-clamp: 5
+            -webkit-line-clamp: 4;
         .post-hash-tag
-            height: auto
-            -webkit-line-clamp: 3
-        .btn-view-360
-            color: $color-main
-            background: none
-            border: none
-            position: relative
-            font-size: 16px
-            &:focus
-                outline: none
-            &::before, &::after
-                content: ""
-                position: absolute
-                border-bottom: 1px solid $color-main
-                width: 0
-                bottom: -2px
-                transition: all 0.2s ease-in-out
-            &::before
-                left: 50%
-            &::after
-                right: 50%
-            &:hover::before, &:hover::after
-                width: 50%
+            height: 25px * 3
+            -webkit-line-clamp: 3;
         .read-more
             color: $color-main
             text-decoration: none
             position: relative
-            &:focus
-                outline: none
-            &::before, &::after
+            &::before
                 content: ""
                 position: absolute
                 border-bottom: 1px solid $color-main
                 width: 0
-                bottom: -2px
+                top: 18px
                 transition: all 0.2s ease-in-out
-            &::before
-                left: 50%
-            &::after
-                right: 50%
-            &:hover::before, &:hover::after
-                width: 50%
+            &:hover::before
+                width: 100%
     .status
         height: 10%
         width: 100%

@@ -12,11 +12,11 @@ var userImg = document.getElementById('user-img');
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event) {
-    if (event.target == modalSignIn || event.target == btnSignUp || event.target == this.btnCloseModalSignIn) {
+    if (event.target == modalSignIn || event.target == btnSignUp || event.target == btnCloseModalSignIn) {
         modalSignIn.style.display = "none";
         this.hiddenBodyScrollBar().showup();
     }
-    else if (event.target == modalSignUp || event.target == btnSignIn || event.target == this.btnCloseModalSignUp) {
+    else if (event.target == modalSignUp || event.target == btnSignIn || event.target == btnCloseModalSignUp) {
         modalSignUp.style.display = "none";
         this.hiddenBodyScrollBar().showup();
     }
