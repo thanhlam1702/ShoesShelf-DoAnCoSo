@@ -122,22 +122,26 @@
             <!-- <button onclick="showImg360()">Show 360 images</button> -->
             <div class="list-posts">
                 <% posts.forEach(function (post) { %>
-                <div class="post-container">
-                    <div class="posts">
-                        <% for(var i=0 ; i< 1 ; i++) {%>
-                        <img src="/assets/images/userPost/<%= post.image[0].filename %>" class="post-avatar"></img>
-                        <%}%>
-                        <div class="post-title">
-                            <div class="post-content"><%- post.status %></div>
-                            <div class="post-hash-tag"><%= post.hashtag %></div>
-                            <a href="#id-post" class="read-more">Read more...</a>
+                    <div class="post-container">
+                        <div class="posts">
+                            <% for(var i=0 ; i< 1 ; i++) {%>
+                            <img src="/assets/images/userPost/<%= post.image[0].filename %>" class="post-avatar"></img>
+                            <%}%>
+                            <div class="post-title">
+                                <div class="post-content" ><%- post.status %></div>
+                                <div class="post-hash-tag"><%= post.hashtag %></div>
+                                <form action="/posts/id" method="POST">
+                                    <input value="<%= post._id %>" id="btn-read-more" name="id" type="submit" style="display: none;" >
+                                    <!-- <a href="#id-post" class="read-more">Read more...</a> -->
+                                    <label for="btn-read-more" class="read-more">Read more...</label>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <p class="user-name"></p>
+                            <p class="post-time"><%= post.date %></p>
                         </div>
                     </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time"><%= post.date %></p>
-                    </div>
-                </div>
                 <% }) %>
                 <div class="post-container">
                     <div class="posts">
@@ -156,7 +160,7 @@
                 </div>
             </div>
             <div class="sort-container">
-                <form action="/main" method="GET" class="">
+                <form action="/" method="GET" class="">
                     <div class="sort-container">
                         <select name="search" class="brands sort-form" id="brands">
                             <option selected hidden style="font-weight: bold;">Brands</option>

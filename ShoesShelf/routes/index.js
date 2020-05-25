@@ -112,12 +112,15 @@ router.post('/login', function(req, res) {
     User.findOne({email:email,password: password }, function(err, data) {
         if (!err) {
             if(!data){
-                res.render('login',{
-                    errors: [
-                         'User does not exist.'
-                    ],
-                    values : req.body
-                })
+                // res.render('login',{
+                //     errors: [
+                //          'User does not exist.'
+                //     ],
+                //     values : req.body
+                // })
+                // return
+                alert('sai mat khau');
+                }
                 return
            }else{
                 res.cookie('id',data.id)
@@ -126,7 +129,7 @@ router.post('/login', function(req, res) {
                 res.cookie('avatar',data.avatar)
                 res.redirect('/main');
             }
-        } 
+        
     })
 });
 
