@@ -112,25 +112,49 @@ router.post('/login', function(req, res) {
     User.findOne({email:email,password: password }, function(err, data) {
         if (!err) {
             if(!data){
-                // res.render('login',{
-                //     errors: [
-                //          'User does not exist.'
-                //     ],
-                //     values : req.body
-                // })
-                // return
-                alert('sai mat khau');
-                }
-                return
+                res.render('index',{
+                    errors:
+                    `<script>
+                    alert('Sai tên tài khoản hoặc mật khẩu');
+                    </script>`,
+                    values: req.body
+                });
            }else{
                 res.cookie('id',data.id)
                 res.cookie('email',data.email)
                 res.cookie('name',data.name)
                 res.cookie('avatar',data.avatar)
                 res.redirect('/main');
-            }
-        
+                }
+   
+            } 
     })
+});
+router.get("/" ,(req,res) => {
+    if (req.query.search) {     
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+
+        Post.find({brands : regex},function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                var noMatch = ""
+                if(data.length < 1) {
+                    noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
+                }
+                res.render('index',{posts:data,noMatch: noMatch});
+            }
+    });
+    } else {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('index',{posts:data});
+            }
+
+        })
+    };   
 });
 
 router.get('/main#5ec291b84abc1603c0500c91',function(req, res , next) {
