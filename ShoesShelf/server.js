@@ -60,6 +60,7 @@ var auth =require('./middleware/auth');
 //static files
 app.use(express.static(__dirname,''));
 var Post = require('./models/Post');
+var User = require('./models/User');
 // SS blog post
 
 var MongoClient = require("mongodb").MongoClient;
@@ -76,16 +77,72 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
 
         })
     });
-    app.get("/account-setting",auth.requireAuth ,(req,res) => {
-        Post.find(function(err,data){
+    app.get("/account-setting" ,(req,res) => {
+        User.findById(req.cookies.id,function(err,data){
             if(err){
                 res.json({kq:0});
             }else{
-                res.render('account-setting',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,email:req.cookies.email});
+                res.cookie('id',data.id)
+                res.cookie('email',data.email)
+                res.cookie('name',data.name)
+                res.cookie('avatar',data.avatar)
+                res.render('account-setting',{user:data,name:req.cookies.name,avatar:req.cookies.avatar,email:req.cookies.email});
             }
 
         })
     });
+
+    app.post("/account-setting",auth.requireAuth ,(req,res) => {
+        User.findByIdAndUpdate(req.cookies.id,{
+            name:req.body.name,
+            email:req.body.email,
+            password:req.body.password,
+            gender:req.body.selector,
+            country:req.body.country
+        },function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.redirect('/account-setting')
+            }
+
+        })
+    });
+    
+    app.post("/account-password",auth.requireAuth ,(req,res) => {
+        User.findByIdAndUpdate(req.cookies.id,{
+            name:req.body.name,
+            email:req.body.email,
+            password:req.body.password,
+            avatar:req.body.avatar
+        },function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.redirect('/account-setting')
+            }
+
+        })
+    });
+    app.post("/upload-avatar",upload.single('avatar'),auth.requireAuth ,(req,res) => {
+        User.findByIdAndUpdate(req.cookies.id,{
+            name:req.body.name,
+            email:req.body.email,
+            password:req.body.password,
+            avatar:req.file.filename,
+            gender:req.body.selector
+
+        },function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.redirect('/account-setting')
+            }
+
+        })
+    });
+    
+
     app.get("/your-shelf-fbgg" ,(req,res) => {
         test.collection("posts").find().toArray(function(error,posts){
             posts = posts.reverse();

@@ -67,3 +67,4 @@ function showImg360() {
         jQuery('#product').j360();
     });
 }
+

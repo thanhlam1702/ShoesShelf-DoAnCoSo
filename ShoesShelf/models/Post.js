@@ -33,6 +33,6 @@ const Post = mongoose.model('Post', PostSchema);
 module.exports = Post;
 function getDate() {
     var d = new Date();
-    var fullTime = `${ d.getHours()}: ${ d.getMinutes() } ${ d.getDate() } /${d.getMonth()}/${ d.getFullYear() }`;
+    var fullTime = `${ d.getHours()}:${ d.getMinutes() } ${ d.getDate() } /${d.getMonth()}/${ d.getFullYear() }`;
     return fullTime.toString();
 }

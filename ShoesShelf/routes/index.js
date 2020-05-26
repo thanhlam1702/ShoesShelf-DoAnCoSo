@@ -112,30 +112,21 @@ router.post('/login', function(req, res) {
     User.findOne({email:email,password: password }, function(err, data) {
         if (!err) {
             if(!data){
-                // res.render('login',{
-                //     errors: [
-                //          'User does not exist.'
-                //     ],
-                //     values : req.body
-                // })
-                // return
-                alert('sai mat khau');
-                }
-                return
-           }else{
+                res.redirect('/');
+
+            
+            }else{
                 res.cookie('id',data.id)
                 res.cookie('email',data.email)
                 res.cookie('name',data.name)
                 res.cookie('avatar',data.avatar)
                 res.redirect('/main');
             }
-        
+        }
     })
 });
 
-router.get('/main#5ec291b84abc1603c0500c91',function(req, res , next) {
-    res.render('posts')
-})
+
 
 
 module.exports = router;
