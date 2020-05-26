@@ -74,3 +74,4 @@ $(document).ready(function () {
             document.getElementById('navbar').style.backgroundColor = '';
     })
 })
+

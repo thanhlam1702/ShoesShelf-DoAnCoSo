@@ -112,10 +112,12 @@ router.post('/login', function (req, res) {
         if (!err) {
             if (!data) {
                 res.render('login', {
-                    errors: [
-                        'User does not exist.'
-                    ],
-                    values: req.body
+                    errors: 
+                        `<script>
+                        alert('Sai tên hoặc mật khẩu');
+                      </script>`
+                    ,
+                    values: req.body,
                 })
                 return
             } else {

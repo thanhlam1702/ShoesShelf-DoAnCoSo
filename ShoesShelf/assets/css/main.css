@@ -147,6 +147,7 @@
   border: none;
   position: relative;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .post-container .posts .btn-view-360:focus {
@@ -179,6 +180,7 @@
   color: #ffa502;
   text-decoration: none;
   position: relative;
+  cursor: pointer;
 }
 
 .post-container .posts .read-more:focus {
