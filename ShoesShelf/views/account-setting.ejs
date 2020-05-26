@@ -81,12 +81,22 @@
         <div class="content">
             <div class="container-account-setting">
                 <div class="user-container" id="user-container">
-                    <div class="user-avatar">
-                        <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
-                        <div class="user-img-layer"></div>
-                        <label for="change-avatar" class="btn-change-avatar">Change Photo</label>
-                        <input type="file" name="img" accept="image/*" id="change-avatar">
-                    </div>
+                    <form action="upload-avatar" enctype="multipart/form-data" method="POST">
+                        <div class="user-avatar">
+                            <img  src="/assets/images/userPost/<%= avatar %>"  id="user-img" class="user-img">
+                            <!-- <input type="text" value="<%-user.avatar%>" name="avatar"> -->
+                            <div class="user-img-layer"></div>
+                            <label for="change-avatar" class="btn-change-avatar">Change Photo</label>
+                            <input type="file" name="avatar" accept="image/*" id="change-avatar">
+                        </div>
+                        <div style="display: none;" >
+                            <input name="name"  type="text" value="<%-user.name%>" ><br>
+                            <input type="text" value="<%-user.email%>" name="email">  <br> 
+                            <input type="text" value="<%-user.password%>" name="password">
+                             
+                        </div>
+                        <input type="submit" class="btn btn-default" value="Save Avatar">
+                    </form>
                     <div class="user-name-container">
                         <p id="user-name" class="user-name"><%= name %></p>
                     </div>
@@ -117,26 +127,22 @@
                             </div>
                         </a>
                     </div>
+                <form action="/account-setting" method="POST">
                     <div class="container-body-container">
                         <h1>Personal information</h1>
                         <hr>
+                        
                         <div class="form-group">
                             <div class="col-form-label">
                                 Email login:
                             </div>
-                            <input type="text" value="<%= email %>" id="user-email" readonly class="form-control user-email">
+                            <input type="text" value="<%= user.email %>" name="email" id="user-email" readonly class="form-control user-email">
                         </div>
                         <div class="form-group">
                             <div class="col-form-label">
-                                User name:
+                                Full-name:
                             </div>
-                            <input type="text" value id="user-name" class="form-control user-name">
-                        </div>
-                        <div class="form-group">
-                            <div class="col-form-label">
-                                Full name:
-                            </div>
-                            <input type="text" value id="full-name" class="form-control full-name">
+                            <input type="text" value="<%= user.name %>" name="name" id="user-name" class="form-control user-name">
                         </div>
                         <div class="form-group">
                             <div class="col-form-label">
@@ -145,13 +151,13 @@
                             <div class="container-check-gender">
                                 <ul>
                                     <li>
-                                        <input type="radio" id="gender-male" name="selector">
+                                        <input type="radio" id="gender-male" value="Male" name="selector">
                                         <label for="gender-male" class="layer-check">Male</label>
                                         <div class="check"></div>
                                     </li>
 
                                     <li>
-                                        <input type="radio" id="gender-female" name="selector">
+                                        <input type="radio" id="gender-female" value="Female" name="selector">
                                         <label for="gender-female" class="layer-check">Female</label>
                                         <div class="check">
                                             <div class="inside"></div>
@@ -159,7 +165,7 @@
                                     </li>
 
                                     <li>
-                                        <input type="radio" id="gender-lgbt" name="selector">
+                                        <input type="radio" id="gender-lgbt" value="LGBT" name="selector">
                                         <label for="gender-lgbt" class="layer-check">LGBT</label>
                                         <div class="check">
                                             <div class="inside"></div>
@@ -168,23 +174,30 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="col-form-label">
                                 Day of birth:
                             </div>
                             <input type="date" value id="date-of-birth" class="form-control date-of-birth">
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <div class="col-form-label">
                                 Country:
                             </div>
-                            <input type="text" value id="user-country" class="form-control user-country">
+                            <input type="text" value="<%- user.country %>" name="country" id="user-country" class="form-control user-country">
+                        </div>
+                        <div class="form-group" style="display: none;">
+                            <div class="col-form-label">
+                                password:
+                            </div>
+                            <input type="text" value="<%-user.password%>" id="full-name" name="password" class="form-control full-name">
                         </div>
                         <div class="form-group">
                             <button class="btn-save-change">Save Change</button>
                             <button class="btn-cannel-change">Cancel</button>
                         </div>
                     </div>
+                </form>
                     <div class="container-body-container hidden">
                         <h1>Change password account</h1>
                         <hr>
@@ -194,26 +207,35 @@
                             </div>
                             <input type="password" value id="old-password" class="form-control">
                         </div>
+                        <form action="/account-password" method="POST">
                         <div class="form-group">
                             <div class="col-form-label">
                                 New password:
                             </div>
-                            <input type="password" value id="new-password" class="form-control">
+                            <input type="password" name="password" id="new-password" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <div class="col-form-label">
                                 Enter new password:
                             </div>
-                            <input type="password" value id="enter-new-password" class="form-control">
+                            <input type="password" name="password2" value id="enter-new-password"  class="form-control" required>
                         </div>
                         <div class="form-group hidden-border-bottom">
                             <button class="btn-save-change">Save Change</button>
                             <button class="btn-cannel-change">Cancel</button>
                         </div>
+                        <div style="display: none;" >
+                            <input name="name"  type="text" value="<%-user.name%>" ><br>
+                            <input type="text" value="<%-user.email%>" name="email">  <br> 
+                            <input  type="text" value="<%-user.avatar%>" name="avatar">
+                             
+                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+      
         <footer>
             <div class="footer-container">
                 <div class="left-col">
@@ -252,6 +274,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="/assets/js/header-footer.js"></script>
     <script src="/assets/js/account-setting.js"></script>
+    <script src="/assets/js/script.js"></script>
+    
 
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
@@ -259,4 +283,4 @@
     <div id="status"></div>
 </body>
 
-</html>
+</html> 

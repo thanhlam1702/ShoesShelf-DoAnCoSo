@@ -112,22 +112,17 @@ router.post('/login', function(req, res) {
     User.findOne({email:email,password: password }, function(err, data) {
         if (!err) {
             if(!data){
-                res.render('index',{
-                    errors:
-                    `<script>
-                    alert('Sai tên tài khoản hoặc mật khẩu');
-                    </script>`,
-                    values: req.body
-                });
-           }else{
+                res.redirect('/');
+
+            
+            }else{
                 res.cookie('id',data.id)
                 res.cookie('email',data.email)
                 res.cookie('name',data.name)
                 res.cookie('avatar',data.avatar)
                 res.redirect('/main');
-                }
-   
-            } 
+            }
+        }
     })
 });
 router.get("/" ,(req,res) => {
@@ -157,9 +152,7 @@ router.get("/" ,(req,res) => {
     };   
 });
 
-router.get('/main#5ec291b84abc1603c0500c91',function(req, res , next) {
-    res.render('posts')
-})
+
 
 
 module.exports = router;
