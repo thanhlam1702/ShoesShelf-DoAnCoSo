@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/assets/css/styles.css?v=12042020">
     <link rel="stylesheet" href="/assets/css/styles.min.css">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <script src="/assets/js/incorrect-password.js"></script>
     <script src="https://apis.google.com/js/api:client.js"></script>
     <title>Shoes Shelf</title>
 </head>
@@ -53,10 +52,10 @@
                                     <a href="/about.html" class="menu-item">About Us</a>
                                 </li>
                                 <li class="right-sub-menu hidden">
-                                    <a id="btn-sign-in" class="menu-item" onclick="showUpSignIn()">Login</a>
+                                    <a href="users/login" id="btn-sign-in" class="menu-item">Login</a>
                                 </li>
                                 <li class="right-sub-menu hidden">
-                                    <a id="btn-sign-up" class="menu-item" onclick="showUpSignUp()">Register</a>
+                                    <a href="users/register" id="btn-sign-up" class="menu-item">Register</a>
                                 </li>
                                 <li class="right-sub-menu hidden">
                                     <a class="hidden-show-up-menu close-menu menu-item" title="Close menu">
@@ -213,73 +212,6 @@
         </div>
         </footer>
     </div>
-    
-    <div id="sign-in-modal" class="modal">
-        <form class="modal-content animate" action="/login" method="POST">
-            <div class="tittle-container">
-                <span class="close" id="btn-close-sign-in" title="Close">&times;</span>
-                <p class="tittle-login">Login</p>
-            </div>
-            <div class="container-login">
-                <input type="text" placeholder="Use name or email" name="email" required>
-                <input type="password" placeholder="Password" name="password" required>
-
-                <div class="btn-sign-in"><button type="submit">Sign in</button></div>
-                <div class="checked-psw">
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember your password?
-                    </label>
-                    <span class="forgot-psw"><a href="#">Forgot?</a></span>
-                </div>
-                <div class="or">
-                    <p>OR</p>
-                </div>
-                <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
-                        data-size="large" data-button-type="continue_with" data-layout="rounded"
-                        data-auto-logout-link="false" data-use-continue-as="false"></div>
-                    <div id="gg-login-button">
-                        <div id="customBtn" class="customGPlusSignIn">
-                            <span class="icon"></span>
-                            <span class="buttonText">Continue with Google</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-    <!--Form sign up-->
-    <div id="sign-up-modal" class="modal">
-        <form name="f1" class="modal-content animate" action="/register" onsubmit="return matchpass() , lengthpass()"
-            method="POST">
-            <div class="tittle-container">
-                <span class="close" id="btn-close-sign-up" title="Close">&times;</span>
-                <p class="tittle-login">Register</p>
-            </div>
-            <div class="container-login">
-                <input type="text" placeholder="Use name" name="name" id="name" required>
-                <input type="email" placeholder="Email" name="email" id="email" required>
-                <input type="password" placeholder="Enter password" name="password" id="password" onchange="lengthpass()" required> 
-                <input type="password" placeholder="Enter password again" name="password2" onchange="matchpass();" required>
-                <div class="btn-sign-in"><button type="submit">Create</button></div>
-                <div class="or">
-                    <p>OR</p>
-                </div>
-                <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
-                        data-size="large" data-button-type="continue_with" data-layout="rounded"
-                        data-auto-logout-link="false" data-use-continue-as="false"></div>
-                    <div id="gg-login-button">
-                        <div id="customBtn" class="customGPlusSignIn">
-                            <span class="icon"></span>
-                            <span class="buttonText">Continue with Google</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-
     <!--Script-->
     <script src="/assets/js/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

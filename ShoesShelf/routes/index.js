@@ -111,7 +111,7 @@ router.post('/login', function (req, res) {
     User.findOne({ email: email, password: password }, function (err, data) {
         if (!err) {
             if(!data){
-                res.redirect('/');
+                res.render('login');
 
             
             }else{
