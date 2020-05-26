@@ -110,31 +110,21 @@ router.post('/login', function (req, res) {
     var password = req.body.password
     User.findOne({ email: email, password: password }, function (err, data) {
         if (!err) {
-            if (!data) {
-                res.render('login', {
-                    errors: 
-                        `<script>
-                        alert('Sai tên hoặc mật khẩu');
-                      </script>`
-                    ,
-                    values: req.body,
-                })
-                return
-            } else {
-                res.cookie('id', data.id)
-                res.cookie('email', data.email)
-                res.cookie('name', data.name)
-                res.cookie('avatar', data.avatar)
+            if(!data){
+                res.redirect('/');
+
+            
+            }else{
+                res.cookie('id',data.id)
+                res.cookie('email',data.email)
+                res.cookie('name',data.name)
+                res.cookie('avatar',data.avatar)
                 res.redirect('/main');
             }
-
         }
     })
 });
 
-router.get('/main#5ec291b84abc1603c0500c91', function (req, res, next) {
-    res.render('posts')
-})
 
 
 module.exports = router;
