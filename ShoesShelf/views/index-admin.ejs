@@ -133,7 +133,10 @@
                                 <form action="/posts/id" method="POST">
                                     <input value="<%= post._id %>" id="btn-read-more" name="id" type="submit"  >
                                     <!-- <a href="#id-post" class="read-more">Read more...</a> -->
-                                    <label for="btn-read-more" class="read-more">Read more...</label>
+                                    <label for="btn-read-more" class="read-more">Read.</label>
+                                </form>
+                                <form action="/<%= post.id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-danger"> Delete </button>
                                 </form>
                             </div>
                         </div>

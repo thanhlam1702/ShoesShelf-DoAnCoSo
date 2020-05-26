@@ -9,6 +9,7 @@ const bodyParser =require("body-parser");
 const formidable = require('formidable');
 const upload = require('./middleware/upload');
 const cookieParser = require('cookie-parser');
+const methodOverride = require('method-override')
 var fs = require('fs');
 
 
@@ -16,6 +17,7 @@ var app = express();
 app.use(cookieParser('dasdasd'))
 app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
+app.use(methodOverride('_method'))
 //Passport config
 require('./config/passport')(passport);
 
@@ -175,32 +177,63 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
             })
         };
     });
-    // app.get("/" ,(req,res) => {
-    //     if (req.query.search) {     
-    //         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+    app.delete('/:id', async (req,res) => {
+        await Post.findByIdAndDelete(req.params.id)
+        res.redirect('/admin')
+        
+    })
+    app.get("/admin" ,(req,res) => {
+        if (req.query.search) {     
+            const regex = new RegExp(escapeRegex(req.query.search), 'gi');
 
-    //         Post.find({brands : regex},function(err,data){
-    //             if(err){
-    //                 res.json({kq:0});
-    //             }else{
-    //                 var noMatch = ""
-    //                 if(data.length < 1) {
-    //                     noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
-    //                 }
-    //                 res.render('index',{posts:data,noMatch: noMatch});
-    //             }
-    //     });
-    //     } else {
-    //         Post.find(function(err,data){
-    //             if(err){
-    //                 res.json({kq:0});
-    //             }else{
-    //                 res.render('index',{posts:data});
-    //             }
+            Post.find({brands : regex},function(err,data){
+                if(err){
+                    res.json({kq:0});
+                }else{
+                    var noMatch = ""
+                    if(data.length < 1) {
+                        noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
+                    }
+                    res.render('index-admin',{posts:data,noMatch: noMatch});
+                }
+        });
+        } else {
+            Post.find(function(err,data){
+                if(err){
+                    res.json({kq:0});
+                }else{
+                    res.render('index-admin',{posts:data});
+                }
 
-    //         })
-    //     };   
-    // });
+            })
+        };   
+    });
+    app.get("/" ,(req,res) => {
+        if (req.query.search) {     
+            const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+
+            Post.find({brands : regex},function(err,data){
+                if(err){
+                    res.json({kq:0});
+                }else{
+                    var noMatch = ""
+                    if(data.length < 1) {
+                        noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
+                    }
+                    res.render('index',{posts:data,noMatch: noMatch});
+                }
+        });
+        } else {
+            Post.find(function(err,data){
+                if(err){
+                    res.json({kq:0});
+                }else{
+                    res.render('index',{posts:data});
+                }
+
+            })
+        };   
+    });
     app.get('/posts/:id',auth.requireAuth,function(req,res,next){
         Post.find(function(err,data){
             if(err){
