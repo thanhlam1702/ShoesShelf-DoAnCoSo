@@ -53,6 +53,8 @@
   border-radius: 100%;
   -webkit-box-shadow: 0px 0px 24px 0 black;
           box-shadow: 0px 0px 24px 0 black;
+  position: absolute;
+  z-index: 1;
 }
 
 .user-container .user-avatar .user-img-layer {
@@ -64,6 +66,7 @@
   top: 0;
   opacity: 0;
   border-radius: 100%;
+  z-index: 9;
 }
 
 .user-container .user-avatar .btn-change-avatar {
@@ -75,6 +78,7 @@
   text-align: center;
   opacity: 0;
   cursor: pointer;
+  z-index: 10;
 }
 
 .user-container .user-avatar #change-avatar {
@@ -87,6 +91,25 @@
 
 .user-container .user-avatar:hover > .btn-change-avatar {
   opacity: 1;
+}
+
+.user-container .user-avatar #img-upload {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  position: absolute;
+  z-index: 8;
+}
+
+.user-container .btn-save-change-avatar {
+  height: 32px;
+  width: 100%;
+  border-radius: 24px;
+  color: white;
+  background-color: #ffa502;
+  margin-top: 16px;
+  border: none;
+  cursor: pointer;
 }
 
 .user-container .user-name-container {

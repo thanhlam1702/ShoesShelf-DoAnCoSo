@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/header-footer-style.css">
     <link rel="stylesheet" href="../assets/css/admin-manager.css">
     <link rel="stylesheet" href="/assets/css/styles.min.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
     <title>Admin manager</title>
 </head>
 
@@ -61,7 +61,50 @@
             </nav>
         </header>
         <div class="content" id="content">
-
+            <div class="side-bar">
+                <select name="sort-brands" class="brands sort-form" id="brands">
+                    <option selected hidden style="font-weight: bold;">Brands</option>
+                    <option value="vans">Vans</option>
+                    <option value="adidas">Adidas</option>
+                    <option value="nike">Nike</option>
+                    <option value="reebok">Reebok</option>
+                    <option value="converse">Converse</option>
+                    <option value="puma">Puma</option>
+                    <option value="other">Orther</option>
+                </select>
+                <input type="text" name="collections" placeholder="Collections" class="collections sort-form">
+                <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag sort-form">
+                <button class="btn-search sort-form">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <table class="table-manager" border="1">
+                <tr class="title-table">
+                    <th class="title-name-user">Name user</th>
+                    <th class="title-posts-img">Posts img</th>
+                    <th class="title-posts-content">Post sort content</th>
+                    <th class="title-posts-branch">Branch</th>
+                    <th class="title-posts-hashtag">Hashtag</th>
+                    <th class="title-controls">Controls</th>
+                </tr>
+                <!-- ------------------------------ -->
+                <tr>
+                    <td>Thanh Lãm</td>
+                    <td class="">
+                        <img src="/assets/images/test1.jpg" alt="" class="img-post">
+                    </td>
+                    <td class="post-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt impedit aliquam aspernatur
+                        ipsum voluptas obcaecati tempore distinctio ut quasi, suscipit vero, quo esse incidunt aliquid
+                        molestiae ratione quam sunt architecto?</td>
+                    <td>Nike</td>
+                    <td>#NikeClassic</td>
+                    <td>
+                        <button><i class="fas fa-eye"></i>View full</button>
+                        <button><i class="fas fa-trash"></i>Delete</button>
+                    </td>
+                </tr>
+                <!-- ------------------------------- -->
+            </table>
         </div>
         <footer>
             <div class="footer-container">

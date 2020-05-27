@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/header-footer-style.css">
     <link rel="stylesheet" href="/assets/css/account-setting.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -81,21 +82,21 @@
         <div class="content">
             <div class="container-account-setting">
                 <div class="user-container" id="user-container">
-                    <form action="upload-avatar" enctype="multipart/form-data" method="POST">
-                        <div class="user-avatar">
-                            <img  src="/assets/images/userPost/<%= avatar %>"  id="user-img" class="user-img">
+                    <form action="upload-avatar" enctype="multipart/form-data" method="POST" id="form-upload-avatar">
+                        <div class="user-avatar" id="user-avatar">
+                            <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
                             <!-- <input type="text" value="<%-user.avatar%>" name="avatar"> -->
                             <div class="user-img-layer"></div>
                             <label for="change-avatar" class="btn-change-avatar">Change Photo</label>
-                            <input type="file" name="avatar" accept="image/*" id="change-avatar">
+                            <input type="file" name="avatar" accept="image/*" id="change-avatar" onchange="reviewChangeAvatar()">
+                            <!-- <img src="/assets/images/avatar-default.png" id="img-upload"> -->
                         </div>
-                        <div style="display: none;" >
-                            <input name="name"  type="text" value="<%-user.name%>" ><br>
-                            <input type="text" value="<%-user.email%>" name="email">  <br> 
+                        <div style="display: none;">
+                            <input name="name" type="text" value="<%-user.name%>"><br>
+                            <input type="text" value="<%-user.email%>" name="email"> <br>
                             <input type="text" value="<%-user.password%>" name="password">
-                             
                         </div>
-                        <input type="submit" class="btn btn-default" value="Save Avatar">
+                        <!-- <input type="submit" class="btn-save-change-avatar" value="Save Avatar"> -->
                     </form>
                     <div class="user-name-container">
                         <p id="user-name" class="user-name"><%= name %></p>
@@ -127,22 +128,22 @@
                             </div>
                         </a>
                     </div>
-                <form action="/account-setting" method="POST">
-                    <div class="container-body-container">
+                    <form class="container-body-container" action="/account-setting" method="POST">
                         <h1>Personal information</h1>
                         <hr>
-                        
                         <div class="form-group">
                             <div class="col-form-label">
                                 Email login:
                             </div>
-                            <input type="text" value="<%= user.email %>" name="email" id="user-email" readonly class="form-control user-email">
+                            <input type="text" value="<%= user.email %>" name="email" id="user-email" readonly
+                                class="form-control user-email">
                         </div>
                         <div class="form-group">
                             <div class="col-form-label">
                                 Full-name:
                             </div>
-                            <input type="text" value="<%= user.name %>" name="name" id="user-name" class="form-control user-name">
+                            <input type="text" value="<%= user.name %>" name="name" id="user-name"
+                                class="form-control user-name">
                         </div>
                         <div class="form-group">
                             <div class="col-form-label">
@@ -184,20 +185,21 @@
                             <div class="col-form-label">
                                 Country:
                             </div>
-                            <input type="text" value="<%- user.country %>" name="country" id="user-country" class="form-control user-country">
+                            <input type="text" value="<%- user.country %>" name="country" id="user-country"
+                                class="form-control user-country">
                         </div>
                         <div class="form-group" style="display: none;">
                             <div class="col-form-label">
                                 password:
                             </div>
-                            <input type="text" value="<%-user.password%>" id="full-name" name="password" class="form-control full-name">
+                            <input type="text" value="<%-user.password%>" id="full-name" name="password"
+                                class="form-control full-name">
                         </div>
                         <div class="form-group">
                             <button class="btn-save-change">Save Change</button>
                             <button class="btn-cannel-change">Cancel</button>
                         </div>
-                    </div>
-                </form>
+                    </form>
                     <div class="container-body-container hidden">
                         <h1>Change password account</h1>
                         <hr>
@@ -208,34 +210,35 @@
                             <input type="password" value id="old-password" class="form-control">
                         </div>
                         <form action="/account-password" method="POST">
-                        <div class="form-group">
-                            <div class="col-form-label">
-                                New password:
+                            <div class="form-group">
+                                <div class="col-form-label">
+                                    New password:
+                                </div>
+                                <input type="password" name="password" id="new-password" class="form-control" required>
                             </div>
-                            <input type="password" name="password" id="new-password" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-form-label">
-                                Enter new password:
+                            <div class="form-group">
+                                <div class="col-form-label">
+                                    Enter new password:
+                                </div>
+                                <input type="password" name="password2" value id="enter-new-password"
+                                    class="form-control" required>
                             </div>
-                            <input type="password" name="password2" value id="enter-new-password"  class="form-control" required>
-                        </div>
-                        <div class="form-group hidden-border-bottom">
-                            <button class="btn-save-change">Save Change</button>
-                            <button class="btn-cannel-change">Cancel</button>
-                        </div>
-                        <div style="display: none;" >
-                            <input name="name"  type="text" value="<%-user.name%>" ><br>
-                            <input type="text" value="<%-user.email%>" name="email">  <br> 
-                            <input  type="text" value="<%-user.avatar%>" name="avatar">
-                             
-                        </div>
+                            <div class="form-group hidden-border-bottom">
+                                <button class="btn-save-change">Save Change</button>
+                                <button class="btn-cannel-change">Cancel</button>
+                            </div>
+                            <div style="display: none;">
+                                <input name="name" type="text" value="<%-user.name%>"><br>
+                                <input type="text" value="<%-user.email%>" name="email"> <br>
+                                <input type="text" value="<%-user.avatar%>" name="avatar">
+
+                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-      
+
         <footer>
             <div class="footer-container">
                 <div class="left-col">
@@ -275,7 +278,7 @@
     <script src="/assets/js/header-footer.js"></script>
     <script src="/assets/js/account-setting.js"></script>
     <script src="/assets/js/script.js"></script>
-    
+
 
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
@@ -283,4 +286,4 @@
     <div id="status"></div>
 </body>
 
-</html> 
+</html>
