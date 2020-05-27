@@ -1,0 +1,18 @@
+.navbar-right-user, .left-menu {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.content {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-top: 72px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 56px 40px;
+  width: 100%;
+  background-color: #f1f1f1;
+  max-width: 1366px;
+}

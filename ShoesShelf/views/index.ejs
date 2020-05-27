@@ -131,9 +131,9 @@
                                 <div class="post-content" ><%- post.status %></div>
                                 <div class="post-hash-tag"><%= post.hashtag %></div>
                                 <form action="/posts/id" method="POST">
-                                    <input value="<%= post._id %>" id="btn-read-more" name="id" type="submit" style="display: none;" >
+                                    <input value="<%= post._id %>" id="<%= post._id %>" name="id" type="submit" style="display: none;" >
                                     <!-- <a href="#id-post" class="read-more">Read more...</a> -->
-                                    <label for="btn-read-more" class="read-more">Read more...</label>
+                                    <label for="<%= post._id %>" class="read-more">Read more...</label>
                                 </form>
                             </div>
                         </div>

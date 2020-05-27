@@ -17,8 +17,6 @@ function showImg360() {
 
     content.appendChild(childNode);
 
-    hiddenBodyScrollBar().hidden();
-
     document.getElementById('container-img360').innerHTML = `
     <i class="btn-close" onclick = "hiddenImg360()">x</i>
     <center>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/header-footer-style.css">
+    <link rel="stylesheet" href="../assets/css/admin-manager.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <title>Admin manager</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <nav class="navbar" id="navbar">
+                <div class="nav-bar">
+                    <!--Navbar left -->
+                    <div class="navbar-left">
+                        <div class="left-logo">
+                            <img src="/assets/images/logo-main.png" alt="Error" class="logo-img">
+                        </div>
+                    </div>
+                    <!--Navbar middle-->
+                    <div class="navbar-middle">
+                        <a href="./admin-manager.html" class="img-logo"></a>
+                    </div>
+                    <!--Navbar right after sign in-->
+                    <div class="navbar-right-user" id="navbar-right-user" dislay="block">
+                        <!--search-->
+                        <div class="right-search">
+                            <form action="" class="search-form">
+                                <input type="text" name="search" placeholder="Search anything you want...">
+                                <button class="btn-search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <!--showup user after user sign in complete-->
+                        <div id="user" class="user">
+                            <div class="user-avatar" id="user-avatar">
+                                <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
+                                <ul class="user-menu" id="user-menu" style="display: none;">
+                                    <li class="user-menu-item">
+                                        <div class="user-name-container">
+                                            <p id="user-name" class="user-name"> <%= name %> </p>
+                                        </div>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <div class="user-logout">
+                                            <a href="/" onclick="logout()">Log out</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="content" id="content">
+
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="left-col">
+                    <div class="social">
+                        <a href="/instagram" target="_blank" title="collective on Instagram">
+                            <i class="fab fa-instagram"> </i>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
+                            <i class="fab fa-facebook"> </i>
+                        </a>
+                        <a href="/pinterest" target="_blank" title="collective on Pinterest">
+                            <i class="fab fa-pinterest-p"> </i>
+                        </a>
+                        <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
+                            <i class="fab fa-youtube"> </i>
+                        </a>
+                    </div>
+                    <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
+                </div>
+                <div class="right-col">
+                    <h1>Our Newsletter</h1>
+                    <div class="border"></div>
+                    <p>Enter your emails to connect with us.</p>
+                    <form action="" class="newsletter">
+                        <input type="text" class="txtbox" placeholder="Enter Your Email">
+                        <input type="submit" class="btn" value="Submit">
+                    </form>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!--Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/assets/js/header-footer.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+    <script src="/assets/js/script.js"></script>
+</body>
+
+</html>
