@@ -1,0 +1,227 @@
+.main-content {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  background-color: #3d3d3d;
+  height: auto;
+  width: 1366px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 24px 120px;
+}
+
+.main-content .sort-container {
+  width: 28%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-content .list-posts {
+  height: auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main-content .list-posts .post-container {
+  width: 90%;
+  height: auto;
+  margin: 16px 0;
+}
+
+.sort-container .sort-form {
+  width: 200px;
+  margin: 24px 0 0 0;
+  height: 32px;
+  padding: 8px;
+  color: white;
+  outline: none;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #ffa502;
+}
+
+.sort-container .sort-form:focus {
+  outline: none;
+}
+
+.sort-container .brands {
+  color: black;
+}
+
+.sort-container .brands option:nth-of-type(1) {
+  color: white;
+}
+
+.sort-container .btn-search {
+  color: black;
+  width: 40px;
+  border: none;
+  font-size: 24px;
+}
+
+.sort-container .btn-search:hover {
+  color: white;
+}
+
+.container-img360 {
+  position: fixed;
+  background-color: white;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.btn-close {
+  position: absolute;
+  font-size: 32px;
+  font-family: sans-serif;
+  right: 80px;
+  top: 0;
+  font-style: initial;
+  cursor: pointer;
+}
+
+.post-container .posts {
+  height: auto;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #070509;
+  padding: 16px;
+}
+
+.post-container .posts .post-avatar {
+  height: auto;
+  width: 56%;
+  display: block;
+  margin: auto;
+}
+
+.post-container .posts .post-title {
+  width: 44%;
+  height: auto;
+  max-height: 100%;
+  margin-left: 16px;
+}
+
+.post-container .posts .post-content, .post-container .posts .post-hash-tag {
+  margin-bottom: 8px;
+  width: 100%;
+  color: white;
+  text-overflow: ellipsis;
+  line-height: 25px;
+  overflow: hidden;
+  height: auto;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.post-container .posts .post-hash-tag {
+  height: auto;
+  -webkit-line-clamp: 3;
+}
+
+.post-container .posts .btn-view-360 {
+  color: #ffa502;
+  background: none;
+  border: none;
+  position: relative;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.post-container .posts .btn-view-360:focus {
+  outline: none;
+}
+
+.post-container .posts .btn-view-360::before, .post-container .posts .btn-view-360::after {
+  content: "";
+  position: absolute;
+  border-bottom: 1px solid #ffa502;
+  width: 0;
+  bottom: -2px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.post-container .posts .btn-view-360::before {
+  left: 50%;
+}
+
+.post-container .posts .btn-view-360::after {
+  right: 50%;
+}
+
+.post-container .posts .btn-view-360:hover::before, .post-container .posts .btn-view-360:hover::after {
+  width: 50%;
+}
+
+.post-container .posts .read-more {
+  color: #ffa502;
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.post-container .posts .read-more:focus {
+  outline: none;
+}
+
+.post-container .posts .read-more::before, .post-container .posts .read-more::after {
+  content: "";
+  position: absolute;
+  border-bottom: 1px solid #ffa502;
+  width: 0;
+  bottom: -2px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.post-container .posts .read-more::before {
+  left: 50%;
+}
+
+.post-container .posts .read-more::after {
+  right: 50%;
+}
+
+.post-container .posts .read-more:hover::before, .post-container .posts .read-more:hover::after {
+  width: 50%;
+}
+
+.post-container .status {
+  height: 10%;
+  width: 100%;
+  padding: 4px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.post-container .status .user-name, .post-container .status .post-time {
+  font-size: 16px;
+  color: #ffa502;
+}

@@ -1,0 +1,274 @@
+@mixin box_shadow_user()
+    box-shadow: 4px 4px 16px 0 rgba(0,0,0,1)
+    border-radius: 30px
+@mixin data-btn-color
+    background-image: linear-gradient(to top left, #ff8a00, #d35400) !important
+
+.navbar-right-user, .left-menu
+    display: flex !important
+//content
+.content
+    width: 100vw
+    height: auto
+    background-color: #0f0d16
+    flex-grow: 1
+    margin: 
+        top: 73px
+    padding: 
+        top: 24px
+        bottom: 24px
+    //content user
+    &-user  
+        //background-color: #17141d
+        box-shadow: 0 4px 40px #070509
+        height: auto
+        max-width: 1200px
+        width: 1100px
+        margin: auto
+        border-radius: 24px
+        padding: 24px
+    
+//container user include avatar,  name of user
+.user-container
+    width: 100%
+    height: auto
+    display: flex
+    align-items: center
+    //avatar user
+    .user-avatar
+        width: 120px
+        height: 120px
+        .user-img
+            width: 100%
+            height: 100%
+            border-radius: 80px
+            box-shadow: 0px 0px 24px 0 rgba(0,0,0,1)
+    //container include  
+    .user-name-container
+        padding:  
+            left: 40px
+        .user-name
+            font-size: 40px
+            color: white
+                   
+//navbar user include yourshelf, new shoes, update, wanna rock
+.user-navbar
+    width: 100%
+    height: 80px
+    .user-menu
+        width: 100%
+        height: 100%
+        margin: auto
+        display: flex
+        justify-content: space-between
+        align-items: center
+    .sub-menu
+        //item of menu user
+        .menu-item
+            color: #4a525c
+            text-decoration: none
+            font-size: 24px
+            position: relative
+            &:hover
+                color: white
+            //bar amition when hover yourshelf, new shoes...
+            &::before
+                bottom: 0
+                content: ''
+                height: 2px
+                transition: all .2s ease-in-out 
+                margin: 
+                    top: 2px
+                    left: 2px
+                    right: 0
+                    bottom: 0
+                position: absolute
+                width: 0
+                background-color: #ffa502
+                left: 0
+            &:hover::before
+                width: 100%
+//container contain content of yourshelf, new shoes, wanna rock
+.user-manager-shoes
+    width: 100%
+    margin: auto
+    height: auto      
+     //img review after upload
+    .review-img-upload
+        height: auto
+        display: flex
+        flex-flow: row wrap //flex-decoration and flex-wrap
+        align-items: center
+        .img-upload
+            box-shadow: 4px 4px 16px 0 rgba(0,0,0,1)
+            max-height: 200px
+            margin:
+                right: 16px
+                bottom: 16px
+    .user-new-shoes
+        padding: 24px 80px 24px 80px
+        display: none
+    //content your shelf
+    .user-your-shelf
+        display: flex
+        flex-flow: row wrap
+        width: 100%
+        height: auto
+    //content user wanna rock
+    .user-wanna-rock
+        display: none
+        flex-flow: row wrap
+        height: auto
+        width: 100%
+    //form contain button upload image
+    form
+    //container contain button upload file 
+    .container-upload-img
+        display: flex
+        align-items: center
+        position: relative
+        .btn-upload-img
+            display: flex
+            justify-content: center
+            align-items: center
+            font-family: none
+            height: 30px
+            width: 30px
+            @include data-btn-color
+            font-size: 20px
+            box-shadow: 4px 4px 24px 0 rgba(0,0,0,1)
+        .title-upload-img
+            color: white
+            margin: 
+                left: 24px
+            font-size: 24px
+        #upload-img
+            display: none
+    //where write infomation and experiences about shoes
+    .container-editor
+        display: flex
+        justify-content: center
+        width: 100%
+        margin: 
+            top: 24px
+        #share-exp
+            width: 1000px
+            height: 160px
+            resize: none
+            padding: 16px
+            outline: none
+            border: 
+                radius: 16px
+            box-shadow: 4px 4px 16px 0 rgba(0,0,0,1)
+    //button post
+    .container-btn-post
+        display: flex
+        justify-content: center
+        .btn-post-status
+            width: 120px
+            height: 32px
+            font-size: 18px
+            outline: none
+            color: white
+            cursor: pointer
+            @include data-btn-color
+            border: none
+                radius: 32px
+            @include box_shadow_user()
+            transition: all 0.3s ease-in-out
+            &:hover
+                border: 1px solid white
+//chose brands, collections, hashtag
+.container-choose-more
+    display: flex
+    justify-content: space-around
+    align-items: center
+    width: 100%
+    margin:    
+        top: 24px
+        bottom: 24px
+    .brands, .collections
+        font-size: 20px
+        width: 200px
+        height: 32px
+        border: none
+        padding:   
+            left: 16px
+        outline: none
+        @include box_shadow_user()
+    .hashtag
+        height: 32px
+        width: 200px
+        border: none
+        outline: none
+        padding: 
+            left: 16px
+        font-size: 20px
+        @include box_shadow_user()
+    .txtIdPost
+        display: none
+//content your shelf in show posts of user
+.user-your-shelf
+    .cards-posts
+        width: 256px
+        height: 360px
+        cursor: pointer
+        margin: 
+            bottom: 32px
+            left: 68px
+        background-color: rgba(32,28,41,.75)
+    .card-container-img
+        width: 100%
+        height: 80%
+        .card-img
+            width: 100%
+            height: auto
+            max-height: 100%
+    .card-container-content
+        // width: 100%
+        height: auto
+        padding: 8px
+        color: white
+        font-size: 14px
+        width: 100%
+        text-overflow: ellipsis
+        overflow: hidden
+        // height: auto //line-height * clamp
+        display: -webkit-box
+        -webkit-box-orient: vertical
+        -webkit-line-clamp: 2
+        .card-short-content
+            overflow: hidden
+.user-wanna-rock
+    //card contain images and name, hashtag of post
+    .card-wanna-rock
+        width: 240px
+        height: 320px
+        padding: 16px
+        cursor: pointer
+        margin: 
+            bottom: 32px
+            left: 11.5px
+            right: 11.5px
+        box-shadow: 0 4px 80px #070509
+        background-color: rgba(32,28,41,.75)
+    //container contain images
+    .card-container-img
+        width: 100%
+        height: 88%
+        .card-img
+            width: 100%
+            height: auto
+            max-height: 100%
+    //contain name, hashtag
+    .card-container-title
+        width: 100%
+        height: 12%
+        margin-top: 8px
+        text-align: center
+        padding: 
+            left: 8px
+            right: 8px
+        .card-title
+            color: white
+            font-size: 14px

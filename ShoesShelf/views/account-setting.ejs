@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/header-footer-style.css">
+    <link rel="stylesheet" href="/assets/css/account-setting.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <title>Account Setting</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <nav class="navbar" id="navbar">
+                <div class="nav-bar">
+                    <!--Navbar left -->
+                    <div class="navbar-left">
+                        <div class="left-logo">
+                            <img src="/assets/images/logo-main.png" alt="Error" class="logo-img">
+                        </div>
+                        <!--Menu home, about, latest news-->
+                        <ul class="left-menu" id="left-menu">
+                            <li class="left-sub-menu">
+                                <a href="" class="menu-item">Home</a>
+                            </li>
+                            <li class="left-sub-menu">
+                                <a href="/about.html" class="menu-item">About us</a>
+                            </li>
+                            <li class="left-sub-menu">
+                                <a href="latest-news" class="menu-item">Latest news</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Navbar middle-->
+                    <div class="navbar-middle">
+                        <a href="/main" class="img-logo"></a>
+                    </div>
+                    <!--Navbar right after sign in-->
+                    <div class="navbar-right-user" id="navbar-right-user">
+                        <!--search-->
+                        <div class="right-search">
+                            <form action="" class="search-form">
+                                <input type="text" name="search" placeholder="Search anything you want...">
+                                <button class="btn-search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <!--showup user after user sign in complete-->
+                        <div id="user" class="user">
+                            <div class="user-avatar">
+                                <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
+                                <ul class="user-menu" id="user-menu" style="display: none;">
+                                    <li class="user-menu-item">
+                                        <div class="user-name-container">
+                                            <p id="user-name" class="user-name"><%= name %></p>
+                                        </div>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <a href="my-shelf.html">My Shelf</a>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <a href="account-setting">Account setting</a>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <div class="user-logout">
+                                            <a onclick="logout()">Log out</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="content">
+            <div class="container-account-setting">
+                <div class="user-container" id="user-container">
+                    <form action="upload-avatar" enctype="multipart/form-data" method="POST">
+                        <div class="user-avatar">
+                            <img  src="/assets/images/userPost/<%= avatar %>"  id="user-img" class="user-img">
+                            <!-- <input type="text" value="<%-user.avatar%>" name="avatar"> -->
+                            <div class="user-img-layer"></div>
+                            <label for="change-avatar" class="btn-change-avatar">Change Photo</label>
+                            <input type="file" name="avatar" accept="image/*" id="change-avatar">
+                        </div>
+                        <div style="display: none;" >
+                            <input name="name"  type="text" value="<%-user.name%>" ><br>
+                            <input type="text" value="<%-user.email%>" name="email">  <br> 
+                            <input type="text" value="<%-user.password%>" name="password">
+                             
+                        </div>
+                        <input type="submit" class="btn btn-default" value="Save Avatar">
+                    </form>
+                    <div class="user-name-container">
+                        <p id="user-name" class="user-name"><%= name %></p>
+                    </div>
+                </div>
+                <!-- body account setting -->
+                <div class="container-body">
+                    <div class="container-body-site">
+                        <a class="site-item active" href="#change-information">
+                            <div class="site-item-icon fix-with-icon">
+                                <i class="fas fa-info fa-2x"></i>
+                            </div>
+                            <div class="site-item-title">
+                                <div>
+                                    <b>Account Information</b>
+                                </div>
+                                <div>Information management</div>
+                            </div>
+                        </a>
+                        <a class="site-item" href="#change-password">
+                            <div class="site-item-icon fix-with-icon">
+                                <i class="fas fa-key fa-2x"></i>
+                            </div>
+                            <div class="site-item-title">
+                                <div>
+                                    <b>Changes Password</b>
+                                </div>
+                                <div>Update new password</div>
+                            </div>
+                        </a>
+                    </div>
+                <form action="/account-setting" method="POST">
+                    <div class="container-body-container">
+                        <h1>Personal information</h1>
+                        <hr>
+                        
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                Email login:
+                            </div>
+                            <input type="text" value="<%= user.email %>" name="email" id="user-email" readonly class="form-control user-email">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                Full-name:
+                            </div>
+                            <input type="text" value="<%= user.name %>" name="name" id="user-name" class="form-control user-name">
+                        </div>
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                Gender:
+                            </div>
+                            <div class="container-check-gender">
+                                <ul>
+                                    <li>
+                                        <input type="radio" id="gender-male" value="Male" name="selector">
+                                        <label for="gender-male" class="layer-check">Male</label>
+                                        <div class="check"></div>
+                                    </li>
+
+                                    <li>
+                                        <input type="radio" id="gender-female" value="Female" name="selector">
+                                        <label for="gender-female" class="layer-check">Female</label>
+                                        <div class="check">
+                                            <div class="inside"></div>
+                                        </div>
+                                    </li>
+
+                                    <li>
+                                        <input type="radio" id="gender-lgbt" value="LGBT" name="selector">
+                                        <label for="gender-lgbt" class="layer-check">LGBT</label>
+                                        <div class="check">
+                                            <div class="inside"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
+                            <div class="col-form-label">
+                                Day of birth:
+                            </div>
+                            <input type="date" value id="date-of-birth" class="form-control date-of-birth">
+                        </div> -->
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                Country:
+                            </div>
+                            <input type="text" value="<%- user.country %>" name="country" id="user-country" class="form-control user-country">
+                        </div>
+                        <div class="form-group" style="display: none;">
+                            <div class="col-form-label">
+                                password:
+                            </div>
+                            <input type="text" value="<%-user.password%>" id="full-name" name="password" class="form-control full-name">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn-save-change">Save Change</button>
+                            <button class="btn-cannel-change">Cancel</button>
+                        </div>
+                    </div>
+                </form>
+                    <div class="container-body-container hidden">
+                        <h1>Change password account</h1>
+                        <hr>
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                Old password:
+                            </div>
+                            <input type="password" value id="old-password" class="form-control">
+                        </div>
+                        <form action="/account-password" method="POST">
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                New password:
+                            </div>
+                            <input type="password" name="password" id="new-password" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-form-label">
+                                Enter new password:
+                            </div>
+                            <input type="password" name="password2" value id="enter-new-password"  class="form-control" required>
+                        </div>
+                        <div class="form-group hidden-border-bottom">
+                            <button class="btn-save-change">Save Change</button>
+                            <button class="btn-cannel-change">Cancel</button>
+                        </div>
+                        <div style="display: none;" >
+                            <input name="name"  type="text" value="<%-user.name%>" ><br>
+                            <input type="text" value="<%-user.email%>" name="email">  <br> 
+                            <input  type="text" value="<%-user.avatar%>" name="avatar">
+                             
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <footer>
+            <div class="footer-container">
+                <div class="left-col">
+                    <div class="social">
+                        <a href="/instagram" target="_blank" title="collective on Instagram">
+                            <i class="fab fa-instagram"> </i>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
+                            <i class="fab fa-facebook"> </i>
+                        </a>
+                        <a href="/pinterest" target="_blank" title="collective on Pinterest">
+                            <i class="fab fa-pinterest-p"> </i>
+                        </a>
+                        <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
+                            <i class="fab fa-youtube"> </i>
+                        </a>
+                    </div>
+                    <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
+                </div>
+
+                <div class="right-col">
+                    <h1>Our Newsletter</h1>
+                    <div class="border"></div>
+                    <p>Enter your emails to connect with us.</p>
+                    <form action="" class="newsletter">
+                        <input type="text" class="txtb" placeholder="Enter Your Email">
+                        <input type="submit" class="btn" value="Submit">
+                    </form>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!--Script-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/assets/js/header-footer.js"></script>
+    <script src="/assets/js/account-setting.js"></script>
+    <script src="/assets/js/script.js"></script>
+    
+
+    <!--JS api login facebook and google-->
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
+    <script src="/assets/js/api-gg-fb-login.js"></script>
+    <div id="status"></div>
+</body>
+
+</html> 
