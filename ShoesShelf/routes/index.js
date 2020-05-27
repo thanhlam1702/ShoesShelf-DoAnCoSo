@@ -13,7 +13,9 @@ const Post = require('../models/Post');
 
 router.get('/About.html', (req, res) => res.render('About'));
 
-router.get('/posts', (req, res) => res.render('posts'))
+router.get('/posts', (req, res) => res.render('posts'));
+
+router.get('/login-admin', (req,res) => res.render('loginadmin'));
 
 
 router.post('/posts/id', function (req, res, next) {
@@ -110,31 +112,95 @@ router.post('/login', function (req, res) {
     var password = req.body.password
     User.findOne({ email: email, password: password }, function (err, data) {
         if (!err) {
-            if (!data) {
-                res.render('login', {
-                    errors: 
-                        `<script>
-                        alert('Sai tên hoặc mật khẩu');
-                      </script>`
-                    ,
-                    values: req.body,
-                })
-                return
-            } else {
-                res.cookie('id', data.id)
-                res.cookie('email', data.email)
-                res.cookie('name', data.name)
-                res.cookie('avatar', data.avatar)
+            if(!data){
+                res.render('login');
+
+            
+            }else{
+                res.cookie('id',data.id)
+                res.cookie('email',data.email)
+                res.cookie('name',data.name)
+                res.cookie('avatar',data.avatar)
                 res.redirect('/main');
             }
-
         }
     })
 });
+router.get("/" ,(req,res) => {
+    if (req.query.search) {     
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
 
-router.get('/main#5ec291b84abc1603c0500c91', function (req, res, next) {
-    res.render('posts')
-})
+        Post.find({brands : regex},function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                var noMatch = ""
+                if(data.length < 1) {
+                    noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
+                }
+                res.render('index',{posts:data,noMatch: noMatch});
+            }
+    });
+    } else {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('index',{posts:data});
+            }
+
+        })
+    };   
+});
+
+router.post('/login-admin', function (req, res) {
+    var email = req.body.email
+    var password = req.body.password
+    User.findOne({ email: email, password: password }, function (err, data) {
+        if (!err) {
+            if(!data){
+                res.render('loginadmin');
+
+            
+            }else{
+              
+                res.cookie('email',data.email)
+                res.cookie('password',data.password)
+                res.redirect('/admin');
+            }
+        }
+    })
+});
+var au = require('../middleware/admin-auth')
+
+router.get("/admin" ,au.requireAuth ,(req,res) => {
+    if (req.query.search) {     
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+
+        Post.find({brands : regex},function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                var noMatch = ""
+                if(data.length < 1) {
+                    noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
+                }
+                res.render('index-admin',{posts:data,noMatch: noMatch});
+            }
+    });
+    } else {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('index-admin',{posts:data});
+            }
+
+        })
+    };   
+});
+
+
 
 
 module.exports = router;

@@ -57,7 +57,7 @@ function initClient() {
         }
 
         // Attach the click handler to the sign-in button
-        const btnSignInGG = document.getElementsByClassName('customGPlusSignIn');
+        const btnSignInGG = document.getElementsByClassName('custom-gg-sign-in');
         for (let i = 0; i < btnSignInGG.length; ++i) {
             auth2.attachClickHandler(btnSignInGG[i], {}, onSuccess, onFailure);
         }
@@ -71,7 +71,7 @@ function onSuccess() {
 
 // Handle sign-in failures.
 function onFailure() {
-    console.log(error);
+    console.log('error');
 };
 
 //show layout after user login complete
@@ -156,3 +156,4 @@ function changeLayout(){
     document.getElementById('sign-in-modal').style.display = 'none';
     document.getElementById('sign-up-modal').style.display = 'none';
 }
+module.exports = loadFbGg;

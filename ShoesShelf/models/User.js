@@ -13,13 +13,19 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    date: {
-        type: Date,
-        default: Date.now
-    },
+    // date: {
+    //     type: Date,
+    //     default: Date.now
+    // },
     avatar: {
         type: String,
-        default: ('avatar-default.png')
+        default: ('avatar-default.png'),
+    },
+    gender: {
+        type: String,
+    },
+    country:{
+        type: String
     }
     
 });

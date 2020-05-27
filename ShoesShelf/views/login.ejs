@@ -1,46 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <link
-    rel="stylesheet"
-    href="https://bootswatch.com/4/journal/bootstrap.min.css"
-  />
-  <title>Node.js & Passport Login App</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/login.css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <title>Login</title>
 </head>
-<%- errors %>
-<div class="row mt-5">
-    <div class="col-md-6 m-auto">
-      <div class="card card-body">
-        <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i>  Login</h1>
-        <form action="/login" method="POST">
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="form-control"
-              placeholder="Enter Email"
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              class="form-control"
-              placeholder="Enter Password"
-            />
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Login</button>
-        </form>
-        <p class="lead mt-4">
-          Sai Tên Tài Khoản Hoặc Mật Khẩu !
-          No Account? <a href="/users/register">Register</a>
-        </p>
-      </div>
-    </div>
-  </div>
+
+<body class="bg">
+    <div class="login-bg"></div>
+    <form class="modal animate" action="/login" method="POST">
+        <div class="title-container">
+            <p class="title-login">Login</p>
+        </div>
+        <div class="container-login">
+            <input type="text" placeholder="Use name or email" name="email" required>
+            <input type="password" placeholder="Password" name="password" required>
+            <button type="submit" class="btn-sign-in">Sign in</button>
+            <div class="contain-create-account">
+                <a href="register" class="create-account">Create Account</a>
+            </div>
+            <div class="back-psw">
+                <span>
+                    <i class="fas fa-angle-left"></i>
+                    <a href="/">Back to homepage</a>
+                </span>
+                <span>
+                    <a href="#forgot">Forgot password</a>
+                </span>
+            </div>
+            <p class="or">Or login with</p>
+            <div class="sign-in-other">
+                <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
+                    data-size="large" data-button-type="continue_with" data-layout="rounded"
+                    data-auto-logout-link="false" data-use-continue-as="false"></div>
+                <div id="gg-login-button">
+                    <div id="customBtn" class="custom-gg-sign-in">
+                        <span class="icon"></span>
+                        <span class="button-text">Continue with Google</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <!-- script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
+    <script src="../assets/js/api-gg-fb-login.js"></script>
+    <div id="status"></div>
+</body>
+
+</html>
