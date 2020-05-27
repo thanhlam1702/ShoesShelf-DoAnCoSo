@@ -56,7 +56,7 @@ app.use((req, res, next) => {
 })
 // Routes
 app.use('/',require('./routes/index'));
-
+var au = require('./middleware/admin-auth')
 app.use('/users',require('./routes/users'));
 var auth =require('./middleware/auth');
 //static files
@@ -182,32 +182,7 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
         res.redirect('/admin')
         
     })
-    app.get("/admin" ,(req,res) => {
-        if (req.query.search) {     
-            const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-
-            Post.find({brands : regex},function(err,data){
-                if(err){
-                    res.json({kq:0});
-                }else{
-                    var noMatch = ""
-                    if(data.length < 1) {
-                        noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
-                    }
-                    res.render('index-admin',{posts:data,noMatch: noMatch});
-                }
-        });
-        } else {
-            Post.find(function(err,data){
-                if(err){
-                    res.json({kq:0});
-                }else{
-                    res.render('index-admin',{posts:data});
-                }
-
-            })
-        };   
-    });
+    
     app.get("/" ,(req,res) => {
         if (req.query.search) {     
             const regex = new RegExp(escapeRegex(req.query.search), 'gi');

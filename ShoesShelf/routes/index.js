@@ -13,7 +13,9 @@ const Post = require('../models/Post');
 
 router.get('/About.html', (req, res) => res.render('About'));
 
-router.get('/posts', (req, res) => res.render('posts'))
+router.get('/posts', (req, res) => res.render('posts'));
+
+router.get('/login-admin', (req,res) => res.render('loginadmin'));
 
 
 router.post('/posts/id', function (req, res, next) {
@@ -151,6 +153,52 @@ router.get("/" ,(req,res) => {
     };   
 });
 
+router.post('/login-admin', function (req, res) {
+    var email = req.body.email
+    var password = req.body.password
+    User.findOne({ email: email, password: password }, function (err, data) {
+        if (!err) {
+            if(!data){
+                res.render('loginadmin');
+
+            
+            }else{
+              
+                res.cookie('email',data.email)
+                res.cookie('password',data.password)
+                res.redirect('/admin');
+            }
+        }
+    })
+});
+var au = require('../middleware/admin-auth')
+
+router.get("/admin" ,au.requireAuth ,(req,res) => {
+    if (req.query.search) {     
+        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+
+        Post.find({brands : regex},function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                var noMatch = ""
+                if(data.length < 1) {
+                    noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
+                }
+                res.render('index-admin',{posts:data,noMatch: noMatch});
+            }
+    });
+    } else {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('index-admin',{posts:data});
+            }
+
+        })
+    };   
+});
 
 
 
