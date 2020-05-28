@@ -91,9 +91,14 @@
                 <% posts.forEach(function (post) { %>
                 <div class="post-container">
                     <div class="posts">
-                        <% for(var i=0 ; i< 1 ; i++) {%>
-                        <img src="/assets/images/userPost/<%= post.image[0].filename %>" class="post-avatar"></img>
-                        <%}%>
+                        <div id="slider">
+                            <ul class="slides">
+                                <% for(var i=0 ; i < post.image.length ; i++) {%>
+                                <li class="slide"><img src="/assets/images/userPost/<%= post.image[i].filename %>"
+                                        class="post-avatar"></img></li>
+                                <%}%>
+                            </ul>
+                        </div>
                         <div class="post-title">
                             <div class="post-content" ><%- post.status %></div>
                             <div class="post-hash-tag"><%= post.hashtag %></div>
@@ -110,7 +115,7 @@
                     </div>
                 </div>
                 <% }) %>
-                <div class="post-container">
+                <!-- <div class="post-container">
                     <div class="posts">
                         <img src="/assets/images/img360/2DC_3631.jpg" class="post-avatar"></img>
                         <div class="post-title">
@@ -124,7 +129,7 @@
                         <p class="user-name"></p>
                         <p class="post-time">3 minuter ago</p>
                     </div>
-                </div>
+                </div> -->
             </div>
             <form action="/main" method="GET" class="">
                 <div class="sort-container">

@@ -28,7 +28,7 @@
 
 .main-content .list-posts {
   height: auto;
-  width: 100%;
+  width: 72%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -99,6 +99,30 @@
   cursor: pointer;
 }
 
+#slider {
+  height: auto;
+  width: 56%;
+  overflow: hidden;
+  max-width: 380px;
+}
+
+#slider .slides {
+  display: block;
+  width: 3000px;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+#slider .slides .slide {
+  float: left;
+  list-style-type: none;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  text-align: center;
+}
+
 .post-container .posts {
   height: auto;
   width: 100%;
@@ -111,7 +135,7 @@
 
 .post-container .posts .post-avatar {
   height: auto;
-  width: 56%;
+  width: 100%;
   display: block;
   margin: auto;
 }
