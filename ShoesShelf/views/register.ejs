@@ -23,6 +23,7 @@
             <input type="password" placeholder="Enter password" name="password" id="password" onchange="lengthpass()" required>
             <input type="password" placeholder="Enter password again" name="password2" onchange="matchpass();" required>
             <button type="submit" class="btn-sign-up">Create</button>
+            <p> <%- errors %></p>
             <div class="back-psw">
                 <span>
                     <i class="fas fa-angle-left"></i>
@@ -49,6 +50,7 @@
     </form>
     <!-- script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../assets/js/script.js" ></script>
 
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
     <script src="../assets/js/api-gg-fb-login.js"></script>

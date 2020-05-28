@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/library/fontawesome-free-5.11.2-web/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/styles.css?v=12042020">
     <link rel="stylesheet" href="/assets/css/styles.min.css">
     <link rel="stylesheet" href="/assets/css/main.css">
@@ -52,10 +52,10 @@
                                     <a href="/about.html" class="menu-item">About Us</a>
                                 </li>
                                 <li class="right-sub-menu hidden">
-                                    <a href="/login" id="btn-sign-in" class="menu-item">Login</a>
+                                    <a id="btn-sign-in" class="menu-item" onclick="showUpSignIn()">Login</a>
                                 </li>
                                 <li class="right-sub-menu hidden">
-                                    <a href="/register" id="btn-sign-up" class="menu-item">Register</a>
+                                    <a id="btn-sign-up" class="menu-item" onclick="showUpSignUp()">Register</a>
                                 </li>
                                 <li class="right-sub-menu hidden">
                                     <a class="hidden-show-up-menu close-menu menu-item" title="Close menu">
@@ -95,7 +95,7 @@
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="my-shelf-fbgg">My Shelf</a>
+                                        <a href="/your-shelf-fbgg">YourShelf</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <a href="account-setting">Account setting</a>
@@ -131,9 +131,12 @@
                                 <div class="post-content" ><%- post.status %></div>
                                 <div class="post-hash-tag"><%= post.hashtag %></div>
                                 <form action="/posts/id" method="POST">
-                                    <input value="<%= post._id %>" id="<%= post._id %>" name="id" type="submit" style="display: none;" >
+                                    <input value="<%= post._id %>" id="btn-read-more" name="id" type="submit"  >
                                     <!-- <a href="#id-post" class="read-more">Read more...</a> -->
-                                    <label for="<%= post._id %>" class="read-more">Read more...</label>
+                                    <label for="btn-read-more" class="read-more">Read.</label>
+                                </form>
+                                <form action="/<%= post.id %>?_method=DELETE" method="POST">
+                                    <button type="submit" class="btn btn-danger"> Delete </button>
                                 </form>
                             </div>
                         </div>
@@ -149,8 +152,8 @@
                         <div class="post-title">
                             <div class="post-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam ab minima, cumque laborum pariatur in tenetur deserunt aliquam consequatur ducimus placeat sint vitae a ipsa dolorum nisi officia, enim dolore. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem eaque cum adipisci similique sequi.</div>
                             <div class="post-hash-tag">#Converse #FullColor</div>
-                            <button onclick="showImg360()" class="btn-view-360">Show 360 images</button>
                             <a href="#id-post" class="read-more">Read more...</a>
+                            <button onclick="showImg360()">Show 360 images</button>
                         </div>
                     </div>
                     <div class="status">
@@ -174,6 +177,7 @@
                         </select>
                         <button class="btn-search sort-form" type="submit" >
                             <i class="fas fa-search" ></i>
+                            
                         </button>
                     </div>
                 </form>
@@ -204,7 +208,7 @@
                 <div class="border"></div>
                 <p>Enter your emails to connect with us.</p>
                 <form action="" class="newsletter">
-                    <input type="text" class="txtbox" placeholder="Enter Your Email">
+                    <input type="text" class="txtb" placeholder="Enter Your Email">
                     <input type="submit" class="btn" value="Submit">
                 </form>
 
@@ -212,6 +216,8 @@
         </div>
         </footer>
     </div>
+    
+
     <!--Script-->
     <script src="/assets/js/script.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

@@ -9,6 +9,7 @@ const bodyParser =require("body-parser");
 const formidable = require('formidable');
 const upload = require('./middleware/upload');
 const cookieParser = require('cookie-parser');
+const methodOverride = require('method-override')
 var fs = require('fs');
 
 
@@ -16,6 +17,7 @@ var app = express();
 app.use(cookieParser('dasdasd'))
 app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
+app.use(methodOverride('_method'))
 //Passport config
 require('./config/passport')(passport);
 
@@ -54,7 +56,7 @@ app.use((req, res, next) => {
 })
 // Routes
 app.use('/',require('./routes/index'));
-
+var au = require('./middleware/admin-auth')
 app.use('/users',require('./routes/users'));
 var auth =require('./middleware/auth');
 //static files
@@ -153,7 +155,7 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
         if (req.query.search) {     
                 const regex = new RegExp(escapeRegex(req.query.search), 'gi');
 
-                Post.find({brands : regex},function(err,data){
+                Post.find({brands : regex} ,function(err,data){
                     if(err){
                         res.json({kq:0});
                     }else{
@@ -175,6 +177,13 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
             })
         };
     });
+    
+    app.delete('/:id', async (req,res) => {
+        await Post.findByIdAndDelete(req.params.id)
+        res.redirect('/admin')
+        
+    })
+    
     app.get("/" ,(req,res) => {
         if (req.query.search) {     
             const regex = new RegExp(escapeRegex(req.query.search), 'gi');
