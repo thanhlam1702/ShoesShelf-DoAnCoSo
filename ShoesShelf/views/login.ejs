@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
-        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/login.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
     <title>Login</title>
@@ -13,6 +12,9 @@
 
 <body class="bg">
     <div class="login-bg"></div>
+    <div class="logo-login">
+        <img src="/assets/images/logo-ss-black.png" alt="">
+    </div>
     <form class="modal animate" action="/login" method="POST">
         <div class="title-container">
             <p class="title-login">Login</p>
@@ -20,9 +22,9 @@
         <div class="container-login">
             <input type="text" placeholder="Use name or email" name="email" required>
             <input type="password" placeholder="Password" name="password" required>
-            <button type="submit" class="btn-sign-in">Sign in</button>
+            <button type="submit" class="btn-sign-in">Login</button>
             <div class="contain-create-account">
-                <a href="register" class="create-account">Create Account</a>
+                <a href="register" class="create-account">Don't have an account? Register</a>
             </div>
             <div class="back-psw">
                 <span>
@@ -35,9 +37,7 @@
             </div>
             <p class="or">Or login with</p>
             <div class="sign-in-other">
-                <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width=""
-                    data-size="large" data-button-type="continue_with" data-layout="rounded"
-                    data-auto-logout-link="false" data-use-continue-as="false"></div>
+                <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
                 <div id="gg-login-button">
                     <div id="customBtn" class="custom-gg-sign-in">
                         <span class="icon"></span>
