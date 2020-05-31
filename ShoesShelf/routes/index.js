@@ -115,9 +115,11 @@ router.post('/upload', upload.array('image', 20), (req, res) => {
 
 //logout  handle
 router.get('/logout', (req, res) => {
-    req.logout();
-    req.flash('success_msg', 'You are logout');
-    res.redirect('/');
+    res.clearCookie('id');
+    res.clearCookie('name');
+    res.clearCookie('avatar');
+    res.clearCookie('email');
+    res.render('index',{success:true,index:data})
 });
 
 router.post('/login', function (req, res) {
@@ -136,6 +138,7 @@ router.post('/login', function (req, res) {
                 res.cookie('email',data.email)
                 res.cookie('name',data.name)
                 res.cookie('avatar',data.avatar)
+                res.cookie('post_save',data.post_save)
                 res.redirect('/main');
             }
         }
@@ -143,7 +146,7 @@ router.post('/login', function (req, res) {
 });
 router.get("/" ,(req,res) => {
     if (req.query.search) {     
-        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        const regex = new RegExp(fullTextSearchVi(req.query.search), 'gi');
 
         Post.find({brands : regex},function(err,data){
             if(err){
@@ -153,6 +156,10 @@ router.get("/" ,(req,res) => {
                 if(data.length < 1) {
                     noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
                 }
+                res.clearCookie('id');
+                res.clearCookie('name');
+                res.clearCookie('avatar');
+                res.clearCookie('email');
                 res.render('index',{posts:data,noMatch: noMatch});
             }
     });
@@ -161,6 +168,10 @@ router.get("/" ,(req,res) => {
             if(err){
                 res.json({kq:0});
             }else{
+                res.clearCookie('id');
+                res.clearCookie('name');
+                res.clearCookie('avatar');
+                res.clearCookie('email');
                 res.render('index',{posts:data});
             }
 
@@ -181,7 +192,6 @@ router.post('/login-admin', function (req, res) {
 
             
             }else{
-                res.cookie('password',data.password)
                 res.cookie('id',data.id)
                 res.cookie('email',data.email)
                 res.cookie('name',data.name)
@@ -193,36 +203,9 @@ router.post('/login-admin', function (req, res) {
 });
 var au = require('../middleware/admin-auth')
 
-// router.get("/admin" ,au.requireAuth ,(req,res) => {
-//     if (req.query.search) {     
-//         const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-
-//         Post.find({brands : regex},function(err,data){
-//             if(err){
-//                 res.json({kq:0});
-//             }else{
-//                 var noMatch = ""
-//                 if(data.length < 1) {
-//                     noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
-//                 }
-//                 res.render('index-admin',{posts:data,noMatch: noMatch});
-//             }
-//     });
-//     } else {
-//         Post.find(function(err,data){
-//             if(err){
-//                 res.json({kq:0});
-//             }else{
-//                 res.render('index-admin',{posts:data});
-//             }
-
-//         })
-//     };   
-// });
-
 router.get("/admin" ,au.requireAuth ,(req,res) => {
     if (req.query.search) {     
-        const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+        const regex = new RegExp(fullTextSearchVi(req.query.search), 'gi');
 
         Post.find({brands : regex},function(err,data){
             if(err){
@@ -246,6 +229,8 @@ router.get("/admin" ,au.requireAuth ,(req,res) => {
         })
     };   
 });
+
+
 
 
 

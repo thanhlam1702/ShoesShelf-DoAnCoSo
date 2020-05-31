@@ -12,6 +12,9 @@ const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override')
 var fs = require('fs');
 
+const fullTextSearch = require('fulltextsearch');
+var fullTextSearchVi = fullTextSearch.vi;
+
 
 var app = express();
 app.use(cookieParser('dasdasd'))
@@ -69,12 +72,21 @@ var MongoClient = require("mongodb").MongoClient;
 MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
     var test = client.db("test");
     console.log("DB connect");
+
+    app.post('/save',auth.requireAuth,function (req,res){
+        test.collection("users").updateOne(
+        { "email" : req.cookies.email },
+        { $push : { "post_save" : req.cookies.idpost }}
+        )
+        res.redirect('/your-shelf')
+    })
+
     app.get("/your-shelf",auth.requireAuth,(req,res) => {
         Post.find(function(err,data){
             if(err){
                 res.json({kq:0});
             }else{
-                res.render('your-shelf',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id });
+                res.render('your-shelf',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,post_save:req.cookies.post_save });
             }
 
         })
@@ -153,9 +165,61 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
     });
     app.get("/main",auth.requireAuth,(req,res) => {
         if (req.query.search) {     
-                const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+                const regex = new RegExp(fullTextSearchVi(req.query.search), 'gi');
 
                 Post.find({brands : regex} ,function(err,data){
+                    if(err){
+                        res.json({kq:0});
+                    }else{
+                        var noMatch = ""
+                        if(data.length < 1) {
+                            noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
+                        }
+                        res.render('main',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar, noMatch: noMatch});
+                    }
+            });
+        } else {
+            Post.find(function(err,data){
+                if(err){
+                    res.json({kq:0});
+                }else{
+                    res.render('main',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar});
+                }
+
+            })
+        };
+    });
+
+    app.get("/search-status-index",(req,res) => {
+        if (req.query.search) {     
+                const regex = new RegExp(fullTextSearchVi(req.query.search), 'gi');
+                Post.find({status : regex} ,function(err,data){
+                    if(err){
+                        res.json({kq:0});
+                    }else{
+                        var noMatch = ""
+                        if(data.length < 1) {
+                            noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
+                        }
+                        res.render('index',{posts:data, noMatch: noMatch});
+                    }
+            });
+        } else {
+            Post.find(function(err,data){
+                if(err){
+                    res.json({kq:0});
+                }else{
+                    res.render('index',{posts:data});
+                }
+
+            })
+        };
+    });
+
+    app.get("/search-status",auth.requireAuth,(req,res) => {
+        if (req.query.search) {     
+                const regex = new RegExp(fullTextSearchVi(req.query.search), 'gi');
+                Post.find({status : regex} ,function(err,data){
                     if(err){
                         res.json({kq:0});
                     }else{
@@ -186,7 +250,7 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
     
     app.get("/" ,(req,res) => {
         if (req.query.search) {     
-            const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+            const regex = new RegExp(fullTextSearchVi(req.query.search), 'gi');
 
             Post.find({brands : regex},function(err,data){
                 if(err){

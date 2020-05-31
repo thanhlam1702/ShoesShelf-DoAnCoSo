@@ -25,7 +25,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
     },
     country:{
-        type: String
+        type: String,
+    },
+    post_save:{
+        type: Array,
     }
     
 });

@@ -4,7 +4,7 @@ module.exports.requireAuth = function(req,res,next){
         res.redirect('/login-admin');
         return;
     }
-    if(req.cookies.email !='admin@gmail.com' && req.cookies.password != 'admin'){
+    if(req.cookies.email !='admin@gmail.com'){
         res.redirect('/login-admin');
         return;
     }
