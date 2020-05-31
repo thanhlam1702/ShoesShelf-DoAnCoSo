@@ -78,7 +78,7 @@
                     <i class="fas fa-search"></i>
                 </button>
             </div>
-            <% posts.forEach(function (post) { %>
+            
             <table class="table-manager" border="1">
                 <tr class="title-table">
                     <th class="title-name-user">Name user</th>
@@ -89,6 +89,7 @@
                     <th class="title-controls">Controls</th>
                 </tr>
                 <!-- ------------------------------ -->
+                <% posts.forEach(function (post) { %>
                 <tr>
                     <td>Thanh Lãm</td>
                     <td class="">
@@ -110,9 +111,10 @@
                         </form>
                     </td>
                 </tr>
+                <% }) %>
                 <!-- ------------------------------- -->
             </table>
-            <% }) %>
+            
         </div>
         <footer>
             <div class="footer-container">
