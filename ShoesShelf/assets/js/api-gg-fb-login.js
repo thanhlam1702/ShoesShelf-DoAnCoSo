@@ -77,7 +77,7 @@ function onFailure() {
 
 //show layout after user login complete
 function SignInComplete() {
-    window.location = 'http://localhost:4444/main';
+    window.location = 'http://localhost:4444';
 }
 
 
