@@ -110,20 +110,20 @@
                     <!-- user wanna rock -->
                     <ul class="user-wanna-rock" id="user-wanna-rock">
                         <!-- card contain img and name hashtag of post -->
-                
-                        <!-- <%posts.ForEach(function(post){%>
-                         <%post.Con.forEach(function(detail){%>
-                                detail
-                         <%})%>
-                        <%})%> -->
+                        <%users.forEach(function(user){%>
+                        <%user.Con.forEach(function(detail){%>
+                        <%if( user._id == id){%>
                         <li class="card-wanna-rock">
                             <div class="card-container-img">
-                                <img src="../assets/images/test2.jpg" alt="" class="card-img">
+                                <img src="/assets/images/userPost/<%= detail.image[0].filename %>" alt="" class="card-img">
                             </div>
                             <div class="card-container-title">
-                                <p class="card-title">#Converse #cdg #commeDesgarcons #black</p>
+                                <p class="card-title"><%- detail.status %> #<%- detail.hashtag%> #<%- detail.brand %> #<%- detail.collections %></p>
                             </div>
                         </li>
+                        <%}%>
+                        <%})%>
+                        <%})%>
 
                         <li class="card-wanna-rock">
                             <div class="card-container-img">
