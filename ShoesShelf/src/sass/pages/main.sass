@@ -3,7 +3,7 @@ $color-main: #ffa502
 
 .main-content
     flex-grow: 1
-    background-color: #3d3d3d
+    background-color: #181818
     height: auto
     width: 1366px
     // max-width: 1366px
@@ -12,6 +12,7 @@ $color-main: #ffa502
     padding: 24px 120px
     .sort-container
         width: 28%
+        float: right
         display: flex
         flex-direction: column
         align-items: center
@@ -27,7 +28,7 @@ $color-main: #ffa502
 .sort-container
     .sort-form
         width: 200px
-        margin: 24px 0 0 0
+        margin: 24px 30px 0 0
         height: 32px
         padding: 8px
         color: white
@@ -38,7 +39,8 @@ $color-main: #ffa502
         &:focus
             outline: none
     .brands
-        color: black
+        color: white
+        font-size: 1rem
         option
             &:nth-of-type(1)
                 color: white
@@ -46,9 +48,19 @@ $color-main: #ffa502
     .hashtag
     .btn-search
         color: black
-        width: 40px
-        border: none
+        width: 80px
+        padding: 0
         font-size: 24px
+        margin-left: 20px
+        border: 1px solid #ffa502
+        background-color: #ffa502
+        cursor: pointer
+        height: 30px
+        border-radius: 20px
+        transition: opacity 0.3 linear
+
+
+            
         &:hover
             color: white
 
