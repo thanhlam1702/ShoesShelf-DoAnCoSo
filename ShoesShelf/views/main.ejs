@@ -58,7 +58,9 @@
                                 <ul class="user-menu" id="user-menu" style="display: none;">
                                     <li class="user-menu-item">
                                         <div class="user-name-container">
-                                            <p id="user-name" class="user-name"> <%= name %> </p>
+                                            <p id="user-name" class="user-name">
+                                                <%= name %>
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
@@ -89,33 +91,39 @@
             <!-- <button onclick="showImg360()">Show 360 images</button> -->
             <div class="list-posts">
                 <% posts.forEach(function (post) { %>
-                <div class="post-container">
-                    <div class="posts">
-                        <div id="slider">
-                            <ul class="slides">
-                                <% for(var i=0 ; i < post.image.length ; i++) {%>
-                                <li class="slide"><img src="/assets/images/userPost/<%= post.image[i].filename %>"
-                                        class="post-avatar"></img></li>
-                                <%}%>
-                            </ul>
+                    <div class="post-container">
+                        <div class="posts">
+                            <div id="slider">
+                                <ul class="slides">
+                                    <% for(var i=0 ; i < post.image.length ; i++) {%>
+                                        <li class="slide"><img src="/assets/images/userPost/<%= post.image[i].filename %>" class="post-avatar"></img>
+                                        </li>
+                                        <%}%>
+                                </ul>
+                            </div>
+                            <div class="post-title">
+                                <div class="post-content">
+                                    <%- post.status %>
+                                </div>
+                                <div class="post-hash-tag">
+                                    <%= post.hashtag %>
+                                </div>
+                                <form action="/posts/id" method="POST">
+                                    <input value="<%= post._id %>" id="<%= post._id %>" name="id" type="submit" style="display: none;">
+                                    <!-- <a href="#id-post" class="read-more">Read more...</a> -->
+                                    <label for="<%= post._id %>" class="read-more">Read more...</label>
+                                </form>
+                            </div>
                         </div>
-                        <div class="post-title">
-                            <div class="post-content" ><%- post.status %></div>
-                            <div class="post-hash-tag"><%= post.hashtag %></div>
-                            <form action="/posts/id" method="POST">
-                                <input value="<%= post._id %>" id="<%= post._id %>" name="id" type="submit" style="display: none;" >
-                                <!-- <a href="#id-post" class="read-more">Read more...</a> -->
-                                <label for="<%= post._id %>" class="read-more">Read more...</label>
-                            </form>
+                        <div class="status">
+                            <p class="user-name"></p>
+                            <p class="post-time">
+                                <%= post.date %>
+                            </p>
                         </div>
                     </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time"><%= post.date %></p>
-                    </div>
-                </div>
-                <% }) %>
-                <!-- <div class="post-container">
+                    <% }) %>
+                        <!-- <div class="post-container">
                     <div class="posts">
                         <img src="/assets/images/img360/2DC_3631.jpg" class="post-avatar"></img>
                         <div class="post-title">
@@ -143,7 +151,7 @@
                         <option value="puma">Puma</option>
                         <option value="orther">Orther</option>
                     </select>
-                    <button class="btn-search sort-form" type="submit" >
+                    <button class="btn-search sort-form" type="submit">
                         <i class="fas fa-search" ></i>
                     </button>
                 </div>
@@ -190,7 +198,7 @@
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
     <script src="/assets/js/load-login-fb-gg.js"></script>
     <div id="status"></div>
-   
+
     <script src="/assets/js/script.js"></script>
 </body>
 
