@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
         integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/header-footer-style.css">
-    <link rel="stylesheet" href="./assets/css/your-shelf.css">
+    <link rel="stylesheet" href="../assets/css/header-footer-style.css">
+    <link rel="stylesheet" href="../assets/css/update.css">
+    <script src="../assets/css/ckeditor/ckeditor.js"></script>
     <script src="https://apis.google.com/js/api:client.js"></script>
 
     <title><%= name %> Shelf</title>
@@ -93,34 +94,22 @@
                 <!-- menu navbar user -->
                 <div class="user-navbar">
                     <ul class="user-menu">
-                        <li class="sub-menu"><a href="#my-shelf" class="menu-item" id="btn-your-shelf">My Shelf</a></li>
-                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes">New Shoes</a></li>
-                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update">Update</a></li>
-                        <li class="sub-menu"><a href="/wanna-rock" class="menu-item" id="btn-wanna-rock">Wanna Rock</a></li>
+                        <li class="sub-menu"><a href="#my-shelf" class="menu-item" id="btn-your-shelf"
+                                ">My Shelf</a></li>
+                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes"
+                                >New Shoes</a></li>
+                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update"
+                                >Update</a></li>
+                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" id="btn-wanna-rock"
+                                >Wanna Rock</a></li>
                     </ul>
                 </div>
                 <!-- manager shoes of user -->
                 <div class="user-manager-shoes" id="user-manager-shoes">
-                    <!-- content your shelf -->
-                    <ul class="user-your-shelf" id="user-your-shelf">
-                        <!-- card of images, short content of a post -->
-                        <% posts.forEach(function (post) { %> 
-                            <%if(id == post.id_post){%>
-                            <li class="cards-posts">
-                                <div class="card-container-img">
-                                <% for(var i=0 ; i< 1 ; i++) {%>
-                                    <img src="/assets/images/userPost/<%= post.image[0].filename %>"  alt="" class="card-img">
-                                    <%}%>
-                                </div>
-                                <div class="card-container-content">
-                                    <div class="card-short-content">
-                                        <%- post.status %>
-                                    </div>
-                                </div>
-                            </li>
-                            <%}%>
-                        <% }) %>
-                    </ul>
+                    <!-- user update -->
+                    <div class="user-update" id="user-update">
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -165,11 +154,11 @@
         }
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./assets/js/header-footer.js"></script>
-    <script src="./assets/js/your-shelf.js"></script>
+    <script src="../assets/js/header-footer.js"></script>
+    <script src="../assets/js/your-shelf.js"></script>
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
-    <script src="./assets/js/api-gg-fb-login.js"></script>
+    <script src="../assets/js/api-gg-fb-login.js"></script>
     <div id="status"></div>
 </body>
 

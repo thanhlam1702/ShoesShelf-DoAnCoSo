@@ -1,5 +1,41 @@
-
+@import ../layout/_your-shelf-layout
+    
 #btn-wanna-rock
     color: white !important
+//content user wanna rock
 .user-wanna-rock
-    display: flex !important
+    display: flex
+    flex-flow: row wrap
+    height: auto
+    width: 100%
+    .card-wanna-rock
+        width: 240px
+        height: 320px
+        padding: 16px
+        cursor: pointer
+        margin: 
+            bottom: 32px
+            left: 11.5px
+            right: 11.5px
+        box-shadow: 0 4px 80px #070509
+        background-color: rgba(32,28,41,.75)
+    //container contain images
+    .card-container-img
+        width: 100%
+        height: 88%
+        .card-img
+            width: 100%
+            height: auto
+            max-height: 100%
+    //contain name, hashtag
+    .card-container-title
+        width: 100%
+        height: 12%
+        margin-top: 8px
+        text-align: center
+        padding: 
+            left: 8px
+            right: 8px
+        .card-title
+            color: white
+            font-size: 14px
