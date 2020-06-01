@@ -9,33 +9,39 @@ body
     overflow: auto
 .bg
     background: 
-        image: url("../images/bg-login.jpg")
+        
         repeat: no-repeat
         size: cover
+.logo-login
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    img 
+        height: 72px;
+        width: 72px;
+        z-index: 1;
 .login-bg
     position: fixed
     top: 0
     left: 0
     bottom: 0
     right: 0
-    background-color: #000000
-    opacity: 0.7
+    background-color: #100e17
+   
 .modal
     width: 520px
     margin: auto
-    // margin-top: calc((100vh - 457px) / 2)
-    margin-top: 40px
-    // background-color: #212121
+    margin-top: 10px
+    margin-bottom: 30px
     opacity: 90%
     padding: 8px 0
-    border: none
-        radius: 4px
+    border: 1px solid #d35400
     .title-container
         text-align: center
-        margin: 24px 0 0 0
+        margin: 24px 0 40px 0
         position: relative
         .title-login
-            font-size: 32px
+            font-size: 44px
             color: white
             text-transform: uppercase
             &::before, &::after
@@ -64,7 +70,7 @@ body
         display: block
         color: #fff 
         border: 2px solid $color-main
-            radius: 20px
+            radius: 50px
         transition: 0.25s
         &:focus
             width: 352px
@@ -74,11 +80,11 @@ body
         color: #fff
         font-size: 16px
         display: block
-        margin: 8px auto 0 auto
+        margin: 32px auto 0 auto
         border: 2px solid $color-main
             radius: 20px
         cursor: pointer
-        width: 120px
+        width: 300px
         height: 40px
         transition: 0.25s
         &:hover, &:focus
@@ -88,9 +94,11 @@ body
         margin: 16px 0 0 0
         .create-account
             color: $color-main
+            font-size: 1rem
             text-decoration: none
             text-align: center
             display: block
+            margin: 32px
     .back-psw
         margin: 8px 0
         display: flex
@@ -140,4 +148,4 @@ body
             font: 
                 size: 16px
                 weight: bold
-                family: "Roboto", sans-serif
+                family: "Jost", sans-serif
