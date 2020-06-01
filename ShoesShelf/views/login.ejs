@@ -18,10 +18,10 @@
             <p class="title-login">Login</p>
         </div>
         <div class="container-login">
+            <p class="error"><%- errors %> </p>
             <input type="text" placeholder="Use name or email" name="email" required>
             <input type="password" placeholder="Password" name="password" required>
             <button type="submit" class="btn-sign-in">Sign in</button>
-            <p> <%- errors %> </p>
             <div class="contain-create-account">
                 <a href="register" class="create-account">Create Account</a>
             </div>

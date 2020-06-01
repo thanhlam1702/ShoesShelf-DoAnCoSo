@@ -18,12 +18,12 @@
             <p class="title-login">Register</p>
         </div>
         <div class="container-login">
+            <p class="error"> <%- errors %></p>
             <input type="text" placeholder="Use name" name="name" id="name" required>
             <input type="email" placeholder="Email" name="email" id="email" required>
             <input type="password" placeholder="Enter password" name="password" id="password" onchange="lengthpass()" required>
             <input type="password" placeholder="Enter password again" name="password2" onchange="matchpass();" required>
             <button type="submit" class="btn-sign-up">Create</button>
-            <p> <%- errors %></p>
             <div class="back-psw">
                 <span>
                     <i class="fas fa-angle-left"></i>
