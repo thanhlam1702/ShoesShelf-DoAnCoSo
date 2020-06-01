@@ -50,12 +50,12 @@ function chooseContentShoes() {
     const btnUserYourShelf = document.getElementById('btn-your-shelf');
     const btnUserNewShoes = document.getElementById('btn-new-shoes');
     const btnUserUpdate = document.getElementById('btn-update');
-    const btnUserWannaRock = document.getElementById('btn-wanna-rock');
+    // const btnUserWannaRock = document.getElementById('btn-wanna-rock');
 
     const userYourShelf = document.getElementById('user-your-shelf');
     const userNewShoes = document.getElementById('user-new-shoes');
     const userUpdate = document.getElementById('user-update');
-    const userWannaRock = document.getElementById('user-wanna-rock');
+    // const userWannaRock = document.getElementById('user-wanna-rock');
 
     return {
         //showup your shelf
@@ -84,14 +84,14 @@ function chooseContentShoes() {
             btnUserUpdate.style.color = 'white';
 
         },
-        //showup wanna rock
-        contentWannaRock: () => {
-            userYourShelf.style.display = userNewShoes.style.display = userUpdate.style.display = userWannaRock.style.display = 'none';
-            userWannaRock.style.display = 'flex';
+        // //showup wanna rock
+        // contentWannaRock: () => {
+        //     userYourShelf.style.display = userNewShoes.style.display = userUpdate.style.display = userWannaRock.style.display = 'none';
+        //     userWannaRock.style.display = 'flex';
 
-            btnUserYourShelf.style.color = btnUserNewShoes.style.color = btnUserUpdate.style.color = '';
-            btnUserWannaRock.style.color = 'white';
-        },
+        //     btnUserYourShelf.style.color = btnUserNewShoes.style.color = btnUserUpdate.style.color = '';
+        //     btnUserWannaRock.style.color = 'white';
+        // },
     }
 }
 // function modalEditProfileUser() {

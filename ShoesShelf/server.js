@@ -74,21 +74,37 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
     console.log("DB connect");
 
     app.post('/save',auth.requireAuth,function (req,res){
+        var _id = mongoose.mongo.ObjectId(req.cookies.idpost);
         test.collection("users").updateOne(
         { "email" : req.cookies.email },
-        { $push : { "post_save" : req.cookies.idpost }}
+        { $push : { "post_save" : _id}},
         )
         res.redirect('/your-shelf')
     })
 
     app.get("/your-shelf",auth.requireAuth,(req,res) => {
-        Post.find(function(err,data){
-            if(err){
-                res.json({kq:0});
-            }else{
-                res.render('your-shelf',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,post_save:req.cookies.post_save });
-            }
+        // Post.find(function(err,data){
+        //     if(err){
+        //         res.json({kq:0});
+        //     }else{
+        //         res.render('your-shelf',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,post_save:req.cookies.post_save });
+        //     }
 
+        // })
+        user = User.aggregate([{
+            $lookup:{
+                from:"posts",
+                localField:"post_save",
+                foreignField:"_id",
+                as: "Con"
+            }
+        }],function(err,data){
+            if(err){
+                return res.json({ kq : 0});
+            }else{
+                // res.json(data);
+                res.render('your-shelf',{users:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id });
+            }
         })
     });
     app.get("/account-setting" ,(req,res) => {

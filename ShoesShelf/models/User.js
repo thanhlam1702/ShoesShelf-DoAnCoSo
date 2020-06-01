@@ -28,7 +28,7 @@ const UserSchema = new mongoose.Schema({
         type: String,
     },
     post_save:{
-        type: Array,
+        type: mongoose.Schema.Types.ObjectId
     }
     
 });
