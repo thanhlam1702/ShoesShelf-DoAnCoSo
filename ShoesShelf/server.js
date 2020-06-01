@@ -81,17 +81,8 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
         )
         res.redirect('/your-shelf')
     })
-
-    app.get("/your-shelf",auth.requireAuth,(req,res) => {
-        // Post.find(function(err,data){
-        //     if(err){
-        //         res.json({kq:0});
-        //     }else{
-        //         res.render('your-shelf',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,post_save:req.cookies.post_save });
-        //     }
-
-        // })
-        user = User.aggregate([{
+    app.get("/wanna-rock",auth.requireAuth,(req,res)=> {
+        users = User.aggregate([{
             $lookup:{
                 from:"posts",
                 localField:"post_save",
@@ -103,8 +94,18 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
                 return res.json({ kq : 0});
             }else{
                 // res.json(data);
-                res.render('your-shelf',{users:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id });
+                res.render('wanna-rock',{users:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id });
             }
+        })
+    })
+    app.get("/your-shelf",auth.requireAuth,(req,res) => {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('your-shelf',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,post_save:req.cookies.post_save });
+            }
+
         })
     });
     app.get("/account-setting" ,(req,res) => {
