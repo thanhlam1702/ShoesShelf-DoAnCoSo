@@ -81,8 +81,6 @@ function showUpSignInComplete() {
         document.getElementById('left-menu').style.display = 'flex';
     
         document.getElementById('navbar-right').style.display = 'none';
-        document.getElementById('sign-in-modal').style.display = 'none';
-        document.getElementById('sign-up-modal').style.display = 'none';
     }
     showUser();
 
@@ -145,7 +143,7 @@ function logoutComplete() {
         document.getElementById('navbar-right').style.display = 'flex';
     }
     console.log('Log out Complete');
-    window.location = "https://shoesshelf.com";
+    window.location = "'localhost:4444'";
     statusLogin = -1;
 }
 function changeLayout(){
@@ -153,6 +151,4 @@ function changeLayout(){
     document.getElementById('left-menu').style.display = 'flex';
 
     document.getElementById('navbar-right').style.display = 'none';
-    document.getElementById('sign-in-modal').style.display = 'none';
-    document.getElementById('sign-up-modal').style.display = 'none';
 }
