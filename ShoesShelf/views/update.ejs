@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/header-footer-style.css">
+    <link rel="stylesheet" href="../assets/css/update.css">
+    <script src="../assets/css/ckeditor/ckeditor.js"></script>
+    <script src="https://apis.google.com/js/api:client.js"></script>
+
+    <title><%= name %> Shelf</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header>
+            <nav class="navbar" id="navbar">
+                <div class="nav-bar">
+                    <!--Navbar left -->
+                    <div class="navbar-left">
+                        <div class="left-logo">
+                            <img src="./assets/images/logo-main.png" alt="Error" class="logo-img">
+                        </div>
+                        <!--Menu home, about, latest news-->
+                        <ul class="left-menu" id="left-menu">
+                            <li class="left-sub-menu">
+                                <a href="" class="menu-item">Home</a>
+                            </li>
+                            <li class="left-sub-menu">
+                                <a href="./about.html" class="menu-item">About us</a>
+                            </li>
+                            <li class="left-sub-menu">
+                                <a href="latest-news" class="menu-item">Latest news</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Navbar middle-->
+                    <div class="navbar-middle">
+                        <a href="/main" class="img-logo"></a>
+                    </div>
+                    <!--Navbar right after sign in-->
+                    <div class="navbar-right-user" id="navbar-right-user">
+                        <!--search-->
+                        <div class="right-search">
+                            <form action="/search-status"  method="GET" class="search-form">
+                                <input type="text" name="search" id="status" placeholder="Search anything you want...">
+                                <button class="btn-search" type="submit" value="Search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <!--showup user after user sign in complete-->
+                        <div id="user" class="user">
+                            <div class="user-avatar">
+                                <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
+                                <ul class="user-menu" id="user-menu" style="display: none;">
+                                    <li class="user-menu-item">
+                                        <div class="user-name-container">
+                                            <p id="user-name" class="user-name"><%= name %></p>
+                                        </div>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <a href="/your-shelf">My Shelf</a>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <a href="/account-setting">Account setting</a>
+                                    </li>
+                                    <li class="user-menu-item">
+                                        <div class="user-logout">
+                                            <a href="/" onclick="logout()">Log out</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="content">
+            <div class="content-user">
+                <!-- content include name user and avatar user -->
+                <div class="user-container" id="user-container">
+                    <div class="user-avatar">
+                        <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
+                    </div>
+                    <div class="user-name-container">
+                        <p id="user-name" class="user-name"> <%= name %> </p>
+                    </div>
+                </div>
+                <!-- menu navbar user -->
+                <div class="user-navbar">
+                    <ul class="user-menu">
+                        <li class="sub-menu"><a href="/my-shelf" class="menu-item" id="btn-your-shelf">My Shelf</a></li>
+                        <li class="sub-menu"><a href="/new-shoes" class="menu-item" id="btn-new-shoes">New Shoes</a></li>
+                        <li class="sub-menu"><a href="/update" class="menu-item" id="btn-update">Update</a></li>
+                        <li class="sub-menu"><a href="/wanna-rock" class="menu-item" id="btn-wanna-rock">Wanna Rock</a></li>
+                    </ul>
+                </div>
+                <!-- manager shoes of user -->
+                <div class="user-manager-shoes" id="user-manager-shoes">
+                    <!-- user update -->
+                    <div class="user-update" id="user-update">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="left-col">
+                    <div class="social">
+                        <a href="/instagram" target="_blank" title="collective on Instagram">
+                            <i class="fab fa-instagram"> </i>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
+                            <i class="fab fa-facebook"> </i>
+                        </a>
+                        <a href="/pinterest" target="_blank" title="collective on Pinterest">
+                            <i class="fab fa-pinterest-p"> </i>
+                        </a>
+                        <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
+                            <i class="fab fa-youtube"> </i>
+                        </a>
+                    </div>
+                    <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
+                </div>
+
+                <div class="right-col">
+                    <h1>Our Newsletter</h1>
+                    <div class="border"></div>
+                    <p>Enter your emails to connect with us.</p>
+                    <form action="" class="newsletter">
+                        <input type="text" class="txtb" placeholder="Enter Your Email">
+                        <input type="submit" class="btn" value="Submit">
+                    </form>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!--Script-->
+    <script>
+        function cut(nam){
+            return nam.split(",")[0];
+        }
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../assets/js/header-footer.js"></script>
+    <script src="../assets/js/your-shelf.js"></script>
+    <!--JS api login facebook and google-->
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
+    <script src="../assets/js/api-gg-fb-login.js"></script>
+    <div id="status"></div>
+</body>
+
+</html>

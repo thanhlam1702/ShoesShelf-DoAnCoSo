@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/manager-account.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+    <title>Admin manager</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="navbar">
+            <div class="top">
+                <img src="/assets/images/logo-main.png" alt="" class="logo">
+            </div>
+            <div class="menu">
+                <div class="menu-item">
+                    <i class="fas fa-address-card icon"></i>
+                    <a href="/admin">Posts Manager</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-user icon"></i>
+                    <a href="/manager-account">Account Manager</a>
+                </div>
+            </div>
+        </div>
+        <div class="content" id="content">
+            <div class="content-navbar">
+                <div class="left"><i>Account Manager</i></div>
+                <div class="right">
+                    <div class="admin">
+                        <div class="avatar-admin">
+                            <img src="/assets/images/userPost/<%= avatar %>" id="admin-img" class="admin-img">
+                        </div>
+                        <div class="name-admin"><%= name %></div>
+                        <i class="fas fa-angle-down" id="view-menu-admin"></i>
+                        <ul class="admin-menu" id="admin-menu" style="display: none;">
+                            <li class="admin-menu-item">
+                                <a href="/" onclick="logout()">Log out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-accounts-manager">
+                <div class="side-bar">
+                    <form action="/manager-account"  method="GET" class="search-form">
+                    <input type="text" name="search" id="email" placeholder="Enter account email..."
+                            class="search-account sort-form">
+                    <button class="btn-search sort-form" type="submit" value="Search">
+                            <i class="fas fa-search"></i>
+                    </button>
+                    </form>
+                </div>
+            
+                <table class="table-manager" border="1">
+                    <tr class="title-table">
+                        <th class="title-user-name">User name</th>
+                        <th class="title-email">Email</th>
+                        <th class="title-gender">Gender</th>
+                        <th class="title-country">Country</th>
+                        <th class="title-password">Password</th>
+                        <th class="title-controls">Controls</th>
+                    </tr>
+                    <!-- ------------------------------ -->
+                    <% users.forEach(function (user) { %>
+                    <tr>
+                        <td><%- user.name %></td>
+                        <td><%- user.email %></td>
+                        <td><%- user.gender %></td>
+                        <td><%- user.country %></td>
+                        <td><%- user.password %></td>
+                        <td>
+                            <!-- <form action="/posts/id" method="POST">
+                                <input value=""  name="id" type="submit" style="display: none;" >
+                                <button value=""  name="id" type="submit" ><i class="fas fa-eye"></i>Edit</button>
+                            </form> -->
+                            <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
+                                <button type="submit"><i class="fas fa-trash"></i> Delete </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }) %>
+                    <!-- ------------------------------- -->
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--Script-->
+    <script src="/assets/js/script.js"></script>
+    <script>
+        window.onclick = function (event) {
+            const btnShowMenuAdmin = document.getElementById('view-menu-admin');
+            const adminMenu = document.getElementById('admin-menu');
+            if (event.target == btnShowMenuAdmin) {
+                if (adminMenu.style.display == 'none') {
+                    adminMenu.style.display = 'flex';
+                }
+                else {
+                    adminMenu.style.display = 'none';
+                }
+            } else {
+                if (event.target != adminMenu) {
+                    adminMenu.style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

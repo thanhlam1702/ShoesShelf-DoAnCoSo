@@ -44,9 +44,9 @@
                     <div class="navbar-right-user" id="navbar-right-user">
                         <!--search-->
                         <div class="right-search">
-                            <form action="" class="search-form">
-                                <input type="text" name="search" placeholder="Search anything you want...">
-                                <button class="btn-search">
+                            <form action="/search-status"  method="GET" class="search-form">
+                                <input type="text" name="search" id="status" placeholder="Search anything you want...">
+                                <button class="btn-search" type="submit" value="Search">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </form>
@@ -62,14 +62,14 @@
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="my-shelf.html">My Shelf</a>
+                                        <a href="your-shelf">My Shelf</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <a href="account-setting">Account setting</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <div class="user-logout">
-                                            <a onclick="logout()">Log out</a>
+                                            <a a href="/" onclick="logout()">Log out</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -200,15 +200,9 @@
                             <button class="btn-cannel-change">Cancel</button>
                         </div>
                     </form>
-                    <div class="container-body-container hidden">
+                    <div class="container-body-container hidden" >
                         <h1>Change password account</h1>
                         <hr>
-                        <div class="form-group">
-                            <div class="col-form-label">
-                                Old password:
-                            </div>
-                            <input type="password" value id="old-password" class="form-control">
-                        </div>
                         <form action="/account-password" method="POST">
                             <div class="form-group">
                                 <div class="col-form-label">
@@ -216,7 +210,7 @@
                                 </div>
                                 <input type="password" name="password" id="new-password" class="form-control" required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" onchange="matchpass();">
                                 <div class="col-form-label">
                                     Enter new password:
                                 </div>

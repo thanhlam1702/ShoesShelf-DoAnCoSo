@@ -83,7 +83,7 @@
         <div class="content">
             <article>
                 <div class="post-title">
-                    <div class="title"> <p>Hello</p> </div>
+                    <div class="title"> <p><%- post.title%></p> </div>
                     <hr>
                     <div class="post-status">
                         <img src="" alt="" class="user-img">
@@ -95,12 +95,12 @@
                     <div class="post-container-content">
                         <!-- content post -->
                         <div class="post-content">
+                            <%- post.status %>
                             <% for(var i=0 ; i < post.image.length ; i++) {%>
                             <img src="/assets/images/userPost/<%= post.image[i].filename %>" alt="" class="img-normal">
                             <!-- <p class="normal">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
                             </p> -->
                             <%}%>
-                            <%- post.status %>
                         </div>
                         <!-- hashtag -->
                         <div class="post-branch-hashtag">
@@ -133,6 +133,11 @@
                         <div class="container-box-comment">
                             <textarea name="box-comment" id="box-comment" class="box-comment" placeholder="New comment!!" cols="130" rows="15" ></textarea>
                             <button class="btn-comment" onclick="commentPost()">Write</button>
+                        </div>
+                        <div class="container-box-comment">
+                            <form action="/Save" method="POST">
+                                <button class="btn-comment" type="submit" > Save </button>
+                            </form>
                         </div>
                         <!-- comment -->
                         <div class="contain-comment" id="contain-comment">

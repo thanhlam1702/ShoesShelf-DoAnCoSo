@@ -92,6 +92,12 @@ body {
   outline: none;
 }
 
+.container-login .error {
+  text-align: center;
+  color: #f70025;
+  padding-top: 8px;
+}
+
 .container-login .btn-sign-in, .container-login .btn-sign-up {
   background: none;
   color: #fff;

@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const PostSchema = new mongoose.Schema({
+    title: {
+        type: String,
+
+    },
     status: {
         type: String,
 
@@ -22,6 +26,9 @@ const PostSchema = new mongoose.Schema({
     date: {
         type: String,
         default: getDate(),
+    },
+    email_post: {
+        type: String,
     },
     id_post: {
         type: String
