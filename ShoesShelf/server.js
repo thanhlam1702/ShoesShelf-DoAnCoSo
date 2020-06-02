@@ -108,6 +108,36 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
 
         })
     });
+    app.get("/my-shelf",auth.requireAuth,(req,res) => {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('your-shelf',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,post_save:req.cookies.post_save });
+            }
+
+        })
+    });
+    app.get("/new-shoes",auth.requireAuth,(req,res) => {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('new-shoes',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,post_save:req.cookies.post_save,email:req.cookies.email });
+            }
+
+        })
+    });
+    app.get("/update",auth.requireAuth,(req,res) => {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('update',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,post_save:req.cookies.post_save });
+            }
+
+        })
+    });
     app.get("/account-setting" ,(req,res) => {
         User.findById(req.cookies.id,function(err,data){
             if(err){
@@ -301,6 +331,11 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
 
         })
     });
+    app.delete('/users/:id', async (req,res) => {
+        await User.findByIdAndDelete(req.params.id)
+        res.redirect('/manager-account')
+        
+    })
     
 });
 

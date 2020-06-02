@@ -86,14 +86,16 @@ router.post('/register', upload.single('avatar'), (req, res) => {
 
 });
 router.post('/upload', upload.array('image', 20), (req, res) => {
-    const { status, brands, hashtag, collections, image, id_post } = req.body;
+    const { status, brands, hashtag, collections, image, id_post, title, email_post } = req.body;
     const newPost = new Post({
+        title,
         status,
         brands,
         hashtag,
         collections,
         image,
-        id_post: req.body.txtIdpost
+        id_post: req.body.txtIdpost,
+        email_post: req.body.txtEmailpost
     });
     if (req.files) {
         var fineinfo = req.files
@@ -207,7 +209,7 @@ router.get("/admin" ,au.requireAuth ,(req,res) => {
     if (req.query.search) {     
         const regex = new RegExp(fullTextSearchVi(req.query.search), 'gi');
 
-        Post.find({brands : regex},function(err,data){
+        Post.find({ brands : regex },function(err,data){
             if(err){
                 res.json({kq:0});
             }else{
@@ -224,6 +226,32 @@ router.get("/admin" ,au.requireAuth ,(req,res) => {
                 res.json({kq:0});
             }else{
                 res.render('admin-manager',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar});
+            }
+
+        })
+    };   
+});
+router.get("/manager-account" ,au.requireAuth ,(req,res) => {
+    if (req.query.search) {     
+        const regex = new RegExp(fullTextSearchVi(req.query.search), 'gi');
+
+        User.find({email : regex},function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                var noMatch = ""
+                if(data.length < 1) {
+                    noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
+                }
+                res.render('manager-account',{users:data,name:req.cookies.name,avatar:req.cookies.avatar,noMatch: noMatch});
+            }
+    });
+    } else {
+        User.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('manager-account',{users:data,name:req.cookies.name,avatar:req.cookies.avatar});
             }
 
         })

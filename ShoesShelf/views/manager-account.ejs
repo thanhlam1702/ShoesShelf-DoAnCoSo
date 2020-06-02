@@ -20,11 +20,11 @@
             <div class="menu">
                 <div class="menu-item">
                     <i class="fas fa-address-card icon"></i>
-                    <a href="#post-manager">Posts Manager</a>
+                    <a href="/admin">Posts Manager</a>
                 </div>
                 <div class="menu-item">
                     <i class="fas fa-user icon"></i>
-                    <a href="#account-manager">Account Manager</a>
+                    <a href="/manager-account">Account Manager</a>
                 </div>
             </div>
         </div>
@@ -48,11 +48,13 @@
             </div>
             <div class="container-accounts-manager">
                 <div class="side-bar">
-                    <input type="text" name="search-name-acoount" placeholder="Enter account name..."
-                        class="search-account sort-form">
-                    <button class="btn-search sort-form">
-                        <i class="fas fa-search"></i>
+                    <form action="/manager-account"  method="GET" class="search-form">
+                    <input type="text" name="search" id="email" placeholder="Enter account email..."
+                            class="search-account sort-form">
+                    <button class="btn-search sort-form" type="submit" value="Search">
+                            <i class="fas fa-search"></i>
                     </button>
+                    </form>
                 </div>
             
                 <table class="table-manager" border="1">
@@ -65,22 +67,24 @@
                         <th class="title-controls">Controls</th>
                     </tr>
                     <!-- ------------------------------ -->
+                    <% users.forEach(function (user) { %>
                     <tr>
-                        <td>Thanh Lãm</td>
-                        <td>Email</td>
-                        <td>Gender</td>
-                        <td>Country</td>
-                        <td>Password</td>
+                        <td><%- user.name %></td>
+                        <td><%- user.email %></td>
+                        <td><%- user.gender %></td>
+                        <td><%- user.country %></td>
+                        <td><%- user.password %></td>
                         <td>
                             <!-- <form action="/posts/id" method="POST">
                                 <input value=""  name="id" type="submit" style="display: none;" >
                                 <button value=""  name="id" type="submit" ><i class="fas fa-eye"></i>Edit</button>
                             </form> -->
-                            <form action="" method="POST">
+                            <form action="/users/<%= user._id %>?_method=DELETE" method="POST">
                                 <button type="submit"><i class="fas fa-trash"></i> Delete </button>
                             </form>
                         </td>
                     </tr>
+                    <% }) %>
                     <!-- ------------------------------- -->
                 </table>
             </div>

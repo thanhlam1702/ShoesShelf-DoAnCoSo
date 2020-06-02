@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
         integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/header-footer-style.css">
-    <link rel="stylesheet" href="../assets/css/new-shoes.css">
+    <link rel="stylesheet" href="../assets/css/update.css">
     <script src="../assets/css/ckeditor/ckeditor.js"></script>
     <script src="https://apis.google.com/js/api:client.js"></script>
 
@@ -94,59 +94,17 @@
                 <!-- menu navbar user -->
                 <div class="user-navbar">
                     <ul class="user-menu">
-                        <li class="sub-menu"><a href="#my-shelf" class="menu-item" id="btn-your-shelf"
-                                ">My Shelf</a></li>
-                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes"
-                                >New Shoes</a></li>
-                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update"
-                                >Update</a></li>
-                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" id="btn-wanna-rock"
-                                >Wanna Rock</a></li>
+                        <li class="sub-menu"><a href="/my-shelf" class="menu-item" id="btn-your-shelf">My Shelf</a></li>
+                        <li class="sub-menu"><a href="/new-shoes" class="menu-item" id="btn-new-shoes">New Shoes</a></li>
+                        <li class="sub-menu"><a href="/update" class="menu-item" id="btn-update">Update</a></li>
+                        <li class="sub-menu"><a href="/wanna-rock" class="menu-item" id="btn-wanna-rock">Wanna Rock</a></li>
                     </ul>
                 </div>
                 <!-- manager shoes of user -->
                 <div class="user-manager-shoes" id="user-manager-shoes">
-                    <!-- user new shoes -->
-                    <div class="user-new-shoes" id="user-new-shoes">
-                        <!-- form contain button upload image -->
-                        <form method="POST" action="upload" enctype="multipart/form-data" >
-                            <div class="container-upload-img">
-                                <!-- where img alter upload showup review -->
-                                <div class="review-img-upload" id="review-img-upload">
-                                    <!-- <img src="" id="img-upload"> -->
-                                    <label for="upload-img" class="btn-upload-img">+</label>
-                                </div>
-                                <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
-                                <input type="file" name="image" accept="image/*" id="upload-img" onchange="uploadImages()"
-                                    multiple>
-                            </div>
-                            <div class="container-title-posts">
-                                <textarea name="title-post" id="" class="txt-title" required placeholder="Title of post..."></textarea>
-                            </div>
-                            <div class="container-editor">
-                                <!-- <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea> -->
-                                <form action="" method="post">
-                                    <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea>
-                            </div>
-                            <div class="container-choose-more">
-                                <select name="brands" class="brands" id="brands">
-                                    <option selected hidden style="font-weight: bold;">Brands</option>
-                                    <option value="vans">Vans</option>
-                                    <option value="adidas">Adidas</option>
-                                    <option value="nike">Nike</option>
-                                    <option value="reebok">Reebok</option>
-                                    <option value="converse">Converse</option>
-                                    <option value="puma">Puma</option>
-                                    <option value="orther">Orther</option>
-                                </select>
-                                <input type="text" name="collections" placeholder="Collections" class="collections">
-                                <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag">
-                                <input type='text' name='txtIdpost' value="<%-id%>"  class="txtIdPost">
-                            </div>
-                            <div class="container-btn-post">
-                                <button class="btn-post-status">Post</button>
-                            </div>
-                        </form>
+                    <!-- user update -->
+                    <div class="user-update" id="user-update">
+
                     </div>
                 </div>
             </div>
@@ -190,11 +148,6 @@
         function cut(nam){
             return nam.split(",")[0];
         }
-    </script>
-    <script>
-        CKEDITOR.replace('share-exp');
-        CKEDITOR.config.width = '900px';
-        CKEDITOR.config.height = '300px';
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../assets/js/header-footer.js"></script>

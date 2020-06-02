@@ -24,7 +24,7 @@
                 </div>
                 <div class="menu-item">
                     <i class="fas fa-user icon"></i>
-                    <a href="#account-manager">Account Manager</a>
+                    <a href="/manager-account">Account Manager</a>
                 </div>
             </div>
         </div>
@@ -47,8 +47,9 @@
                 </div>
             </div>
             <div class="container-posts-manager">
+                <form action="/admin" method="GET" class="sort-container">
                 <div class="side-bar">
-                    <select name="sort-brands" class="brands sort-form" id="brands">
+                    <select name="search" class="brands sort-form" id="brands">
                         <option selected hidden style="font-weight: bold;">Brands</option>
                         <option value="vans">Vans</option>
                         <option value="adidas">Adidas</option>
@@ -60,14 +61,14 @@
                     </select>
                     <input type="text" name="collections" placeholder="Collections" class="collections sort-form">
                     <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag sort-form">
-                    <button class="btn-search sort-form">
+                    <button class="btn-search sort-form" type="submit">
                         <i class="fas fa-search"></i>
                     </button>
                 </div>
-
+                </form>
                 <table class="table-manager" border="1">
                     <tr class="title-table">
-                        <th class="title-name-user">Name user</th>
+                        <th class="title-name-user">Email user</th>
                         <th class="title-posts-img">Posts img</th>
                         <th class="title-posts-content">Post sort content</th>
                         <th class="title-posts-branch">Branch</th>
@@ -77,7 +78,7 @@
                     <!-- ------------------------------ -->
                     <% posts.forEach(function (post) { %>
                     <tr>
-                        <td>Thanh Lãm</td>
+                        <td><%- post.email_post %></td>
                         <td class="">
                             <% for(var i=0 ; i< 1 ; i++) {%>
                             <img src="/assets/images/userPost/<%= post.image[0].filename %>" alt="" class="img-post">
@@ -90,7 +91,7 @@
                             <form action="/posts/id" method="POST">
                                 <!-- <a href="#id-post" class="read-more">Read more...</a> -->
                                 <button value="<%= post._id %>" id="<%= post._id %>" name="id" type="submit"><i
-                                        class="fas fa-eye"></i>View full</button>
+                                        class="fas fa-eye"></i>View </button>
                             </form>
                             <form action="/<%= post.id %>?_method=DELETE" method="POST">
                                 <button type="submit"><i class="fas fa-trash"></i> Delete </button>
