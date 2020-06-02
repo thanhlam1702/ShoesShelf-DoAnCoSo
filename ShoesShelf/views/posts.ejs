@@ -83,7 +83,7 @@
         <div class="content">
             <article>
                 <div class="post-title">
-                    <div class="title"> <p>Hello</p> </div>
+                    <div class="title"> <p><%- post.title%></p> </div>
                     <hr>
                     <div class="post-status">
                         <img src="" alt="" class="user-img">
@@ -95,12 +95,12 @@
                     <div class="post-container-content">
                         <!-- content post -->
                         <div class="post-content">
+                            <%- post.status %>
                             <% for(var i=0 ; i < post.image.length ; i++) {%>
                             <img src="/assets/images/userPost/<%= post.image[i].filename %>" alt="" class="img-normal">
                             <!-- <p class="normal">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
                             </p> -->
                             <%}%>
-                            <%- post.status %>
                         </div>
                         <!-- hashtag -->
                         <div class="post-branch-hashtag">
