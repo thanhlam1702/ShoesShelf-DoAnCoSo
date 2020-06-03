@@ -188,6 +188,8 @@
 
 .admin .fa-angle-down {
   cursor: pointer;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
 }
 
 .admin .admin-menu {

@@ -37,7 +37,7 @@
                             <img src="/assets/images/userPost/<%= avatar %>" id="admin-img" class="admin-img">
                         </div>
                         <div class="name-admin"><%= name %></div>
-                        <i class="fas fa-angle-down" id="view-menu-admin"></i>
+                        <i class="fas fa-angle-down" id="view-menu-admin" onclick="rotateBtn()"></i>
                         <ul class="admin-menu" id="admin-menu" style="display: none;">
                             <li class="admin-menu-item">
                                 <a href="/" onclick="logout()">Log out</a>
@@ -107,6 +107,16 @@
                 if (event.target != adminMenu) {
                     adminMenu.style.display = 'none';
                 }
+            }
+            
+        }
+        function rotateBtn(){
+            const btnShowMenuAdmin = document.getElementById('view-menu-admin');
+            if(btnShowMenuAdmin.style.transform == 'rotate(180deg)'){
+                btnShowMenuAdmin.style.transform = '';
+            }
+            else{
+                btnShowMenuAdmin.style.transform = 'rotate(180deg)';
             }
         }
     </script>

@@ -83,7 +83,9 @@
         <div class="content">
             <article>
                 <div class="post-title">
-                    <div class="title"> <p><%- post.title%></p> </div>
+                    <div class="title">
+                        <p><%- post.title%></p>
+                    </div>
                     <hr>
                     <div class="post-status">
                         <img src="" alt="" class="user-img">
@@ -106,42 +108,21 @@
                         <div class="post-branch-hashtag">
                             <p class="hashtag"> <%- post.hashtag %></p>
                         </div>
-                        <!-- box comment -->
-                        <script>
-                            function commentPost(){
-                                var containComment = document.getElementById('contain-comment');
-                                var commentList = document.createElement('div');
-                                commentList.className = 'comment-list';
 
-                                var commentContent = document.getElementById('box-comment').value;
-                                containComment.appendChild(commentList);
-
-                                commentList.innerHTML = `
-                                    <div class="comment-author">
-                                        <img src="" alt="" class="user-img">
-                                        <p class="user-name"></p>
-                                        <p class="comment-time">
-                                            1 minuter
-                                        </p>
-                                    </div>
-                                    <div class="comment-body">
-                                        ${commentContent}
-                                    </div>
-                                `
-                            }
-                        </script>
                         <div class="container-box-comment">
-                            <textarea name="box-comment" id="box-comment" class="box-comment" placeholder="New comment!!" cols="130" rows="15" ></textarea>
-                            <button class="btn-comment" onclick="commentPost()">Write</button>
+                            <textarea name="box-comment" id="box-comment" class="box-comment"
+                                placeholder="New comment!!" cols="130" rows="15"></textarea>
+                            <button class="btn-comment"
+                                onclick="commentPost('<%= name %>','/assets/images/userPost/<%= avatar %>') ">Write</button>
                         </div>
                         <div class="container-box-comment">
                             <form action="/Save" method="POST">
-                                <button class="btn-comment" type="submit" > Save </button>
+                                <button class="btn-comment" type="submit"> Save </button>
                             </form>
                         </div>
                         <!-- comment -->
                         <div class="contain-comment" id="contain-comment">
-                            <div class="comment-list">
+                            <!-- <div class="comment-list">
                                 <div class="comment-author">
                                     <img src="" alt="" class="user-img">
                                     <p class="user-name"></p>
@@ -152,7 +133,7 @@
                                 <div class="comment-body">
                                     Bài viết hay!
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="side-bar">
@@ -217,7 +198,61 @@
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
     <script src="/assets/js/load-login-fb-gg.js"></script>
     <div id="status"></div>
-    
+    <!-- box comment -->
+    <script>
+        function commentPost(nameUser, avatar) {
+            var containComment = document.getElementById('contain-comment');
+            var commentList = document.createElement('div');
+            commentList.className = 'comment-list';
+
+            var commentContent = document.getElementById('box-comment');
+            if (commentContent.value == '') {
+                return;
+            }
+            else {
+                containComment.appendChild(commentList);
+
+                var d = new Date();
+
+                var fullTime = `${getFormatTime()}  ${getFormatDate()}`;
+
+                commentList.innerHTML = `
+                    <div class="comment-author">
+                        <img src="${avatar}" alt="" class="user-img">
+                        <p class="user-name">${nameUser}</p>
+                        <p class="comment-time">
+                            ${fullTime.toString()}
+                        </p>
+                    </div>
+                    <div class="comment-body">
+                        ${commentContent.value}
+                    </div>
+                `
+                
+            }
+            commentContent.value = '';
+            function getFormatTime() {
+                var hours = d.getHours().toString();
+                hours = hours.length > 1 ? hours : '0' + hours;
+
+                var minutes = d.getMinutes().toString();
+                minutes = minutes.length > 1 ? minutes : '0' + minutes;
+                return hours + ':' + minutes;
+            }
+            function getFormatDate() {
+                var year = d.getFullYear();
+
+                var month = (1 + d.getMonth()).toString();
+                month = month.length > 1 ? month : '0' + month;
+
+                var day = d.getDate().toString();
+                day = day.length > 1 ? day : '0' + day;
+
+                return day + '/' + month + '/' + year;
+            }
+        }
+    </script>
+
 </body>
 
 </html>

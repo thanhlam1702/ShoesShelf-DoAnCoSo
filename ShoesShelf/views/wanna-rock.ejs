@@ -112,8 +112,8 @@
                             <div class="card-container-img">
                                 <img src="/assets/images/userPost/<%= detail.image[0].filename %>" alt="" class="card-img">
                             </div>
-                            <div class="card-container-title">
-                                <p class="card-title"><%- detail.status %> #<%- detail.hashtag%> #<%- detail.brand %> #<%- detail.collections %></p>
+                            <div class="card-container-title" on>
+                                <p class="card-title">#<%-detail.hashtag%> <%- detail.brand %> <%- detail.collections %></p>
                             </div>
                         </li>
                         <%}%>
