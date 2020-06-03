@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
-        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/styles.css?v=12042020">
     <link rel="stylesheet" href="/assets/css/styles.min.css">
     <link rel="stylesheet" href="/assets/css/main.css">
@@ -123,34 +122,39 @@
             <!-- <button onclick="showImg360()">Show 360 images</button> -->
             <div class="list-posts">
                 <% posts.forEach(function (post) { %>
-                <div class="post-container">
-                    <div class="posts">
-                        <div id="slider">
-                            <ul class="slides">
-                                <% for(var i=0 ; i < post.image.length ; i++) {%>
-                                <li class="slide"><img src="/assets/images/userPost/<%= post.image[i].filename %>"
-                                        class="post-avatar"></img></li>
-                                <%}%>
-                            </ul>
+                    <div class="post-container">
+                        <div class="posts">
+                            <div id="slider">
+                                <ul class="slides">
+                                    <% for(var i=0 ; i < post.image.length ; i++) {%>
+                                        <li class="slide"><img src="/assets/images/userPost/<%= post.image[i].filename %>" class="post-avatar"></img>
+                                        </li>
+                                        <%}%>
+                                </ul>
+                            </div>
+                            <div class="post-title">
+                                <div class="post-content">
+                                    <%- post.status %>
+                                </div>
+                                <div class="post-hash-tag">
+                                    <%= post.hashtag %>
+                                </div>
+                                <form action="/posts/id" method="POST">
+                                    <input value="<%= post._id %>" id="<%= post._id %>" name="id" type="submit" style="display: none;">
+                                    <!-- <a href="#id-post" class="read-more">Read more...</a> -->
+                                    <label for="<%= post._id %>" class="read-more">Read more...</label>
+                                </form>
+                            </div>
                         </div>
-                    <div class="post-title">
-                        <div class="post-content" ><%- post.status %></div>
-                        <div class="post-hash-tag"><%= post.hashtag %></div>
-                        <form action="/posts/id" method="POST">
-                            <input value="<%= post._id %>" id="<%= post._id %>" name="id" type="submit"
-                                style="display: none;">
-                            <!-- <a href="#id-post" class="read-more">Read more...</a> -->
-                            <label for="<%= post._id %>" class="read-more">Read more...</label>
-                        </form>
+                        <div class="status">
+                            <p class="user-name"></p>
+                            <p class="post-time">
+                                <%= post.date %>
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="status">
-                    <p class="user-name"></p>
-                    <p class="post-time"><%= post.date %></p>
-                </div>
-            </div>
-            <% }) %>
-            <!-- <div class="post-container">
+                    <% }) %>
+                        <!-- <div class="post-container">
                     <div class="posts">
                         <img src="/assets/images/img360/2DC_3631.jpg" class="post-avatar"></img>
                         <div class="post-title">
@@ -165,9 +169,9 @@
                         <p class="post-time">3 minuter ago</p>
                     </div>
                 </div> -->
-        </div>
-        <form action="/" method="GET" class="sort-container">
-            <select name="search" class="brands sort-form" id="brands">
+            </div>
+            <form action="/" method="GET" class="sort-container">
+                <select name="search" class="brands sort-form" id="brands">
                 <option selected hidden style="font-weight: bold;">Brands</option>
                 <option value="vans">Vans</option>
                 <option value="adidas">Adidas</option>
@@ -175,45 +179,47 @@
                 <option value="reebok">Reebok</option>
                 <option value="converse">Converse</option>
                 <option value="puma">Puma</option>
-                <option value="orther">Orther</option>
+                <option value="other">Orther</option>
             </select>
-            <button class="btn-search sort-form" type="submit">
+                <input type="text" name="collections" placeholder="Collections" class="collections sort-form">
+                <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag sort-form">
+                <button class="btn-search sort-form" type="submit">
                 <i class="fas fa-search"></i>
             </button>
-        </form>
-    </div>
-    <footer>
-        <div class="footer-container">
-            <div class="left-col">
-                <div class="social">
-                    <a href="/instagram" target="_blank" title="collective on Instagram">
-                        <i class="fab fa-instagram"> </i>
-                    </a>
-                    <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
-                        <i class="fab fa-facebook"> </i>
-                    </a>
-                    <a href="/pinterest" target="_blank" title="collective on Pinterest">
-                        <i class="fab fa-pinterest-p"> </i>
-                    </a>
-                    <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
-                        <i class="fab fa-youtube"> </i>
-                    </a>
-                </div>
-                <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
-            </div>
-
-            <div class="right-col">
-                <h1>Our Newsletter</h1>
-                <div class="border"></div>
-                <p>Enter your emails to connect with us.</p>
-                <form action="" class="newsletter">
-                    <input type="text" class="txtbox" placeholder="Enter Your Email">
-                    <input type="submit" class="btn" value="Submit">
-                </form>
-
-            </div>
+            </form>
         </div>
-    </footer>
+        <footer>
+            <div class="footer-container">
+                <div class="left-col">
+                    <div class="social">
+                        <a href="/instagram" target="_blank" title="collective on Instagram">
+                            <i class="fab fa-instagram"> </i>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
+                            <i class="fab fa-facebook"> </i>
+                        </a>
+                        <a href="/pinterest" target="_blank" title="collective on Pinterest">
+                            <i class="fab fa-pinterest-p"> </i>
+                        </a>
+                        <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
+                            <i class="fab fa-youtube"> </i>
+                        </a>
+                    </div>
+                    <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
+                </div>
+
+                <div class="right-col">
+                    <h1>Our Newsletter</h1>
+                    <div class="border"></div>
+                    <p>Enter your emails to connect with us.</p>
+                    <form action="" class="newsletter">
+                        <input type="text" class="txtbox" placeholder="Enter Your Email">
+                        <input type="submit" class="btn" value="Submit">
+                    </form>
+
+                </div>
+            </div>
+        </footer>
     </div>
     <!--Script-->
     <script src="/assets/js/script.js"></script>
