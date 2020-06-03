@@ -40,6 +40,7 @@
                         <i class="fas fa-angle-down " id="view-menu-admin" onclick="rotateBtn()" ></i>
                         <ul class="admin-menu" id="admin-menu" style="display: none;">
                             <li class="admin-menu-item">
+                                <i class="fas fa-sign-out-alt"></i>
                                 <a href="/" onclick="logout()">Log out</a>
                             </li>
                         </ul>
@@ -125,6 +126,7 @@
             } else {
                 if (event.target != adminMenu) {
                     adminMenu.style.display = 'none';
+                    if(btnShowMenuAdmin.style.transform != "") rotateBtn()
                 }
             }
         }
