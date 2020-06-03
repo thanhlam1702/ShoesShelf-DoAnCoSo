@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-    <link rel="stylesheet" href="./assets/css/header-footer-style.css">
-    <link rel="stylesheet" href="./assets/css/your-shelf.css">
+    <link rel="stylesheet" href="../assets/css/header-footer-style.css">
+    <link rel="stylesheet" href="../assets/css/mobile-header-footer.css">
+    <link rel="stylesheet" href="../assets/css/your-shelf.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
 
     <title>
@@ -17,13 +18,45 @@
     <div class="wrapper">
         <header>
             <nav class="navbar" id="navbar">
+                <div class="sidebar" id="sidebar">
+                    <div class="dismiss" id="dismiss">
+                        <i class="fas fa-times btn-close-sidebar"></i>
+                    </div>
+                    <ul class="sidebar-menu" id="sidebar-menu">
+                        <li class="menu-item"">
+                            <form action="/search-status"  method="GET" class="search-form">
+                                <input type="text" name="search" id="status" placeholder="Search anything you want...">
+                                <button class="btn-search" type="submit" value="Search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                        </li>
+                        <li class="menu-item"">
+                            <i class="fa fa-home"></i>
+                            <a href="" >Home</a>
+                        </li>
+                        <li class="menu-item"">
+                            <i class="fas fa-address-card"></i>
+
+                            <a href="./about.html">About us</a>
+                        </li>
+                        <li class="menu-item"">
+                            <i class="fas fa-newspaper"></i>
+                            <a href="latest-news">Latest news</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="overlay"></div>
                 <div class="nav-bar">
                     <!--Navbar left -->
+                    <div class="toggle-menu" id="btn-menu">
+                        <i class="fas fa-bars" ></i>
+                    </div>
                     <div class="navbar-left">
                         <div class="left-logo">
-                            <img src="./assets/images/logo-main.png" alt="Error" class="logo-img">
+                            <img src="/assets/images/logo-main.png" alt="Error" class="logo-img">
                         </div>
-                        <!--Menu home, about, latest news-->
+                        <!--Menu hone, about, latest news-->
                         <ul class="left-menu" id="left-menu">
                             <li class="left-sub-menu">
                                 <a href="" class="menu-item">Home</a>
@@ -41,7 +74,7 @@
                         <a href="/main" class="img-logo"></a>
                     </div>
                     <!--Navbar right after sign in-->
-                    <div class="navbar-right-user" id="navbar-right-user">
+                    <div class="navbar-right-user" id="navbar-right-user" display="block">
                         <!--search-->
                         <div class="right-search">
                             <form action="/search-status"  method="GET" class="search-form">
@@ -53,7 +86,7 @@
                         </div>
                         <!--showup user after user sign in complete-->
                         <div id="user" class="user">
-                            <div class="user-avatar">
+                            <div class="user-avatar" id="user-avatar">
                                 <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
                                 <ul class="user-menu" id="user-menu" style="display: none;">
                                     <li class="user-menu-item">
@@ -64,15 +97,16 @@
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/your-shelf">My Shelf</a>
+                                        <i class="fas fa-archive"></i>
+                                        <a href="your-shelf">My Shelf</a>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="/account-setting">Account setting</a>
+                                        <i class="fas fa-user-alt"></i>
+                                        <a href="account-setting">Account setting</a>
                                     </li>
                                     <li class="user-menu-item">
-                                        <div class="user-logout">
-                                            <a href="/" onclick="logout()">Log out</a>
-                                        </div>
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <a href="/" onclick="logout()">Log out</a>
                                     </li>
                                 </ul>
                             </div>
