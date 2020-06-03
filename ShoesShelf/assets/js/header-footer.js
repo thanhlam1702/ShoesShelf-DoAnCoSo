@@ -40,3 +40,10 @@ $(document).ready(function () {
     })
 })
 
+$('#dismiss, #btn-menu').on('click', function(){
+    $('#overlay').toggleClass('active');
+    $('#sidebar').toggleClass('active');
+    $('#sidebar-index').toggleClass('active');
+})
+
+

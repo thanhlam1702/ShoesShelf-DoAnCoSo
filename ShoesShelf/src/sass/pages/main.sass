@@ -1,11 +1,12 @@
 $color-main: #ffa502
-
+@import ../layout/_mobile-main
 
 .main-content
     flex-grow: 1
     background-color: #181818
     height: auto
-    width: 1366px
+    width: 100%
+    max-width: 1366px
     // max-width: 1366px
     margin: auto
     display: flex
@@ -83,18 +84,18 @@ $color-main: #ffa502
     height: auto
     width: 56%
     overflow: hidden
-    max-width: 380px
+    // max-width: 380px
     .slides
-        display: block
-        width: 3000px
-        height: auto
-        margin: 0
-        padding: 0
+        // display: block
+        // width: 3000px
+        // height: auto
+        // margin: 0
+        // padding: 0
         .slide
             float: left
             list-style-type: none
             width: 100%
-            max-width: 380px
+            // max-width: 380px
             height: auto
             text-align: center
 //content main
@@ -180,4 +181,7 @@ $color-main: #ffa502
         .user-name, .post-time
             font-size: 16px
             color: $color-main
+            width: 50%
+        .post-time
+            text-align: end
         

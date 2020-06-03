@@ -1,0 +1,121 @@
+@media only screen and ( max-width: 767.98px )
+    .navbar
+        padding-top: 0
+    .nav-bar
+        align-items: center
+    .navbar-left
+        display: none !important
+    .toggle-menu
+        display: block !important
+        font-size: 24px
+        margin-left: 24px
+    .sidebar
+        &.active
+            left: 0
+        .dismiss
+            position: absolute
+            right: 28px
+            top: 16px
+            font-size: 20px
+        .sidebar-menu
+            padding: 16px 32px
+            &:nth-of-type(1)
+                margin-top: 32px
+            .menu-item
+                font-size: 20px
+                margin-top: 24px
+                a
+                    margin-left: 16px
+                    color: black
+                    text-decoration: none
+        .search-form
+            width: 100%
+            position: relative
+            height: 32px
+            input[type = 'text']
+                width: 100%
+                position: absolute
+                height: 32px
+                padding: 8px
+                border-radius: 8px
+                border: 1px solid black
+                &:focus
+                    outline: none
+            .btn-search
+                position: absolute
+                height: 32px
+                border-radius: 100%
+                border: none
+                background: none
+                right: 8px
+    #overlay
+        display: none
+        position: fixed
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        width: 100vw
+        opacity: 0
+        height: 100vh
+        background-color: rgba(0, 0, 0, 0.7);
+        transition: all .5s ease-in-out
+        z-index: 10
+        &.active
+            display: block
+            opacity: 1
+    .navbar-middle
+        width: 40px !important
+        height: 40px !important
+        .img-logo
+            background-image: url(/assets/images/logo-ss-black.png)
+            background-repeat: no-repeat
+            background-size: cover
+            height: 40px
+            width: 40px
+    .navbar-right-user
+        width: 40px !important
+        height: 40px !important
+        margin-right: 8px
+        .right-search
+            display: none !important
+        .user
+            width: 100%
+            padding: 0
+    .user
+        .user-menu
+            width: 176px
+            right: 0
+            left: unset
+//large phone protrait tablet
+@media only screen and (min-width: 768px ) and (max-width: 991.98px )
+    .navbar-left
+        .left-logo
+            display: none !important
+        .left-menu
+            width: 100% !important
+    .navbar-middle
+        width: 8% !important
+    .navbar-right-user
+        width: 44% !important
+        align-items: center
+        .right-search
+            width: 70% !important
+            margin-right: 16px
+            .search-form
+                width: 100% !important
+                input[type ="text"]
+                    font-size: 14px
+        .user
+            width: 40px !important
+            height: 40px !important
+            margin-right: 16px
+            padding: 0
+            .user-avatar
+                height: 100%
+                width: 100%
+    .user
+        .user-menu
+            width: 176px
+            right: 0
+            left: unset
