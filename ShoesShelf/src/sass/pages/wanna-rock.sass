@@ -9,20 +9,17 @@
     height: auto
     width: 100%
     .card-wanna-rock
-        width: 240px
-        height: 320px
-        padding: 16px
+        width: 22%
+        height: auto
+        padding: 1%
         cursor: pointer
-        margin: 
-            bottom: 32px
-            left: 11.5px
-            right: 11.5px
+        margin: 0 0 2% 2.5%
         box-shadow: 0 4px 80px #070509
         background-color: rgba(32,28,41,.75)
     //container contain images
     .card-container-img
         width: 100%
-        height: 88%
+        height: 80%
         .card-img
             width: 100%
             height: auto
@@ -31,11 +28,14 @@
     .card-container-title
         width: 100%
         height: 12%
-        margin-top: 8px
+        margin-top: 3%
         text-align: center
-        padding: 
-            left: 8px
-            right: 8px
         .card-title
             color: white
             font-size: 14px
+            text-overflow: ellipsis
+            overflow: hidden
+            // height: auto //line-height * clamp
+            display: -webkit-box
+            -webkit-box-orient: vertical
+            -webkit-line-clamp: 2

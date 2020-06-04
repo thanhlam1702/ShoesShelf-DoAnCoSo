@@ -4,13 +4,19 @@
   display: flex !important;
 }
 
+.navbar {
+  background-color: rgba(238, 238, 238, 0.9);
+}
+
 .content {
-  width: 100vw;
+  width: 100%;
+  max-width: 1366px;
   height: auto;
   background-color: #0f0d16;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  margin: auto;
   margin-top: 73px;
   padding-top: 24px;
   padding-bottom: 24px;
@@ -19,9 +25,8 @@
 .content-user {
   -webkit-box-shadow: 0 4px 40px #070509;
           box-shadow: 0 4px 40px #070509;
-  height: auto;
-  max-width: 1200px;
-  width: 1100px;
+  height: 100%;
+  width: 90%;
   margin: auto;
   border-radius: 24px;
   padding: 24px;
@@ -41,12 +46,14 @@
 .user-container .user-avatar {
   width: 120px;
   height: 120px;
+  max-width: 120px;
+  max-height: 120px;
 }
 
 .user-container .user-avatar .user-img {
   width: 100%;
   height: 100%;
-  border-radius: 80px;
+  border-radius: 100%;
   -webkit-box-shadow: 0px 0px 24px 0 black;
           box-shadow: 0px 0px 24px 0 black;
 }
@@ -117,6 +124,58 @@
   height: auto;
 }
 
+@media screen and (max-width: 575.98px) {
+  .content {
+    padding: 12px !important;
+    margin-top: 56px;
+  }
+  .content-user {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  .user-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .user-container .user-avatar {
+    height: 24% !important;
+    width: 24% !important;
+  }
+  .user-container .user-name-container {
+    padding: 0 !important;
+  }
+  .user-container .user-name-container .user-name {
+    font-size: 24px !important;
+  }
+  .user-navbar {
+    height: 56px !important;
+    padding: 0 8px !important;
+  }
+  .user-navbar .menu-item {
+    font-size: 14px !important;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 319.98px) {
+  .user-name-container .user-name {
+    font-size: 18px !important;
+  }
+  .user-navbar .menu-item {
+    font-size: 10px !important;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+  .user-name-container .user-name {
+    font-size: 24px !important;
+  }
+  .user-navbar .menu-item {
+    font-size: 20px !important;
+  }
+}
+
 #btn-wanna-rock {
   color: white !important;
 }
@@ -134,13 +193,11 @@
 }
 
 .user-wanna-rock .card-wanna-rock {
-  width: 240px;
-  height: 320px;
-  padding: 16px;
+  width: 22%;
+  height: auto;
+  padding: 1%;
   cursor: pointer;
-  margin-bottom: 32px;
-  margin-left: 11.5px;
-  margin-right: 11.5px;
+  margin: 0 0 2% 2.5%;
   -webkit-box-shadow: 0 4px 80px #070509;
           box-shadow: 0 4px 80px #070509;
   background-color: rgba(32, 28, 41, 0.75);
@@ -148,7 +205,7 @@
 
 .user-wanna-rock .card-container-img {
   width: 100%;
-  height: 88%;
+  height: 80%;
 }
 
 .user-wanna-rock .card-container-img .card-img {
@@ -160,13 +217,16 @@
 .user-wanna-rock .card-container-title {
   width: 100%;
   height: 12%;
-  margin-top: 8px;
+  margin-top: 3%;
   text-align: center;
-  padding-left: 8px;
-  padding-right: 8px;
 }
 
 .user-wanna-rock .card-container-title .card-title {
   color: white;
   font-size: 14px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
