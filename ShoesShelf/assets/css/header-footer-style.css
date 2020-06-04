@@ -75,6 +75,7 @@ header {
 }
 .nav-bar .toggle-menu{
     display: none;
+    cursor: pointer;
 }
 .navbar-left .left-logo {
     width: 30%;
