@@ -1,6 +1,8 @@
 $color-main: #ffa502
 $color-text: #f1f1f1
 $color-text-post-content: gray
+.navbar
+    background-color: rgba(238, 238, 238, 0.9)
 .navbar-right-user, .left-menu
     display: flex !important
 .content
@@ -27,7 +29,7 @@ $color-text-post-content: gray
                 width: 72%
                 max-width: 926px
             .side-bar
-                width: 20%
+                width: 28%
                 max-width: 260px
                 display: flex
                 flex-direction: column
@@ -89,6 +91,7 @@ $color-text-post-content: gray
             background: #312d3c
             color: gray
             width: 100%
+            height: 160px
             &:focus
                 outline: none
                 border: 2px solid $color-main
@@ -129,7 +132,7 @@ $color-text-post-content: gray
                 padding-left: 80px
 .side-bar
     .sort-form
-        width: 200px
+        width: 80%
         margin: 24px 0 0 0
         height: 32px
         padding: 8px
@@ -149,7 +152,7 @@ $color-text-post-content: gray
     .collections
     .hashtag
     .btn-search
-        color: black
+        color: $color-main
         width: 40px
         border: none
         font-size: 24px

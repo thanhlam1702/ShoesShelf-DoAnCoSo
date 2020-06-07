@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../assets/css/header-footer-style.css">
     <link rel="stylesheet" href="../assets/css/responsive-header-footer.css">
     <link rel="stylesheet" href="../assets/css/account-setting.css">
+    <link rel="stylesheet" href="../assets/css/responsive-account-setting.css">
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
     <script src="https://apis.google.com/js/api:client.js"></script>
     <title>Account Setting</title>
@@ -168,24 +169,18 @@
                         <h1>Personal information</h1>
                         <hr>
                         <div class="form-group">
-                            <div class="col-form-label">
-                                Email login:
-                            </div>
+                            <div class="col-form-label">Email login:</div>
                             <input type="text" value="<%= user.email %>" name="email" id="user-email" readonly
                                 class="form-control user-email">
                         </div>
                         <div class="form-group">
-                            <div class="col-form-label">
-                                Full-name:
-                            </div>
+                            <div class="col-form-label">Full-name:</div>
                             <input type="text" value="<%= user.name %>" name="name" id="user-name"
                                 class="form-control user-name">
                         </div>
                         <div class="form-group">
-                            <div class="col-form-label">
-                                Gender:
-                            </div>
-                            <div class="container-check-gender">
+                            <div class="col-form-label">Gender:</div>
+                            <div class="container-check-gender" >
                                 <ul>
                                     <li>
                                         <input type="radio" id="gender-male" value="Male" name="selector">
@@ -197,7 +192,6 @@
                                         <input type="radio" id="gender-female" value="Female" name="selector">
                                         <label for="gender-female" class="layer-check">Female</label>
                                         <div class="check">
-                                            <div class="inside"></div>
                                         </div>
                                     </li>
 
@@ -205,10 +199,24 @@
                                         <input type="radio" id="gender-lgbt" value="LGBT" name="selector">
                                         <label for="gender-lgbt" class="layer-check">LGBT</label>
                                         <div class="check">
-                                            <div class="inside"></div>
                                         </div>
                                     </li>
                                 </ul>
+                                <script>
+                                    const male = document.getElementById('gender-male');
+                                    const female = document.getElementById('gender-female');
+                                    const LGBT = document.getElementById('gender-lgbt');
+                                    var gender = '<%= user.gender%>';
+                                    if(gender == 'Male'){
+                                        male.checked = true;
+                                    }
+                                    else if(gender == 'Female'){
+                                        female.checked = true;
+                                    }
+                                    else if(gender =='LGBT'){
+                                        LGBT.checked = true;
+                                    }
+                                </script>
                             </div>
                         </div>
                         <!-- <div class="form-group">
@@ -218,16 +226,12 @@
                             <input type="date" value id="date-of-birth" class="form-control date-of-birth">
                         </div> -->
                         <div class="form-group">
-                            <div class="col-form-label">
-                                Country:
-                            </div>
+                            <div class="col-form-label">Country:</div>
                             <input type="text" value="<%- user.country %>" name="country" id="user-country"
                                 class="form-control user-country">
                         </div>
                         <div class="form-group" style="display: none;">
-                            <div class="col-form-label">
-                                password:
-                            </div>
+                            <div class="col-form-label">Password:</div>
                             <input type="text" value="<%-user.password%>" id="full-name" name="password"
                                 class="form-control full-name">
                         </div>
@@ -241,15 +245,11 @@
                         <hr>
                         <form action="/account-password" method="POST">
                             <div class="form-group">
-                                <div class="col-form-label">
-                                    New password:
-                                </div>
+                                <div class="col-form-label">New password:</div>
                                 <input type="password" name="password" id="new-password" class="form-control" required>
                             </div>
                             <div class="form-group" onchange="matchpass();">
-                                <div class="col-form-label">
-                                    Enter new password:
-                                </div>
+                                <div class="col-form-label">Enter new password:</div>
                                 <input type="password" name="password2" value id="enter-new-password"
                                     class="form-control" required>
                             </div>
