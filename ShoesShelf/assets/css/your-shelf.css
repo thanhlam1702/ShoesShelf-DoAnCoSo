@@ -198,6 +198,7 @@
   height: auto;
   cursor: pointer;
   margin: 0 0 2% 3.6%;
+  position: relative;
   background-color: rgba(32, 28, 41, 0.75);
 }
 
@@ -227,4 +228,38 @@
 
 .user-your-shelf .card-container-content .card-short-content {
   overflow: hidden;
+}
+
+.user-your-shelf .more-edit-post {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+
+.user-your-shelf .more-edit-post .btn-more {
+  font-size: 24px;
+}
+
+.user-your-shelf .more-edit-post .more-menu {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  height: 120px;
+  width: 120px;
+  right: 0;
+  padding: 8px;
+  border-radius: 4px;
+  z-index: 14;
+}
+
+.user-your-shelf .more-edit-post .more-menu-item {
+  margin-top: 16px;
+}
+
+.user-your-shelf .more-edit-post .more-menu-item span {
+  margin-left: 8px;
+}
+
+.user-your-shelf .more-edit-post .active {
+  display: block !important;
 }

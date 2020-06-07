@@ -7,7 +7,7 @@
 
 function reviewChangeAvatar() {
     const changeAvatar = document.getElementById('change-avatar');
-    const containUserAvatar = document.getElementById('user-avatar');
+    const containUserAvatar = document.getElementsByClassName('user-avatar')[1];
     const imgChange = document.getElementById('img-upload');
     const containUploadAvatar = document.getElementById('form-upload-avatar');
     const btnSaveChange = document.getElementsByClassName('btn-save-change-avatar');

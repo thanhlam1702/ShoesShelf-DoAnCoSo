@@ -15,6 +15,7 @@
         height: auto
         cursor: pointer
         margin: 0 0 2% 3.6%
+        position: relative
         background-color: rgba(32,28,41,.75)
     .card-container-img
         width: 100%
@@ -38,3 +39,25 @@
         -webkit-line-clamp: 2
         .card-short-content
             overflow: hidden
+    .more-edit-post
+        position: absolute
+        right: 8px
+        top: 8px
+        .btn-more
+            font-size: 24px
+        .more-menu
+            display: none
+            position: absolute
+            background-color: #ffffff
+            height: 120px
+            width: 120px
+            right: 0
+            padding: 8px
+            border-radius: 4px
+            z-index: 14
+            &-item
+                margin-top: 16px
+                span
+                    margin-left: 8px
+        .active
+            display: block !important

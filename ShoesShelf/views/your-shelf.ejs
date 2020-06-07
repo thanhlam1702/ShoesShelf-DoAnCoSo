@@ -156,6 +156,22 @@
                                             <%- post.status %>
                                         </div>
                                     </div>
+                                    <div class="more-edit-post">
+                                        <div class="btn-more" onclick="showMenuMore('<%= post.id%>')">
+                                            <i class="fas fa-ellipsis-v"></i>
+                                        </div>
+                                        
+                                        <ul class="more-menu" id="<%= post.id%>">
+                                            <li class="more-menu-item">
+                                                <i class="fas fa-edit"></i>
+                                                <span>Edit</span>
+                                            </li>
+                                            <li class="more-menu-item">
+                                                <i class="fas fa-trash"></i>
+                                                <span>Delete</span>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                             <%}%>
                         <% }) %>
@@ -210,6 +226,12 @@
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
     <script src="./assets/js/load-login-fb-gg.js"></script>
     <div id="status"></div>
+    <script>
+        function showMenuMore(id){
+            const menu = document.getElementById(`${id}`);
+            menu.style.display == '' ? menu.style.display = 'block' : menu.style.display = '';
+        }
+    </script>                                   
 </body>
 
 </html>

@@ -1,0 +1,159 @@
+@media screen and (max-width: 575.98px) {
+  .content {
+    padding: 0 !important;
+    margin-top: 56px !important;
+  }
+  .content .post-title {
+    margin-top: 16px !important;
+  }
+  .content .post-title .title {
+    font-size: 24px !important;
+  }
+  .content .post-status {
+    margin-top: 16px !important;
+  }
+  .content .post-status .user-img {
+    height: 32px !important;
+    width: 32px !important;
+  }
+  .content .post-status .user-name, .content .post-status .post-time {
+    font-size: 12px !important;
+  }
+  .post-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-top: 0 !important;
+  }
+  .post-container .side-bar {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+    width: 100% !important;
+    margin: auto;
+  }
+  .post-container .side-bar .sort-form {
+    margin-top: 8px !important;
+  }
+  .post-container .side-bar .btn-search {
+    font-size: 18px !important;
+  }
+  .post-container .post-container-content {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+    width: 100% !important;
+    margin-top: 16px !important;
+    padding: 16px !important;
+  }
+  .post-container .post-container-content .post-content {
+    font-size: 14px !important;
+  }
+  .post-container .post-container-content .post-content .img-normal {
+    width: 80% !important;
+  }
+  .post-branch-hashtag {
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: flex-start !important;
+  }
+  .post-branch-hashtag .hashtag {
+    font-size: 14px !important;
+  }
+  .box-comment {
+    height: 120px !important;
+    padding: 14px !important;
+  }
+  .box-comment:focus {
+    border: 1px solid #ffa502 !important;
+  }
+  .btn-comment {
+    height: 24px !important;
+    width: 72px !important;
+    margin-top: 16px !important;
+    font-size: 12px !important;
+  }
+  .comment-list {
+    padding: 14px !important;
+  }
+  .comment-list .comment-author {
+    padding: 8px !important;
+  }
+  .comment-list .user-img {
+    height: 24px !important;
+    width: 24px !important;
+  }
+  .comment-list .user-name, .comment-list .comment-time {
+    font-size: 12px !important;
+  }
+  .comment-list .comment-body {
+    font-size: 12px !important;
+    margin-top: 14px !important;
+    padding-left: 14px !important;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+  .content {
+    padding: 14px !important;
+    margin-top: 56px !important;
+  }
+  .content .post-title {
+    margin-top: 24px !important;
+  }
+  .content .post-title .title {
+    font-size: 24px !important;
+  }
+  .content .post-status {
+    margin-top: 16px !important;
+  }
+  .content .post-status .user-img {
+    height: 32px !important;
+    width: 32px !important;
+  }
+  .content .post-status .user-name, .content .post-status .post-time {
+    font-size: 12px !important;
+  }
+  .side-bar {
+    width: 26% !important;
+  }
+  .side-bar .sort-form {
+    width: 88% !important;
+  }
+  .side-bar .btn-search {
+    font-size: 18px !important;
+  }
+  .post-branch-hashtag {
+    -webkit-box-pack: start !important;
+        -ms-flex-pack: start !important;
+            justify-content: flex-start !important;
+  }
+  .post-branch-hashtag .hashtag {
+    font-size: 16px !important;
+  }
+  .btn-comment {
+    height: 28px !important;
+    width: 80px !important;
+    margin-top: 16px !important;
+    font-size: 12px !important;
+  }
+  .comment-list {
+    padding: 14px !important;
+  }
+  .comment-list .comment-author {
+    padding: 8px !important;
+  }
+  .comment-list .user-img {
+    height: 24px !important;
+    width: 24px !important;
+  }
+  .comment-list .user-name, .comment-list .comment-time {
+    font-size: 14px !important;
+  }
+  .comment-list .comment-body {
+    font-size: 14px !important;
+    margin-top: 14px !important;
+    padding-left: 14px !important;
+  }
+}
