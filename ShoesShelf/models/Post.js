@@ -31,6 +31,9 @@ const PostSchema = new mongoose.Schema({
         type: String,
     },
     id_post: {
+        type: String,
+    },
+    user_name:{
         type: String
     }
 

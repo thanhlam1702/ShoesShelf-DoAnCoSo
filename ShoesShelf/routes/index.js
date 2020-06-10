@@ -27,6 +27,12 @@ router.post('/posts/id', function (req, res, next) {
     res.redirect('/posts/' + id);
 
 });
+router.post('/update/id', function (req, res, next) {
+    res.cookie('idpost', req.body.id)
+    var id = req.body.id;
+    res.redirect('/update/' + id);
+
+});
 router.get('/login',(req,res,next) => {
     const errors = req.flash().error ;
     res.render('login',{ errors});
@@ -86,7 +92,7 @@ router.post('/register', upload.single('avatar'), (req, res) => {
 
 });
 router.post('/upload', upload.array('image', 20), (req, res) => {
-    const { status, brands, hashtag, collections, image, id_post, title, email_post } = req.body;
+    const { status, brands, hashtag, collections, image, id_post, title, email_post, user_name } = req.body;
     const newPost = new Post({
         title,
         status,
@@ -95,7 +101,8 @@ router.post('/upload', upload.array('image', 20), (req, res) => {
         collections,
         image,
         id_post: req.body.txtIdpost,
-        email_post: req.body.txtEmailpost
+        email_post: req.body.txtEmailpost,
+        user_name: req.body.txtUser
     });
     if (req.files) {
         var fineinfo = req.files

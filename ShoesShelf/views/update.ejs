@@ -137,14 +137,78 @@
                     </ul>
                 </div>
                 <!-- manager shoes of user -->
-                <div class="user-manager-shoes" id="user-manager-shoes">
-                    <!-- user update -->
-                    <div class="user-update" id="user-update">
-
+                <% posts.forEach(function (post) { %>
+                    <% if ( idpost == null) { %>
+                        <p class="img-post">No img</p>
+                    <% } else { %>
+                    <%if(idpost == post._id ){%>
+                    <div class="user-manager-shoes" id="user-manager-shoes">
+                        <!-- user update -->
+                        <div class="user-update" id="user-update">
+                            <form method="POST" action="upload" enctype="multipart/form-data">
+                                <div class="container-upload-img">
+                                    <!-- where img alter upload showup review -->
+                                    <div class="review-img-upload" id="review-img-upload">
+                                        <% for(var i=0 ; i < post.image.length ; i++) {%>
+                                            <div class="contain-img" id="<%= i+1 %>">
+                                                <img src="/assets/images/userPost/<%= post.image[i].filename %>" class="img-upload">
+                                                <i class="fas fa-times-circle btn-delete-choose-img" onclick="closeImg('<%= i+1 %>')"></i>
+                                            </div> -->
+                                        <%}%>
+                                        <label for="upload-img" class="btn-upload-img">+</label>
+                                    </div>
+                                    <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
+                                    <input type="file" name="image" accept="image/*" id="upload-img"
+                                        onchange="uploadImages()" multiple>
+                                </div>
+                                <div class="container-title-posts">
+                                    <textarea name="title" id="" class="txt-title" required
+                                        placeholder="Title of post..."></textarea>
+                                </div>
+                                <div class="container-editor">
+                                    <!-- <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea> -->
+                                    <form action="" method="post">
+                                        <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea>
+                                </div>
+                                <script>
+                                    CKEDITOR.replace('share-exp');
+                                    // CKEDITOR.config.width = '900px';
+                                    // CKEDITOR.config.height = '300px';
+                                    CKEDITOR.config.width = '100%';
+                                    CKEDITOR.config.height = '140px';
+                                    var editor = CKEDITOR.instances['share-exp'];
+                                    editor.setData(`<%- post.status %>`);
+                                    // editor.setData(`${data.toString()}`);
+                                    
+                                </script>
+                                <div class="container-choose-more">
+                                    <select name="brands" class="brands" id="brands">
+                                        <option selected hidden style="font-weight: bold;">Brands</option>
+                                        <option value="vans">Vans</option>
+                                        <option value="adidas">Adidas</option>
+                                        <option value="nike">Nike</option>
+                                        <option value="reebok">Reebok</option>
+                                        <option value="converse">Converse</option>
+                                        <option value="puma">Puma</option>
+                                        <option value="orther">Orther</option>
+                                    </select>
+                                    <input type="text" name="collections" placeholder="Collections" class="collections">
+                                    <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag">
+                                    <input type='text' name='txtIdpost' value="" class="txtIdPost">
+                                    <input type='text' name='txtEmailpost' value="" class="txtIdPost">
+                                </div>
+                                <div class="container-btn-post">
+                                    <button class="btn-post-status">Post</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </div>
+                    <%}%>
+                <%}%>
+                <% }) %>
             </div>
         </div>
+        
         <footer>
             <div class="footer-container">
                 <div class="left-col">
@@ -185,13 +249,16 @@
             return nam.split(",")[0];
         }
     </script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="../assets/js/header-footer.js"></script>
     <script src="../assets/js/your-shelf.js"></script>
+    
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
     <script src="../assets/js/api-gg-fb-login.js"></script>
     <div id="status"></div>
+    
 </body>
 
 </html>
