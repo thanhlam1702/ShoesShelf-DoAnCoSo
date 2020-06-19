@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
-        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/header-footer-style.css">
     <link rel="stylesheet" href="./assets/css/your-shelf.css">
     <script src="./assets/css/ckeditor/ckeditor.js"></script>
     <script src="https://apis.google.com/js/api:client.js"></script>
 
-    <title><%= name %> Shelf</title>
+    <title>
+        <%= name %>'s Shelf</title>
 </head>
 
 <body>
@@ -59,7 +59,9 @@
                                 <ul class="user-menu" id="user-menu" style="display: none;">
                                     <li class="user-menu-item">
                                         <div class="user-name-container">
-                                            <p id="user-name" class="user-name"><%= name %></p>
+                                            <p id="user-name" class="user-name">
+                                                <%= name %>
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
@@ -88,20 +90,18 @@
                         <img src="/assets/images/userPost/<%= avatar %>" id="user-img" class="user-img">
                     </div>
                     <div class="user-name-container">
-                        <p id="user-name" class="user-name"> <%= name %> </p>
+                        <p id="user-name" class="user-name">
+                            <%= name %>
+                        </p>
                     </div>
                 </div>
                 <!-- menu navbar user -->
                 <div class="user-navbar">
                     <ul class="user-menu">
-                        <li class="sub-menu"><a href="#my-shelf" class="menu-item" id="btn-your-shelf"
-                                onclick="chooseContentShoes().contentYourShelf()">My Shelf</a></li>
-                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes"
-                                onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
-                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update"
-                                onclick="chooseContentShoes().contentUserUpdate()">Update</a></li>
-                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" id="btn-wanna-rock"
-                                onclick="chooseContentShoes().contentWannaRock()">Wanna Rock</a></li>
+                        <li class="sub-menu"><a href="#my-shelf" class="menu-item" id="btn-your-shelf" onclick="chooseContentShoes().contentYourShelf()">My Shelf</a></li>
+                        <li class="sub-menu"><a href="#new-shoes" class="menu-item" id="btn-new-shoes" onclick="chooseContentShoes().contentNewShoes()">New Shoes</a></li>
+                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update" onclick="chooseContentShoes().contentUserUpdate()">Update</a></li>
+                        <li class="sub-menu"><a href="#wanna-rock" class="menu-item" id="btn-wanna-rock" onclick="chooseContentShoes().contentWannaRock()">Wanna Rock</a></li>
                     </ul>
                 </div>
                 <!-- manager shoes of user -->
@@ -109,27 +109,27 @@
                     <!-- content your shelf -->
                     <ul class="user-your-shelf" id="user-your-shelf">
                         <!-- card of images, short content of a post -->
-                        <% posts.forEach(function (post) { %> 
+                        <% posts.forEach(function (post) { %>
                             <%if(id == post.id_post){%>
-                            <li class="cards-posts">
-                                <div class="card-container-img">
-                                <% for(var i=0 ; i< 1 ; i++) {%>
-                                    <img src="/assets/images/userPost/<%= post.image[0].filename %>"  alt="" class="card-img">
-                                    <%}%>
-                                </div>
-                                <div class="card-container-content">
-                                    <div class="card-short-content">
-                                        <%- post.status %>
+                                <li class="cards-posts">
+                                    <div class="card-container-img">
+                                        <% for(var i=0 ; i< 1 ; i++) {%>
+                                            <img src="/assets/images/userPost/<%= post.image[0].filename %>" alt="" class="card-img">
+                                            <%}%>
                                     </div>
-                                </div>
-                            </li>
-                            <%}%>
-                        <% }) %>
+                                    <div class="card-container-content">
+                                        <div class="card-short-content">
+                                            <%- post.status %>
+                                        </div>
+                                    </div>
+                                </li>
+                                <%}%>
+                                    <% }) %>
                     </ul>
                     <!-- user new shoes -->
                     <div class="user-new-shoes" id="user-new-shoes">
                         <!-- form contain button upload image -->
-                        <form method="POST" action="upload" enctype="multipart/form-data" >
+                        <form method="POST" action="upload" enctype="multipart/form-data">
                             <div class="container-upload-img">
                                 <!-- where img alter upload showup review -->
                                 <div class="review-img-upload" id="review-img-upload">
@@ -137,8 +137,7 @@
                                     <label for="upload-img" class="btn-upload-img">+</label>
                                 </div>
                                 <span class="title-upload-img" id="title-upload-img">Show us what you have...</span>
-                                <input type="file" name="image" accept="image/*" id="upload-img" onchange="uploadImages()"
-                                    multiple>
+                                <input type="file" name="image" accept="image/*" id="upload-img" onchange="uploadImages()" multiple>
                             </div>
                             <div class="container-editor">
                                 <!-- <textarea name="status" id="share-exp" placeholder="Your experiences..."></textarea> -->
@@ -158,12 +157,12 @@
                                 </select>
                                 <input type="text" name="collections" placeholder="Collections" class="collections">
                                 <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag">
-                                <input type='text' name='txtIdpost' value="<%-id%>"  class="txtIdPost">
+                                <input type='text' name='txtIdpost' value="<%-id%>" class="txtIdPost">
                             </div>
                             <div class="container-btn-post">
                                 <button class="btn-post-status">Post</button>
                             </div>
-                        </form>
+                            </form>
                     </div>
                     <!-- user update -->
                     <div class="user-update" id="user-update">
