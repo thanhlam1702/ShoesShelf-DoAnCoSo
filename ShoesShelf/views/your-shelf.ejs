@@ -160,15 +160,22 @@
                                         <div class="btn-more" onclick="showMenuMore('<%= post.id%>')">
                                             <i class="fas fa-ellipsis-v"></i>
                                         </div>
-                                        
                                         <ul class="more-menu" id="<%= post.id%>">
                                             <li class="more-menu-item">
-                                                <i class="fas fa-edit"></i>
-                                                <span>Edit</span>
+                                                <form action="/update/id" method="POST">
+                                                    <button value="<%= post._id %>" id="<%= post._id %>" name="id" type="submit">
+                                                        <i class="fas fa-edit"></i> 
+                                                        <span>Edit</span>
+                                                    </button>
+                                                </form>
                                             </li>
                                             <li class="more-menu-item">
-                                                <i class="fas fa-trash"></i>
-                                                <span>Delete</span>
+                                                <form action="user/<%= post.id %>" method="GET">
+                                                    <button type="submit">
+                                                        <i class="fas fa-trash"></i> 
+                                                        <span>Delete</span>
+                                                    </button>
+                                                </form>
                                             </li>
                                         </ul>
                                     </div>

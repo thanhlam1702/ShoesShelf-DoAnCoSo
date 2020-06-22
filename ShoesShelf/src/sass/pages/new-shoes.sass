@@ -13,12 +13,23 @@
         display: flex
         flex-flow: row wrap //flex-decoration and flex-wrap
         align-items: center
-        .img-upload
-            box-shadow: 4px 4px 16px 0 rgba(0,0,0,1)
-            max-height: 200px
+        .contain-img
+            position: relative
+            z-index: 2
             margin:
                 right: 16px
                 bottom: 16px
+            box-shadow: 4px 4px 16px 0 rgba(0,0,0,1)
+        .img-upload
+            max-height: 200px
+        .btn-delete-choose-img
+            position: absolute
+            top: 5px
+            right: 5px
+            color: #fff
+            cursor: pointer
+            z-index: 7
+            
 //form contain button upload image
 form
     //container contain button upload file 

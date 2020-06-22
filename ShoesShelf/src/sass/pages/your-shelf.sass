@@ -39,25 +39,43 @@
         -webkit-line-clamp: 2
         .card-short-content
             overflow: hidden
-    .more-edit-post
+.more-edit-post
+    position: absolute
+    right: 8px
+    top: 8px
+    .btn-more
+        font-size: 24px
+    .more-menu
+        display: none
         position: absolute
-        right: 8px
-        top: 8px
-        .btn-more
-            font-size: 24px
-        .more-menu
-            display: none
-            position: absolute
-            background-color: #ffffff
-            height: 120px
-            width: 120px
-            right: 0
-            padding: 8px
-            border-radius: 4px
-            z-index: 14
-            &-item
-                margin-top: 16px
-                span
-                    margin-left: 8px
-        .active
-            display: block !important
+        background-color: #ffffff
+        height: 120px
+        width: 120px
+        right: 0
+        padding: 8px
+        border-radius: 4px
+        z-index: 14
+        box-shadow: 4px 4px 16px 0 gray
+        &-item
+            margin-top: 16px
+            margin-left: 12px
+            position: relative
+            button
+                background: none
+                border: none
+                outline: none
+                font-size: 16px
+            &::before
+                content: ""
+                display: block
+                width: 0
+                position: absolute
+                height: 1px
+                transition: all 0.2s ease-in-out
+                background-color: #000
+                left: 0
+                bottom: -2px
+            &:hover::before
+                width: 100%
+    .active
+        display: block !important

@@ -230,17 +230,17 @@
   overflow: hidden;
 }
 
-.user-your-shelf .more-edit-post {
+.more-edit-post {
   position: absolute;
   right: 8px;
   top: 8px;
 }
 
-.user-your-shelf .more-edit-post .btn-more {
+.more-edit-post .btn-more {
   font-size: 24px;
 }
 
-.user-your-shelf .more-edit-post .more-menu {
+.more-edit-post .more-menu {
   display: none;
   position: absolute;
   background-color: #ffffff;
@@ -250,16 +250,40 @@
   padding: 8px;
   border-radius: 4px;
   z-index: 14;
+  -webkit-box-shadow: 4px 4px 16px 0 gray;
+          box-shadow: 4px 4px 16px 0 gray;
 }
 
-.user-your-shelf .more-edit-post .more-menu-item {
+.more-edit-post .more-menu-item {
   margin-top: 16px;
+  margin-left: 12px;
+  position: relative;
 }
 
-.user-your-shelf .more-edit-post .more-menu-item span {
-  margin-left: 8px;
+.more-edit-post .more-menu-item button {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 16px;
 }
 
-.user-your-shelf .more-edit-post .active {
+.more-edit-post .more-menu-item::before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  height: 1px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background-color: #000;
+  left: 0;
+  bottom: -2px;
+}
+
+.more-edit-post .more-menu-item:hover::before {
+  width: 100%;
+}
+
+.more-edit-post .active {
   display: block !important;
 }

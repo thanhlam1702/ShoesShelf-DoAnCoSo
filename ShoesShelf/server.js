@@ -294,6 +294,18 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
         res.redirect('/admin')
         
     })
+    app.get('/user/:id',function (req,res) {
+        Post.findByIdAndDelete(req.params.id,function(err,data){
+                if(err){
+                    res.json({kq:0})
+                }else{
+                    res.redirect("/your-shelf")
+                }
+        })
+
+      })
+        
+
     
     app.get("/" ,(req,res) => {
         if (req.query.search) {     
@@ -336,6 +348,16 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
         res.redirect('/manager-account')
         
     })
+    app.get('/update/:id',auth.requireAuth,function(req,res,next){
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('update',{output:req.params.id,posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,idpost:req.cookies.idpost });
+            }
+
+        })
+    });
     
 });
 

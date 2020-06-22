@@ -199,12 +199,26 @@
           align-items: center;
 }
 
-.user-manager-shoes .review-img-upload .img-upload {
-  -webkit-box-shadow: 4px 4px 16px 0 black;
-          box-shadow: 4px 4px 16px 0 black;
-  max-height: 200px;
+.user-manager-shoes .review-img-upload .contain-img {
+  position: relative;
+  z-index: 2;
   margin-right: 16px;
   margin-bottom: 16px;
+  -webkit-box-shadow: 4px 4px 16px 0 black;
+          box-shadow: 4px 4px 16px 0 black;
+}
+
+.user-manager-shoes .review-img-upload .img-upload {
+  max-height: 200px;
+}
+
+.user-manager-shoes .review-img-upload .btn-delete-choose-img {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 7;
 }
 
 form .container-upload-img {
