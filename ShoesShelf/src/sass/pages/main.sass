@@ -1,23 +1,24 @@
 $color-main: #ffa502
 
-
 .main-content
     flex-grow: 1
-    background-color: #3d3d3d
+    background-color: #181818
     height: auto
-    width: 1366px
+    width: 100%
+    max-width: 1366px
     // max-width: 1366px
     margin: auto
     display: flex
     padding: 24px 120px
     .sort-container
         width: 28%
+        float: right
         display: flex
         flex-direction: column
         align-items: center
     .list-posts
         height: auto
-        width: 100%
+        width: 72%
         display: flex
         flex-direction: column
         .post-container
@@ -27,18 +28,19 @@ $color-main: #ffa502
 .sort-container
     .sort-form
         width: 200px
-        margin: 24px 0 0 0
+        margin: 24px 30px 0 0
         height: 32px
         padding: 8px
         color: white
         outline: none
-        background: none
+        background: #181818
         border: none
             bottom: 1px solid $color-main
         &:focus
             outline: none
     .brands
-        color: black
+        color: white
+        font-size: 1rem
         option
             &:nth-of-type(1)
                 color: white
@@ -46,9 +48,16 @@ $color-main: #ffa502
     .hashtag
     .btn-search
         color: black
-        width: 40px
-        border: none
+        width: 80px
+        padding: 0
         font-size: 24px
+        margin-left: 20px
+        border: 1px solid $color-main
+        background-color: $color-main
+        cursor: pointer
+        height: 30px
+        border-radius: 20px
+        transition: opacity 0.3 linear
         &:hover
             color: white
 
@@ -69,7 +78,25 @@ $color-main: #ffa502
     top: 0
     font-style: initial
     cursor: pointer
-
+//slide animate
+#slider
+    height: auto
+    width: 56%
+    overflow: hidden
+    // max-width: 380px
+    .slides
+        // display: block
+        // width: 3000px
+        // height: auto
+        // margin: 0
+        // padding: 0
+        .slide
+            float: left
+            list-style-type: none
+            width: 100%
+            // max-width: 380px
+            height: auto
+            text-align: center
 //content main
 .post-container
     .posts
@@ -80,7 +107,7 @@ $color-main: #ffa502
         padding: 16px
         .post-avatar
             height: auto
-            width: 56%
+            width: 100%
             display: block
             margin: auto
         .post-title
@@ -153,4 +180,7 @@ $color-main: #ffa502
         .user-name, .post-time
             font-size: 16px
             color: $color-main
+            width: 50%
+        .post-time
+            text-align: end
         

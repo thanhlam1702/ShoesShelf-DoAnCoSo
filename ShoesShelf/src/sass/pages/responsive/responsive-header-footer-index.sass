@@ -1,0 +1,54 @@
+@media only screen and ( max-width: 767.98px )
+    .nav-bar
+        justify-content: space-between !important
+        .navbar-left
+            display: inline-block !important
+            width: 41% !important
+            .left-logo
+                width: 120px
+        .navbar-middle
+            margin-left: 24px
+        .navbar-right
+            display: none !important
+        .toggle-menu
+            margin-left: unset
+            margin-right: 24px
+    .sidebar-index
+        &.active
+            right: 0
+        .dismiss
+            position: absolute
+            right: 28px
+            top: 16px
+            font-size: 20px
+        .sidebar-menu
+            padding: 16px 32px
+            .menu-item
+                font-size: 20px
+                margin-top: 24px
+                a
+                    margin-left: 16px 
+                    color: black
+                    text-decoration: none
+            &:nth-of-type(1)
+                margin-top: 32px
+        .search-form
+            width: 100%
+            position: relative
+            height: 32px
+            input[type = 'text']
+                width: 100%
+                position: absolute
+                height: 32px
+                padding: 8px
+                border-radius: 8px
+                border: 1px solid black
+                &:focus
+                    outline: none
+            .btn-search
+                position: absolute
+                height: 32px
+                border-radius: 100%
+                border: none
+                background: none
+                right: 8px

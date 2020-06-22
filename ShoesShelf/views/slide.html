@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #slider {
+            width: 720px;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .slides {
+            display: block;
+            width: 6000px;
+            height: 400px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .slide {
+            float: left;
+            list-style-type: none;
+            width: 720px;
+            height: 400px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slider">
+        <ul class="slides">
+            <li class="slide"><img src="/assets/images/test1.jpg" alt=""></li>
+            <li class="slide"><img src="/assets/images/test2.jpg" alt=""></li>
+            <li class="slide"><img src="/assets/images/test3.jpg" alt=""></li>
+            <li class="slide"><img src="/assets/images/test4.jpg" alt=""></li>
+            <li class="slide"><img src="/assets/images/test1.jpg" alt=""></li>
+        </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            var animateSpeed = 1000;
+            var width = 720;
+            var slides = document.getElementsByClassName('slide');
+            var currentSlide = 1;
+
+
+            setInterval(function () {
+                $('#slider .slides').animate({ 'margin-left': '-=' + width }, animateSpeed, function () {
+                    currentSlide++;
+                    if (currentSlide === slides.length) {
+                        currentSlide = 1;
+                        $('#slider .slides').css('margin-left', 0);
+                    }
+                });
+            }, 3000);
+        });
+    </script>
+</body>
+
+</html>

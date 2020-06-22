@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/styles.css?v=12042020">
-    <link rel="stylesheet" href="/assets/css/styles.min.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/styles.css?v=12042020">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/responsive-header-footer.css">
+    <link rel="stylesheet" href="../assets//css/responsive-header-footer-index.css">
+    <link rel="stylesheet" href="../assets/css/responsive-main.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
     <title>Shoes Shelf</title>
 </head>
@@ -52,10 +55,10 @@
                                     <a href="/about.html" class="menu-item">About Us</a>
                                 </li>
                                 <li class="right-sub-menu hidden">
-                                    <a href="users/login" id="btn-sign-in" class="menu-item">Login</a>
+                                    <a href="/login" id="btn-sign-in" class="menu-item">Login</a>
                                 </li>
                                 <li class="right-sub-menu hidden">
-                                    <a href="users/register" id="btn-sign-up" class="menu-item">Register</a>
+                                    <a href="/register" id="btn-sign-up" class="menu-item">Register</a>
                                 </li>
                                 <li class="right-sub-menu hidden">
                                     <a class="hidden-show-up-menu close-menu menu-item" title="Close menu">
@@ -65,21 +68,24 @@
                             </ul>
                         </div>
                         <div class="right-search">
-                            <form action="" class="search-form">
-                                <input type="text" name="search" placeholder="Search anything you want...">
-                                <button class="btn-search">
+                            <form action="/search-status-index"  method="GET" class="search-form">
+                                <input type="text" name="search" id="status" placeholder="Search anything you want...">
+                                <button class="btn-search" type="submit" value="Search">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </form>
                         </div>
                     </div>
+                    <div class="toggle-menu" id="btn-menu">
+                        <i class="fas fa-bars" ></i>
+                    </div>
                     <!--Navbar right after sign in-->
                     <div class="navbar-right-user" id="navbar-right-user">
                         <!--search-->
                         <div class="right-search">
-                            <form action="" class="search-form">
-                                <input type="text" name="search" placeholder="Search anything you want...">
-                                <button class="btn-search">
+                            <form action="/search-status-index"  method="GET" class="search-form">
+                                <input type="text" name="search" id="status" placeholder="Search anything you want...">
+                                <button class="btn-search" type="submit" value="Search">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </form>
@@ -95,7 +101,7 @@
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
-                                        <a href="my-shelf-fbgg">My Shelf</a>
+                                        <a href="your-shelf">My Shelf</a>
                                     </li>
                                     <li class="user-menu-item">
                                         <a href="account-setting">Account setting</a>
@@ -111,6 +117,38 @@
                         </div>
                     </div>
                 </div>
+                <div class="sidebar-index" id="sidebar-index">
+                    <div class="dismiss" id="dismiss">
+                        <i class="fas fa-times btn-close-sidebar"></i>
+                    </div>
+                    <ul class="sidebar-menu" id="sidebar-menu">
+                        <li class="menu-item"">
+                            <form action="/search-status"  method="GET" class="search-form">
+                                <input type="text" name="search" id="status" placeholder="Search anything you want...">
+                                <button class="btn-search" type="submit" value="Search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                        </li>
+                        <li class="menu-item"">
+                            <i class="fa fa-home"></i>
+                            <a href="" >Home</a>
+                        </li>
+                        <li class="menu-item"">
+                            <i class="fas fa-address-card"></i>
+                            <a href="./about.html">About us</a>
+                        </li>
+                        <li class="menu-item"">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <a href="/login" style="margin-left: 20px;">Login</a>
+                        </li>
+                        <li class="menu-item"">
+                            <i class="fas fa-user-plus"></i>
+                            <a href="/register">Register</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="overlay"></div>
             </nav>
             <div class="banner">
                 <video class="banner-video" autoplay loop muted>
@@ -124,26 +162,35 @@
                 <% posts.forEach(function (post) { %>
                     <div class="post-container">
                         <div class="posts">
-                            <% for(var i=0 ; i< 1 ; i++) {%>
-                            <img src="/assets/images/userPost/<%= post.image[0].filename %>" class="post-avatar"></img>
-                            <%}%>
+                            <div id="slider">
+                                <ul class="slides">
+                                    <li class="slide"><img src="/assets/images/userPost/<%= post.image[0].filename %>" class="post-avatar"></img>
+                                    </li>
+                                </ul>
+                            </div>
                             <div class="post-title">
-                                <div class="post-content" ><%- post.status %></div>
-                                <div class="post-hash-tag"><%= post.hashtag %></div>
+                                <div class="post-content">
+                                    <%- post.status %>
+                                </div>
+                                <div class="post-hash-tag">
+                                    <%= post.hashtag %>
+                                </div>
                                 <form action="/posts/id" method="POST">
-                                    <input value="<%= post._id %>" id="btn-read-more" name="id" type="submit" style="display: none;" >
+                                    <input value="<%= post._id %>" id="<%= post._id %>" name="id" type="submit" style="display: none;">
                                     <!-- <a href="#id-post" class="read-more">Read more...</a> -->
-                                    <label for="btn-read-more" class="read-more">Read more...</label>
+                                    <label for="<%= post._id %>" class="read-more">Read more...</label>
                                 </form>
                             </div>
                         </div>
                         <div class="status">
                             <p class="user-name"></p>
-                            <p class="post-time"><%= post.date %></p>
+                            <p class="post-time">
+                                <%= post.date %>
+                            </p>
                         </div>
                     </div>
-                <% }) %>
-                <div class="post-container">
+                    <% }) %>
+                        <!-- <div class="post-container">
                     <div class="posts">
                         <img src="/assets/images/img360/2DC_3631.jpg" class="post-avatar"></img>
                         <div class="post-title">
@@ -157,59 +204,54 @@
                         <p class="user-name"></p>
                         <p class="post-time">3 minuter ago</p>
                     </div>
-                </div>
+                </div> -->
             </div>
-            <div class="sort-container">
-                <form action="/" method="GET" class="">
-                    <div class="sort-container">
-                        <select name="search" class="brands sort-form" id="brands">
-                            <option selected hidden style="font-weight: bold;">Brands</option>
-                            <option value="vans">Vans</option>
-                            <option value="adidas">Adidas</option>
-                            <option value="nike">Nike</option>
-                            <option value="reebok">Reebok</option>
-                            <option value="converse">Converse</option>
-                            <option value="puma">Puma</option>
-                            <option value="orther">Orther</option>
-                        </select>
-                        <button class="btn-search sort-form" type="submit" >
-                            <i class="fas fa-search" ></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
+            <form action="/" method="GET" class="sort-container">
+                <select name="search" class="brands sort-form" id="brands">
+                    <option selected hidden style="font-weight: bold;">Brands</option>
+                    <option value="vans">Vans</option>
+                    <option value="adidas">Adidas</option>
+                    <option value="nike">Nike</option>
+                    <option value="reebok">Reebok</option>
+                    <option value="converse">Converse</option>
+                    <option value="puma">Puma</option>
+                    <option value="other">Orther</option>
+                </select>
+                <input type="text" name="collections" placeholder="Collections" class="collections sort-form">
+                <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag sort-form">
+                <button class="btn-search sort-form" type="submit">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
         </div>
         <footer>
-        <div class="footer-container">
-            <div class="left-col">
-                <div class="social">
-                    <a href="/instagram" target="_blank" title="collective on Instagram">
-                        <i class="fab fa-instagram"> </i>
-                    </a>
-                    <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
-                        <i class="fab fa-facebook"> </i>
-                    </a>
-                    <a href="/pinterest" target="_blank" title="collective on Pinterest">
-                        <i class="fab fa-pinterest-p"> </i>
-                    </a>
-                    <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
-                        <i class="fab fa-youtube"> </i>
-                    </a>
+            <div class="footer-container">
+                <div class="left-col">
+                    <div class="social">
+                        <a href="/instagram" target="_blank" title="collective on Instagram">
+                            <i class="fab fa-instagram"> </i>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" title="collective on facebook">
+                            <i class="fab fa-facebook"> </i>
+                        </a>
+                        <a href="/pinterest" target="_blank" title="collective on Pinterest">
+                            <i class="fab fa-pinterest-p"> </i>
+                        </a>
+                        <a href="https://youtube.com/" target="_blank" title="Find us on Youtube">
+                            <i class="fab fa-youtube"> </i>
+                        </a>
+                    </div>
+                    <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
                 </div>
-                <p>© ShoesShelf 2020 | Created by N09-Team All Rights Reserved </p>
-            </div>
-
             <div class="right-col">
                 <h1>Our Newsletter</h1>
                 <div class="border"></div>
                 <p>Enter your emails to connect with us.</p>
                 <form action="" class="newsletter">
-                    <input type="text" class="txtb" placeholder="Enter Your Email">
+                    <input type="text" class="txtbox" placeholder="Enter Your Email">
                     <input type="submit" class="btn" value="Submit">
                 </form>
-
             </div>
-        </div>
         </footer>
     </div>
     <!--Script-->
@@ -221,7 +263,7 @@
     <script src="/assets/js/main.js"></script>
     <!--JS api login facebook and google-->
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
-    <script src="/assets/js/api-gg-fb-login.js"></script>
+    <script src="/assets/js/load-login-fb-gg.js"></script>
     <div id="status"></div>
 
 

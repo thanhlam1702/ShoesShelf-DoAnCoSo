@@ -6,7 +6,7 @@ initClient();
 function statusChangeCallback(response) { // Called with the results from FB.getLoginStatus().
     if (response.status === 'connected') { // Logged into your webpage and Facebook.
         statusLogin = 1;
-        showUpSignInComplete();
+        SignInComplete();
     }
 }
 
@@ -66,7 +66,8 @@ function initClient() {
 //login complete
 function onSuccess() {
     statusLogin = 0;
-    showUpSignInComplete();
+    // window.location = 'http://localhost:4444/main';
+    SignInComplete();
 };
 
 // Handle sign-in failures.
@@ -75,84 +76,8 @@ function onFailure() {
 };
 
 //show layout after user login complete
-function showUpSignInComplete() {
-    if(window.location.href == 'https://shoesshelf.com/' || window.location.href == 'http://localhost:4444/' || window.location.href == 'https://shoesshelf.com/about.html'){
-        document.getElementById('navbar-right-user').style.display = 'flex';
-        document.getElementById('left-menu').style.display = 'flex';
-    
-        document.getElementById('navbar-right').style.display = 'none';
-        document.getElementById('sign-in-modal').style.display = 'none';
-        document.getElementById('sign-up-modal').style.display = 'none';
-    }
-    showUser();
-
-}
-//show information user about avatar, name...
-function showUser() {
-    const userName = document.getElementsByClassName('user-name');
-    const userAvatar = document.getElementsByClassName('user-img');
-    const userEmail = document.getElementsByClassName('user-email');
-    if (statusLogin === 1) {
-        FB.api('/me?fields=name,picture.type(large),email', function (user_data) {
-            for (let i = 0; i < userName.length; i++) {
-                userName[i].value != undefined ? userName[i].value = user_data.name : userName[i].innerHTML = user_data.name;
-            }
-            for (let i = 0; i < userAvatar.length; i++) {
-                userAvatar[i].src = user_data.picture.data.url;
-            }
-            for (let i = 0; i < userEmail.length; i++) {
-                // userEmail[i].value != undefined ? userEmail[i].value = user_data.email : userEmail[i].innerHTML = user_data.email;
-                userEmail[i].value = user_data.email;
-            }
-        })
-    } else if (statusLogin === 0) {
-        var auth2 = gapi.auth2.getAuthInstance();
-        var name = auth2.currentUser.get().getBasicProfile().getName();
-        var email = auth2.currentUser.get().getBasicProfile().getEmail();
-        for (let i = 0; i < userName.length; i++) {
-            userName[i].value != undefined ? userName[i].value = name : userName[i].innerHTML = name;
-
-        }
-        for (let i = 0; i < userAvatar.length; i++) {
-            userAvatar[i].src = auth2.currentUser.get().getBasicProfile().getImageUrl();
-        }
-        for (let i = 0; i < userEmail.length; i++) {
-            userEmail[i].value != undefined ? userEmail[i].value = auth2.currentUser.get().getBasicProfile().getEmail() : userEmail[i].innerHTML = auth2.currentUser.get().getBasicProfile().getEmail()
-        }
-
-    } else {
-        console.log('no login');
-    }
-};
-
-//logout facebook and google
-function logout() {
-    if (statusLogin === 1) {
-        FB.logout(function (response) { })
-        logoutComplete();
-    } else if (statusLogin === 0) {
-        var auth2 = gapi.auth2.getAuthInstance();
-        auth2.signOut().then(function () { });
-        logoutComplete();
-    }
+function SignInComplete() {
+    window.location = 'http://localhost:4444';
 }
 
-function logoutComplete() {
-    if(window.location.href == 'https://shoesshelf.com/' || window.location.href == 'localhost:4444' || window.location.href == 'https://shoesshelf.com/about.html'){
-        document.getElementById('navbar-right-user').style.display = 'none';
-        document.getElementById('left-menu').style.display = 'none';
 
-        document.getElementById('navbar-right').style.display = 'flex';
-    }
-    console.log('Log out Complete');
-    window.location = "https://shoesshelf.com";
-    statusLogin = -1;
-}
-function changeLayout(){
-    document.getElementById('navbar-right-user').style.display = 'flex';
-    document.getElementById('left-menu').style.display = 'flex';
-
-    document.getElementById('navbar-right').style.display = 'none';
-    document.getElementById('sign-in-modal').style.display = 'none';
-    document.getElementById('sign-up-modal').style.display = 'none';
-}

@@ -9,13 +9,18 @@ const bodyParser =require("body-parser");
 const formidable = require('formidable');
 const upload = require('./middleware/upload');
 const cookieParser = require('cookie-parser');
+const methodOverride = require('method-override')
 var fs = require('fs');
+
+const fullTextSearch = require('fulltextsearch');
+var fullTextSearchVi = fullTextSearch.vi;
 
 
 var app = express();
 app.use(cookieParser('dasdasd'))
 app.use(bodyParser.urlencoded( {extended: true}));
 app.use(bodyParser.json());
+app.use(methodOverride('_method'))
 //Passport config
 require('./config/passport')(passport);
 
@@ -54,7 +59,7 @@ app.use((req, res, next) => {
 })
 // Routes
 app.use('/',require('./routes/index'));
-
+var au = require('./middleware/admin-auth')
 app.use('/users',require('./routes/users'));
 var auth =require('./middleware/auth');
 //static files
@@ -67,12 +72,68 @@ var MongoClient = require("mongodb").MongoClient;
 MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
     var test = client.db("test");
     console.log("DB connect");
+
+    app.post('/save',auth.requireAuth,function (req,res){
+        var _id = mongoose.mongo.ObjectId(req.cookies.idpost);
+        test.collection("users").updateOne(
+        { "email" : req.cookies.email },
+        { $push : { "post_save" : _id}},
+        )
+        res.redirect('/your-shelf')
+    })
+    app.get("/wanna-rock",auth.requireAuth,(req,res)=> {
+        users = User.aggregate([{
+            $lookup:{
+                from:"posts",
+                localField:"post_save",
+                foreignField:"_id",
+                as: "Con"
+            }
+        }],function(err,data){
+            if(err){
+                return res.json({ kq : 0});
+            }else{
+                // res.json(data);
+                res.render('wanna-rock',{users:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id });
+            }
+        })
+    })
     app.get("/your-shelf",auth.requireAuth,(req,res) => {
         Post.find(function(err,data){
             if(err){
                 res.json({kq:0});
             }else{
-                res.render('your-shelf',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id });
+                res.render('your-shelf',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,post_save:req.cookies.post_save });
+            }
+
+        })
+    });
+    app.get("/my-shelf",auth.requireAuth,(req,res) => {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('your-shelf',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,post_save:req.cookies.post_save });
+            }
+
+        })
+    });
+    app.get("/new-shoes",auth.requireAuth,(req,res) => {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('new-shoes',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,post_save:req.cookies.post_save,email:req.cookies.email });
+            }
+
+        })
+    });
+    app.get("/update",auth.requireAuth,(req,res) => {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('update',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,post_save:req.cookies.post_save });
             }
 
         })
@@ -151,9 +212,9 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
     });
     app.get("/main",auth.requireAuth,(req,res) => {
         if (req.query.search) {     
-                const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+                const regex = new RegExp(fullTextSearchVi(req.query.search), 'gi');
 
-                Post.find({brands : regex},function(err,data){
+                Post.find({brands : regex} ,function(err,data){
                     if(err){
                         res.json({kq:0});
                     }else{
@@ -175,9 +236,80 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
             })
         };
     });
+
+    app.get("/search-status-index",(req,res) => {
+        if (req.query.search) {     
+                const regex = new RegExp(fullTextSearchVi(req.query.search), 'gi');
+                Post.find({status : regex} ,function(err,data){
+                    if(err){
+                        res.json({kq:0});
+                    }else{
+                        var noMatch = ""
+                        if(data.length < 1) {
+                            noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
+                        }
+                        res.render('index',{posts:data, noMatch: noMatch});
+                    }
+            });
+        } else {
+            Post.find(function(err,data){
+                if(err){
+                    res.json({kq:0});
+                }else{
+                    res.render('index',{posts:data});
+                }
+
+            })
+        };
+    });
+
+    app.get("/search-status",auth.requireAuth,(req,res) => {
+        if (req.query.search) {     
+                const regex = new RegExp(fullTextSearchVi(req.query.search), 'gi');
+                Post.find({status : regex} ,function(err,data){
+                    if(err){
+                        res.json({kq:0});
+                    }else{
+                        var noMatch = ""
+                        if(data.length < 1) {
+                            noMatch = "Không có kết quả bạn cần tìm, vui lòng thử lại.";
+                        }
+                        res.render('main',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar, noMatch: noMatch});
+                    }
+            });
+        } else {
+            Post.find(function(err,data){
+                if(err){
+                    res.json({kq:0});
+                }else{
+                    res.render('main',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar});
+                }
+
+            })
+        };
+    });
+    
+    app.delete('/:id', async (req,res) => {
+        await Post.findByIdAndDelete(req.params.id)
+        res.redirect('/admin')
+        
+    })
+    app.get('/user/:id',function (req,res) {
+        Post.findByIdAndDelete(req.params.id,function(err,data){
+                if(err){
+                    res.json({kq:0})
+                }else{
+                    res.redirect("/your-shelf")
+                }
+        })
+
+      })
+        
+
+    
     app.get("/" ,(req,res) => {
         if (req.query.search) {     
-            const regex = new RegExp(escapeRegex(req.query.search), 'gi');
+            const regex = new RegExp(fullTextSearchVi(req.query.search), 'gi');
 
             Post.find({brands : regex},function(err,data){
                 if(err){
@@ -207,6 +339,21 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
                 res.json({kq:0});
             }else{
                 res.render('posts',{output:req.params.id,posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,idpost:req.cookies.idpost });
+            }
+
+        })
+    });
+    app.delete('/users/:id', async (req,res) => {
+        await User.findByIdAndDelete(req.params.id)
+        res.redirect('/manager-account')
+        
+    })
+    app.get('/update/:id',auth.requireAuth,function(req,res,next){
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('update',{output:req.params.id,posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,idpost:req.cookies.idpost });
             }
 
         })

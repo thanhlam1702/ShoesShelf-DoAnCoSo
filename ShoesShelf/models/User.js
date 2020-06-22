@@ -13,10 +13,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    // date: {
-    //     type: Date,
-    //     default: Date.now
-    // },
     avatar: {
         type: String,
         default: ('avatar-default.png'),
@@ -25,7 +21,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
     },
     country:{
-        type: String
+        type: String,
+    },
+    post_save:{
+        type: mongoose.Schema.Types.ObjectId
     }
     
 });

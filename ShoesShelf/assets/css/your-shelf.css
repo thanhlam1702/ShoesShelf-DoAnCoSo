@@ -4,13 +4,19 @@
   display: flex !important;
 }
 
+.navbar {
+  background-color: rgba(238, 238, 238, 0.9);
+}
+
 .content {
-  width: 100vw;
+  width: 100%;
+  max-width: 1366px;
   height: auto;
   background-color: #0f0d16;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  margin: auto;
   margin-top: 73px;
   padding-top: 24px;
   padding-bottom: 24px;
@@ -19,9 +25,8 @@
 .content-user {
   -webkit-box-shadow: 0 4px 40px #070509;
           box-shadow: 0 4px 40px #070509;
-  height: auto;
-  max-width: 1200px;
-  width: 1100px;
+  height: 100%;
+  width: 90%;
   margin: auto;
   border-radius: 24px;
   padding: 24px;
@@ -41,12 +46,14 @@
 .user-container .user-avatar {
   width: 120px;
   height: 120px;
+  max-width: 120px;
+  max-height: 120px;
 }
 
 .user-container .user-avatar .user-img {
   width: 100%;
   height: 100%;
-  border-radius: 80px;
+  border-radius: 100%;
   -webkit-box-shadow: 0px 0px 24px 0 black;
           box-shadow: 0px 0px 24px 0 black;
 }
@@ -117,8 +124,63 @@
   height: auto;
 }
 
-.user-manager-shoes .review-img-upload {
-  height: auto;
+@media screen and (max-width: 575.98px) {
+  .content {
+    padding: 12px !important;
+    margin-top: 56px;
+  }
+  .content-user {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+  .user-container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .user-container .user-avatar {
+    height: 24% !important;
+    width: 24% !important;
+  }
+  .user-container .user-name-container {
+    padding: 0 !important;
+  }
+  .user-container .user-name-container .user-name {
+    font-size: 24px !important;
+  }
+  .user-navbar {
+    height: 56px !important;
+    padding: 0 8px !important;
+  }
+  .user-navbar .menu-item {
+    font-size: 14px !important;
+  }
+}
+
+@media screen and (min-width: 0px) and (max-width: 319.98px) {
+  .user-name-container .user-name {
+    font-size: 18px !important;
+  }
+  .user-navbar .menu-item {
+    font-size: 10px !important;
+  }
+}
+
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+  .user-name-container .user-name {
+    font-size: 24px !important;
+  }
+  .user-navbar .menu-item {
+    font-size: 20px !important;
+  }
+}
+
+#btn-your-shelf {
+  color: white !important;
+}
+
+.user-your-shelf {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -126,187 +188,17 @@
   -webkit-box-direction: normal;
       -ms-flex-flow: row wrap;
           flex-flow: row wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.user-manager-shoes .review-img-upload .img-upload {
-  -webkit-box-shadow: 4px 4px 16px 0 black;
-          box-shadow: 4px 4px 16px 0 black;
-  max-height: 200px;
-  margin-right: 16px;
-  margin-bottom: 16px;
-}
-
-.user-manager-shoes .user-new-shoes {
-  padding: 24px 80px 24px 80px;
-  display: none;
-}
-
-.user-manager-shoes .user-your-shelf {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
   width: 100%;
+  margin: auto;
   height: auto;
-}
-
-.user-manager-shoes .user-wanna-rock {
-  display: none;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  height: auto;
-  width: 100%;
-}
-
-.user-manager-shoes .container-upload-img {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  position: relative;
-}
-
-.user-manager-shoes .container-upload-img .btn-upload-img {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-family: none;
-  height: 30px;
-  width: 30px;
-  background-image: -webkit-gradient(linear, right bottom, left top, from(#ff8a00), to(#d35400)) !important;
-  background-image: linear-gradient(to top left, #ff8a00, #d35400) !important;
-  font-size: 20px;
-  -webkit-box-shadow: 4px 4px 24px 0 black;
-          box-shadow: 4px 4px 24px 0 black;
-}
-
-.user-manager-shoes .container-upload-img .title-upload-img {
-  color: white;
-  margin-left: 24px;
-  font-size: 24px;
-}
-
-.user-manager-shoes .container-upload-img #upload-img {
-  display: none;
-}
-
-.user-manager-shoes .container-editor {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100%;
-  margin-top: 24px;
-}
-
-.user-manager-shoes .container-editor #share-exp {
-  width: 1000px;
-  height: 160px;
-  resize: none;
-  padding: 16px;
-  outline: none;
-  border-radius: 16px;
-  -webkit-box-shadow: 4px 4px 16px 0 black;
-          box-shadow: 4px 4px 16px 0 black;
-}
-
-.user-manager-shoes .container-btn-post {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.user-manager-shoes .container-btn-post .btn-post-status {
-  width: 120px;
-  height: 32px;
-  font-size: 18px;
-  outline: none;
-  color: white;
-  cursor: pointer;
-  background-image: -webkit-gradient(linear, right bottom, left top, from(#ff8a00), to(#d35400)) !important;
-  background-image: linear-gradient(to top left, #ff8a00, #d35400) !important;
-  border: none;
-  border-radius: 32px;
-  -webkit-box-shadow: 4px 4px 16px 0 black;
-          box-shadow: 4px 4px 16px 0 black;
-  border-radius: 30px;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-
-.user-manager-shoes .container-btn-post .btn-post-status:hover {
-  border: 1px solid white;
-}
-
-.container-choose-more {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 100%;
-  margin-top: 24px;
-  margin-bottom: 24px;
-}
-
-.container-choose-more .brands, .container-choose-more .collections {
-  font-size: 20px;
-  width: 200px;
-  height: 32px;
-  border: none;
-  padding-left: 16px;
-  outline: none;
-  -webkit-box-shadow: 4px 4px 16px 0 black;
-          box-shadow: 4px 4px 16px 0 black;
-  border-radius: 30px;
-}
-
-.container-choose-more .hashtag {
-  height: 32px;
-  width: 200px;
-  border: none;
-  outline: none;
-  padding-left: 16px;
-  font-size: 20px;
-  -webkit-box-shadow: 4px 4px 16px 0 black;
-          box-shadow: 4px 4px 16px 0 black;
-  border-radius: 30px;
-}
-
-.container-choose-more .txtIdPost {
-  display: none;
 }
 
 .user-your-shelf .cards-posts {
-  width: 256px;
-  height: 360px;
+  width: 28%;
+  height: auto;
   cursor: pointer;
-  margin-bottom: 32px;
-  margin-left: 68px;
+  margin: 0 0 2% 3.6%;
+  position: relative;
   background-color: rgba(32, 28, 41, 0.75);
 }
 
@@ -323,7 +215,7 @@
 
 .user-your-shelf .card-container-content {
   height: auto;
-  padding: 8px;
+  padding: 4px;
   color: white;
   font-size: 14px;
   width: 100%;
@@ -338,40 +230,60 @@
   overflow: hidden;
 }
 
-.user-wanna-rock .card-wanna-rock {
-  width: 240px;
-  height: 320px;
-  padding: 16px;
-  cursor: pointer;
-  margin-bottom: 32px;
-  margin-left: 11.5px;
-  margin-right: 11.5px;
-  -webkit-box-shadow: 0 4px 80px #070509;
-          box-shadow: 0 4px 80px #070509;
-  background-color: rgba(32, 28, 41, 0.75);
+.more-edit-post {
+  position: absolute;
+  right: 8px;
+  top: 8px;
 }
 
-.user-wanna-rock .card-container-img {
+.more-edit-post .btn-more {
+  font-size: 24px;
+}
+
+.more-edit-post .more-menu {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  height: 120px;
+  width: 120px;
+  right: 0;
+  padding: 8px;
+  border-radius: 4px;
+  z-index: 14;
+  -webkit-box-shadow: 4px 4px 16px 0 gray;
+          box-shadow: 4px 4px 16px 0 gray;
+}
+
+.more-edit-post .more-menu-item {
+  margin-top: 16px;
+  margin-left: 12px;
+  position: relative;
+}
+
+.more-edit-post .more-menu-item button {
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.more-edit-post .more-menu-item::before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  height: 1px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  background-color: #000;
+  left: 0;
+  bottom: -2px;
+}
+
+.more-edit-post .more-menu-item:hover::before {
   width: 100%;
-  height: 88%;
 }
 
-.user-wanna-rock .card-container-img .card-img {
-  width: 100%;
-  height: auto;
-  max-height: 100%;
-}
-
-.user-wanna-rock .card-container-title {
-  width: 100%;
-  height: 12%;
-  margin-top: 8px;
-  text-align: center;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-.user-wanna-rock .card-container-title .card-title {
-  color: white;
-  font-size: 14px;
+.more-edit-post .active {
+  display: block !important;
 }

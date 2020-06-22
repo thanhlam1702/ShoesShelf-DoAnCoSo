@@ -1,0 +1,229 @@
+@import ../base/_variables
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    font-family: sans-serif
+.wrapper
+    display: flex
+.navbar
+    width: 30%
+    height: 720px
+    background-color: $color-background
+    .top
+        width: 50%
+        height: 10%
+        .logo
+            width: auto
+            height: 40px
+            margin: 
+                top: 16px
+                left: 40px
+    .menu
+        .menu-item
+            height: 80px
+            display: flex
+            align-items: center
+            font-size: 18px
+            position: relative
+            .icon
+                margin-left: 24px
+                color: #011a27
+                font-size: 24px
+            a
+                text-decoration: none
+                color: #011a27
+                margin-left: 16px
+                &:hover
+                    color: white
+                &::before
+                    display: none
+                    content: ''
+                    left: 0
+                    width: 0
+                    top: calc((100% - 32px) / 2)
+                    height: 32px
+                    border: 2px solid $color-text
+                    border-radius: 0 16px 16px 0
+                    position: absolute
+                &:hover::before
+                    display: block
+            &:nth-of-type(1)
+                .icon, a
+                    color: $color-text
+            &:nth-of-type(1) 
+                a::before
+                    display: block
+.search-form
+    width: 304px !important
+.navbar-right-user, .left-menu
+    display: flex !important
+.content
+    width: 80vw
+    position: absolute
+    right: 0
+    top: 0
+    height: 720px
+    background-color: #fff
+    border-radius: 40px
+    .container-posts-manager
+        display: block
+        height: 88%
+        overflow: auto
+.content-navbar
+    height: 80px
+    display: flex
+    align-items: center
+    justify-content: space-between
+    .left
+        padding: 0 0 0 24px
+        i
+            color: #333539
+            font-weight: 700
+            font-style: normal
+    .right
+        width: auto
+        margin-right: 80px
+        display: flex
+        justify-content: space-between
+        .tools
+            width: 132px
+            display: flex
+            justify-content: space-between
+        .icon-setting
+            margin-top: 4px
+        .admin
+            width: auto
+            display: flex
+            justify-content: space-around
+            align-items: center
+            color: #333539
+            position: relative
+        .name-admin
+            margin: 0 16px
+.admin 
+    .avatar-admin
+        height: 40px
+        width: 40px
+        border-radius: 24px
+    img
+        height: 100%
+        width: 100%
+        border-radius: 24px
+    .fa-angle-down 
+        cursor: pointer
+        transition: all .3s ease-in-out
+    .admin-menu
+        position: absolute
+        top: 56px
+        right: 0
+        width: 120px
+        z-index: 9999
+        width: 120px
+        height: 56px
+        background-color: $color-white
+        align-items: center
+        padding: 0 16px
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+        .admin-menu-item
+            list-style: none
+            a
+                text-decoration: none
+                color: black
+                cursor: pointer
+                position: relative
+                &::before
+                    bottom: 0
+                    content: ""
+                    height: 1px
+                    margin: 2px 0 0
+                    position: absolute
+                    transition: all 0.2s ease-in-out
+                    width: 0
+                    background-color: black
+                    left: 0
+                &:hover::before
+                    width: 100%
+.side-bar
+    width: 100%
+    max-width: 1200px
+    height: 120px
+    display: flex
+    align-items: flex-start
+    justify-content: space-around
+    position: relative
+    margin: auto
+    .sort-form
+        width: 200px
+        margin: 24px 0 0 0
+        height: 32px
+        padding: 8px
+        color: #181818
+        outline: none
+        background: none
+        border: none
+            bottom: 1px solid $color-main
+        &:focus
+            outline: none
+    .brands
+        color: black
+        option
+            @for $i from 1 through 8
+                &:nth-of-type(#{$i})
+                    color: black !important
+    .collections
+    .hashtag    
+    .search-account
+        border: 1px solid $color-main
+            radius: 24px
+        width: 500px
+    .btn-search
+        color: black
+        width: 40px
+        border: none
+        font-size: 24px
+        position: absolute
+        bottom: 0
+        &:hover
+            color: $color-main
+.table-manager
+    width: 90%
+    // max-width: 1200px
+    border-collapse: collapse
+    margin: 24px auto
+    // display: block
+    .title-table
+        background-color: $color-background
+        .title-name-user, .title-posts-img, .title-controls
+            width: 10%
+        .title-posts-branch, .title-posts-hashtag
+            width: 15%
+        .title-posts-content
+            width: 40%
+    td, th
+        border: 1px solid #ddd
+        padding: 8px
+    .post-content
+        text-overflow: ellipsis
+        overflow: hidden
+        // height: auto //line-height * clamp
+        display: -webkit-box
+        -webkit-box-orient: vertical
+        -webkit-line-clamp: 4
+        height: 80px
+td
+    &:nth-of-type(2)
+        text-align: center
+        .img-post
+            width: 60px
+            max-width: 80%
+            max-height: 80%
+    &:nth-of-type(6)
+        text-align: center
+        button
+            height: 24px
+            margin-top: 4px 
+            padding: 4px   
+            i
+                margin-right: 4px    
+        

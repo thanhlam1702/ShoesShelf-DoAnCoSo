@@ -7,10 +7,6 @@ const upload = require('../middleware/upload')
 //User model
 const User = require('../models/User');
 
-router.get('/register',(req,res) => res.render('register'));
-
-router.get('/login',(req,res) => res.render('login'));
-
 router.post('/dangky',upload.single('avatar'),(req,res)=> {
     const { name, email, password, password2, avatar } = req.body;
     let errors = [];
@@ -60,13 +56,7 @@ router.post('/dangky',upload.single('avatar'),(req,res)=> {
     
 });
 
-router.post('/login',(req,res,next) => {
-    passport.authenticate('local', {
-        successRedirect :'/',
-        failureRedirect :'/users/login',
-        failureflash: true
-    })(req, res, next);
-});
+
 
 
 module.exports = router;

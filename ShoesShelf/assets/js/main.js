@@ -17,8 +17,6 @@ function showImg360() {
 
     content.appendChild(childNode);
 
-    hiddenBodyScrollBar().hidden();
-
     document.getElementById('container-img360').innerHTML = `
     <i class="btn-close" onclick = "hiddenImg360()">x</i>
     <center>
@@ -68,3 +66,21 @@ function showImg360() {
     });
 }
 
+
+// $(function () {
+//     var animateSpeed = 1000;
+//     var width = 380;
+//     var slides = document.getElementsByClassName('slide');
+//     var currentSlide = 1;
+
+
+//     setInterval(function () {
+//         $('#slider .slides').animate({ 'margin-left': '-=' + width }, animateSpeed, function () {
+//             currentSlide++;
+//             if (currentSlide === slides.length - 1) {
+//                 currentSlide = 1;
+//                 $('#slider .slides').css('margin-left', 0);
+//             }
+//         });
+//     }, 3000);
+// });

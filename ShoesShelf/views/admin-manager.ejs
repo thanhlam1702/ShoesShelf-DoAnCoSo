@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+        integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/manager-posts.css">
+    <link rel="stylesheet" href="/assets/css/styles.min.css">
+    <title>Admin manager</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="navbar">
+            <div class="top">
+                <img src="/assets/images/logo-main.png" alt="" class="logo">
+            </div>
+            <div class="menu">
+                <div class="menu-item">
+                    <i class="fas fa-address-card icon"></i>
+                    <a href="#post-manager">Posts Manager</a>
+                </div>
+                <div class="menu-item">
+                    <i class="fas fa-user icon"></i>
+                    <a href="/manager-account">Account Manager</a>
+                </div>
+            </div>
+        </div>
+        <div class="content" id="content">
+            <div class="content-navbar">
+                <div class="left"><i>Post Manager</i></div>
+                <div class="right">
+                    <div class="admin">
+                        <div class="avatar-admin">
+                            <img src="/assets/images/userPost/<%= avatar %>" id="admin-img" class="admin-img">
+                        </div>
+                        <div class="name-admin"><%= name %></div>
+                        <i class="fas fa-angle-down " id="view-menu-admin" onclick="rotateBtn()" ></i>
+                        <ul class="admin-menu" id="admin-menu" style="display: none;">
+                            <li class="admin-menu-item">
+                                <i class="fas fa-sign-out-alt"></i>
+                                <a href="/" onclick="logout()">Log out</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-posts-manager">
+                <form action="/admin" method="GET" class="sort-container">
+                <div class="side-bar">
+                    <select name="search" class="brands sort-form" id="brands">
+                        <option selected hidden style="font-weight: bold;">Brands</option>
+                        <option value="vans">Vans</option>
+                        <option value="adidas">Adidas</option>
+                        <option value="nike">Nike</option>
+                        <option value="reebok">Reebok</option>
+                        <option value="converse">Converse</option>
+                        <option value="puma">Puma</option>
+                        <option value="other">Orther</option>
+                    </select>
+                    <input type="text" name="collections" placeholder="Collections" class="collections sort-form">
+                    <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag sort-form">
+                    <button class="btn-search sort-form" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                </form>
+                <table class="table-manager" border="1">
+                    <tr class="title-table">
+                        <th class="title-name-user">Email user</th>
+                        <th class="title-posts-img">Posts img</th>
+                        <th class="title-posts-content">Post sort content</th>
+                        <th class="title-posts-branch">Branch</th>
+                        <th class="title-posts-hashtag">Hashtag</th>
+                        <th class="title-controls">Controls</th>
+                    </tr>
+                    <!-- ------------------------------ -->
+                    <% posts.forEach(function (post) { %>
+                    <tr>
+                        <td><%- post.email_post %></td>
+                        <td class="">
+                            
+                            <% for(var i=0 ; i< 1 ; i++) {%>
+                                <% if (post.image[0] == undefined) { %>
+                                    <p class="img-post">No img</p>
+                                  <% } else { %>
+                                    <img src="/assets/images/userPost/<%= post.image[0].filename %>" alt="" class="img-post">
+                                <% } %>
+                            <%}%>
+                        </td>
+                        <td class="post-content"> <%- post.status %></td>
+                        <td> <%- post.brands %></td>
+                        <td><%- post.hashtag %></td>
+                        <td>
+                            <form action="/posts/id" method="POST">
+                                <!-- <a href="#id-post" class="read-more">Read more...</a> -->
+                                <button value="<%= post._id %>" id="<%= post._id %>" name="id" type="submit"><i
+                                        class="fas fa-eye"></i>View </button>
+                            </form>
+                            <form action="/<%= post.id %>?_method=DELETE" method="POST">
+                                <button type="submit"><i class="fas fa-trash"></i> Delete </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <% }) %>
+                    <!-- ------------------------------- -->
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--Script-->
+    <script src="/assets/js/script.js"></script>
+    <script>
+        window.onclick = function (event) {
+            const btnShowMenuAdmin = document.getElementById('view-menu-admin');
+            const adminMenu = document.getElementById('admin-menu');
+            if (event.target == btnShowMenuAdmin) {
+                if (adminMenu.style.display == 'none') {
+                    adminMenu.style.display = 'flex';
+                }
+                else {
+                    adminMenu.style.display = 'none';
+                }
+            } else {
+                if (event.target != adminMenu) {
+                    adminMenu.style.display = 'none';
+                    if(btnShowMenuAdmin.style.transform != "") rotateBtn()
+                }
+            }
+        }
+        function rotateBtn(){
+            const btnShowMenuAdmin = document.getElementById('view-menu-admin');
+            if(btnShowMenuAdmin.style.transform == 'rotate(180deg)'){
+                btnShowMenuAdmin.style.transform = '';
+            }
+            else{
+                btnShowMenuAdmin.style.transform = 'rotate(180deg)';
+            }
+        }
+    </script>
+</body>
+
+</html>

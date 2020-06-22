@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
     <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/responsive-login.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
     <title>Login</title>
 </head>
@@ -20,6 +21,7 @@
             <p class="title-login">Login</p>
         </div>
         <div class="container-login">
+            <p class="error"><%- errors %> </p>
             <input type="text" placeholder="Use name or email" name="email" required>
             <input type="password" placeholder="Password" name="password" required>
             <button type="submit" class="btn-sign-in">Login</button>
@@ -48,6 +50,7 @@
         </div>
     </form>
     <!-- script -->
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>

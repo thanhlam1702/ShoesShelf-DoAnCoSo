@@ -2,9 +2,10 @@
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  background-color: #3d3d3d;
+  background-color: #181818;
   height: auto;
-  width: 1366px;
+  width: 100%;
+  max-width: 1366px;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -14,6 +15,7 @@
 
 .main-content .sort-container {
   width: 28%;
+  float: right;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,7 +30,7 @@
 
 .main-content .list-posts {
   height: auto;
-  width: 100%;
+  width: 72%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -46,12 +48,12 @@
 
 .sort-container .sort-form {
   width: 200px;
-  margin: 24px 0 0 0;
+  margin: 24px 30px 0 0;
   height: 32px;
   padding: 8px;
   color: white;
   outline: none;
-  background: none;
+  background: #181818;
   border: none;
   border-bottom: 1px solid #ffa502;
 }
@@ -61,7 +63,8 @@
 }
 
 .sort-container .brands {
-  color: black;
+  color: white;
+  font-size: 1rem;
 }
 
 .sort-container .brands option:nth-of-type(1) {
@@ -70,9 +73,17 @@
 
 .sort-container .btn-search {
   color: black;
-  width: 40px;
-  border: none;
+  width: 80px;
+  padding: 0;
   font-size: 24px;
+  margin-left: 20px;
+  border: 1px solid #ffa502;
+  background-color: #ffa502;
+  cursor: pointer;
+  height: 30px;
+  border-radius: 20px;
+  -webkit-transition: opacity 0.3 linear;
+  transition: opacity 0.3 linear;
 }
 
 .sort-container .btn-search:hover {
@@ -99,6 +110,20 @@
   cursor: pointer;
 }
 
+#slider {
+  height: auto;
+  width: 56%;
+  overflow: hidden;
+}
+
+#slider .slides .slide {
+  float: left;
+  list-style-type: none;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
 .post-container .posts {
   height: auto;
   width: 100%;
@@ -111,7 +136,7 @@
 
 .post-container .posts .post-avatar {
   height: auto;
-  width: 56%;
+  width: 100%;
   display: block;
   margin: auto;
 }
@@ -224,4 +249,9 @@
 .post-container .status .user-name, .post-container .status .post-time {
   font-size: 16px;
   color: #ffa502;
+  width: 50%;
+}
+
+.post-container .status .post-time {
+  text-align: end;
 }

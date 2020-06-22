@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/header-footer-style.css">
-    <link rel="stylesheet" href="/assets/css/styles.min.css">
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="/assets/css/index-main.css">
+    <link rel="stylesheet" href="../assets/css/header-footer-style.css">
+    <!-- <link rel="stylesheet" href="/assets/css/styles.min.css"> -->
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/index-main.css">
+    <link rel="stylesheet" href="../assets/css/responsive-header-footer.css">
+    <link rel="stylesheet" href="../assets/css/responsive-main.css">
     <script src="https://apis.google.com/js/api:client.js"></script>
     <title>Shoes Shelf</title>
 </head>
@@ -17,8 +19,40 @@
     <div class="wrapper">
         <header>
             <nav class="navbar" id="navbar">
+                <div class="sidebar" id="sidebar">
+                    <div class="dismiss" id="dismiss">
+                        <i class="fas fa-times btn-close-sidebar"></i>
+                    </div>
+                    <ul class="sidebar-menu" id="sidebar-menu">
+                        <li class="menu-item"">
+                            <form action="/search-status"  method="GET" class="search-form">
+                                <input type="text" name="search" id="status" placeholder="Search anything you want...">
+                                <button class="btn-search" type="submit" value="Search">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                        </li>
+                        <li class="menu-item"">
+                            <i class="fa fa-home"></i>
+                            <a href="" >Home</a>
+                        </li>
+                        <li class="menu-item"">
+                            <i class="fas fa-address-card"></i>
+
+                            <a href="./about.html">About us</a>
+                        </li>
+                        <li class="menu-item"">
+                            <i class="fas fa-newspaper"></i>
+                            <a href="latest-news">Latest news</a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="overlay"></div>
                 <div class="nav-bar">
                     <!--Navbar left -->
+                    <div class="toggle-menu" id="btn-menu">
+                        <i class="fas fa-bars" ></i>
+                    </div>
                     <div class="navbar-left">
                         <div class="left-logo">
                             <img src="/assets/images/logo-main.png" alt="Error" class="logo-img">
@@ -41,12 +75,12 @@
                         <a href="/main" class="img-logo"></a>
                     </div>
                     <!--Navbar right after sign in-->
-                    <div class="navbar-right-user" id="navbar-right-user" dislay="block">
+                    <div class="navbar-right-user" id="navbar-right-user" display="block">
                         <!--search-->
                         <div class="right-search">
-                            <form action="" class="search-form">
-                                <input type="text" name="search" placeholder="Search anything you want...">
-                                <button class="btn-search">
+                            <form action="/search-status"  method="GET" class="search-form">
+                                <input type="text" name="search" id="status" placeholder="Search anything you want...">
+                                <button class="btn-search" type="submit" value="Search">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </form>
@@ -58,23 +92,25 @@
                                 <ul class="user-menu" id="user-menu" style="display: none;">
                                     <li class="user-menu-item">
                                         <div class="user-name-container">
-                                            <p id="user-name" class="user-name"> <%= name %> </p>
+                                            <p id="user-name" class="user-name">
+                                                <%= name %>
+                                            </p>
                                         </div>
                                     </li>
                                     <li class="user-menu-item">
+                                        <i class="fas fa-archive"></i>
                                         <a href="your-shelf">My Shelf</a>
                                     </li>
                                     <li class="user-menu-item">
+                                        <i class="fas fa-user-alt"></i>
                                         <a href="account-setting">Account setting</a>
                                     </li>
                                     <li class="user-menu-item">
-                                        <div class="user-logout">
-                                            <a href="/" onclick="logout()">Log out</a>
-                                        </div>
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        <a href="/" onclick="logout()">Log out</a>
                                     </li>
                                 </ul>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -89,28 +125,37 @@
             <!-- <button onclick="showImg360()">Show 360 images</button> -->
             <div class="list-posts">
                 <% posts.forEach(function (post) { %>
-                <div class="post-container">
-                    <div class="posts">
-                        <% for(var i=0 ; i< 1 ; i++) {%>
-                        <img src="/assets/images/userPost/<%= post.image[0].filename %>" class="post-avatar"></img>
-                        <%}%>
-                        <div class="post-title">
-                            <div class="post-content" ><%- post.status %></div>
-                            <div class="post-hash-tag"><%= post.hashtag %></div>
-                            <form action="/posts/id" method="POST">
-                                <input value="<%= post._id %>" id="btn-read-more" name="id" type="submit" style="display: none;" >
-                                <!-- <a href="#id-post" class="read-more">Read more...</a> -->
-                                <label for="btn-read-more" class="read-more">Read more...</label>
-                            </form>
+                    <div class="post-container">
+                        <div class="posts">
+                            <div id="slider">
+                                <ul class="slides">
+                                    <li class="slide"><img src="/assets/images/userPost/<%= post.image[0].filename %>" class="post-avatar"></img>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="post-title">
+                                <div class="post-content">
+                                    <%- post.status %>
+                                </div>
+                                <div class="post-hash-tag">
+                                    <%= post.hashtag %>
+                                </div>
+                                <form action="/posts/id" method="POST">
+                                    <input value="<%= post._id %>" id="<%= post._id %>" name="id" type="submit" style="display: none;">
+                                    <!-- <a href="#id-post" class="read-more">Read more...</a> -->
+                                    <label for="<%= post._id %>" class="read-more">Read more...</label>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="status">
+                            <p class="user-name"></p>
+                            <p class="post-time">
+                                <%= post.date %>
+                            </p>
                         </div>
                     </div>
-                    <div class="status">
-                        <p class="user-name"></p>
-                        <p class="post-time"><%= post.date %></p>
-                    </div>
-                </div>
-                <% }) %>
-                <div class="post-container">
+                    <% }) %>
+                        <!-- <div class="post-container">
                     <div class="posts">
                         <img src="/assets/images/img360/2DC_3631.jpg" class="post-avatar"></img>
                         <div class="post-title">
@@ -124,24 +169,24 @@
                         <p class="user-name"></p>
                         <p class="post-time">3 minuter ago</p>
                     </div>
-                </div>
+                </div> -->
             </div>
-            <form action="/main" method="GET" class="">
-                <div class="sort-container">
-                    <select name="search" class="brands sort-form" id="brands">
-                        <option selected hidden style="font-weight: bold;">Brands</option>
-                        <option value="vans">Vans</option>
-                        <option value="adidas">Adidas</option>
-                        <option value="nike">Nike</option>
-                        <option value="reebok">Reebok</option>
-                        <option value="converse">Converse</option>
-                        <option value="puma">Puma</option>
-                        <option value="orther">Orther</option>
-                    </select>
-                    <button class="btn-search sort-form" type="submit" >
-                        <i class="fas fa-search" ></i>
-                    </button>
-                </div>
+            <form action="/main" method="GET" class="sort-container">
+                <select name="search" class="brands sort-form" id="brands">
+                    <option selected hidden style="font-weight: bold;">Brands</option>
+                    <option value="vans">Vans</option>
+                    <option value="adidas">Adidas</option>
+                    <option value="nike">Nike</option>
+                    <option value="reebok">Reebok</option>
+                    <option value="converse">Converse</option>
+                    <option value="puma">Puma</option>
+                    <option value="orther">Orther</option>
+                </select>
+                <input type="text" name="collections" placeholder="Collections" class="collections sort-form">
+                <input type="text" name="hashtag" placeholder="#HashTag" class="hashtag sort-form">
+                <button class="btn-search sort-form" type="submit" >
+                    <i class="fas fa-search" ></i>
+                </button>
             </form>
         </div>
         <footer>
@@ -175,68 +220,6 @@
             </div>
         </footer>
     </div>
-    <!-- Form Đăng nhập -->
-    <div id="sign-in-modal" class="modal">
-        <form class="modal-content animate" action="/login" method="POST">
-            <div class="tittle-container">
-                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
-                <p class="tittle-login">Login</p>
-            </div>
-            <div class="container-login">
-                <input type="text" placeholder="Usename" name="email" required>
-                <input type="password" placeholder="Password" name="password" required>
-                <div class="btn-sign-in"><button type="submit">Sign in</button></div>
-                <div class="checked-psw">
-                    <label>
-                        <input type="checkbox" checked="checked" name="remember"> Remember your password?
-                    </label>
-                    <span class="forgot-psw"><a href="#">Forgot?</a></span>
-                </div>
-                <div class="or">
-                    <p>OR</p>
-                </div>
-                <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
-                    <div id="gg-login-button">
-                        <div id="customBtn" class="customGPlusSignIn">
-                            <span class="icon"></span>
-                            <span class="buttonText">Continue with Google</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-    <!--Form Đăng ký-->
-    <div id="sign-up-modal" class="modal">
-        <form name="f1" class="modal-content animate" action="/register"
-        onsubmit="return matchpass() , lengthpass()" method="POST">
-            <div class="tittle-container">
-                <span onclick="closeModelContent()" class="close" title="Close">&times;</span>
-                <p class="tittle-login">Register</p>
-            </div>
-            <div class="container-login">
-                <input type="text" placeholder="Usename" name="name" id="name" required>
-                <input type="email" placeholder="Email" name="email" id="email" required>
-                <input type="password" placeholder="Enter password" name="password" id="password" required>
-                <input type="password" placeholder="Enter password again" name="password2" id="password2" required>
-                <div class="btn-sign-in"><button type="submit">Create</button></div>
-                <div class="hoac">
-                    <p>OR</p>
-                </div>
-                <div class="sign-in-other">
-                    <div class="fb-login-button" scope="public_profile,email" onlogin="checkLoginState();" data-width="" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
-                    <div id="gg-login-button">
-                        <div id="customBtn" class="customGPlusSignIn">
-                            <span class="icon"></span>
-                            <span class="buttonText">Continue with Google</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-
     <!--Script-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="/assets/js/header-footer.js"></script>
@@ -245,10 +228,9 @@
     <script src="/assets/js/main.js"></script>
 
     <script src="https://apis.google.com/js/platform.js?onload=renderButton" async></script>
-    <script src="/assets/js/api-gg-fb-login.js"></script>
-    <div id="status"></div>
-   
     <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/load-login-fb-gg.js"></script>
+    <div id="status"></div>
 </body>
 
 </html>
