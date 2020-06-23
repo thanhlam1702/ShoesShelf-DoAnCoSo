@@ -138,6 +138,16 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
 
         })
     });
+    app.get("/update-page",auth.requireAuth,(req,res) => {
+        Post.find(function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.render('update-page',{posts:data,name:req.cookies.name,avatar:req.cookies.avatar,id:req.cookies.id,post_save:req.cookies.post_save });
+            }
+
+        })
+    });
     app.get("/account-setting" ,(req,res) => {
         User.findById(req.cookies.id,function(err,data){
             if(err){
@@ -358,8 +368,30 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
 
         })
     });
-    
+
+    app.post("/update-post", upload.array('image', 20) ,auth.requireAuth ,(req,res) => {
+        Post.findByIdAndUpdate(req.cookies.idpost,{
+            title:req.body.title,
+            status:req.body.status,
+            brands:req.body.brands,
+            hashtag:req.body.hashtag,
+            collections:req.body.collections,
+            email_post:req.body.txtEmailpost,
+            id_post:req.body.txtIdpost,
+            user_name:req.body.txtUser,
+            image : req.files
+        },function(err,data){
+            if(err){
+                res.json({kq:0});
+            }else{
+                res.redirect('/your-shelf')
+            }
+
+        });
+    });
 });
+    
+
 
 function escapeRegex(text) {
     return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
