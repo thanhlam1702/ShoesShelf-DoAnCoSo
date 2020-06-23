@@ -379,6 +379,7 @@ MongoClient.connect(db, { useNewUrlParser: true}, function(error,client){
             email_post:req.body.txtEmailpost,
             id_post:req.body.txtIdpost,
             user_name:req.body.txtUser,
+            user_avatar:req.body.txtAvatar,
             image : req.files
         },function(err,data){
             if(err){
