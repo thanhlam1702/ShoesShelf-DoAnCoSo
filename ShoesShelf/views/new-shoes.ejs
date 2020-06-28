@@ -134,7 +134,7 @@
                         <li class="sub-menu"><a href="/my-shelf" class="menu-item" id="btn-your-shelf">My Shelf</a></li>
                         <li class="sub-menu"><a href="/new-shoes" class="menu-item" id="btn-new-shoes">New Shoes</a>
                         </li>
-                        <li class="sub-menu"><a href="/update" class="menu-item" id="btn-update">Update</a></li>
+                        <li class="sub-menu"><a href="#update" class="menu-item" id="btn-update">Update</a></li>
                         <li class="sub-menu"><a href="/wanna-rock" class="menu-item" id="btn-wanna-rock">Wanna Rock</a>
                         </li>
                     </ul>
@@ -144,7 +144,7 @@
                     <!-- user new shoes -->
                     <div class="user-new-shoes" id="user-new-shoes">
                         <!-- form contain button upload image -->
-                        <form method="POST" action="upload" enctype="multipart/form-data">
+                        <form id="form-new-shoes" method="POST" action="upload" enctype="multipart/form-data">
                             <div class="container-upload-img">
                                 <!-- where img alter upload showup review -->
                                 <div class="review-img-upload" id="review-img-upload">
@@ -183,9 +183,7 @@
                                 <input type='text' name='txtIdpost' value="<%-id%>" class="txtIdPost">
                                 <input type='text' name='txtEmailpost' value="<%-email%>" class="txtIdPost">
                                 <input type='text' name='txtUser' value="<%-name%>" class="txtIdPost">
-                            </div>
-                            <div class="container-btn-post">
-                                <button class="btn-post-status">Post</button>
+                                <input type='text' name='txtAvatar' value="<%-avatar%>" class="txtIdPost">
                             </div>
                         </form>
                     </div>

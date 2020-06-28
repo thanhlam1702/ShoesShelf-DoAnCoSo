@@ -150,7 +150,9 @@ function preload(image) {
         var div = document.createElement("div");
         var s = div.style;
         s.position = "absolute";
-        s.top = s.left = 0;
+        s.top = '-10000px';
+        s.width = s.height = '0px';
+        s.left = 0;
         s.visibility = "hidden";
         document.getElementById('container-img-360').appendChild(div);
         div.innerHTML = "<img class=\"preload_img\" src=\"" + image + "\" />";

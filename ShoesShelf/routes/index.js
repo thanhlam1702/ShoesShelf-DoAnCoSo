@@ -102,7 +102,8 @@ router.post('/upload', upload.array('image', 20), (req, res) => {
         image,
         id_post: req.body.txtIdpost,
         email_post: req.body.txtEmailpost,
-        user_name: req.body.txtUser
+        user_name: req.body.txtUser,
+        user_avatar: req.body.txtAvatar
     });
     if (req.files) {
         var fineinfo = req.files

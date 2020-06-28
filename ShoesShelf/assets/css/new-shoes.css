@@ -202,10 +202,10 @@
 .user-manager-shoes .review-img-upload .contain-img {
   position: relative;
   z-index: 2;
-  margin-right: 16px;
-  margin-bottom: 16px;
+  margin: 16px 16px 16px 0;
   -webkit-box-shadow: 4px 4px 16px 0 black;
           box-shadow: 4px 4px 16px 0 black;
+  max-height: 200px;
 }
 
 .user-manager-shoes .review-img-upload .img-upload {
