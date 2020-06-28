@@ -97,7 +97,7 @@
   height: 100vh;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 99999;
 }
 
 .btn-close {
@@ -108,20 +108,15 @@
   top: 0;
   font-style: initial;
   cursor: pointer;
+  z-index: 99999;
 }
 
 #slider {
   height: auto;
   width: 56%;
   overflow: hidden;
-}
-
-#slider .slides .slide {
-  float: left;
-  list-style-type: none;
-  width: 100%;
-  height: auto;
-  text-align: center;
+  min-height: 375px;
+  max-height: 375px;
 }
 
 .post-container .posts {
@@ -156,9 +151,10 @@
   line-height: 25px;
   overflow: hidden;
   height: auto;
+  max-height: 145px;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 6;
 }
 
 .post-container .posts .post-hash-tag {
@@ -254,4 +250,8 @@
 
 .post-container .status .post-time {
   text-align: end;
+}
+
+.post-content p {
+  text-overflow: ellipsis;
 }
