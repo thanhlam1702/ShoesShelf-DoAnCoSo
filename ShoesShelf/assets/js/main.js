@@ -5,7 +5,7 @@ function hiddenImg360() {
     var childNode = document.getElementById('container-img360')
 
     content.removeChild(childNode);
-    hiddenBodyScrollBar().showup();
+    // hiddenBodyScrollBar().showup();
 }
 
 function showImg360() {
