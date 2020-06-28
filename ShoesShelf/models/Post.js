@@ -34,7 +34,11 @@ const PostSchema = new mongoose.Schema({
         type: String,
     },
     user_name:{
+        type: String,
+    },
+    user_avatar:{
         type: String
+
     }
 
 });
